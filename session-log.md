@@ -48,3 +48,35 @@
 
 ### 遗留问题 / 下轮开始点
 - 进入阶段二：设计文档搭建，产出 `docs/design.md` + `docs/database.md`
+
+---
+
+## 2026-06-09 — 阶段二：设计文档搭建 + 用户评审修复
+
+### 本轮概要
+- 读取 proposal.md、brief.md、anti-patterns-checklist.md、status.md、session-log.md
+- 通过提问确认两个设计决策：会话标识方案（share_token）+ ORM 方案（SQLAlchemy 2.0）
+- 产出 `docs/design.md`（技术设计文档：架构总览、8 模块划分、数据流、接口契约、DB 设计、测试策略）
+- 更新 `docs/brief.md` 新增 B-15~B-22 共 8 条决策
+- 完成 `anti-patterns-checklist.md`（7 项 CRITICAL 检查全部评估）
+- 用户逐节评审 design.md，发现并修复 5 个问题：
+  1. 数据流缺事务保护 → 改为先计算后写入，repository 合并为单一事务方法
+  2. 小程序迁移风险未评估 → 补充壳/核分层策略 + 迁移工作量表
+  3. 历史记录没有找回途径 → 新增首页分享码输入框 + localStorage 最近记录
+  4. `SubmitResponse` 未定义 → 统一为 `Report`
+  5. `QuestionnaireItem` 双字段与文件分离不一致 → 合并为单字段 `text`
+- 触发存档指令，完成存档流程
+
+### 关键决策记录（详见 docs/brief.md）
+- B-15 ~ B-22 共 8 条新增决策
+- B-15 补充：同设备 localStorage 找回机制
+
+### 更新文件
+- `docs/design.md` — 新产出（阶段二交付）
+- `docs/brief.md` — 新增 B-15~B-22，B-15 补充找回机制
+- `anti-patterns-checklist.md` — 完成全部检查项
+- `status.md` — 阶段标记、待办清理、更新记录
+- `session-log.md` — 追加本轮记录
+
+### 遗留问题 / 下轮开始点
+- 进入阶段三：任务分解 → `docs/tasks/` 各模块任务书

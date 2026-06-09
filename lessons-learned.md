@@ -222,3 +222,4 @@
 | 125 | TAG:cross-platform TAG:config | INFO | 平台感知配置模式：配置文件按 `sys.platform`（win32/darwin/linux）分平台配置路径，脚本运行时自动适配。比环境变量更显式（一看便知哪些项目在哪个平台有分发能力），比符号链接更可调试（明文 JSON 可 diff、可追溯）。 [母库 @2026-06-08] | config/downstream-projects.json |
 | 126 | TAG:config TAG:maintainability | INFO | 配置模式演进时应保留旧字段作为 fallback。当 `path` 单字段→`paths` 多平台字典时，保留 `p.get("paths", {}).get(sys.platform) or p.get("path")` 的向后兼容链，零破坏性引入新能力。 [母库 @2026-06-08] | scripts/distribute.py |
 | 127 | TAG:ai-workflow | WARNING | **信任优先原则**：用户直接告知的内容（行号范围、文件摘要、决策信息等），AI 应直接信任并消化，不得再去读取源文件「验证」。用户一次给出的多条信息应一次性全收，不得拆成零碎重复提问。用户跳过/划掉的问题标记待定，不再追回。 [open-personality @2026-06-09] | AGENTS.md / 交互规范 |
+| 128 | TAG:ai-workflow | INFO | **设计文档交付后应主动邀请用户逐节评审**。本轮用户检查 design.md 发现 5 个不一致问题（事务保护、命名对齐、数据模型等），如果直接进阶段三编码，这些会在实现阶段暴露为返工。设计评审的成本远低于编码后改 bug。 [open-personality @2026-06-09] | docs/design.md |

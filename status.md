@@ -6,13 +6,13 @@
 
 ## 当前阶段
 
-**阶段一 ✅ 已完成**（需求讨论已确认，`docs/proposal.md` 已产出）
+**阶段二 ✅ 已完成**（设计文档搭建，`docs/design.md` + `docs/brief.md` 已产出）
 
 ---
 
 ## 进度总览
 
-`阶段一 ✅ | 阶段二 🔄 | 阶段三 ⬜ | 阶段四 ⬜ | 阶段五 ⬜`
+`阶段一 ✅ | 阶段二 ✅ | 阶段三 ⬜ | 阶段四 ⬜ | 阶段五 ⬜`
 
 > 图例：✅ 已完成 | 🔄 进行中 | ⬜ 未开始
 
@@ -24,8 +24,7 @@
 - [ ] 
 
 ### 优先级 2 — 功能
-- [x] 阶段一：讨论需求 → `docs/proposal.md` ✅
-- [ ] 阶段二：设计文档搭建 → `docs/design.md` + `docs/database.md`
+- [ ] 阶段三：任务分解 → `docs/tasks/` 各模块任务书
 
 ### 优先级 3 — 优化
 - [ ] 
@@ -62,9 +61,9 @@ open-personality/
 ├── tests/                    # 测试（阶段五）
 ├── docs/
 │   ├── proposal.md           # ✅ 阶段一产出
-│   ├── brief.md              # ✅ 阶段一产出（决策摘要）
-│   ├── design.md             # ⬜ 阶段二产出
-│   └── database.md           # ⬜ 阶段二产出（可选）
+│   ├── brief.md              # ✅ 阶段一+二产出（决策摘要，含22条决策）
+│   ├── design.md             # ✅ 阶段二产出（技术设计文档）
+│   └── tasks/                # ⬜ 阶段三产出
 ├── AGENTS.md                 # 硬规则
 ├── status.md                 # 本文件
 └── ...
@@ -80,7 +79,7 @@ open-personality/
 
 ## 推荐策略
 
-1. 按 `agent-coding-workflow.md` 五阶段推进，当前应进入阶段二
+1. 按 `agent-coding-workflow.md` 五阶段推进，当前应进入阶段三
 
 ---
 
@@ -90,3 +89,5 @@ open-personality/
 |------|---------|
 | 2026-06-09 | 初始骨架搭建完成，基础设施层已就绪，触发首次存档 |
 | 2026-06-09 | 阶段一完成：产出 `docs/proposal.md` + `docs/brief.md`，需求确认完毕 |
+| 2026-06-09 | 阶段二完成：产出 `docs/design.md` + 更新 `docs/brief.md`（B-15~B-22），完成反模式检查 |
+| 2026-06-09 | 阶段二收尾：用户逐节评审 design.md，修复 5 个问题（事务保护、小程序迁移策略、分享码找回、SubmitResponse 命名、QuestionnaireItem 字段），触发存档 |
