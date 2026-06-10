@@ -138,3 +138,22 @@
 ### 遗留问题 / 下轮开始点
 - P2 未完成任务：E2E 测试（M08-20）、CI 配置（INFRA-08）、响应式（M08-21）、动画（M08-22）、IPIP-300 数据（DATA-03/04）
 - 解读模板为占位文本，需补充完整的人格解读内容
+
+---
+
+## 2026-06-10 — 前端设计待办 + 经验记录
+
+### 本轮概要
+- 用户恢复之前中断的 URL 抓取（Anthropic Brand Guidelines SKILL.md）
+- 抓取结果显示 Anthropic 品牌色/字体体系
+- AI 初步评估为"与本项目几乎无关"
+- 用户纠正：应该是 front design，作为前端视觉风格参考母版
+- status.md P2 新增待办「前端视觉风格定型」
+- lessons-learned.md 新增 #129 经验（SKILL.md 场景判断）
+
+### 更新文件
+- `status.md` — 新增 P2 待办项
+- `lessons-learned.md` — 新增 #129
+
+### 遗留问题 / 下轮开始点
+- 前端视觉风格定型待执行（参考 Anthropic Brand Guidelines）
