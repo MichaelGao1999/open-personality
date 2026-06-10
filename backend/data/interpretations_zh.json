@@ -1,0 +1,352 @@
+{
+  "O": {
+    "high": {
+      "title": "开放性偏高",
+      "body": "你在开放性维度上得分较高。请补充详细解读。"
+    },
+    "low": {
+      "title": "开放性偏低",
+      "body": "你在开放性维度上得分较低。请补充详细解读。"
+    }
+  },
+  "O_imagination": {
+    "high": {
+      "title": "O_imagination 偏高",
+      "body": "你在O_imagination上得分较高。"
+    },
+    "low": {
+      "title": "O_imagination 偏低",
+      "body": "你在O_imagination上得分较低。"
+    }
+  },
+  "O_aesthetics": {
+    "high": {
+      "title": "O_aesthetics 偏高",
+      "body": "你在O_aesthetics上得分较高。"
+    },
+    "low": {
+      "title": "O_aesthetics 偏低",
+      "body": "你在O_aesthetics上得分较低。"
+    }
+  },
+  "O_feelings": {
+    "high": {
+      "title": "O_feelings 偏高",
+      "body": "你在O_feelings上得分较高。"
+    },
+    "low": {
+      "title": "O_feelings 偏低",
+      "body": "你在O_feelings上得分较低。"
+    }
+  },
+  "O_adventurousness": {
+    "high": {
+      "title": "O_adventurousness 偏高",
+      "body": "你在O_adventurousness上得分较高。"
+    },
+    "low": {
+      "title": "O_adventurousness 偏低",
+      "body": "你在O_adventurousness上得分较低。"
+    }
+  },
+  "O_intellect": {
+    "high": {
+      "title": "O_intellect 偏高",
+      "body": "你在O_intellect上得分较高。"
+    },
+    "low": {
+      "title": "O_intellect 偏低",
+      "body": "你在O_intellect上得分较低。"
+    }
+  },
+  "O_liberalism": {
+    "high": {
+      "title": "O_liberalism 偏高",
+      "body": "你在O_liberalism上得分较高。"
+    },
+    "low": {
+      "title": "O_liberalism 偏低",
+      "body": "你在O_liberalism上得分较低。"
+    }
+  },
+  "C": {
+    "high": {
+      "title": "严谨性偏高",
+      "body": "你在严谨性维度上得分较高。请补充详细解读。"
+    },
+    "low": {
+      "title": "严谨性偏低",
+      "body": "你在严谨性维度上得分较低。请补充详细解读。"
+    }
+  },
+  "C_self_efficacy": {
+    "high": {
+      "title": "C_self_efficacy 偏高",
+      "body": "你在C_self_efficacy上得分较高。"
+    },
+    "low": {
+      "title": "C_self_efficacy 偏低",
+      "body": "你在C_self_efficacy上得分较低。"
+    }
+  },
+  "C_orderliness": {
+    "high": {
+      "title": "C_orderliness 偏高",
+      "body": "你在C_orderliness上得分较高。"
+    },
+    "low": {
+      "title": "C_orderliness 偏低",
+      "body": "你在C_orderliness上得分较低。"
+    }
+  },
+  "C_dutifulness": {
+    "high": {
+      "title": "C_dutifulness 偏高",
+      "body": "你在C_dutifulness上得分较高。"
+    },
+    "low": {
+      "title": "C_dutifulness 偏低",
+      "body": "你在C_dutifulness上得分较低。"
+    }
+  },
+  "C_achievement_striving": {
+    "high": {
+      "title": "C_achievement_striving 偏高",
+      "body": "你在C_achievement_striving上得分较高。"
+    },
+    "low": {
+      "title": "C_achievement_striving 偏低",
+      "body": "你在C_achievement_striving上得分较低。"
+    }
+  },
+  "C_self_discipline": {
+    "high": {
+      "title": "C_self_discipline 偏高",
+      "body": "你在C_self_discipline上得分较高。"
+    },
+    "low": {
+      "title": "C_self_discipline 偏低",
+      "body": "你在C_self_discipline上得分较低。"
+    }
+  },
+  "C_cautiousness": {
+    "high": {
+      "title": "C_cautiousness 偏高",
+      "body": "你在C_cautiousness上得分较高。"
+    },
+    "low": {
+      "title": "C_cautiousness 偏低",
+      "body": "你在C_cautiousness上得分较低。"
+    }
+  },
+  "E": {
+    "high": {
+      "title": "外向性偏高",
+      "body": "你在外向性维度上得分较高。请补充详细解读。"
+    },
+    "low": {
+      "title": "外向性偏低",
+      "body": "你在外向性维度上得分较低。请补充详细解读。"
+    }
+  },
+  "E_friendliness": {
+    "high": {
+      "title": "E_friendliness 偏高",
+      "body": "你在E_friendliness上得分较高。"
+    },
+    "low": {
+      "title": "E_friendliness 偏低",
+      "body": "你在E_friendliness上得分较低。"
+    }
+  },
+  "E_gregariousness": {
+    "high": {
+      "title": "E_gregariousness 偏高",
+      "body": "你在E_gregariousness上得分较高。"
+    },
+    "low": {
+      "title": "E_gregariousness 偏低",
+      "body": "你在E_gregariousness上得分较低。"
+    }
+  },
+  "E_assertiveness": {
+    "high": {
+      "title": "E_assertiveness 偏高",
+      "body": "你在E_assertiveness上得分较高。"
+    },
+    "low": {
+      "title": "E_assertiveness 偏低",
+      "body": "你在E_assertiveness上得分较低。"
+    }
+  },
+  "E_activity_level": {
+    "high": {
+      "title": "E_activity_level 偏高",
+      "body": "你在E_activity_level上得分较高。"
+    },
+    "low": {
+      "title": "E_activity_level 偏低",
+      "body": "你在E_activity_level上得分较低。"
+    }
+  },
+  "E_excitement_seeking": {
+    "high": {
+      "title": "E_excitement_seeking 偏高",
+      "body": "你在E_excitement_seeking上得分较高。"
+    },
+    "low": {
+      "title": "E_excitement_seeking 偏低",
+      "body": "你在E_excitement_seeking上得分较低。"
+    }
+  },
+  "E_cheerfulness": {
+    "high": {
+      "title": "E_cheerfulness 偏高",
+      "body": "你在E_cheerfulness上得分较高。"
+    },
+    "low": {
+      "title": "E_cheerfulness 偏低",
+      "body": "你在E_cheerfulness上得分较低。"
+    }
+  },
+  "A": {
+    "high": {
+      "title": "宜人性偏高",
+      "body": "你在宜人性维度上得分较高。请补充详细解读。"
+    },
+    "low": {
+      "title": "宜人性偏低",
+      "body": "你在宜人性维度上得分较低。请补充详细解读。"
+    }
+  },
+  "A_trust": {
+    "high": {
+      "title": "A_trust 偏高",
+      "body": "你在A_trust上得分较高。"
+    },
+    "low": {
+      "title": "A_trust 偏低",
+      "body": "你在A_trust上得分较低。"
+    }
+  },
+  "A_morality": {
+    "high": {
+      "title": "A_morality 偏高",
+      "body": "你在A_morality上得分较高。"
+    },
+    "low": {
+      "title": "A_morality 偏低",
+      "body": "你在A_morality上得分较低。"
+    }
+  },
+  "A_altruism": {
+    "high": {
+      "title": "A_altruism 偏高",
+      "body": "你在A_altruism上得分较高。"
+    },
+    "low": {
+      "title": "A_altruism 偏低",
+      "body": "你在A_altruism上得分较低。"
+    }
+  },
+  "A_cooperation": {
+    "high": {
+      "title": "A_cooperation 偏高",
+      "body": "你在A_cooperation上得分较高。"
+    },
+    "low": {
+      "title": "A_cooperation 偏低",
+      "body": "你在A_cooperation上得分较低。"
+    }
+  },
+  "A_modesty": {
+    "high": {
+      "title": "A_modesty 偏高",
+      "body": "你在A_modesty上得分较高。"
+    },
+    "low": {
+      "title": "A_modesty 偏低",
+      "body": "你在A_modesty上得分较低。"
+    }
+  },
+  "A_sympathy": {
+    "high": {
+      "title": "A_sympathy 偏高",
+      "body": "你在A_sympathy上得分较高。"
+    },
+    "low": {
+      "title": "A_sympathy 偏低",
+      "body": "你在A_sympathy上得分较低。"
+    }
+  },
+  "N": {
+    "high": {
+      "title": "神经质偏高",
+      "body": "你在神经质维度上得分较高。请补充详细解读。"
+    },
+    "low": {
+      "title": "神经质偏低",
+      "body": "你在神经质维度上得分较低。请补充详细解读。"
+    }
+  },
+  "N_anxiety": {
+    "high": {
+      "title": "N_anxiety 偏高",
+      "body": "你在N_anxiety上得分较高。"
+    },
+    "low": {
+      "title": "N_anxiety 偏低",
+      "body": "你在N_anxiety上得分较低。"
+    }
+  },
+  "N_anger": {
+    "high": {
+      "title": "N_anger 偏高",
+      "body": "你在N_anger上得分较高。"
+    },
+    "low": {
+      "title": "N_anger 偏低",
+      "body": "你在N_anger上得分较低。"
+    }
+  },
+  "N_depression": {
+    "high": {
+      "title": "N_depression 偏高",
+      "body": "你在N_depression上得分较高。"
+    },
+    "low": {
+      "title": "N_depression 偏低",
+      "body": "你在N_depression上得分较低。"
+    }
+  },
+  "N_self_consciousness": {
+    "high": {
+      "title": "N_self_consciousness 偏高",
+      "body": "你在N_self_consciousness上得分较高。"
+    },
+    "low": {
+      "title": "N_self_consciousness 偏低",
+      "body": "你在N_self_consciousness上得分较低。"
+    }
+  },
+  "N_immoderation": {
+    "high": {
+      "title": "N_immoderation 偏高",
+      "body": "你在N_immoderation上得分较高。"
+    },
+    "low": {
+      "title": "N_immoderation 偏低",
+      "body": "你在N_immoderation上得分较低。"
+    }
+  },
+  "N_vulnerability": {
+    "high": {
+      "title": "N_vulnerability 偏高",
+      "body": "你在N_vulnerability上得分较高。"
+    },
+    "low": {
+      "title": "N_vulnerability 偏低",
+      "body": "你在N_vulnerability上得分较低。"
+    }
+  }
+}

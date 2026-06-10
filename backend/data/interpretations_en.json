@@ -1,0 +1,352 @@
+{
+  "O": {
+    "high": {
+      "title": "High in Openness",
+      "body": "You scored high in Openness. Detailed interpretation pending."
+    },
+    "low": {
+      "title": "Low in Openness",
+      "body": "You scored low in Openness. Detailed interpretation pending."
+    }
+  },
+  "O_imagination": {
+    "high": {
+      "title": "High O_imagination",
+      "body": "You scored high on O_imagination."
+    },
+    "low": {
+      "title": "Low O_imagination",
+      "body": "You scored low on O_imagination."
+    }
+  },
+  "O_aesthetics": {
+    "high": {
+      "title": "High O_aesthetics",
+      "body": "You scored high on O_aesthetics."
+    },
+    "low": {
+      "title": "Low O_aesthetics",
+      "body": "You scored low on O_aesthetics."
+    }
+  },
+  "O_feelings": {
+    "high": {
+      "title": "High O_feelings",
+      "body": "You scored high on O_feelings."
+    },
+    "low": {
+      "title": "Low O_feelings",
+      "body": "You scored low on O_feelings."
+    }
+  },
+  "O_adventurousness": {
+    "high": {
+      "title": "High O_adventurousness",
+      "body": "You scored high on O_adventurousness."
+    },
+    "low": {
+      "title": "Low O_adventurousness",
+      "body": "You scored low on O_adventurousness."
+    }
+  },
+  "O_intellect": {
+    "high": {
+      "title": "High O_intellect",
+      "body": "You scored high on O_intellect."
+    },
+    "low": {
+      "title": "Low O_intellect",
+      "body": "You scored low on O_intellect."
+    }
+  },
+  "O_liberalism": {
+    "high": {
+      "title": "High O_liberalism",
+      "body": "You scored high on O_liberalism."
+    },
+    "low": {
+      "title": "Low O_liberalism",
+      "body": "You scored low on O_liberalism."
+    }
+  },
+  "C": {
+    "high": {
+      "title": "High in Conscientiousness",
+      "body": "You scored high in Conscientiousness. Detailed interpretation pending."
+    },
+    "low": {
+      "title": "Low in Conscientiousness",
+      "body": "You scored low in Conscientiousness. Detailed interpretation pending."
+    }
+  },
+  "C_self_efficacy": {
+    "high": {
+      "title": "High C_self_efficacy",
+      "body": "You scored high on C_self_efficacy."
+    },
+    "low": {
+      "title": "Low C_self_efficacy",
+      "body": "You scored low on C_self_efficacy."
+    }
+  },
+  "C_orderliness": {
+    "high": {
+      "title": "High C_orderliness",
+      "body": "You scored high on C_orderliness."
+    },
+    "low": {
+      "title": "Low C_orderliness",
+      "body": "You scored low on C_orderliness."
+    }
+  },
+  "C_dutifulness": {
+    "high": {
+      "title": "High C_dutifulness",
+      "body": "You scored high on C_dutifulness."
+    },
+    "low": {
+      "title": "Low C_dutifulness",
+      "body": "You scored low on C_dutifulness."
+    }
+  },
+  "C_achievement_striving": {
+    "high": {
+      "title": "High C_achievement_striving",
+      "body": "You scored high on C_achievement_striving."
+    },
+    "low": {
+      "title": "Low C_achievement_striving",
+      "body": "You scored low on C_achievement_striving."
+    }
+  },
+  "C_self_discipline": {
+    "high": {
+      "title": "High C_self_discipline",
+      "body": "You scored high on C_self_discipline."
+    },
+    "low": {
+      "title": "Low C_self_discipline",
+      "body": "You scored low on C_self_discipline."
+    }
+  },
+  "C_cautiousness": {
+    "high": {
+      "title": "High C_cautiousness",
+      "body": "You scored high on C_cautiousness."
+    },
+    "low": {
+      "title": "Low C_cautiousness",
+      "body": "You scored low on C_cautiousness."
+    }
+  },
+  "E": {
+    "high": {
+      "title": "High in Extraversion",
+      "body": "You scored high in Extraversion. Detailed interpretation pending."
+    },
+    "low": {
+      "title": "Low in Extraversion",
+      "body": "You scored low in Extraversion. Detailed interpretation pending."
+    }
+  },
+  "E_friendliness": {
+    "high": {
+      "title": "High E_friendliness",
+      "body": "You scored high on E_friendliness."
+    },
+    "low": {
+      "title": "Low E_friendliness",
+      "body": "You scored low on E_friendliness."
+    }
+  },
+  "E_gregariousness": {
+    "high": {
+      "title": "High E_gregariousness",
+      "body": "You scored high on E_gregariousness."
+    },
+    "low": {
+      "title": "Low E_gregariousness",
+      "body": "You scored low on E_gregariousness."
+    }
+  },
+  "E_assertiveness": {
+    "high": {
+      "title": "High E_assertiveness",
+      "body": "You scored high on E_assertiveness."
+    },
+    "low": {
+      "title": "Low E_assertiveness",
+      "body": "You scored low on E_assertiveness."
+    }
+  },
+  "E_activity_level": {
+    "high": {
+      "title": "High E_activity_level",
+      "body": "You scored high on E_activity_level."
+    },
+    "low": {
+      "title": "Low E_activity_level",
+      "body": "You scored low on E_activity_level."
+    }
+  },
+  "E_excitement_seeking": {
+    "high": {
+      "title": "High E_excitement_seeking",
+      "body": "You scored high on E_excitement_seeking."
+    },
+    "low": {
+      "title": "Low E_excitement_seeking",
+      "body": "You scored low on E_excitement_seeking."
+    }
+  },
+  "E_cheerfulness": {
+    "high": {
+      "title": "High E_cheerfulness",
+      "body": "You scored high on E_cheerfulness."
+    },
+    "low": {
+      "title": "Low E_cheerfulness",
+      "body": "You scored low on E_cheerfulness."
+    }
+  },
+  "A": {
+    "high": {
+      "title": "High in Agreeableness",
+      "body": "You scored high in Agreeableness. Detailed interpretation pending."
+    },
+    "low": {
+      "title": "Low in Agreeableness",
+      "body": "You scored low in Agreeableness. Detailed interpretation pending."
+    }
+  },
+  "A_trust": {
+    "high": {
+      "title": "High A_trust",
+      "body": "You scored high on A_trust."
+    },
+    "low": {
+      "title": "Low A_trust",
+      "body": "You scored low on A_trust."
+    }
+  },
+  "A_morality": {
+    "high": {
+      "title": "High A_morality",
+      "body": "You scored high on A_morality."
+    },
+    "low": {
+      "title": "Low A_morality",
+      "body": "You scored low on A_morality."
+    }
+  },
+  "A_altruism": {
+    "high": {
+      "title": "High A_altruism",
+      "body": "You scored high on A_altruism."
+    },
+    "low": {
+      "title": "Low A_altruism",
+      "body": "You scored low on A_altruism."
+    }
+  },
+  "A_cooperation": {
+    "high": {
+      "title": "High A_cooperation",
+      "body": "You scored high on A_cooperation."
+    },
+    "low": {
+      "title": "Low A_cooperation",
+      "body": "You scored low on A_cooperation."
+    }
+  },
+  "A_modesty": {
+    "high": {
+      "title": "High A_modesty",
+      "body": "You scored high on A_modesty."
+    },
+    "low": {
+      "title": "Low A_modesty",
+      "body": "You scored low on A_modesty."
+    }
+  },
+  "A_sympathy": {
+    "high": {
+      "title": "High A_sympathy",
+      "body": "You scored high on A_sympathy."
+    },
+    "low": {
+      "title": "Low A_sympathy",
+      "body": "You scored low on A_sympathy."
+    }
+  },
+  "N": {
+    "high": {
+      "title": "High in Neuroticism",
+      "body": "You scored high in Neuroticism. Detailed interpretation pending."
+    },
+    "low": {
+      "title": "Low in Neuroticism",
+      "body": "You scored low in Neuroticism. Detailed interpretation pending."
+    }
+  },
+  "N_anxiety": {
+    "high": {
+      "title": "High N_anxiety",
+      "body": "You scored high on N_anxiety."
+    },
+    "low": {
+      "title": "Low N_anxiety",
+      "body": "You scored low on N_anxiety."
+    }
+  },
+  "N_anger": {
+    "high": {
+      "title": "High N_anger",
+      "body": "You scored high on N_anger."
+    },
+    "low": {
+      "title": "Low N_anger",
+      "body": "You scored low on N_anger."
+    }
+  },
+  "N_depression": {
+    "high": {
+      "title": "High N_depression",
+      "body": "You scored high on N_depression."
+    },
+    "low": {
+      "title": "Low N_depression",
+      "body": "You scored low on N_depression."
+    }
+  },
+  "N_self_consciousness": {
+    "high": {
+      "title": "High N_self_consciousness",
+      "body": "You scored high on N_self_consciousness."
+    },
+    "low": {
+      "title": "Low N_self_consciousness",
+      "body": "You scored low on N_self_consciousness."
+    }
+  },
+  "N_immoderation": {
+    "high": {
+      "title": "High N_immoderation",
+      "body": "You scored high on N_immoderation."
+    },
+    "low": {
+      "title": "Low N_immoderation",
+      "body": "You scored low on N_immoderation."
+    }
+  },
+  "N_vulnerability": {
+    "high": {
+      "title": "High N_vulnerability",
+      "body": "You scored high on N_vulnerability."
+    },
+    "low": {
+      "title": "Low N_vulnerability",
+      "body": "You scored low on N_vulnerability."
+    }
+  }
+}

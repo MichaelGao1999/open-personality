@@ -1,0 +1,849 @@
+{
+  "metadata": {
+    "mode": "standard",
+    "total_items": 120,
+    "lang": "en"
+  },
+  "items": [
+    {
+      "item_id": "ipip_001",
+      "dimension": "O",
+      "facet": "O_imagination",
+      "text": "I have a rich imagination.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_002",
+      "dimension": "O",
+      "facet": "O_imagination",
+      "text": "I enjoy daydreaming about possibilities.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_003",
+      "dimension": "O",
+      "facet": "O_imagination",
+      "text": "I seldom daydream.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_004",
+      "dimension": "O",
+      "facet": "O_imagination",
+      "text": "I find it hard to imagine things that don't exist.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_005",
+      "dimension": "O",
+      "facet": "O_aesthetics",
+      "text": "I love exploring art and beauty.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_006",
+      "dimension": "O",
+      "facet": "O_aesthetics",
+      "text": "I am deeply moved by natural beauty.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_007",
+      "dimension": "O",
+      "facet": "O_aesthetics",
+      "text": "Abstract art does not appeal to me.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_008",
+      "dimension": "O",
+      "facet": "O_aesthetics",
+      "text": "I seldom notice aesthetic details.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_009",
+      "dimension": "O",
+      "facet": "O_feelings",
+      "text": "I experience strong emotions.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_010",
+      "dimension": "O",
+      "facet": "O_feelings",
+      "text": "I am very sensitive to my feelings.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_011",
+      "dimension": "O",
+      "facet": "O_feelings",
+      "text": "I rarely pay attention to my emotions.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_012",
+      "dimension": "O",
+      "facet": "O_feelings",
+      "text": "I don't let emotions affect my decisions.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_013",
+      "dimension": "O",
+      "facet": "O_adventurousness",
+      "text": "I prefer variety to routine.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_014",
+      "dimension": "O",
+      "facet": "O_adventurousness",
+      "text": "I love trying new things.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_015",
+      "dimension": "O",
+      "facet": "O_adventurousness",
+      "text": "I prefer familiar routines.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_016",
+      "dimension": "O",
+      "facet": "O_adventurousness",
+      "text": "I am uncomfortable with change.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_017",
+      "dimension": "O",
+      "facet": "O_intellect",
+      "text": "I enjoy exploring abstract ideas.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_018",
+      "dimension": "O",
+      "facet": "O_intellect",
+      "text": "I love philosophical discussions.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_019",
+      "dimension": "O",
+      "facet": "O_intellect",
+      "text": "I find intellectual debates boring.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_020",
+      "dimension": "O",
+      "facet": "O_intellect",
+      "text": "I prefer practical topics over abstract ones.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_021",
+      "dimension": "O",
+      "facet": "O_liberalism",
+      "text": "I am open to unconventional ideas.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_022",
+      "dimension": "O",
+      "facet": "O_liberalism",
+      "text": "I tend to support progressive values.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_023",
+      "dimension": "O",
+      "facet": "O_liberalism",
+      "text": "I believe traditional values are important.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_024",
+      "dimension": "O",
+      "facet": "O_liberalism",
+      "text": "I prefer tried-and-true methods.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_025",
+      "dimension": "C",
+      "facet": "C_self_efficacy",
+      "text": "I complete tasks successfully.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_026",
+      "dimension": "C",
+      "facet": "C_self_efficacy",
+      "text": "I excel in what I do.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_027",
+      "dimension": "C",
+      "facet": "C_self_efficacy",
+      "text": "I often doubt my abilities.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_028",
+      "dimension": "C",
+      "facet": "C_self_efficacy",
+      "text": "I feel underqualified for many tasks.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_029",
+      "dimension": "C",
+      "facet": "C_orderliness",
+      "text": "I like to keep things organized.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_030",
+      "dimension": "C",
+      "facet": "C_orderliness",
+      "text": "I find order and routine appealing.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_031",
+      "dimension": "C",
+      "facet": "C_orderliness",
+      "text": "I often leave things lying around.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_032",
+      "dimension": "C",
+      "facet": "C_orderliness",
+      "text": "My workspace is usually messy.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_033",
+      "dimension": "C",
+      "facet": "C_dutifulness",
+      "text": "I keep my promises.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_034",
+      "dimension": "C",
+      "facet": "C_dutifulness",
+      "text": "I follow through on commitments.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_035",
+      "dimension": "C",
+      "facet": "C_dutifulness",
+      "text": "I sometimes break my promises.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_036",
+      "dimension": "C",
+      "facet": "C_dutifulness",
+      "text": "I tend to bend rules when convenient.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_037",
+      "dimension": "C",
+      "facet": "C_achievement_striving",
+      "text": "I strive for excellence in everything.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_038",
+      "dimension": "C",
+      "facet": "C_achievement_striving",
+      "text": "I set high standards for myself.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_039",
+      "dimension": "C",
+      "facet": "C_achievement_striving",
+      "text": "I am satisfied with just getting by.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_040",
+      "dimension": "C",
+      "facet": "C_achievement_striving",
+      "text": "I don't push myself to achieve more.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_041",
+      "dimension": "C",
+      "facet": "C_self_discipline",
+      "text": "I get chores done right away.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_042",
+      "dimension": "C",
+      "facet": "C_self_discipline",
+      "text": "I am disciplined in my habits.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_043",
+      "dimension": "C",
+      "facet": "C_self_discipline",
+      "text": "I often procrastinate on important tasks.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_044",
+      "dimension": "C",
+      "facet": "C_self_discipline",
+      "text": "I need external pressure to start working.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_045",
+      "dimension": "C",
+      "facet": "C_cautiousness",
+      "text": "I think carefully before acting.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_046",
+      "dimension": "C",
+      "facet": "C_cautiousness",
+      "text": "I avoid mistakes by being thorough.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_047",
+      "dimension": "C",
+      "facet": "C_cautiousness",
+      "text": "I tend to act impulsively.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_048",
+      "dimension": "C",
+      "facet": "C_cautiousness",
+      "text": "I often rush through decisions.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_049",
+      "dimension": "E",
+      "facet": "E_friendliness",
+      "text": "I enjoy spending time with people.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_050",
+      "dimension": "E",
+      "facet": "E_friendliness",
+      "text": "I make friends easily.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_051",
+      "dimension": "E",
+      "facet": "E_friendliness",
+      "text": "I prefer to be alone.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_052",
+      "dimension": "E",
+      "facet": "E_friendliness",
+      "text": "I find social situations draining.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_053",
+      "dimension": "E",
+      "facet": "E_gregariousness",
+      "text": "I love large social events.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_054",
+      "dimension": "E",
+      "facet": "E_gregariousness",
+      "text": "I enjoy being part of a crowd.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_055",
+      "dimension": "E",
+      "facet": "E_gregariousness",
+      "text": "I prefer quiet evenings alone.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_056",
+      "dimension": "E",
+      "facet": "E_gregariousness",
+      "text": "I dislike crowded places.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_057",
+      "dimension": "E",
+      "facet": "E_assertiveness",
+      "text": "I take charge in groups.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_058",
+      "dimension": "E",
+      "facet": "E_assertiveness",
+      "text": "I express my opinions confidently.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_059",
+      "dimension": "E",
+      "facet": "E_assertiveness",
+      "text": "I let others take the lead.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_060",
+      "dimension": "E",
+      "facet": "E_assertiveness",
+      "text": "I prefer to stay in the background.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_061",
+      "dimension": "E",
+      "facet": "E_activity_level",
+      "text": "I am always busy doing something.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_062",
+      "dimension": "E",
+      "facet": "E_activity_level",
+      "text": "I have a lot of energy.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_063",
+      "dimension": "E",
+      "facet": "E_activity_level",
+      "text": "I prefer a relaxed pace of life.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_064",
+      "dimension": "E",
+      "facet": "E_activity_level",
+      "text": "I often feel sluggish.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_065",
+      "dimension": "E",
+      "facet": "E_excitement_seeking",
+      "text": "I seek adventure and excitement.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_066",
+      "dimension": "E",
+      "facet": "E_excitement_seeking",
+      "text": "I enjoy thrilling activities.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_067",
+      "dimension": "E",
+      "facet": "E_excitement_seeking",
+      "text": "I prefer a calm and quiet life.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_068",
+      "dimension": "E",
+      "facet": "E_excitement_seeking",
+      "text": "I avoid risky situations.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_069",
+      "dimension": "E",
+      "facet": "E_cheerfulness",
+      "text": "I laugh easily and often.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_070",
+      "dimension": "E",
+      "facet": "E_cheerfulness",
+      "text": "I am a cheerful optimist.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_071",
+      "dimension": "E",
+      "facet": "E_cheerfulness",
+      "text": "I often feel gloomy.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_072",
+      "dimension": "E",
+      "facet": "E_cheerfulness",
+      "text": "I tend to see the negative side.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_073",
+      "dimension": "A",
+      "facet": "A_trust",
+      "text": "I trust people easily.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_074",
+      "dimension": "A",
+      "facet": "A_trust",
+      "text": "I believe people have good intentions.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_075",
+      "dimension": "A",
+      "facet": "A_trust",
+      "text": "I tend to be suspicious of others.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_076",
+      "dimension": "A",
+      "facet": "A_trust",
+      "text": "I think most people would take advantage.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_077",
+      "dimension": "A",
+      "facet": "A_morality",
+      "text": "I would never cheat or lie.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_078",
+      "dimension": "A",
+      "facet": "A_morality",
+      "text": "I value honesty above all.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_079",
+      "dimension": "A",
+      "facet": "A_morality",
+      "text": "I sometimes bend the truth.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_080",
+      "dimension": "A",
+      "facet": "A_morality",
+      "text": "I believe the end can justify the means.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_081",
+      "dimension": "A",
+      "facet": "A_altruism",
+      "text": "I enjoy helping others.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_082",
+      "dimension": "A",
+      "facet": "A_altruism",
+      "text": "I put others' needs before mine.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_083",
+      "dimension": "A",
+      "facet": "A_altruism",
+      "text": "I am not interested in volunteer work.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_084",
+      "dimension": "A",
+      "facet": "A_altruism",
+      "text": "I think people should look after themselves.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_085",
+      "dimension": "A",
+      "facet": "A_cooperation",
+      "text": "I am easy to work with.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_086",
+      "dimension": "A",
+      "facet": "A_cooperation",
+      "text": "I value cooperation over competition.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_087",
+      "dimension": "A",
+      "facet": "A_cooperation",
+      "text": "I prefer to work alone.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_088",
+      "dimension": "A",
+      "facet": "A_cooperation",
+      "text": "I enjoy competing against others.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_089",
+      "dimension": "A",
+      "facet": "A_modesty",
+      "text": "I am humble about my achievements.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_090",
+      "dimension": "A",
+      "facet": "A_modesty",
+      "text": "I don't like to brag.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_091",
+      "dimension": "A",
+      "facet": "A_modesty",
+      "text": "I often talk about my accomplishments.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_092",
+      "dimension": "A",
+      "facet": "A_modesty",
+      "text": "I think I am better than most people.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_093",
+      "dimension": "A",
+      "facet": "A_sympathy",
+      "text": "I feel others' emotions deeply.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_094",
+      "dimension": "A",
+      "facet": "A_sympathy",
+      "text": "I am moved by others' suffering.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_095",
+      "dimension": "A",
+      "facet": "A_sympathy",
+      "text": "I find it hard to sympathize with people.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_096",
+      "dimension": "A",
+      "facet": "A_sympathy",
+      "text": "Others' problems don't affect me much.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_097",
+      "dimension": "N",
+      "facet": "N_anxiety",
+      "text": "I worry about many things.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_098",
+      "dimension": "N",
+      "facet": "N_anxiety",
+      "text": "I get stressed easily.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_099",
+      "dimension": "N",
+      "facet": "N_anxiety",
+      "text": "I seldom feel anxious.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_100",
+      "dimension": "N",
+      "facet": "N_anxiety",
+      "text": "I remain calm in most situations.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_101",
+      "dimension": "N",
+      "facet": "N_anger",
+      "text": "I get irritated easily.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_102",
+      "dimension": "N",
+      "facet": "N_anger",
+      "text": "I have a quick temper.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_103",
+      "dimension": "N",
+      "facet": "N_anger",
+      "text": "I rarely get angry.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_104",
+      "dimension": "N",
+      "facet": "N_anger",
+      "text": "I am even-tempered and hard to upset.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_105",
+      "dimension": "N",
+      "facet": "N_depression",
+      "text": "I often feel sad or blue.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_106",
+      "dimension": "N",
+      "facet": "N_depression",
+      "text": "I tend to feel down more than others.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_107",
+      "dimension": "N",
+      "facet": "N_depression",
+      "text": "I rarely feel depressed.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_108",
+      "dimension": "N",
+      "facet": "N_depression",
+      "text": "I am generally in good spirits.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_109",
+      "dimension": "N",
+      "facet": "N_self_consciousness",
+      "text": "I am easily embarrassed.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_110",
+      "dimension": "N",
+      "facet": "N_self_consciousness",
+      "text": "I feel awkward in social situations.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_111",
+      "dimension": "N",
+      "facet": "N_self_consciousness",
+      "text": "I am comfortable with who I am.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_112",
+      "dimension": "N",
+      "facet": "N_self_consciousness",
+      "text": "I rarely worry about what others think.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_113",
+      "dimension": "N",
+      "facet": "N_immoderation",
+      "text": "I often give in to temptations.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_114",
+      "dimension": "N",
+      "facet": "N_immoderation",
+      "text": "I have difficulty controlling impulses.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_115",
+      "dimension": "N",
+      "facet": "N_immoderation",
+      "text": "I can resist temptations easily.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_116",
+      "dimension": "N",
+      "facet": "N_immoderation",
+      "text": "I practice self-control regularly.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_117",
+      "dimension": "N",
+      "facet": "N_vulnerability",
+      "text": "I panic easily under pressure.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_118",
+      "dimension": "N",
+      "facet": "N_vulnerability",
+      "text": "I fall apart under stress.",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_119",
+      "dimension": "N",
+      "facet": "N_vulnerability",
+      "text": "I stay calm under pressure.",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_120",
+      "dimension": "N",
+      "facet": "N_vulnerability",
+      "text": "I handle crises well.",
+      "reversed": true
+    }
+  ]
+}

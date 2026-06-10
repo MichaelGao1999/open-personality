@@ -1,0 +1,849 @@
+{
+  "metadata": {
+    "mode": "standard",
+    "total_items": 120,
+    "lang": "zh"
+  },
+  "items": [
+    {
+      "item_id": "ipip_001",
+      "dimension": "O",
+      "facet": "O_imagination",
+      "text": "我有丰富的想象力。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_002",
+      "dimension": "O",
+      "facet": "O_imagination",
+      "text": "我喜欢对可能性做白日梦。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_003",
+      "dimension": "O",
+      "facet": "O_imagination",
+      "text": "我很少做白日梦。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_004",
+      "dimension": "O",
+      "facet": "O_imagination",
+      "text": "我觉得想象不存在的东西很难。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_005",
+      "dimension": "O",
+      "facet": "O_aesthetics",
+      "text": "我喜欢探索艺术和自然之美。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_006",
+      "dimension": "O",
+      "facet": "O_aesthetics",
+      "text": "自然之美深深打动我。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_007",
+      "dimension": "O",
+      "facet": "O_aesthetics",
+      "text": "我对抽象艺术不感兴趣。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_008",
+      "dimension": "O",
+      "facet": "O_aesthetics",
+      "text": "我很少留意审美细节。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_009",
+      "dimension": "O",
+      "facet": "O_feelings",
+      "text": "我体验强烈的情绪。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_010",
+      "dimension": "O",
+      "facet": "O_feelings",
+      "text": "我对自己的情绪非常敏感。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_011",
+      "dimension": "O",
+      "facet": "O_feelings",
+      "text": "我很少留意自己的情绪状态。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_012",
+      "dimension": "O",
+      "facet": "O_feelings",
+      "text": "我不会让情绪影响我的决定。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_013",
+      "dimension": "O",
+      "facet": "O_adventurousness",
+      "text": "我更喜欢变化而非按部就班。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_014",
+      "dimension": "O",
+      "facet": "O_adventurousness",
+      "text": "我喜欢尝试新事物。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_015",
+      "dimension": "O",
+      "facet": "O_adventurousness",
+      "text": "我更喜欢熟悉的常规。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_016",
+      "dimension": "O",
+      "facet": "O_adventurousness",
+      "text": "我对变化感到不安。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_017",
+      "dimension": "O",
+      "facet": "O_intellect",
+      "text": "我喜欢探索抽象概念。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_018",
+      "dimension": "O",
+      "facet": "O_intellect",
+      "text": "我热爱哲学讨论。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_019",
+      "dimension": "O",
+      "facet": "O_intellect",
+      "text": "我觉得烧脑的辩论很无聊。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_020",
+      "dimension": "O",
+      "facet": "O_intellect",
+      "text": "比起抽象话题我更喜欢实用的。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_021",
+      "dimension": "O",
+      "facet": "O_liberalism",
+      "text": "我乐于接受非常规的想法。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_022",
+      "dimension": "O",
+      "facet": "O_liberalism",
+      "text": "我倾向于支持进步的主张。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_023",
+      "dimension": "O",
+      "facet": "O_liberalism",
+      "text": "我相信传统价值观很重要。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_024",
+      "dimension": "O",
+      "facet": "O_liberalism",
+      "text": "我更喜欢经过验证的方法。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_025",
+      "dimension": "C",
+      "facet": "C_self_efficacy",
+      "text": "我能成功完成任务。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_026",
+      "dimension": "C",
+      "facet": "C_self_efficacy",
+      "text": "我擅长我所做的事。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_027",
+      "dimension": "C",
+      "facet": "C_self_efficacy",
+      "text": "我经常怀疑自己的能力。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_028",
+      "dimension": "C",
+      "facet": "C_self_efficacy",
+      "text": "面对很多任务我都觉得不够格。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_029",
+      "dimension": "C",
+      "facet": "C_orderliness",
+      "text": "我喜欢保持事物井井有条。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_030",
+      "dimension": "C",
+      "facet": "C_orderliness",
+      "text": "我觉得条理和常规很有吸引力。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_031",
+      "dimension": "C",
+      "facet": "C_orderliness",
+      "text": "我经常随手乱放东西。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_032",
+      "dimension": "C",
+      "facet": "C_orderliness",
+      "text": "我的工作空间通常很乱。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_033",
+      "dimension": "C",
+      "facet": "C_dutifulness",
+      "text": "我信守承诺。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_034",
+      "dimension": "C",
+      "facet": "C_dutifulness",
+      "text": "我会坚持履行我的义务。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_035",
+      "dimension": "C",
+      "facet": "C_dutifulness",
+      "text": "我有时会违背承诺。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_036",
+      "dimension": "C",
+      "facet": "C_dutifulness",
+      "text": "我倾向于在方便时变通规则。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_037",
+      "dimension": "C",
+      "facet": "C_achievement_striving",
+      "text": "我做每件事都追求卓越。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_038",
+      "dimension": "C",
+      "facet": "C_achievement_striving",
+      "text": "我为自己设定高标准。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_039",
+      "dimension": "C",
+      "facet": "C_achievement_striving",
+      "text": "我对敷衍了事感到满足。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_040",
+      "dimension": "C",
+      "facet": "C_achievement_striving",
+      "text": "我不会逼自己去争取更多。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_041",
+      "dimension": "C",
+      "facet": "C_self_discipline",
+      "text": "我会立刻完成该做的事。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_042",
+      "dimension": "C",
+      "facet": "C_self_discipline",
+      "text": "我的习惯很有自律性。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_043",
+      "dimension": "C",
+      "facet": "C_self_discipline",
+      "text": "我经常拖延重要任务。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_044",
+      "dimension": "C",
+      "facet": "C_self_discipline",
+      "text": "我需要外部压力才能开始工作。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_045",
+      "dimension": "C",
+      "facet": "C_cautiousness",
+      "text": "我行动前会仔细思考。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_046",
+      "dimension": "C",
+      "facet": "C_cautiousness",
+      "text": "我通过细致来避免错误。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_047",
+      "dimension": "C",
+      "facet": "C_cautiousness",
+      "text": "我倾向于冲动行事。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_048",
+      "dimension": "C",
+      "facet": "C_cautiousness",
+      "text": "我经常仓促做出决定。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_049",
+      "dimension": "E",
+      "facet": "E_friendliness",
+      "text": "我喜欢和别人待在一起。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_050",
+      "dimension": "E",
+      "facet": "E_friendliness",
+      "text": "我很容易交朋友。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_051",
+      "dimension": "E",
+      "facet": "E_friendliness",
+      "text": "我更喜欢独处。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_052",
+      "dimension": "E",
+      "facet": "E_friendliness",
+      "text": "我觉得社交场合很消耗精力。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_053",
+      "dimension": "E",
+      "facet": "E_gregariousness",
+      "text": "我喜爱大型社交活动。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_054",
+      "dimension": "E",
+      "facet": "E_gregariousness",
+      "text": "我喜欢身处人群之中。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_055",
+      "dimension": "E",
+      "facet": "E_gregariousness",
+      "text": "我更喜欢安静的独处时光。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_056",
+      "dimension": "E",
+      "facet": "E_gregariousness",
+      "text": "我不喜欢拥挤的地方。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_057",
+      "dimension": "E",
+      "facet": "E_assertiveness",
+      "text": "我在群体中主动担责。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_058",
+      "dimension": "E",
+      "facet": "E_assertiveness",
+      "text": "我自信地表达自己的观点。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_059",
+      "dimension": "E",
+      "facet": "E_assertiveness",
+      "text": "我让他人来做主导。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_060",
+      "dimension": "E",
+      "facet": "E_assertiveness",
+      "text": "我更喜欢待在幕后。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_061",
+      "dimension": "E",
+      "facet": "E_activity_level",
+      "text": "我总是忙着做各种事。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_062",
+      "dimension": "E",
+      "facet": "E_activity_level",
+      "text": "我精力充沛。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_063",
+      "dimension": "E",
+      "facet": "E_activity_level",
+      "text": "我更喜欢慢节奏的生活。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_064",
+      "dimension": "E",
+      "facet": "E_activity_level",
+      "text": "我经常感到没精神。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_065",
+      "dimension": "E",
+      "facet": "E_excitement_seeking",
+      "text": "我追求冒险和刺激。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_066",
+      "dimension": "E",
+      "facet": "E_excitement_seeking",
+      "text": "我喜欢刺激的活动。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_067",
+      "dimension": "E",
+      "facet": "E_excitement_seeking",
+      "text": "我更喜欢平静安宁的生活。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_068",
+      "dimension": "E",
+      "facet": "E_excitement_seeking",
+      "text": "我避免有风险的情况。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_069",
+      "dimension": "E",
+      "facet": "E_cheerfulness",
+      "text": "我经常开怀大笑。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_070",
+      "dimension": "E",
+      "facet": "E_cheerfulness",
+      "text": "我是个开朗的乐天派。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_071",
+      "dimension": "E",
+      "facet": "E_cheerfulness",
+      "text": "我经常感到忧郁。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_072",
+      "dimension": "E",
+      "facet": "E_cheerfulness",
+      "text": "我倾向于看事情消极的一面。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_073",
+      "dimension": "A",
+      "facet": "A_trust",
+      "text": "我容易信任他人。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_074",
+      "dimension": "A",
+      "facet": "A_trust",
+      "text": "我相信人们怀有善意。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_075",
+      "dimension": "A",
+      "facet": "A_trust",
+      "text": "我倾向于怀疑别人。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_076",
+      "dimension": "A",
+      "facet": "A_trust",
+      "text": "我觉得大多数人都会占便宜。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_077",
+      "dimension": "A",
+      "facet": "A_morality",
+      "text": "我绝不作弊或说谎。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_078",
+      "dimension": "A",
+      "facet": "A_morality",
+      "text": "我把诚实看得高于一切。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_079",
+      "dimension": "A",
+      "facet": "A_morality",
+      "text": "我有时会歪曲事实。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_080",
+      "dimension": "A",
+      "facet": "A_morality",
+      "text": "我相信结果可以证明手段正当。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_081",
+      "dimension": "A",
+      "facet": "A_altruism",
+      "text": "我喜欢帮助别人。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_082",
+      "dimension": "A",
+      "facet": "A_altruism",
+      "text": "我把别人的需要放在自己之前。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_083",
+      "dimension": "A",
+      "facet": "A_altruism",
+      "text": "我对志愿工作不感兴趣。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_084",
+      "dimension": "A",
+      "facet": "A_altruism",
+      "text": "我认为每个人都应该管好自己。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_085",
+      "dimension": "A",
+      "facet": "A_cooperation",
+      "text": "我很好合作共事。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_086",
+      "dimension": "A",
+      "facet": "A_cooperation",
+      "text": "我重视合作胜过竞争。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_087",
+      "dimension": "A",
+      "facet": "A_cooperation",
+      "text": "我更喜欢独自工作。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_088",
+      "dimension": "A",
+      "facet": "A_cooperation",
+      "text": "我喜欢与他人竞争。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_089",
+      "dimension": "A",
+      "facet": "A_modesty",
+      "text": "我对自己的成就保持谦虚。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_090",
+      "dimension": "A",
+      "facet": "A_modesty",
+      "text": "我不喜欢吹嘘。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_091",
+      "dimension": "A",
+      "facet": "A_modesty",
+      "text": "我经常谈论自己的成就。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_092",
+      "dimension": "A",
+      "facet": "A_modesty",
+      "text": "我认为自己比大多数人优秀。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_093",
+      "dimension": "A",
+      "facet": "A_sympathy",
+      "text": "我能深刻感受到他人的情绪。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_094",
+      "dimension": "A",
+      "facet": "A_sympathy",
+      "text": "别人的苦难会触动我。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_095",
+      "dimension": "A",
+      "facet": "A_sympathy",
+      "text": "我很难同情别人。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_096",
+      "dimension": "A",
+      "facet": "A_sympathy",
+      "text": "别人的问题不太影响我。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_097",
+      "dimension": "N",
+      "facet": "N_anxiety",
+      "text": "我担心很多事情。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_098",
+      "dimension": "N",
+      "facet": "N_anxiety",
+      "text": "我很容易紧张。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_099",
+      "dimension": "N",
+      "facet": "N_anxiety",
+      "text": "我很少感到焦虑。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_100",
+      "dimension": "N",
+      "facet": "N_anxiety",
+      "text": "我在大多数情况下保持冷静。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_101",
+      "dimension": "N",
+      "facet": "N_anger",
+      "text": "我很容易烦躁。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_102",
+      "dimension": "N",
+      "facet": "N_anger",
+      "text": "我脾气来得快。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_103",
+      "dimension": "N",
+      "facet": "N_anger",
+      "text": "我很少生气。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_104",
+      "dimension": "N",
+      "facet": "N_anger",
+      "text": "我性情平和，很难被惹恼。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_105",
+      "dimension": "N",
+      "facet": "N_depression",
+      "text": "我经常感到悲伤或忧郁。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_106",
+      "dimension": "N",
+      "facet": "N_depression",
+      "text": "我比别人更容易情绪低落。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_107",
+      "dimension": "N",
+      "facet": "N_depression",
+      "text": "我很少感到沮丧。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_108",
+      "dimension": "N",
+      "facet": "N_depression",
+      "text": "我通常心情不错。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_109",
+      "dimension": "N",
+      "facet": "N_self_consciousness",
+      "text": "我很容易难为情。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_110",
+      "dimension": "N",
+      "facet": "N_self_consciousness",
+      "text": "我在社交场合感到不自在。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_111",
+      "dimension": "N",
+      "facet": "N_self_consciousness",
+      "text": "我对自己感到自在。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_112",
+      "dimension": "N",
+      "facet": "N_self_consciousness",
+      "text": "我很少担心别人的看法。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_113",
+      "dimension": "N",
+      "facet": "N_immoderation",
+      "text": "我经常屈服于诱惑。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_114",
+      "dimension": "N",
+      "facet": "N_immoderation",
+      "text": "我很难控制冲动。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_115",
+      "dimension": "N",
+      "facet": "N_immoderation",
+      "text": "我能轻松抵制诱惑。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_116",
+      "dimension": "N",
+      "facet": "N_immoderation",
+      "text": "我经常进行自我克制。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_117",
+      "dimension": "N",
+      "facet": "N_vulnerability",
+      "text": "压力下我容易慌乱。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_118",
+      "dimension": "N",
+      "facet": "N_vulnerability",
+      "text": "压力下我会崩溃。",
+      "reversed": false
+    },
+    {
+      "item_id": "ipip_119",
+      "dimension": "N",
+      "facet": "N_vulnerability",
+      "text": "我在压力下保持冷静。",
+      "reversed": true
+    },
+    {
+      "item_id": "ipip_120",
+      "dimension": "N",
+      "facet": "N_vulnerability",
+      "text": "我能很好地应对危机。",
+      "reversed": true
+    }
+  ]
+}

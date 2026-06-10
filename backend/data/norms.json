@@ -1,0 +1,146 @@
+{
+  "O": {
+    "mean": 50.0,
+    "sd": 10.0
+  },
+  "C": {
+    "mean": 50.0,
+    "sd": 10.0
+  },
+  "E": {
+    "mean": 50.0,
+    "sd": 10.0
+  },
+  "A": {
+    "mean": 50.0,
+    "sd": 10.0
+  },
+  "N": {
+    "mean": 50.0,
+    "sd": 10.0
+  },
+  "O_imagination": {
+    "mean": 50.0,
+    "sd": 10.0
+  },
+  "O_aesthetics": {
+    "mean": 50.0,
+    "sd": 10.0
+  },
+  "O_feelings": {
+    "mean": 50.0,
+    "sd": 10.0
+  },
+  "O_adventurousness": {
+    "mean": 50.0,
+    "sd": 10.0
+  },
+  "O_intellect": {
+    "mean": 50.0,
+    "sd": 10.0
+  },
+  "O_liberalism": {
+    "mean": 50.0,
+    "sd": 10.0
+  },
+  "C_self_efficacy": {
+    "mean": 50.0,
+    "sd": 10.0
+  },
+  "C_orderliness": {
+    "mean": 50.0,
+    "sd": 10.0
+  },
+  "C_dutifulness": {
+    "mean": 50.0,
+    "sd": 10.0
+  },
+  "C_achievement_striving": {
+    "mean": 50.0,
+    "sd": 10.0
+  },
+  "C_self_discipline": {
+    "mean": 50.0,
+    "sd": 10.0
+  },
+  "C_cautiousness": {
+    "mean": 50.0,
+    "sd": 10.0
+  },
+  "E_friendliness": {
+    "mean": 50.0,
+    "sd": 10.0
+  },
+  "E_gregariousness": {
+    "mean": 50.0,
+    "sd": 10.0
+  },
+  "E_assertiveness": {
+    "mean": 50.0,
+    "sd": 10.0
+  },
+  "E_activity_level": {
+    "mean": 50.0,
+    "sd": 10.0
+  },
+  "E_excitement_seeking": {
+    "mean": 50.0,
+    "sd": 10.0
+  },
+  "E_cheerfulness": {
+    "mean": 50.0,
+    "sd": 10.0
+  },
+  "A_trust": {
+    "mean": 50.0,
+    "sd": 10.0
+  },
+  "A_morality": {
+    "mean": 50.0,
+    "sd": 10.0
+  },
+  "A_altruism": {
+    "mean": 50.0,
+    "sd": 10.0
+  },
+  "A_cooperation": {
+    "mean": 50.0,
+    "sd": 10.0
+  },
+  "A_modesty": {
+    "mean": 50.0,
+    "sd": 10.0
+  },
+  "A_sympathy": {
+    "mean": 50.0,
+    "sd": 10.0
+  },
+  "N_anxiety": {
+    "mean": 50.0,
+    "sd": 10.0
+  },
+  "N_anger": {
+    "mean": 50.0,
+    "sd": 10.0
+  },
+  "N_depression": {
+    "mean": 50.0,
+    "sd": 10.0
+  },
+  "N_self_consciousness": {
+    "mean": 50.0,
+    "sd": 10.0
+  },
+  "N_immoderation": {
+    "mean": 50.0,
+    "sd": 10.0
+  },
+  "N_vulnerability": {
+    "mean": 50.0,
+    "sd": 10.0
+  },
+  "metadata": {
+    "standard": "T-score (M=50, SD=10)",
+    "source": "initial preset"
+  }
+}

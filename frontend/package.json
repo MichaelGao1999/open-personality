@@ -1,0 +1,26 @@
+{
+  "name": "open-personality-frontend",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "axios": "^1.17.0",
+    "echarts": "^5.6.0",
+    "html2canvas": "^1.4.1",
+    "vue": "^3.5.35",
+    "vue-echarts": "^6.7.3",
+    "vue-router": "^4.6.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.4",
+    "vite": "^5.4.21",
+    "vitest": "^1.6.1"
+  }
+}

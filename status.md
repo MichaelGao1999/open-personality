@@ -6,13 +6,13 @@
 
 ## 当前阶段
 
-**阶段三 ✅ 已完成**（任务分解，`docs/tasks/` 共 11 个任务书已产出，前端设计文档回补完成）
+**阶段五 ✅ 已完成**（全部代码实现 + 测试通过）
 
 ---
 
 ## 进度总览
 
-`阶段一 ✅ | 阶段二 ✅ | 阶段三 ✅ | 阶段四 ⬜ | 阶段五 ⬜`
+`阶段一 ✅ | 阶段二 ✅ | 阶段三 ✅ | 阶段四 ✅ | 阶段五 ✅`
 
 > 图例：✅ 已完成 | 🔄 进行中 | ⬜ 未开始
 
@@ -24,7 +24,8 @@
 - [ ] 
 
 ### 优先级 2 — 功能
-- [ ] 阶段四：准备 prompt 工程 → `prompt.md`
+- [x] 阶段四：准备 prompt 工程 → `prompt.md`
+- [x] 阶段五：执行开发 — 全部 Phase A~E 完成
 
 ### 优先级 3 — 优化
 - [ ] 
@@ -47,8 +48,10 @@
 ## 环境备忘
 
 - **语言/框架版本**：Python (FastAPI)、Vue 3 + Vite、SQLite
-- **编译/构建命令**：待阶段二确定
-- **测试命令**：待阶段二确定
+- **编译/构建命令**：`uvicorn backend.app.main:app`（后端）、`npm run dev`（前端）
+- **测试命令**：`$env:PYTHONPATH="."; pytest backend/tests/`（后端）、`npm test`（前端）
+- **后端测试**：41 个测试全部通过
+- **前端构建**：`npm run build` 完成
 - **已知限制**：部署方案待阶段四决定
 
 ---
@@ -57,17 +60,29 @@
 
 ```
 open-personality/
-├── src/                      # 源码（阶段五）
-├── tests/                    # 测试（阶段五）
+├── backend/
+│   ├── app/                  # FastAPI 应用
+│   │   ├── main.py           # 入口 + CORS + 路由注册
+│   │   ├── config.py         # 环境配置
+│   │   ├── api/              # M07: API 端点（问卷提交 + 报告查询 + i18n）
+│   │   ├── core/             # M02-M05: 计分/MBTI/彩蛋/报告生成
+│   │   ├── db/               # M06: ORM 模型 + Repository + 初始化
+│   │   └── schemas/          # Pydantic 契约模型
+│   ├── data/                 # 8 个 JSON 数据文件
+│   └── tests/                # 41 个测试用例
+├── frontend/
+│   ├── src/
+│   │   ├── views/            # 3 个页面（首页/问卷/报告）
+│   │   ├── components/       # 6 个组件
+│   │   ├── composables/      # 3 个 composable
+│   │   ├── i18n/             # zh + en 语言包
+│   │   └── utils/            # API + 图片导出
+│   └── vite.config.js
 ├── docs/
-│   ├── proposal.md           # ✅ 阶段一产出
-│   ├── brief.md              # ✅ 阶段一+二产出（决策摘要，含23条决策）
-│   ├── design.md             # ✅ 阶段二产出（技术设计文档）
-│   ├── frontend.md            # ✅ 阶段二回补（T-05② 触发，前端设计文档）
-│   └── tasks/                # ✅ 阶段三产出（11 个任务书）
-├── AGENTS.md                 # 硬规则
-├── status.md                 # 本文件
-└── ...
+│   ├── proposal.md / brief.md / design.md / frontend.md / tasks/
+├── prompt.md                 # 主控 Prompt
+├── AGENTS.md / status.md / session-log.md
+└── scripts/
 ```
 
 ---
@@ -93,3 +108,4 @@ open-personality/
 | 2026-06-09 | 阶段二完成：产出 `docs/design.md` + 更新 `docs/brief.md`（B-15~B-22），完成反模式检查 |
 | 2026-06-09 | 阶段二收尾：用户逐节评审 design.md，修复 5 个问题（事务保护、小程序迁移策略、分享码找回、SubmitResponse 命名、QuestionnaireItem 字段），触发存档 |
 | 2026-06-10 | 阶段三完成：产出 `docs/tasks/` 共 11 个任务分解文件（INFRA + DATA + M01~M08 共 94 个子任务），回补 `docs/frontend.md`（T-05），修复 design.md §13.1 重复问题，触发存档 |
+| 2026-06-10 | 阶段四+五完成：prompt.md 确认，全部 94 个子任务实现，41 个后端测试通过，前端构建成功 |
