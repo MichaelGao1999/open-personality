@@ -80,3 +80,35 @@
 
 ### 遗留问题 / 下轮开始点
 - 进入阶段三：任务分解 → `docs/tasks/` 各模块任务书
+
+---
+
+## 2026-06-10 — 阶段三：任务分解 + 文档一致性修复
+
+### 本轮概要
+- 从恢复指令启动，读取 status.md 和 session-log.md
+- 回答用户关于 UI 设计阶段归属的提问
+- 进入阶段三，产出 `docs/tasks/` 共 11 个任务文件：
+  - `task-progress.md`（总进度看板，94 子任务）
+  - `task-infra.md`（8 子任务）
+  - `task-data.md`（9 子任务）
+  - `task-M01~M08.md`（按模块 6~22 子任务）
+- 用户外部回补 `docs/frontend.md` + 补答 T-05，要求检查文档一致性
+- 发现并修复 `design.md` §13.1 与 `frontend.md` §9 重复问题（36 行 → 1 行引用）
+- 确认前端设计风格（主题/图标）搁置到阶段五，不阻塞开发
+- 用户触发存档指令
+
+### 产出文件
+- `docs/tasks/task-progress.md` — 新产出（总进度看板）
+- `docs/tasks/task-infra.md` — 新产出（基础设施）
+- `docs/tasks/task-data.md` — 新产出（数据文件）
+- `docs/tasks/task-M01.md`~`task-M08.md` — 新产出（8 模块任务书）
+
+### 修复文件
+- `docs/design.md` §13.1 — 整段替换为引用 `docs/frontend.md` §9
+
+### 更新文件
+- `status.md` — 阶段标记、待办清理、目录树、更新记录
+
+### 遗留问题 / 下轮开始点
+- 进入阶段四：生成 `prompt.md`

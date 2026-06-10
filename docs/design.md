@@ -668,38 +668,4 @@ open-personality/
 
 ### 13.1 小程序迁移策略（uni-app）
 
-为降低从 Vue Web 迁移到微信小程序的风险，前端代码按「壳/核」分层：
-
-```
-frontend/src/
-├── views/            ← 【壳】页面级视图组件（迁移时需按 uni-app 重写）
-│   ├── HomePage.vue
-│   ├── QuestionnairePage.vue
-│   └── ReportPage.vue
-├── components/       ← 【壳】展示型组件（部分需 uni-app 适配）
-│   ├── RadarChart.vue       ← ECharts → echarts-for-weixin
-│   ├── ResultCard.vue       ← DOM 导出 → Canvas API
-│   ├── EasterEggBanner.vue  ← 纯展示，低风险
-│   ├── ShareLink.vue        ← 纯展示，低风险
-│   └── LanguageSwitch.vue   ← 纯交互，低风险
-├── composables/      ← 【核】纯逻辑，零 DOM 依赖，100% 复用 ✅
-│   ├── useApi.js
-│   └── useI18n.js
-├── i18n/             ← 【核】语言字典文件，100% 复用 ✅
-│   ├── zh.json
-│   └── en.json
-└── utils/            ← 【核/壳混合】
-    ├── api.js              ← 【核】axios → uni.request，接口签名不变
-    └── exportImage.js      ← 【壳】html2canvas → Canvas API，需重写
-```
-
-**迁移工作量预估**：
-| 层 | 行数占比 | 需重写比例 | 说明 |
-|----|---------|-----------|------|
-| views | ~30% | 100% | 路由机制、页面生命周期不同 |
-| components | ~25% | 20-80% | 雷达图和导出需重写，其余几乎不改 |
-| composables | ~15% | 0% | 纯逻辑，零改动 |
-| i18n | ~10% | 0% | 字典文件直接复制 |
-| utils | ~20% | ~30% | api.js改请求库，exportImage重写 |
-
-**核心原则**：「核」代码（composables / i18n / 数据模型）禁止出现 `window`、`document`、`DOM` 操作，确保零成本复用。
+详见 `docs/frontend.md` §9 小程序迁移策略。
