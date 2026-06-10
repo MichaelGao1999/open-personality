@@ -223,3 +223,5 @@
 | 126 | TAG:config TAG:maintainability | INFO | 配置模式演进时应保留旧字段作为 fallback。当 `path` 单字段→`paths` 多平台字典时，保留 `p.get("paths", {}).get(sys.platform) or p.get("path")` 的向后兼容链，零破坏性引入新能力。 [母库 @2026-06-08] | scripts/distribute.py |
 | 127 | TAG:ai-workflow | WARNING | **信任优先原则**：用户直接告知的内容（行号范围、文件摘要、决策信息等），AI 应直接信任并消化，不得再去读取源文件「验证」。用户一次给出的多条信息应一次性全收，不得拆成零碎重复提问。用户跳过/划掉的问题标记待定，不再追回。 [open-personality @2026-06-09] | AGENTS.md / 交互规范 |
 | 128 | TAG:ai-workflow | INFO | **设计文档交付后应主动邀请用户逐节评审**。本轮用户检查 design.md 发现 5 个不一致问题（事务保护、命名对齐、数据模型等），如果直接进阶段三编码，这些会在实现阶段暴露为返工。设计评审的成本远低于编码后改 bug。 [open-personality @2026-06-09] | docs/design.md |
+
+| | TAG:board [来源:agent-coding-skeleton @2026-06-10] | INFO | `BoardFactory.highlight()` 需要同时支持 `data-square`（8×8 棋盘，如 `e2`）和 `data-pos`（6×6 棋盘，如 `2,3`）两种格子标识。非 8×8 棋盘调 `board.highlight('行,列', 'dot')`，8×8 棋盘调 `board.highlight('e2', 'dot')`。调用前必须先确认棋盘是什么尺寸 [blindfold-chess @2026-05-30] | guide.js + board-factory.js |
