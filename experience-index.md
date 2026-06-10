@@ -3,7 +3,7 @@
 > 本文件由 `scripts/build-experience-index.py` 自动生成。
 > 覆盖 troubleshooting / lessons-learned / ADR，统一搜索入口。
 
-> 当前收录 **216** 条记录（问题 47 + 经验 127 + 决策 42）。
+> 当前收录 **217** 条记录（问题 47 + 经验 128 + 决策 42）。
 
 ---
 
@@ -185,6 +185,7 @@
 | general | 配置模式演进时应保留旧字段作为 fallback。当 `path` 单字段→`paths` 多平台字典时，保留 `p.g... | 经验 | config / maintainability | 母库 | INFO | lessons-learned.md#L223 |
 | general | **信任优先原则**：用户直接告知的内容（行号范围、文件摘要、决策信息等），AI 应直接信任并消化，不得再去读取源文件「... | 经验 | ai-workflow |  | WARNING | lessons-learned.md#L224 |
 | general | **设计文档交付后应主动邀请用户逐节评审**。本轮用户检查 design.md 发现 5 个不一致问题（事务保护、命名对... | 经验 | ai-workflow |  | INFO | lessons-learned.md#L225 |
+| general | **GitHub 上 Fetch 的 SKILL.md 不能只看内容不看场景**。用户发来 `github.com/an... | 经验 | ai-workflow |  | WARNING | lessons-learned.md#L228 |
 | general | ADR-025：decisions.md 退出分发体系，仅保留聚合 | 决策 | 架构决策 | 母库 | — | ADR.md#L8 |
 | general | ADR-024：anti-patterns-checklist 完整集成到 SOP 五阶段工作流 | 决策 | 架构决策 | 母库 | — | ADR.md#L23 |
 | general | ADR-023：RULE-04 从 Windows-only 改为跨平台 | 决策 | 架构决策 | 母库 | — | ADR.md#L38 |
@@ -335,6 +336,7 @@
 - [经验] 从 SSH 协议切换到 HTTPS + `gh auth setup-git` 后，`git pus — `未分类` → lessons-learned.md#L168
 - [经验] Git for Windows 的 bash `/tmp` 与 PowerShell `$env:T — `build-env` → lessons-learned.md#L170
 - [经验] 不要在 pipx 安装的 Python 包源码目录中执行 `git pull`，除非确认没有本地修改 — `build-env` → lessons-learned.md#L206
+- [经验] **GitHub 上 Fetch 的 SKILL.md 不能只看内容不看场景**。用户发来 `git — `ai-workflow` → lessons-learned.md#L228
 - [决策] ADR-017：GitHub 认证从 SSH 切换到 GitHub CLI + HTTPS — `架构决策` → ADR.md#L186
 - [决策] ADR-022：init-skeleton.py 从本地路径改为 GitHub 拉取模式 [母库 @ — `架构决策` → ADR.md#L608
 
@@ -611,7 +613,7 @@
 - `cargo tauri build` 失败：`另一个程序正在使用此文件` (os error 32) → troubleshooting.md#L204
 - ... 还有 27 条
 
-### 经验（127 条）
+### 经验（128 条）
 
 - 纯 HTML+CSS+JS 项目无需 npm，双击 `index.html` 即可预览，但涉及 Web Wor... → lessons-learned.md#L14
 - 手写 IIFE 模块时，用 `window.ModuleName = Module` 暴露 API，内部私有变... → lessons-learned.md#L15
@@ -633,7 +635,7 @@
 - **i18n 分散架构必然导致翻译遗漏**：当项目同时存在"全局字典 + 模块私有字典 + 硬编码"三种翻译方... → lessons-learned.md#L31
 - **JS 中的硬编码人类可读字符串是翻译遗漏的重灾区**：HTML 中的 `data-i18n` 至少能被肉眼... → lessons-learned.md#L32
 - **复制粘贴是 i18n 错误的常见来源**：将中文值直接粘贴进英文字典，或反之，属于低级但高频的疏忽 → lessons-learned.md#L33
-- ... 还有 107 条
+- ... 还有 108 条
 
 ### 决策（42 条）
 
