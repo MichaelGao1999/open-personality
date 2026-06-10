@@ -225,3 +225,4 @@
 | 128 | TAG:ai-workflow | INFO | **设计文档交付后应主动邀请用户逐节评审**。本轮用户检查 design.md 发现 5 个不一致问题（事务保护、命名对齐、数据模型等），如果直接进阶段三编码，这些会在实现阶段暴露为返工。设计评审的成本远低于编码后改 bug。 [open-personality @2026-06-09] | docs/design.md |
 
 | | TAG:board [来源:agent-coding-skeleton @2026-06-10] | INFO | `BoardFactory.highlight()` 需要同时支持 `data-square`（8×8 棋盘，如 `e2`）和 `data-pos`（6×6 棋盘，如 `2,3`）两种格子标识。非 8×8 棋盘调 `board.highlight('行,列', 'dot')`，8×8 棋盘调 `board.highlight('e2', 'dot')`。调用前必须先确认棋盘是什么尺寸 [blindfold-chess @2026-05-30] | guide.js + board-factory.js |
+| 129 | TAG:ai-workflow | WARNING | **GitHub 上 Fetch 的 SKILL.md 不能只看内容不看场景**。用户发来 `github.com/anthropics/skills/blob/main/skills/brand-guidelines/SKILL.md`，内按内容（Anthropic 品牌色/字体）判断"与本项目几乎无关"。但用户意图是将其作为前端设计的风格参考母版（front design），而非直接输出 Anthropic 风格内容。先问"你想怎么用这个"再评估。 [open-personality @2026-06-10] | 前端设计 |

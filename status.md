@@ -26,6 +26,7 @@
 ### 优先级 2 — 功能
 - [x] 阶段四：准备 prompt 工程 → `prompt.md`
 - [x] 阶段五：执行开发 — 全部 Phase A~E 完成
+- [ ] 前端视觉风格定型（参考 Anthropic Brand Guidelines 色彩/字体体系）
 
 ### 优先级 3 — 优化
 - [ ] 
