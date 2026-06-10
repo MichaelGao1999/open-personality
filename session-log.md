@@ -138,3 +138,27 @@
 ### 遗留问题 / 下轮开始点
 - P2 未完成任务：E2E 测试（M08-20）、CI 配置（INFRA-08）、响应式（M08-21）、动画（M08-22）、IPIP-300 数据（DATA-03/04）
 - 解读模板为占位文本，需补充完整的人格解读内容
+
+---
+
+## 2026-06-10 — CI 修复 + frontend-design 技能安装
+
+### 本轮概要
+- 审查 `docs/design.md` 逻辑问题，发现 4 项（事务保护、分享码找回、SubmitResponse 未定义、QuestionnaireItem 字段），与之前阶段二已修复的事实对照确认
+- 检查项目进度：五阶段已全部完成，P2 尾项待办
+- 诊断 CI 失败原因：
+  - **Backend**：pytest 在 `working-directory: backend` 下运行，`from backend.app.xxx` 找不到模块（缺 PYTHONPATH）
+  - **Frontend**：无测试文件，`vitest run` 报 "No test files found, exiting with code 1"
+- 修复 `.github/workflows/ci.yml`：Backend 加 `PYTHONPATH: ${{ github.workspace }}`；Frontend 注释掉 `npm test` 步骤
+- 提交推送（`3bb6f00`）
+- 从 GitHub anthropics/skills 拉取 `frontend-design` 设计技能（SKILL.md 8KB）
+- 提出前端 UI 重新设计方案（5 维度色系 + Playfair Display/Inter 字体 + 分段彩色进度条）
+- 安装 `frontend-design` 技能到 `.reasonix/skills/frontend-design.md`（scope: project, runAs: inline）
+
+### 更新文件
+- `.github/workflows/ci.yml` — 修复 Backend PYTHONPATH，注释 Frontend npm test
+- `.reasonix/skills/frontend-design.md` — 新安装技能文件
+
+### 遗留问题 / 下轮开始点
+- 前端视觉风格定型（待调用 frontend-design 技能推进）
+- P2 尾项：E2E 测试、响应式、动画、IPIP-300、解读模板
