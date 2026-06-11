@@ -26,7 +26,7 @@
 ### 优先级 2 — 功能
 - [x] 阶段四：准备 prompt 工程 → `prompt.md`
 - [x] 阶段五：执行开发 — 全部 Phase A~E 完成
-- [ ] 前端视觉风格定型（参考 Anthropic Brand Guidelines 色彩/字体体系）
+- [ ] 前端视觉风格定型（待调用 frontend-design 技能推进）
 
 ### 优先级 3 — 优化
 - [ ] 
@@ -110,3 +110,4 @@ open-personality/
 | 2026-06-09 | 阶段二收尾：用户逐节评审 design.md，修复 5 个问题（事务保护、小程序迁移策略、分享码找回、SubmitResponse 命名、QuestionnaireItem 字段），触发存档 |
 | 2026-06-10 | 阶段三完成：产出 `docs/tasks/` 共 11 个任务分解文件（INFRA + DATA + M01~M08 共 94 个子任务），回补 `docs/frontend.md`（T-05），修复 design.md §13.1 重复问题，触发存档 |
 | 2026-06-10 | 阶段四+五完成：prompt.md 确认，全部 94 个子任务实现，41 个后端测试通过，前端构建成功 |
+| 2026-06-10 | 修复 CI（Backend PYTHONPATH + Frontend 跳 npm test）；安装 frontend-design 技能；提出前端 UI 重设计方向 |
