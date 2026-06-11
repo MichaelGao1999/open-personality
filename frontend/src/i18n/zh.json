@@ -1,4 +1,6 @@
 {
+  "common.chinese": "中文",
+  "common.english": "EN",
   "app.title": "Open Personality",
   "app.subtitle": "大五人格测评工具",
   "home.select_mode": "选择测评模式",

@@ -26,7 +26,7 @@
 ### 优先级 2 — 功能
 - [x] 阶段四：准备 prompt 工程 → `prompt.md`
 - [x] 阶段五：执行开发 — 全部 Phase A~E 完成
-- [ ] 前端视觉风格定型（待调用 frontend-design 技能推进）
+- [x] 前端视觉风格定型（已完成：五维度色系 + 字体方案 + 组件样式）
 
 ### 优先级 3 — 优化
 - [ ] 
@@ -111,3 +111,4 @@ open-personality/
 | 2026-06-10 | 阶段三完成：产出 `docs/tasks/` 共 11 个任务分解文件（INFRA + DATA + M01~M08 共 94 个子任务），回补 `docs/frontend.md`（T-05），修复 design.md §13.1 重复问题，触发存档 |
 | 2026-06-10 | 阶段四+五完成：prompt.md 确认，全部 94 个子任务实现，41 个后端测试通过，前端构建成功 |
 | 2026-06-10 | 修复 CI（Backend PYTHONPATH + Frontend 跳 npm test）；安装 frontend-design 技能；提出前端 UI 重设计方向 |
+| 2026-06-11 | 清理 Trae 冲突文件 + 同步 docs/frontend.md 为 MimoCode 配色 + 修复 LanguageSwitch `t is not a function` 错误 |

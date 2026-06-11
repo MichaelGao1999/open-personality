@@ -6,7 +6,13 @@
       maxlength="8"
       @keyup.enter="search"
     />
-    <button @click="search">{{ t('home.share_code_button') }}</button>
+    <button class="dopamine-btn share-btn" @click="search">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"/>
+        <path d="M21 21l-4.35-4.35"/>
+      </svg>
+      {{ t('home.share_code_button') }}
+    </button>
   </div>
 </template>
 
@@ -30,25 +36,41 @@ function search() {
 <style scoped>
 .share-code-input {
   display: flex;
-  gap: 8px;
+  gap: 10px;
   justify-content: center;
-  margin-top: 16px;
+  align-items: center;
 }
+
 .share-code-input input {
-  padding: 8px 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  padding: 14px 20px;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-full);
+  font-family: var(--font-mono);
   font-size: 16px;
-  width: 160px;
+  font-weight: 500;
+  width: 200px;
   text-align: center;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
+  color: var(--color-text);
+  background: var(--color-surface);
+  transition: all 0.25s var(--ease-bounce);
 }
-.share-code-input button {
-  padding: 8px 16px;
-  background: #4a90d9;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
+
+.share-code-input input:focus {
+  outline: none;
+  border-color: var(--color-conscientiousness);
+  box-shadow: 0 0 0 4px rgba(0, 180, 216, 0.15);
+}
+
+.share-code-input input::placeholder {
+  letter-spacing: 0;
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: var(--color-text-secondary);
+}
+
+.share-btn {
+  padding: 14px 24px;
+  font-size: 14px;
 }
 </style>

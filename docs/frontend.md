@@ -212,12 +212,88 @@ frontend/src/
 
 ---
 
-## 10. UI 规范
+## 10. UI 规范 — Dopamine Personality
+
+### 10.1 配色方案（多巴胺五维度色系）
+
+| 维度 | 颜色名称 | 十六进制值 | CSS 变量 | 用途 |
+|------|---------|-----------|---------|------|
+| **开放性 (O)** | 亮紫 | #7B2FF7 | `--color-openness` | 装饰、彩蛋、维度标识 |
+| **尽责性 (C)** | 电光蓝 | #00B4D8 | `--color-conscientiousness` | 边框、输入框焦点 |
+| **外向性 (E)** | 阳光黄 | #FFD60A | `--color-extraversion` | 亮点、维度标识 |
+| **宜人性 (A)** | 青柠绿 | #56CFE1 | `--color-agreeableness` | 成功状态、积极反馈 |
+| **神经质 (N)** | 热力粉 | #FF006E | `--color-neuroticism` | 主色调、强调元素 |
+| **背景** | 浅灰白 | #FAFAFA | `--color-bg` | 页面主背景 |
+| **卡片** | 纯白 | #FFFFFF | `--color-surface` | 卡片、弹窗 |
+| **文本** | 深灰 | #1A1A2E | `--color-text` | 正文 |
+| **次要文本** | 灰色 | #6B7280 | `--color-text-secondary` | 辅助文字 |
+| **边框** | 浅灰 | #E5E7EB | `--color-border` | 卡片边框、分割线 |
+
+**渐变预设**：
+| 名称 | 渐变方向 | CSS 变量 |
+|------|---------|---------|
+| 主渐变 | 135° 热力粉 → 亮紫 | `--gradient-primary` |
+| 彩虹渐变 | 90° O→C→E→A→N | `--gradient-rainbow` |
+| Hero 渐变 | 135° 粉→紫→蓝 | `--gradient-hero` |
+
+### 10.2 字体方案
+
+| 角色 | 字体选择 | 用途 | CSS 变量 |
+|------|---------|------|---------|
+| **显示字体** | Playfair Display | 标题、品牌名称、关键数据展示 | `--font-display` |
+| **正文字体** | Inter | 正文、按钮文字、表单输入 | `--font-body` |
+| **数据字体** | JetBrains Mono | 分数、百分比、代码展示 | `--font-mono` |
+
+**字体层级**：
+- 大标题：Playfair Display 48px (lg) / 36px (md) / 24px (sm) — `--font-display`
+- 小标题：Inter SemiBold 20px — `--font-body`
+- 正文：Inter Regular 16px — `--font-body`
+- 辅助文字：Inter Regular 14px — `--font-body`
+- 数据：JetBrains Mono 32px (MBTI 代码) / 18px (分数) — `--font-mono`
+
+### 10.3 可复用样式类
+
+定义在 `frontend/src/styles/global.css`：
+
+| 类名 | 用途 | 关键属性 |
+|------|------|---------|
+| `.dopamine-card` | 卡片容器 | 白色背景、圆角 20px、2px 边框、阴影 |
+| `.dopamine-btn` | 主操作按钮 | 渐变背景、圆角 9999px、hover scale 1.05 |
+| `.dopamine-btn-outline` | 次要按钮 | 透明 + 边框、hover 变色 |
+| `.gradient-text` | 渐变标题文字 | hero 渐变、`background-clip: text` |
+
+### 10.4 组件规范
+
+| 组件 | 样式 |
+|------|------|
+| **按钮** | `dopamine-btn` / `dopamine-btn-outline`，全圆角，过渡 `cubic-bezier(0.34, 1.56, 0.64, 1)` |
+| **卡片** | `dopamine-card`，hover 上浮 2px |
+| **进度条** | 彩虹渐变填充，高 10px，圆角 5px，shimmer 动画 |
+| **选项按钮** | 五色圆形按钮（对应五个维度），选中放大 + 变色 |
+| **输入框** | 圆角 9999px，2px 边框，focus 发光 |
+| **模态框** | 毛玻璃背景（`backdrop-filter: blur`），bounceIn 弹入动画 |
+| **弹窗** | bounceIn 弹入（0.4s），页面切换 pageIn/pageOut（0.4s/0.2s） |
+
+### 10.5 动画与交互
+
+| 类型 | 效果 | 关键帧 |
+|------|------|--------|
+| 页面进入 | 上移淡入 + 微缩放 | `pageIn` (0.4s, cubic-bezier) |
+| 页面离开 | 淡出微缩 | `pageOut` (0.2s, ease-in) |
+| 元素出现 | 弹性弹入 | `bounceIn` (0.5s, cubic-bezier) |
+| 按钮 hover | scale 1.05 + 阴影加深 |  |
+| 卡片 hover | translateY -2px + 阴影加深 |  |
+| 进度条 | 彩虹 shimmer 流动 | `shimmer` (3s, linear infinite) |
+| 彩蛋 | bounceIn 弹入 | `bounceIn` (0.5s) |
+| 背景装饰 | 浮动 blob 呼吸 | `blobFloat` (20s, ease-in-out) |
+
+### 10.6 风格总览
 
 | 项 | 规范 |
 |----|------|
-| 风格 | 极简 + 卡片（B-11） |
+| 风格 | Dopamine — 高饱和、年轻、圆润、渐变、弹性动画（B-11） |
 | 响应式 | P2 延后，优先桌面端；移动端适配 < 768px（M08-21） |
-| 主题 | 待定，默认浅色主题 |
-| 图标 | 待定 |
-| 动画 | 页面过渡 + 彩蛋出现动画（P2，M08-22） |
+| 主题 | 浅色主题，多巴胺五维度色系 |
+| 图标 | 内联 SVG（feather-style） |
+| 动画 | 页面过渡 + 弹性弹入 + 背景浮动（P2，M08-22） |
+| 字体来源 | Google Fonts（Playfair Display + Inter + JetBrains Mono） |

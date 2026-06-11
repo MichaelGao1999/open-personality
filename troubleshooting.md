@@ -694,6 +694,16 @@ pending → resolved → promoted
 | **原因** | Windows 防火墙规则修改需要管理员权限 |
 | **解决** | 1. 以管理员身份运行一次 PowerShell 执行脚本，添加规则后后续无需管理员<br>2. 或手动在 Windows 防火墙高级设置中添加 11434 TCP 入站规则 |
 
+### Vue 3 `<script setup>` `_ctx.t is not a function` [来源:open-personality @2026-06-11]
+
+| | 内容 |
+|---|---|
+| **状态** | resolved |
+| **现象** | 页面只显示背景渐变装饰，无任何内容。控制台报错 `Uncaught (in promise) TypeError: _ctx.t is not a function at Proxy._sfc_render (LanguageSwitch.vue:8:10)` |
+| **原因** | `<script setup>` 中 `const { lang, setLang } = useI18n()` 仅解构了 `lang` 和 `setLang`，但模板中使用了 `t('common.chinese')`。`t` 未被解构到当前作用域，Vue 模板编译为 `_ctx.t` 时找不到该函数。 |
+| **解决** | 在解构中添加 `t`：`const { t, lang, setLang } = useI18n()`。同时确保 i18n JSON 文件中有对应的 key（如 `common.chinese`）。 |
+| **预防** | `useI18n()` 或其他 composable 返回的所有在模板中使用的函数/变量，必须在 `<script setup>` 中全部解构，否则 Vue 模板编译后无法访问。 |
+
 ### Node.js 报 SyntaxError: Unexpected identifier（i18n 中文字符串） [来源:blindfold-chess @2026-05-29] [来源:blindfold-chess @2026-05-29]
 
 | | 内容 |

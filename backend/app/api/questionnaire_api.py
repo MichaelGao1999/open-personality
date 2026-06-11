@@ -13,7 +13,7 @@ from backend.app.db.models import Session as DBSessionModel
 from backend.app.db.repository import ReportRepository
 from backend.app.schemas.models import Report, SubmitRequest
 
-router = APIRouter(prefix="/api")
+router = APIRouter()
 
 questionnaire_loader = QuestionnaireLoader()
 scoring_engine = ScoringEngine()
