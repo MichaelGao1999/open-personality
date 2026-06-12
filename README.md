@@ -70,5 +70,5 @@ python scripts/pull.py
 
 ## 母库来源
 
-- 仓库：[MichaelGao1999/agent-coding-skeleton](https://github.com/MichaelGao1999/agent-coding-skeleton)
-- 启动包：[starter/](https://github.com/MichaelGao1999/agent-coding-skeleton/tree/master/starter)
+- 仓库：[your-github-username/agent-coding-skeleton](https://github.com/your-github-username/agent-coding-skeleton)
+- 启动包：[starter/](https://github.com/your-github-username/agent-coding-skeleton/tree/master/starter)
