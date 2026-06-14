@@ -48,6 +48,7 @@
   "report.title": "你的性格画像",
   "report.big_five": "大五人格",
   "report.mbti": "MBTI 类型",
+  "report.mbti_label": "MBTI 解读为",
   "report.interpretation": "维度解读",
   "report.export": "导出图片",
   "report.share": "复制分享链接",

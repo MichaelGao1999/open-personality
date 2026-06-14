@@ -48,6 +48,7 @@
   "report.title": "Your Personality Profile",
   "report.big_five": "Big Five",
   "report.mbti": "MBTI Type",
+  "report.mbti_label": "MBTI Type",
   "report.interpretation": "Dimension Interpretation",
   "report.export": "Export as Image",
   "report.share": "Copy Share Link",
