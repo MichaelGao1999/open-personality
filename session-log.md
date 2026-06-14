@@ -247,6 +247,31 @@
 - `AGENTS.md` — 新增 §4.3 快照指令
 - `scripts/checkpoint.sh` — 新建
 
+---
+
+## 2026-06-14 — MBTI 修复 + CSS 丢失调整重实施
+
+### 本轮概要
+- **MBTI 计算错误修复**：
+  - 根因：使用 `raw_scores`（范围 24-120）而非 `t_scores`（M=50, SD=10），且权重未居中校准
+  - 修复：`mbti.py` 改为使用 `t_scores`；`norms.json` mean=72（raw 中间值）、sd=15；`mbti_mapping.json` 加 bias 让 T=50 时 sigmoid 输入=0
+  - 验证：全 3 分→四维 50/50，置信度 0.0 ✅
+- **CSS 调整重实施**（此前 plan 模式丢失）：
+  - 答题卡顶部 `::before` 彩色横条移除
+  - 选项颜色改为不同意→同意光谱（靛蓝→灰→琥珀）
+  - 按钮 `flex: 1` 填满卡片
+  - 5 位置独立 hover 提示标签 + 渐进渐入动画
+- **AGENTS.md §4.3 checkpoint 指令** 写入
+- **scripts/checkpoint.sh** 创建
+
+### 修复文件
+- `backend/app/core/mbti.py` — raw_scores → t_scores
+- `backend/data/norms.json` — mean 50→72
+- `backend/data/mbti_mapping.json` — 新增 bias 校准值
+- `backend/tests/test_mbti.py` — 5 个测试补充 t_scores 数据
+
+### 更新文件
+- `frontend/src/views/QuestionnairePage.vue` — 4 项 CSS 调整重实施
+
 ### 遗留问题 / 下轮开始点
 - P2 尾项：E2E 测试、响应式、动画、IPIP-300、解读模板
-- 雷达图中文标签可读性待优化（上一轮讨论未落地）
