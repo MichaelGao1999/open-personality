@@ -227,6 +227,26 @@
 - `docs/dev-debug-dock-spec.md` — Debug Dock 规范
 - `docs/theme-debug-board-spec.md` — 主题看板规范
 
+---
+
+## 2026-06-14 — ResultCard 改造 + checkpoint 指令 + 工作流优化
+
+### 本轮概要
+- **ResultCard 完全重写**：雷达图左 + 柱状图右双栏布局；右上角「解读」按钮弹出 5 维度详细解读弹窗；彩蛋/趣味提示区域（无彩蛋时显示随机人格小贴士）；MBTI 直接展示（"MBTI 解读为: ENFP" + 4 对概率）
+- **ReportPage 清理**：移除独立的 interpretations 区块和 EasterEggBanner，全部归入 ResultCard
+- **i18n**：新增 `mbti_label` 中英文 key
+- **AGENTS.md §4.3 checkpoint 指令**：新增快照指令规则，与「存档」互补——开发中安全网
+- **scripts/checkpoint.sh**：一键拍快照脚本，改前用
+- **讨论**：修改流程优化——先 checkpoint 再动手，改坏了精准回滚单步
+
+### 更新文件
+- `frontend/src/components/ResultCard.vue` — 重写（雷达+柱状双栏 + 解读弹窗 + 彩蛋区 + MBTI直达）
+- `frontend/src/views/ReportPage.vue` — 清理独立的解读/彩蛋区块
+- `frontend/src/i18n/zh.json` — 新增 `mbti_label`
+- `frontend/src/i18n/en.json` — 新增 `mbti_label`
+- `AGENTS.md` — 新增 §4.3 快照指令
+- `scripts/checkpoint.sh` — 新建
+
 ### 遗留问题 / 下轮开始点
 - P2 尾项：E2E 测试、响应式、动画、IPIP-300、解读模板
-- 继续完善深色模式下的组件适配（如 ECharts 雷达图已修复）
+- 雷达图中文标签可读性待优化（上一轮讨论未落地）
