@@ -953,5 +953,339 @@
 
 ---
 
+### repo_1243304845/ADR-005：分发配置平台感知化 [来源:母库]
+
+---
+
+
+### repo_1243304845/ADR-007：状态文档机制重构（待办清理 + 技术债务表格化） [来源:母库]
+
+---
+
+
+### repo_1243304845/ADR-009：分发逻辑从覆盖文件改为按条目合并 [来源:母库]
+
+---
+
+
+### repo_1243304845/ADR-011：阶段产出不放 starter 模板 [来源:母库]
+
+---
+
+
+### repo_1243304845/ADR-012：持久化记忆系统架构选型 [来源:母库]
+
+---
+
+
+### repo_1243304845/ADR-030：隐私防护三层防御体系 [来源:母库 @2026-06-12]
+
+---
+
+
+### repo_1243304845/ADR-016：project-starter 公开仓库仅放模板 [来源:母库 @2026-06-12]
+
+---
+
+
+### repo_1243304845/ADR-020：状态文档机制重构（待办清理 + 技术债务表格化） [来源:vibe-coding-project-sop @2026-05-31] [来源:母库]
+
+---
+
+
+### repo_1243304845/ADR-021：分发逻辑从覆盖文件改为按条目合并 [来源:vibe-coding-project-sop @2026-05-31] [来源:母库]
+
+---
+
+
+### repo_1239378927/ADR-004：Node.js 环境隔离方案（nvm + 双 Node.js） [来源:母库] [来源:blindfold-chess @2026-06-12]
+
+---
+
+
+### repo_1239378927/ADR-054：GitHub 认证从 SSH 切换到 GitHub CLI + HTTPS [来源:agent-coding-skeleton] [来源:blindfold-chess @2026-06-12]
+
+---
+
+
+### repo_1239378927/ADR-013：同步脚本优先使用仓库 default_branch [来源:agent-coding-skeleton] [来源:blindfold-chess @2026-06-12]
+
+---
+
+
+### repo_1239378927/ADR-014：syncFrom 配置实现聚合/分发双模式 [来源:agent-coding-skeleton] [来源:blindfold-chess @2026-06-12]
+
+---
+
+
+### repo_1239378927/ADR-015：母库 AGENTS 与其他项目 AGENTS 物理分离 [来源:agent-coding-skeleton] [来源:blindfold-chess @2026-06-12]
+
+---
+
+
+### repo_1239378927/ADR-055：前端技术栈选型 [来源:blindfold-chess] [来源:blindfold-chess @2026-06-12]
+
+---
+
+
+### repo_1239378927/ADR-017：测试框架选型 [来源:blindfold-chess] [来源:blindfold-chess @2026-06-12]
+
+---
+
+
+### repo_1239378927/ADR-018：AI 开发方式与批次划分 [来源:blindfold-chess] [来源:blindfold-chess @2026-06-12]
+
+---
+
+
+### repo_1239378927/ADR-019：棋盘渲染与棋子方案 [来源:blindfold-chess] [来源:blindfold-chess @2026-06-12]
+
+---
+
+
+### repo_1239378927/ADR-056：数据持久化方案 [来源:blindfold-chess] [来源:blindfold-chess @2026-06-12]
+
+---
+
+
+### repo_1239378927/ADR-057：通用对局配置层设计 [来源:blindfold-chess] [来源:blindfold-chess @2026-06-12]
+
+---
+
+
+### repo_1239378927/ADR-022：难度选择从离散按钮改为连续滑块 [来源:blindfold-chess] [来源:blindfold-chess @2026-06-12]
+
+---
+
+
+### repo_1239378927/ADR-023：棋盘风格设置交互方案 [来源:blindfold-chess] [来源:blindfold-chess @2026-06-12]
+
+---
+
+
+### repo_1239378927/ADR-024：盲棋复盘入口位置 [来源:blindfold-chess] [来源:blindfold-chess @2026-06-12]
+
+---
+
+
+### repo_1239378927/ADR-025：Troubleshooting 索引采用独立文件 + 行号链接 [来源:blindfold-chess @2026-06-12]
+
+---
+
+
+### repo_1239378927/ADR-026：init-skeleton.py 保持 Python 3.9 兼容 [来源:blindfold-chess @2026-06-12]
+
+---
+
+
+### repo_1239378927/ADR-027：假删除模式通过环境变量 `FRENCH_EXIT_DRY_RUN` 控制 [来源:blindfold-chess]
+
+---
+
+
+### repo_1239378927/ADR-028：扫描进度条采用后端全局加权进度计算 [来源:blindfold-chess]
+
+---
+
+
+### repo_1239378927/ADR-029：个人目录全量扫描 + 文件类型分类 [来源:blindfold-chess]
+
+---
+
+
+### repo_1239378927/ADR-058：WebView2 安装模式选择 downloadBootstrapper [来源:blindfold-chess]
+
+---
+
+
+### repo_1239378927/ADR-034：为什么用 Tauri（Rust + WebView2）而非 Electron？ [来源:french-exit] [来源:blindfold-chess @2026-06-12]
+
+---
+
+
+### repo_1239378927/ADR-035：为什么前端用 React（而非 Vue/Svelte）？ [来源:french-exit] [来源:blindfold-chess @2026-06-12]
+
+---
+
+
+### repo_1239378927/ADR-036：为什么 CPU% 用 `GetProcessTimes` 而非 `sysinfo` crate？ [来源:french-exit] [来源:blindfold-chess @2026-06-12]
+
+---
+
+
+### repo_1239378927/ADR-037：为什么 Scanner 进度用 `mpsc::channel` 而非 `tokio::sync::watch`？ [来源:french-exit] [来源:blindfold-chess @2026-06-12]
+
+---
+
+
+### repo_1239378927/ADR-038：为什么加密文件回调用同步 `Fn` 而非 `async`？ [来源:french-exit] [来源:blindfold-chess @2026-06-12]
+
+---
+
+
+### repo_1239378927/ADR-039：为什么用 `status.md` + `session-log.md` 替代 `prompt-next-session.md`？ [来源:french-exit] [来源:blindfold-chess @2026-06-12]
+
+---
+
+
+### repo_1239378927/ADR-040：WebView2 分发策略——放弃 NSIS bootstrapper，改用携带 DLL [来源:french-exit] [来源:blindfold-chess @2026-06-12]
+
+---
+
+
+### repo_1239378927/ADR-041：默认深色主题而非跟随系统 [来源:french-exit] [来源:blindfold-chess @2026-06-12]
+
+---
+
+
+### repo_1239378927/ADR-042：全选全部功能的技术方案 [来源:french-exit] [来源:blindfold-chess @2026-06-12]
+
+---
+
+
+### repo_1239378927/ADR-043：路径交互设计 — 文本可点击 vs 独立按钮 [来源:french-exit] [来源:blindfold-chess @2026-06-12]
+
+---
+
+
+### repo_1239378927/ADR-044：删除策略从 DoD 安全擦除改为普通删除 [来源:french-exit] [来源:blindfold-chess @2026-06-12]
+
+---
+
+
+### repo_1239378927/ADR-045：扫描范围从 Desktop/Downloads 扩展为全盘扫描 [来源:french-exit] [来源:blindfold-chess @2026-06-12]
+
+---
+
+
+### repo_1239378927/ADR-046：移除 ResultsPage 默认自动勾选 [来源:french-exit] [来源:blindfold-chess @2026-06-12]
+
+---
+
+
+### repo_1239378927/ADR-059：假删除模式通过环境变量 `FRENCH_EXIT_DRY_RUN` 控制 [来源:french-exit @2026-05-22] [来源:blindfold-chess @2026-06-12]
+
+---
+
+
+### repo_1239378927/ADR-060：扫描进度条采用后端全局加权进度计算 [来源:blindfold-chess @2026-06-12]
+
+---
+
+
+### repo_1239378927/ADR-061：个人目录全量扫描 + 文件类型分类 [来源:blindfold-chess @2026-06-12]
+
+---
+
+
+### repo_1239378927/ADR-062：WebView2 安装模式选择 downloadBootstrapper [来源:blindfold-chess @2026-06-12]
+
+---
+
+
+### repo_1239378927/ADR-047：技术栈选型（Python 3 + requests） [来源:qianniu_business_analytics] [来源:blindfold-chess @2026-06-12]
+
+---
+
+
+### repo_1239378927/ADR-048：渠道范围限定（仅淘系生意参谋） [来源:qianniu_business_analytics] [来源:blindfold-chess @2026-06-12]
+
+---
+
+
+### repo_1239378927/ADR-049：Cookie 刷新策略（Digest 自动刷新，不问用户） [来源:qianniu_business_analytics] [来源:blindfold-chess @2026-06-12]
+
+---
+
+
+### repo_1239378927/ADR-050：日期时间格式（T00:00:00+08:00，禁用 23:59:59） [来源:qianniu_business_analytics] [来源:blindfold-chess @2026-06-12]
+
+---
+
+
+### repo_1239378927/ADR-051：报告形态（Markdown 四段式，单店/多店统一） [来源:qianniu_business_analytics] [来源:blindfold-chess @2026-06-12]
+
+---
+
+
+### repo_1239378927/ADR-063：聚焦 Excel 驱动流，API 驱动流暂不投入 [来源:qianniu_business_analytics @2026-05-22] [来源:blindfold-chess @2026-06-12]
+
+---
+
+
+### repo_1254814983/ADR-001：decisions.md 退出分发体系，仅保留聚合 [来源:母库] [来源:ecommerce-compliance-checker @2026-06-12]
+
+---
+
+
+### repo_1254814983/ADR-002：anti-patterns-checklist 完整集成到 SOP 五阶段工作流 [来源:母库] [来源:ecommerce-compliance-checker @2026-06-12]
+
+---
+
+
+### repo_1254814983/ADR-003：RULE-04 从 Windows-only 改为跨平台 [来源:母库] [来源:ecommerce-compliance-checker @2026-06-12]
+
+---
+
+
+### repo_1254814983/ADR-006：清理冗余索引脚本，补齐骨架 manifest [来源:ecommerce-compliance-checker @2026-06-12]
+
+---
+
+
+### repo_1254814983/ADR-008：认知提取交互改进 — 强制检查点（方案 A） [来源:母库] [来源:ecommerce-compliance-checker @2026-06-12]
+
+---
+
+
+### repo_1254814983/ADR-010：init-skeleton.py 从本地路径改为 GitHub 拉取模式 [来源:ecommerce-compliance-checker @2026-06-12]
+
+---
+
+
+### repo_1254814983/ADR-065：桌面应用选型 - Electron [来源:ecommerce-compliance-checker @2026-06-12]
+
+---
+
+
+### repo_1254814983/ADR-066：OCR引擎版本锁定 [来源:ecommerce-compliance-checker @2026-06-12]
+
+---
+
+
+### repo_1254814983/ADR-067：敏感词类型分类命名 [来源:ecommerce-compliance-checker @2026-06-12]
+
+---
+
+
+### repo_1261261641/ADR-031：（待补充标题） [来源:fact-swarm-v2]
+
+---
+
+
+### repo_1261261641/ADR-032：SKILL.md 插件模式优于 CLI 独立工具 [来源:fact-swarm-v2 @2026-06-12]
+
+---
+
+
+### repo_1261261641/ADR-033：S4-S5 流程重定义 [来源:fact-swarm-v2 @2026-06-12]
+
+---
+
+
+### repo_1246437677/ADR-052：聚焦 Excel 驱动流，API 驱动流暂不投入 [来源:qianniu_business_analytics]
+
+---
+
+
+### repo_1246437677/ADR-053：保持 `qianniu_business_analytics` 与 `ecommerce-report-code` 独立 [来源:qianniu_business_analytics]
+
+---
+
+
+### repo_1246437677/ADR-064：保持 `qianniu_business_analytics` 与 `ecommerce-report-code` 独立 [来源:qianniu_business_analytics @2026-06-12]
+
+---
+
 
 ---
