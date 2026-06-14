@@ -10,7 +10,7 @@
     "lessons-learned.md",
     "troubleshooting.md"
   ],
-  "branch": "master",
+  "branch": "main",
   "backupBeforeMerge": true,
   "mergeStrategy": {
     "lessonsLearned": {
