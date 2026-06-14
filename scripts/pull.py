@@ -37,7 +37,7 @@ except ImportError:
 
 # ===== 母库配置（硬编码，其他项目无需修改） =====
 MOTHER_REPO = "agent-coding-skeleton"
-MOTHER_USERNAME = "MichaelGao1999"
+MOTHER_USERNAME = "your-github-username"
 MOTHER_BRANCH = "master"
 RAW_BASE = f"https://raw.githubusercontent.com/{MOTHER_USERNAME}/{MOTHER_REPO}/{MOTHER_BRANCH}"
 TARGET_FILES = ["ADR.md", "lessons-learned.md", "troubleshooting.md"]

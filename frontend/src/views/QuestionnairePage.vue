@@ -2,51 +2,104 @@
   <div class="questionnaire-page">
     <LanguageSwitch />
 
-    <div v-if="loading" class="loading">{{ t('questionnaire.loading') }}</div>
+    <div v-if="loading" class="loading">
+      <div class="loading-spinner"></div>
+      <p>{{ t('questionnaire.loading') }}</p>
+    </div>
 
     <template v-if="!loading && items.length">
-      <div class="progress-bar">
-        <div class="progress-fill" :style="{ width: progress + '%' }"></div>
+      <div class="progress-section">
+        <div class="progress-bar">
+          <div class="progress-fill" :style="{ width: progress + '%' }"></div>
+        </div>
+        <p class="progress-text">
+          {{ t('questionnaire.progress') }}
+          <span class="progress-num">{{ currentIndex + 1 }}</span>
+          {{ t('questionnaire.of') }}
+          <span class="progress-num">{{ items.length }}</span>
+        </p>
       </div>
-      <p class="progress-text">
-        {{ t('questionnaire.progress') }} {{ currentIndex + 1 }}{{ t('questionnaire.of') }}{{ items.length }}
-      </p>
 
-      <div class="question-card">
+      <div class="question-card dopamine-card">
+        <div class="question-number">{{ currentIndex + 1 }}</div>
         <p class="q-text">{{ currentItem.text }}</p>
         <div class="options">
           <button
-            v-for="val in [1,2,3,4,5]"
+            v-for="(val, idx) in [1,2,3,4,5]"
             :key="val"
+            class="option-btn"
             :class="{ active: answers[currentItem.item_id] === val }"
+            :style="{ '--dim-color': dimColors[idx] }"
             @click="selectAnswer(currentItem.item_id, val)"
           >
-            {{ val === 1 ? '1' : val === 2 ? '2' : val === 3 ? '3' : val === 4 ? '4' : '5' }}
+            <span class="option-value">{{ val }}</span>
+            <span class="option-label" v-if="idx === 0">1</span>
+            <span class="option-label" v-if="idx === 4">5</span>
           </button>
+        </div>
+        <div class="option-labels">
+          <span>Strongly Disagree</span>
+          <span>Strongly Agree</span>
         </div>
       </div>
 
       <div class="nav-buttons">
-        <button v-if="currentIndex > 0" @click="prev">{{ t('questionnaire.prev') }}</button>
-        <button v-if="currentIndex < items.length - 1" @click="next" :disabled="!answers[currentItem.item_id]">
-          {{ t('questionnaire.next') }}
+        <button
+          v-if="currentIndex > 0"
+          class="dopamine-btn-outline"
+          @click="prev"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+          {{ t('questionnaire.prev') }}
         </button>
-        <button v-if="currentIndex === items.length - 1" @click="confirmSubmit" :disabled="!allAnswered">
+        <button
+          v-if="currentIndex < items.length - 1"
+          class="dopamine-btn nav-next"
+          @click="next"
+          :disabled="!answers[currentItem.item_id]"
+        >
+          {{ t('questionnaire.next') }}
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
+        <button
+          v-if="currentIndex === items.length - 1"
+          class="dopamine-btn submit-btn"
+          @click="confirmSubmit"
+          :disabled="!allAnswered"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 6L9 17l-5-5"/>
+          </svg>
           {{ t('questionnaire.submit') }}
         </button>
       </div>
     </template>
 
-    <div v-if="showConfirm" class="modal-overlay">
-      <div class="modal">
-        <h3>{{ t('questionnaire.confirm_title') }}</h3>
-        <p>{{ t('questionnaire.confirm_body') }}</p>
-        <div class="modal-actions">
-          <button @click="showConfirm = false">{{ t('questionnaire.cancel') }}</button>
-          <button class="primary" @click="submit">{{ t('questionnaire.confirm') }}</button>
+    <Transition name="modal">
+      <div v-if="showConfirm" class="modal-overlay" @click.self="showConfirm = false">
+        <div class="modal dopamine-card">
+          <div class="modal-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#7B2FF7" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <h3>{{ t('questionnaire.confirm_title') }}</h3>
+          <p>{{ t('questionnaire.confirm_body') }}</p>
+          <div class="modal-actions">
+            <button class="dopamine-btn-outline" @click="showConfirm = false">
+              {{ t('questionnaire.cancel') }}
+            </button>
+            <button class="dopamine-btn" @click="submit">
+              {{ t('questionnaire.confirm') }}
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+    </Transition>
   </div>
 </template>
 
@@ -69,6 +122,8 @@ const answers = ref({})
 const currentIndex = ref(0)
 const loading = ref(false)
 const showConfirm = ref(false)
+
+const dimColors = ['#7B2FF7', '#00B4D8', '#FFD60A', '#56CFE1', '#FF006E']
 
 const currentItem = computed(() => items.value[currentIndex.value])
 const progress = computed(() => ((currentIndex.value + 1) / items.value.length) * 100)
@@ -120,31 +175,229 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-.questionnaire-page { max-width: 600px; margin: 0 auto; padding: 60px 16px; }
-.progress-bar { height: 6px; background: #e0e0e0; border-radius: 3px; margin-bottom: 8px; }
-.progress-fill { height: 100%; background: #4a90d9; border-radius: 3px; transition: width 0.3s; }
-.progress-text { text-align: center; color: #888; font-size: 14px; margin-bottom: 24px; }
-.question-card { background: #fff; border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 24px; }
-.q-text { font-size: 18px; margin-bottom: 20px; line-height: 1.6; }
-.options { display: flex; gap: 8px; justify-content: center; }
-.options button {
-  width: 48px; height: 48px; border-radius: 50%; border: 2px solid #ddd;
-  background: #fff; cursor: pointer; font-size: 16px; transition: all 0.2s;
+.questionnaire-page {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 80px 20px 60px;
+  position: relative;
+  z-index: 1;
 }
-.options button.active { background: #4a90d9; color: #fff; border-color: #4a90d9; }
-.nav-buttons { display: flex; gap: 12px; justify-content: center; }
-.nav-buttons button {
-  padding: 10px 24px; border: 1px solid #ccc; border-radius: 6px;
-  background: #fff; cursor: pointer; font-size: 14px;
+
+.loading {
+  text-align: center;
+  padding: 120px 0;
 }
-.nav-buttons button:disabled { opacity: 0.4; cursor: default; }
-.loading { text-align: center; padding: 80px 0; font-size: 18px; color: #666; }
+
+.loading-spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid var(--color-border);
+  border-top-color: var(--color-neuroticism);
+  border-radius: 50%;
+  margin: 0 auto 16px;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading p {
+  color: var(--color-text-secondary);
+  font-size: 16px;
+}
+
+.progress-section {
+  margin-bottom: 32px;
+  animation: fadeInUp 0.4s var(--ease-bounce);
+}
+
+.progress-bar {
+  height: 10px;
+  background: var(--color-border);
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--gradient-rainbow);
+  background-size: 200% 100%;
+  border-radius: 5px;
+  transition: width 0.4s var(--ease-smooth);
+  animation: shimmer 3s linear infinite;
+}
+
+.progress-text {
+  text-align: center;
+  color: var(--color-text-secondary);
+  font-size: 14px;
+}
+
+.progress-num {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.question-card {
+  padding: 32px;
+  margin-bottom: 24px;
+  border: 2px solid var(--color-border);
+  animation: bounceIn 0.5s var(--ease-bounce);
+  position: relative;
+  overflow: hidden;
+}
+
+.question-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-rainbow);
+}
+
+.question-number {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  font-family: var(--font-mono);
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--color-border);
+  opacity: 0.3;
+}
+
+.q-text {
+  font-size: 20px;
+  line-height: 1.6;
+  margin-bottom: 28px;
+  padding-right: 40px;
+}
+
+.options {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.option-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 3px solid var(--color-border);
+  background: var(--color-surface);
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  transition: all 0.25s var(--ease-bounce);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  position: relative;
+}
+
+.option-label {
+  font-size: 9px;
+  opacity: 0.5;
+}
+
+.option-btn:hover {
+  border-color: var(--dim-color);
+  color: var(--dim-color);
+  transform: scale(1.1);
+}
+
+.option-btn.active {
+  background: var(--dim-color);
+  border-color: var(--dim-color);
+  color: white;
+  transform: scale(1.15);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.option-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.nav-next:disabled,
+.submit-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.submit-btn {
+  background: linear-gradient(135deg, #56CFE1, #00B4D8);
+  box-shadow: 0 4px 16px rgba(0, 180, 216, 0.3);
+}
+
+/* Modal */
 .modal-overlay {
-  position: fixed; inset: 0; background: rgba(0,0,0,0.4);
-  display: flex; align-items: center; justify-content: center; z-index: 200;
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 26, 46, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
 }
-.modal { background: #fff; border-radius: 12px; padding: 24px; max-width: 360px; text-align: center; }
-.modal-actions { display: flex; gap: 12px; justify-content: center; margin-top: 16px; }
-.modal-actions button { padding: 8px 20px; border-radius: 6px; border: 1px solid #ccc; cursor: pointer; }
-.modal-actions .primary { background: #4a90d9; color: #fff; border-color: #4a90d9; }
+
+.modal {
+  max-width: 400px;
+  width: 90%;
+  padding: 32px;
+  text-align: center;
+  border: 2px solid var(--color-border);
+}
+
+.modal-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(123, 47, 247, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.modal h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.modal p {
+  color: var(--color-text-secondary);
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+/* Modal transition */
+.modal-enter-active { animation: bounceIn 0.3s var(--ease-bounce); }
+.modal-leave-active { animation: pageOut 0.2s ease-in; }
 </style>

@@ -42,22 +42,23 @@
 | general | `gh auth login` 超时：`read tcp ... operation timed out` | 问题 | 存档提示 | agent-coding-skeleton | resolved | troubleshooting.md#L306 |
 | general | HuggingFace 模型下载连接超时 `curl: (28) Could not connect to server... | 问题 | 存档提示 | agent-coding-skeleton | resolved | troubleshooting.md#L315 |
 | general | PowerShell 添加防火墙规则权限不足 `Access is denied` | 问题 | 存档提示 | agent-coding-skeleton | known_limitation | troubleshooting.md#L324 |
-| general | Node.js 报 SyntaxError: Unexpected identifier（i18n 中文字符串） | 问题 | 存档提示 | blindfold-chess | resolved | troubleshooting.md#L697 |
-| general | sed 批量修改误改结构体定义 | 问题 | 存档提示 | french-exit | — | troubleshooting.md#L707 |
-| general | French Exit 进程锁定 exe 导致复制失败 | 问题 | 存档提示 | french-exit | — | troubleshooting.md#L716 |
-| general | Hermes Agent Git 合并冲突导致 SyntaxError | 问题 | 存档提示 | agent-coding-skeleton | resolved | troubleshooting.md#L729 |
-| general | Node.js 环境污染：Hermes Node.js 泄漏到用户 PATH | 问题 | 存档提示 | agent-coding-skeleton | resolved | troubleshooting.md#L741 |
-| python-data | Cookie 过期 / 401 认证失败 | 问题 | 存档提示 | qianniu_business_analytics | resolved | troubleshooting.md#L1086 |
-| python-data | Digest 刷新失败 | 问题 | 存档提示 | qianniu_business_analytics | resolved | troubleshooting.md#L1095 |
-| python-data | auth/jycm.json 缺失字段 | 问题 | 存档提示 | qianniu_business_analytics | resolved | troubleshooting.md#L1104 |
-| python-data | 日期区间多返回一天 | 问题 | 取数相关 | qianniu_business_analytics | resolved | troubleshooting.md#L1117 |
-| python-data | getAllShopList 返回空数组 | 问题 | 取数相关 | qianniu_business_analytics | wont_fix | troubleshooting.md#L1126 |
-| python-data | createAndDownload 返回失败 | 问题 | 取数相关 | qianniu_business_analytics | wont_fix | troubleshooting.md#L1135 |
-| python-data | openpyxl 未安装 | 问题 | 报告相关 | qianniu_business_analytics | wont_fix | troubleshooting.md#L1148 |
-| python-data | 钉钉推送失败 | 问题 | 报告相关 | qianniu_business_analytics | wont_fix | troubleshooting.md#L1157 |
-| python-data | Windows Git Bash LF/CRLF 警告 | 问题 | 环境相关 | qianniu_business_analytics | known_limitation | troubleshooting.md#L1170 |
-| general | CodeBuddy 安装后 package.json 丢失导致命令不可用 | 问题 | 环境相关 | 母库 | resolved | troubleshooting.md#L1181 |
-| general | distribute.py 子进程 GBK 编码错误 | 问题 | 环境相关 | agent-coding-skeleton | known_limitation | troubleshooting.md#L1196 |
+| general | Vue 3 `<script setup>` `_ctx.t is not a function` | 问题 | 存档提示 | open-personality | resolved | troubleshooting.md#L697 |
+| general | Node.js 报 SyntaxError: Unexpected identifier（i18n 中文字符串） | 问题 | 存档提示 | blindfold-chess | resolved | troubleshooting.md#L707 |
+| general | sed 批量修改误改结构体定义 | 问题 | 存档提示 | french-exit | — | troubleshooting.md#L717 |
+| general | French Exit 进程锁定 exe 导致复制失败 | 问题 | 存档提示 | french-exit | — | troubleshooting.md#L726 |
+| general | Hermes Agent Git 合并冲突导致 SyntaxError | 问题 | 存档提示 | agent-coding-skeleton | resolved | troubleshooting.md#L739 |
+| general | Node.js 环境污染：Hermes Node.js 泄漏到用户 PATH | 问题 | 存档提示 | agent-coding-skeleton | resolved | troubleshooting.md#L751 |
+| python-data | Cookie 过期 / 401 认证失败 | 问题 | 存档提示 | qianniu_business_analytics | resolved | troubleshooting.md#L1096 |
+| python-data | Digest 刷新失败 | 问题 | 存档提示 | qianniu_business_analytics | resolved | troubleshooting.md#L1105 |
+| python-data | auth/jycm.json 缺失字段 | 问题 | 存档提示 | qianniu_business_analytics | resolved | troubleshooting.md#L1114 |
+| python-data | 日期区间多返回一天 | 问题 | 取数相关 | qianniu_business_analytics | resolved | troubleshooting.md#L1127 |
+| python-data | getAllShopList 返回空数组 | 问题 | 取数相关 | qianniu_business_analytics | wont_fix | troubleshooting.md#L1136 |
+| python-data | createAndDownload 返回失败 | 问题 | 取数相关 | qianniu_business_analytics | wont_fix | troubleshooting.md#L1145 |
+| python-data | openpyxl 未安装 | 问题 | 报告相关 | qianniu_business_analytics | wont_fix | troubleshooting.md#L1158 |
+| python-data | 钉钉推送失败 | 问题 | 报告相关 | qianniu_business_analytics | wont_fix | troubleshooting.md#L1167 |
+| python-data | Windows Git Bash LF/CRLF 警告 | 问题 | 环境相关 | qianniu_business_analytics | known_limitation | troubleshooting.md#L1180 |
+| general | CodeBuddy 安装后 package.json 丢失导致命令不可用 | 问题 | 环境相关 | 母库 | resolved | troubleshooting.md#L1191 |
+| general | distribute.py 子进程 GBK 编码错误 | 问题 | 环境相关 | agent-coding-skeleton | known_limitation | troubleshooting.md#L1206 |
 | general | 纯 HTML+CSS+JS 项目无需 npm，双击 `index.html` 即可预览，但涉及 Web Worker（如... | 经验 | build-env / testing | blindfold-chess | INFO | lessons-learned.md#L14 |
 | frontend | 手写 IIFE 模块时，用 `window.ModuleName = Module` 暴露 API，内部私有变量用下划线... | 经验 | dom / api-design | blindfold-chess | WARNING | lessons-learned.md#L15 |
 | general | 浏览器集成测试用 TestRunner（自定义极简框架），保持与 Node 测试同一套断言 API，降低切换成本 | 经验 | testing | blindfold-chess | INFO | lessons-learned.md#L16 |
@@ -341,8 +342,8 @@
 - [问题] vitest 报错：`Failed to resolve import "@tauri-apps/a — `测试错误` → troubleshooting.md#L214
 - [问题] vitest 报错：`act is not a function` — `测试错误` → troubleshooting.md#L223
 - [问题] vitest 报错：React 警告 `Cannot update a component whil — `测试错误` → troubleshooting.md#L231
-- [问题] Node.js 报 SyntaxError: Unexpected identifier（i18n  — `存档提示` → troubleshooting.md#L697
-- [问题] Node.js 环境污染：Hermes Node.js 泄漏到用户 PATH — `存档提示` → troubleshooting.md#L741
+- [问题] Node.js 报 SyntaxError: Unexpected identifier（i18n  — `存档提示` → troubleshooting.md#L707
+- [问题] Node.js 环境污染：Hermes Node.js 泄漏到用户 PATH — `存档提示` → troubleshooting.md#L751
 - [经验] 纯 HTML+CSS+JS 项目无需 npm，双击 `index.html` 即可预览，但涉及 We — `build-env / testing` → lessons-learned.md#L14
 - [经验] 手写 IIFE 模块时，用 `window.ModuleName = Module` 暴露 API， — `dom / api-design` → lessons-learned.md#L15
 - [经验] 浏览器集成测试用 TestRunner（自定义极简框架），保持与 Node 测试同一套断言 API， — `testing` → lessons-learned.md#L16
@@ -401,8 +402,8 @@
 - [问题] GitHub Pages 国内打不开 — `未分类` → troubleshooting.md#L60
 - [问题] GitHub push 报错 `Permission denied (publickey)` — `存档提示` → troubleshooting.md#L297
 - [问题] `gh auth login` 超时：`read tcp ... operation timed o — `存档提示` → troubleshooting.md#L306
-- [问题] Hermes Agent Git 合并冲突导致 SyntaxError — `存档提示` → troubleshooting.md#L729
-- [问题] Windows Git Bash LF/CRLF 警告 — `环境相关` → troubleshooting.md#L1170
+- [问题] Hermes Agent Git 合并冲突导致 SyntaxError — `存档提示` → troubleshooting.md#L739
+- [问题] Windows Git Bash LF/CRLF 警告 — `环境相关` → troubleshooting.md#L1180
 - [经验] **Shell here-document 在 Windows git bash 中不可靠**：含引 — `cross-platform / ai-workflow` → lessons-learned.md#L58
 - [经验] GitHub Pages 国内访问需代理；unpkg CDN 加载 Stockfish 可能超时，需 — `build-env` → lessons-learned.md#L61
 - [经验] Windows 路径在 git bash / Node.js / cmd 中转义规则不同，写跨平台脚 — `cross-platform` → lessons-learned.md#L62
@@ -424,8 +425,8 @@
 - [问题] 中文路径下编译失败 — `环境问题` → troubleshooting.md#L253
 - [问题] HuggingFace 模型下载连接超时 `curl: (28) Could not connect — `存档提示` → troubleshooting.md#L315
 - [问题] PowerShell 添加防火墙规则权限不足 `Access is denied` — `存档提示` → troubleshooting.md#L324
-- [问题] Node.js 环境污染：Hermes Node.js 泄漏到用户 PATH — `存档提示` → troubleshooting.md#L741
-- [问题] distribute.py 子进程 GBK 编码错误 — `环境相关` → troubleshooting.md#L1196
+- [问题] Node.js 环境污染：Hermes Node.js 泄漏到用户 PATH — `存档提示` → troubleshooting.md#L751
+- [问题] distribute.py 子进程 GBK 编码错误 — `环境相关` → troubleshooting.md#L1206
 - [经验] SVG path 中密集参数（如 `a2 2 0 0 1-2.83 0`）在某些浏览器中可能解析异常 — `dom` → lessons-learned.md#L22
 - [经验] **UI 布局/样式不要猜测用户意图**：候选走法开关经历了 5 次位置/样式反复，每次修改后用户都 — `ux` → lessons-learned.md#L25
 - [经验] **i18n 分散架构必然导致翻译遗漏**：当项目同时存在"全局字典 + 模块私有字典 + 硬编码" — `i18n` → lessons-learned.md#L31
@@ -454,8 +455,8 @@
 - [问题] 运行 `french-exit.exe` 报错：`找不到 WebView2Loader.dll` — `运行时错误` → troubleshooting.md#L196
 - [问题] PowerShell 执行中文脚本报 "UnexpectedToken" — `存档提示` → troubleshooting.md#L285
 - [问题] PowerShell 添加防火墙规则权限不足 `Access is denied` — `存档提示` → troubleshooting.md#L324
-- [问题] French Exit 进程锁定 exe 导致复制失败 — `存档提示` → troubleshooting.md#L716
-- [问题] Windows Git Bash LF/CRLF 警告 — `环境相关` → troubleshooting.md#L1170
+- [问题] French Exit 进程锁定 exe 导致复制失败 — `存档提示` → troubleshooting.md#L726
+- [问题] Windows Git Bash LF/CRLF 警告 — `环境相关` → troubleshooting.md#L1180
 - [经验] **Shell here-document 在 Windows git bash 中不可靠**：含引 — `cross-platform / ai-workflow` → lessons-learned.md#L58
 - [经验] Windows 路径在 git bash / Node.js / cmd 中转义规则不同，写跨平台脚 — `cross-platform` → lessons-learned.md#L62
 - [经验] **横跨工具层和应用层的词汇必须确认语境**。用户问"一个项目多个终端能否实现同步处理进度"——"终 — `ai-workflow` → lessons-learned.md#L80
@@ -508,16 +509,17 @@
 - [问题] 引擎候选走法未集成 — `运行时` → troubleshooting.md#L113
 - [问题] 设置面板点击无反应（panel toggle 测试失败） — `运行时` → troubleshooting.md#L134
 - [问题] checkbox 点击后状态不变化 — `测试错误` → troubleshooting.md#L240
-- [问题] sed 批量修改误改结构体定义 — `存档提示` → troubleshooting.md#L707
-- [问题] Cookie 过期 / 401 认证失败 — `存档提示` → troubleshooting.md#L1086
-- [问题] Digest 刷新失败 — `存档提示` → troubleshooting.md#L1095
-- [问题] auth/jycm.json 缺失字段 — `存档提示` → troubleshooting.md#L1104
-- [问题] 日期区间多返回一天 — `取数相关` → troubleshooting.md#L1117
-- [问题] getAllShopList 返回空数组 — `取数相关` → troubleshooting.md#L1126
-- [问题] createAndDownload 返回失败 — `取数相关` → troubleshooting.md#L1135
-- [问题] openpyxl 未安装 — `报告相关` → troubleshooting.md#L1148
-- [问题] 钉钉推送失败 — `报告相关` → troubleshooting.md#L1157
-- [问题] CodeBuddy 安装后 package.json 丢失导致命令不可用 — `环境相关` → troubleshooting.md#L1181
+- [问题] Vue 3 `<script setup>` `_ctx.t is not a function` — `存档提示` → troubleshooting.md#L697
+- [问题] sed 批量修改误改结构体定义 — `存档提示` → troubleshooting.md#L717
+- [问题] Cookie 过期 / 401 认证失败 — `存档提示` → troubleshooting.md#L1096
+- [问题] Digest 刷新失败 — `存档提示` → troubleshooting.md#L1105
+- [问题] auth/jycm.json 缺失字段 — `存档提示` → troubleshooting.md#L1114
+- [问题] 日期区间多返回一天 — `取数相关` → troubleshooting.md#L1127
+- [问题] getAllShopList 返回空数组 — `取数相关` → troubleshooting.md#L1136
+- [问题] createAndDownload 返回失败 — `取数相关` → troubleshooting.md#L1145
+- [问题] openpyxl 未安装 — `报告相关` → troubleshooting.md#L1158
+- [问题] 钉钉推送失败 — `报告相关` → troubleshooting.md#L1167
+- [问题] CodeBuddy 安装后 package.json 丢失导致命令不可用 — `环境相关` → troubleshooting.md#L1191
 - [经验] 项目文档结构会随时间进化，"存档"或"恢复"操作前应先 `ls`/`glob` 确认当前文件系统现状 — `ai-workflow` → lessons-learned.md#L24
 - [经验] **删除功能必须同步删除对应测试**：移除 `showHints` / `multiPvSettin — `testing` → lessons-learned.md#L29
 - [经验] **焦点管理是盲棋产品的核心体验**：进入对局自动 `input.focus()`、引擎走完后恢复焦 — `ux` → lessons-learned.md#L30
@@ -664,7 +666,7 @@
 - [错误关键词] → troubleshooting.md#L27
 - AI 重复实现已有组件（棋盘/网格类 UI） → troubleshooting.md#L40
 
-### resolved（18 条）
+### resolved（19 条）
 
 - Node.js 测试运行时 chess.js 未定义 → troubleshooting.md#L73
 - CLI subAgent 并行超时 → troubleshooting.md#L82
@@ -676,31 +678,32 @@
 - GitHub push 报错 `Permission denied (publickey)` → troubleshooting.md#L297
 - `gh auth login` 超时：`read tcp ... operation timed out` → troubleshooting.md#L306
 - HuggingFace 模型下载连接超时 `curl: (28) Could not connect to s... → troubleshooting.md#L315
-- Node.js 报 SyntaxError: Unexpected identifier（i18n 中文字符串... → troubleshooting.md#L697
-- Hermes Agent Git 合并冲突导致 SyntaxError → troubleshooting.md#L729
-- Node.js 环境污染：Hermes Node.js 泄漏到用户 PATH → troubleshooting.md#L741
-- Cookie 过期 / 401 认证失败 → troubleshooting.md#L1086
-- Digest 刷新失败 → troubleshooting.md#L1095
-- auth/jycm.json 缺失字段 → troubleshooting.md#L1104
-- 日期区间多返回一天 → troubleshooting.md#L1117
-- CodeBuddy 安装后 package.json 丢失导致命令不可用 → troubleshooting.md#L1181
+- Vue 3 `<script setup>` `_ctx.t is not a function` → troubleshooting.md#L697
+- Node.js 报 SyntaxError: Unexpected identifier（i18n 中文字符串... → troubleshooting.md#L707
+- Hermes Agent Git 合并冲突导致 SyntaxError → troubleshooting.md#L739
+- Node.js 环境污染：Hermes Node.js 泄漏到用户 PATH → troubleshooting.md#L751
+- Cookie 过期 / 401 认证失败 → troubleshooting.md#L1096
+- Digest 刷新失败 → troubleshooting.md#L1105
+- auth/jycm.json 缺失字段 → troubleshooting.md#L1114
+- 日期区间多返回一天 → troubleshooting.md#L1127
+- CodeBuddy 安装后 package.json 丢失导致命令不可用 → troubleshooting.md#L1191
 
 ### wont_fix（6 条）
 
 - 旧代码与新模块冲突 → troubleshooting.md#L104
 - 引擎候选走法未集成 → troubleshooting.md#L113
-- getAllShopList 返回空数组 → troubleshooting.md#L1126
-- createAndDownload 返回失败 → troubleshooting.md#L1135
-- openpyxl 未安装 → troubleshooting.md#L1148
-- 钉钉推送失败 → troubleshooting.md#L1157
+- getAllShopList 返回空数组 → troubleshooting.md#L1136
+- createAndDownload 返回失败 → troubleshooting.md#L1145
+- openpyxl 未安装 → troubleshooting.md#L1158
+- 钉钉推送失败 → troubleshooting.md#L1167
 
 ### known_limitation（5 条）
 
 - Stockfish 加载超时 / 引擎不启动 → troubleshooting.md#L51
 - GitHub Pages 国内打不开 → troubleshooting.md#L60
 - PowerShell 添加防火墙规则权限不足 `Access is denied` → troubleshooting.md#L324
-- Windows Git Bash LF/CRLF 警告 → troubleshooting.md#L1170
-- distribute.py 子进程 GBK 编码错误 → troubleshooting.md#L1196
+- Windows Git Bash LF/CRLF 警告 → troubleshooting.md#L1180
+- distribute.py 子进程 GBK 编码错误 → troubleshooting.md#L1206
 
 ### —（15 条）
 
@@ -717,14 +720,14 @@
 - 中文路径下编译失败 → troubleshooting.md#L253
 - cargo tauri dev 在后台任务中崩溃 → troubleshooting.md#L264
 - PowerShell 执行中文脚本报 "UnexpectedToken" → troubleshooting.md#L285
-- sed 批量修改误改结构体定义 → troubleshooting.md#L707
-- French Exit 进程锁定 exe 导致复制失败 → troubleshooting.md#L716
+- sed 批量修改误改结构体定义 → troubleshooting.md#L717
+- French Exit 进程锁定 exe 导致复制失败 → troubleshooting.md#L726
 
 ---
 
 ## 按类型分组
 
-### 问题（47 条）
+### 问题（48 条）
 
 - 条目状态流转 → troubleshooting.md#L6
 - 新增条目模板 → troubleshooting.md#L24
@@ -746,7 +749,7 @@
 - 运行 `french-exit.exe` 报错：`Could not find the WebView2 Ru... → troubleshooting.md#L188
 - 运行 `french-exit.exe` 报错：`找不到 WebView2Loader.dll` → troubleshooting.md#L196
 - `cargo tauri build` 失败：`另一个程序正在使用此文件` (os error 32) → troubleshooting.md#L204
-- ... 还有 27 条
+- ... 还有 28 条
 
 ### 经验（128 条）
 

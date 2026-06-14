@@ -2,36 +2,65 @@
   <div class="report-page">
     <LanguageSwitch />
 
-    <div v-if="loading" class="loading">{{ t('report.title') }}...</div>
+    <div v-if="loading" class="loading">
+      <div class="loading-spinner"></div>
+      <p>{{ t('report.title') }}...</p>
+    </div>
 
     <template v-if="!loading && report">
       <div class="report-header">
-        <h2>{{ t('report.title') }}</h2>
+        <h2 class="report-title gradient-text">{{ t('report.title') }}</h2>
       </div>
 
       <ResultCard :report="report" ref="resultCardRef" />
 
       <div class="interpretations">
-        <h3>{{ t('report.interpretation') }}</h3>
-        <div v-for="interp in report.interpretations.slice(0, 5)" :key="interp.dimension" class="interp-item">
-          <h4>{{ report.lang === 'zh' ? interp.title_zh : interp.title_en }}</h4>
-          <p>{{ report.lang === 'zh' ? interp.body_zh : interp.body_en }}</p>
+        <h3 class="section-title">{{ t('report.interpretation') }}</h3>
+        <div
+          v-for="(interp, idx) in report.interpretations.slice(0, 5)"
+          :key="interp.dimension"
+          class="interp-item dopamine-card"
+          :style="{ '--accent': interpColors[idx] }"
+        >
+          <div class="interp-accent"></div>
+          <div class="interp-content">
+            <h4>{{ report.lang === 'zh' ? interp.title_zh : interp.title_en }}</h4>
+            <p>{{ report.lang === 'zh' ? interp.body_zh : interp.body_en }}</p>
+          </div>
         </div>
       </div>
 
       <EasterEggBanner v-if="report.easter_egg" :text="report.easter_egg" />
 
       <div class="actions">
-        <button @click="exportImage">{{ t('report.export') }}</button>
+        <button class="dopamine-btn" @click="exportImage">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+          </svg>
+          {{ t('report.export') }}
+        </button>
         <ShareLink :share-token="report.share_token" />
-        <router-link to="/" class="back-link">{{ t('report.back_home') }}</router-link>
+        <router-link to="/" class="back-link dopamine-btn-outline">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+          {{ t('report.back_home') }}
+        </router-link>
       </div>
     </template>
 
     <div v-if="!loading && error" class="not-found">
+      <div class="not-found-icon">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#FF006E" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M16 16s-1.5-2-4-2-4 2-4 2M9 9h.01M15 9h.01"/>
+        </svg>
+      </div>
       <h2>{{ t('report.not_found') }}</h2>
       <p>{{ t('report.not_found_desc') }}</p>
-      <router-link to="/">{{ t('report.back_home') }}</router-link>
+      <router-link to="/" class="dopamine-btn">
+        {{ t('report.back_home') }}
+      </router-link>
     </div>
   </div>
 </template>
@@ -53,6 +82,8 @@ const report = ref(null)
 const loading = ref(true)
 const error = ref(false)
 const resultCardRef = ref(null)
+
+const interpColors = ['#7B2FF7', '#00B4D8', '#FFD60A', '#56CFE1', '#FF006E']
 
 async function fetchReport() {
   const token = route.params.token
@@ -88,21 +119,125 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.report-page { max-width: 640px; margin: 0 auto; padding: 60px 16px; }
-.report-header { text-align: center; margin-bottom: 24px; }
-.loading { text-align: center; padding: 80px 0; font-size: 18px; color: #666; }
-.interpretations { margin-top: 24px; }
-.interpretations h3 { margin-bottom: 16px; }
-.interp-item { background: #f9f9f9; border-radius: 8px; padding: 12px 16px; margin-bottom: 8px; }
-.interp-item h4 { margin: 0 0 4px; font-size: 15px; }
-.interp-item p { margin: 0; color: #555; font-size: 14px; line-height: 1.5; }
-.actions { display: flex; flex-direction: column; gap: 12px; align-items: center; margin-top: 24px; }
-.actions button {
-  padding: 10px 24px; background: #4a90d9; color: #fff;
-  border: none; border-radius: 6px; cursor: pointer; font-size: 14px;
+.report-page {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 80px 20px 60px;
+  position: relative;
+  z-index: 1;
 }
-.back-link { color: #4a90d9; text-decoration: none; font-size: 14px; }
-.not-found { text-align: center; padding: 80px 0; }
-.not-found h2 { margin-bottom: 8px; }
-.not-found p { color: #666; margin-bottom: 16px; }
+
+.loading {
+  text-align: center;
+  padding: 120px 0;
+}
+
+.loading-spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid var(--color-border);
+  border-top-color: var(--color-neuroticism);
+  border-radius: 50%;
+  margin: 0 auto 16px;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.report-header {
+  text-align: center;
+  margin-bottom: 32px;
+  animation: fadeInUp 0.5s var(--ease-bounce);
+}
+
+.report-title {
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.interpretations {
+  margin-top: 32px;
+  animation: fadeInUp 0.5s var(--ease-bounce) 0.2s both;
+}
+
+.interp-item {
+  display: flex;
+  padding: 0;
+  margin-bottom: 12px;
+  overflow: hidden;
+  border: 2px solid var(--color-border);
+}
+
+.interp-accent {
+  width: 5px;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+.interp-content {
+  padding: 16px 20px;
+  flex: 1;
+}
+
+.interp-content h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--accent);
+}
+
+.interp-content p {
+  color: var(--color-text-secondary);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  margin-top: 40px;
+  animation: fadeInUp 0.5s var(--ease-bounce) 0.4s both;
+}
+
+.back-link {
+  text-decoration: none;
+}
+
+.not-found {
+  text-align: center;
+  padding: 80px 0;
+  animation: fadeInUp 0.5s var(--ease-bounce);
+}
+
+.not-found-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(255, 0, 110, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+}
+
+.not-found h2 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.not-found p {
+  color: var(--color-text-secondary);
+  margin-bottom: 24px;
+}
 </style>

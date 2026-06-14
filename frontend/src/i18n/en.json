@@ -1,4 +1,6 @@
 {
+  "common.chinese": "中文",
+  "common.english": "EN",
   "app.title": "Open Personality",
   "app.subtitle": "Big Five Personality Test",
   "home.select_mode": "Select Mode",

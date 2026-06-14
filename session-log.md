@@ -162,3 +162,37 @@
 ### 遗留问题 / 下轮开始点
 - 前端视觉风格定型（待调用 frontend-design 技能推进）
 - P2 尾项：E2E 测试、响应式、动画、IPIP-300、解读模板
+
+
+---
+
+## 2026-06-11 — Trae 冲突清理 + 前端渲染崩溃修复 + MimoCode 配色同步
+
+### 本轮概要
+- 部署 `frontend-design` 技能，推进前端视觉风格定型
+  - 前轮 `-t` flag 错误（需 `--type`）→ 改用 `npx ... invoke` 方式调用
+  - 风格探索后决定 MimoCode 高饱和「多巴胺」配色方案
+  - 产出 `frontend/src/styles/global.css` → 5 维度 CSS 变量 + 字体 + 装饰性渐变背景
+- 多 AI 工具环境冲突诊断与清理：
+  - 发现 `.trae/`、`.mimocode/`、`.reasonix/` 同时存在
+  - 删除 `.trae/` 目录及其相关文件 `.decisions-migrated`
+  - 保留 `.mimocode/`（MimoCode 设计参考）+ `.reasonix/`
+  - 同步 `docs/frontend.md` §10 UI 配色改为 MimoCode 高饱和方案
+- 修复前端渲染崩溃：
+  - 现象：页面只显示渐变背景装饰，无内容，控制台 `_ctx.t is not a function`
+  - 根因：`LanguageSwitch.vue` 中 `useI18n()` 解构缺 `t`
+  - 修复：添加 `{ t }` 到解构，同时补充 `common.chinese` / `common.english` i18n key
+- 补充 troubleshooting.md — Vue 3 `_ctx.t` 模式文档
+
+### 更新文件
+- `frontend/src/styles/global.css` — 新增（MimoCode 多巴胺配色 CSS 变量）
+- `frontend/src/components/LanguageSwitch.vue` — 修复缺失 `{ t }` 解构
+- `frontend/src/i18n/zh.json` — 新增 `common.chinese` / `common.english`
+- `frontend/src/i18n/en.json` — 新增 `common.chinese` / `common.english`
+- `docs/frontend.md` — §10 配色更新为 MimoCode 方案
+- `.trae/` — 删除（整个目录）
+- `.decisions-migrated` — 删除
+- `troubleshooting.md` — 新增 Vue 3 `_ctx.t` 条目
+
+### 遗留问题 / 下轮开始点
+- P2 尾项：E2E 测试、响应式、动画、IPIP-300、解读模板

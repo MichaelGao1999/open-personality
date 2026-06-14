@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session as DBSession
 from backend.app.db.database import get_db
 from backend.app.db.repository import ReportRepository
 
-router = APIRouter(prefix="/api")
+router = APIRouter()
 
 
 @router.get("/report/{share_token}")
