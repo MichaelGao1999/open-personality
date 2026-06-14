@@ -26,7 +26,8 @@ class MBTIInference:
     def _compute_dimension(self, scores: ScoringResult, dim_config: dict) -> tuple[float, float]:
         linear = dim_config.get("bias", 0.0)
         for domain, weight in dim_config["weights"].items():
-            domain_score = scores.raw_scores.get(domain, 50.0)
+            # 使用 t_scores（M=50, SD=10），与 McCrae & Costa 权重设计匹配
+            domain_score = scores.t_scores.get(domain, 50.0)
             linear += weight * domain_score
         prob_a = self._sigmoid(linear)
         prob_b = 1.0 - prob_a
