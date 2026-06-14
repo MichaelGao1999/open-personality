@@ -1,3 +1,7 @@
+from __future__ import annotations
+
+from typing import Optional
+
 from pydantic import BaseModel
 
 
@@ -10,6 +14,8 @@ class SubmitRequest(BaseModel):
     mode: str
     lang: str
     answers: list[AnswerItem]
+    status: str = "complete"  # "partial" | "complete"
+    session_id: Optional[str] = None  # resume 时传递已有 session_id
 
 
 class QuestionnaireItem(BaseModel):
@@ -59,8 +65,19 @@ class Report(BaseModel):
     scoring: ScoringResult
     mbti: MBTIResult
     interpretations: list[Interpretation]
-    easter_egg: str | None
+    easter_egg: Optional[str]
     created_at: str
+    answered_count: int = 0
+    total_items: int = 0
+
+
+class ResumeResponse(BaseModel):
+    session_id: str
+    share_token: str
+    mode: str
+    lang: str
+    answers: list[AnswerItem]
+    total_items: int
 
 
 class ErrorResponse(BaseModel):

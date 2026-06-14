@@ -1,10 +1,11 @@
+from __future__ import annotations
+
 import json
 import os
 from pathlib import Path
 
 from backend.app.config import DATA_DIR
 from backend.app.schemas.models import AnswerItem, ScoringResult
-
 
 class ScoringEngine:
     def __init__(self, data_dir: str | None = None):
@@ -15,7 +16,9 @@ class ScoringEngine:
         cache_key = f"{mode}_{lang}"
         if cache_key in self._items_cache:
             return self._items_cache[cache_key]
-        filename = f"ipip{mode}_{lang}.json"
+        mode_map = {"standard": "120", "advanced": "300", "speed": "_speed"}
+        mode_key = mode_map.get(mode, "120")
+        filename = f"ipip{mode_key}_{lang}.json"
         filepath = os.path.join(self.data_dir, "items", filename)
         with open(filepath, "r", encoding="utf-8") as f:
             data = json.load(f)

@@ -9,8 +9,14 @@ export function getItems(mode, lang) {
   return client.get('/questionnaires/items', { params: { mode, lang } })
 }
 
-export function submitAnswers(mode, lang, answers) {
-  return client.post('/questionnaires/submit', { mode, lang, answers })
+export function submitAnswers(mode, lang, answers, status = 'complete', sessionId = null) {
+  const body = { mode, lang, answers, status }
+  if (sessionId) body.session_id = sessionId
+  return client.post('/questionnaires/submit', body)
+}
+
+export function resumeSession(shareToken) {
+  return client.get(`/questionnaires/resume/${shareToken}`)
 }
 
 export function getReport(shareToken) {

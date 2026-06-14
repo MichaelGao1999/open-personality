@@ -1,10 +1,11 @@
+from __future__ import annotations
+
 import json
 import math
 import os
 
 from backend.app.config import DATA_DIR
 from backend.app.schemas.models import MBTIDimension, MBTIResult, ScoringResult
-
 
 class MBTIInference:
     def __init__(self, data_dir: str | None = None):

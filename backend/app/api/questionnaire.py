@@ -1,7 +1,10 @@
+from __future__ import annotations
+
 import json
 import os
 
 from backend.app.config import DATA_DIR
+
 from backend.app.schemas.models import AnswerItem, QuestionnaireItem
 
 
@@ -14,7 +17,7 @@ class QuestionnaireLoader:
         cache_key = f"{mode}_{lang}"
         if cache_key in self._cache:
             return self._cache[cache_key]
-        mode_key = "120" if mode == "standard" else "300"
+        mode_key = {"standard": "120", "advanced": "300", "speed": "_speed"}.get(mode, "120")
         filepath = os.path.join(self.data_dir, "items", f"ipip{mode_key}_{lang}.json")
         with open(filepath, "r", encoding="utf-8") as f:
             data = json.load(f)
@@ -23,7 +26,7 @@ class QuestionnaireLoader:
         return items
 
     def validate_answer_count(self, answers: list[AnswerItem], mode: str) -> None:
-        expected = 120 if mode == "standard" else 300
+        expected = {"standard": 120, "advanced": 300, "speed": 30}.get(mode, 120)
         if len(answers) != expected:
             raise ValueError(f"item_count_mismatch: expected {expected} answers, got {len(answers)}")
 

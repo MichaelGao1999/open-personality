@@ -1,9 +1,10 @@
+from __future__ import annotations
+
 import json
 import os
 import random
 
 from backend.app.config import DATA_DIR
-
 
 class EasterEggEngine:
     def __init__(self, data_dir: str | None = None):

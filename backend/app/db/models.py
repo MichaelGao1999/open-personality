@@ -10,6 +10,8 @@ class Session(Base):
     id = Column(String, primary_key=True)
     mode = Column(String, nullable=False)
     lang = Column(String, nullable=False, default="zh")
+    status = Column(String, nullable=False, default="complete")  # active | partial | complete
+    total_items = Column(Integer, nullable=True)
     share_token = Column(String, unique=True, nullable=False)
     created_at = Column(String, nullable=False)
 

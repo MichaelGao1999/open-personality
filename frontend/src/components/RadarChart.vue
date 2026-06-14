@@ -24,7 +24,7 @@ const dimColors = [
   '#7B2FF7', // Openness - 亮紫
   '#00B4D8', // Conscientiousness - 电光蓝
   '#FFD60A', // Extraversion - 阳光黄
-  '#56CFE1', // Agreeableness - 青柠绿
+  '#06D6A0', // Agreeableness - 翡翠绿
   '#FF006E', // Neuroticism - 热力粉
 ]
 
@@ -78,7 +78,7 @@ function render() {
             { offset: 0, color: '#7B2FF7' },
             { offset: 0.25, color: '#00B4D8' },
             { offset: 0.5, color: '#FFD60A' },
-            { offset: 0.75, color: '#56CFE1' },
+            { offset: 0.75, color: '#06D6A0' },
             { offset: 1, color: '#FF006E' },
           ]),
         },

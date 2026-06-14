@@ -2,26 +2,47 @@
   <div class="home-page">
     <LanguageSwitch />
 
-    <div class="hero">
-      <h1 class="hero-title gradient-text">{{ t('app.title') }}</h1>
-      <p class="hero-subtitle">{{ t('app.subtitle') }}</p>
-      <div class="hero-dots">
-        <span class="dot" style="background: #7B2FF7"></span>
-        <span class="dot" style="background: #00B4D8"></span>
-        <span class="dot" style="background: #FFD60A"></span>
-        <span class="dot" style="background: #56CFE1"></span>
-        <span class="dot" style="background: #FF006E"></span>
+    <!-- 恢复横幅 -->
+    <div v-if="savedSession" class="resume-banner dopamine-card">
+      <div class="resume-info">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-conscientiousness)" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+        </svg>
+        <span>{{ t('home.resume_banner') }}</span>
+        <span class="resume-detail">{{ savedSession.mode }} · {{ savedSession.answered }}/{{ savedSession.total }}</span>
       </div>
+      <div class="resume-actions">
+        <button class="dopamine-btn resume-btn" @click="resumeTest">{{ t('home.resume_btn') }}</button>
+        <button class="dopamine-btn-outline dismiss-btn" @click="dismissResume">{{ t('home.resume_dismiss') }}</button>
+      </div>
+    </div>
+
+    <div class="hero">
+      <h1 class="hero-title">{{ t('app.title') }}</h1>
+      <p class="hero-subtitle">{{ t('app.subtitle') }}</p>
     </div>
 
     <div class="mode-select">
       <div
         class="mode-card dopamine-card"
+        :class="{ selected: mode === 'speed' }"
+        @click="mode = 'speed'"
+      >
+        <div class="mode-icon" style="color: var(--color-openness)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+          </svg>
+        </div>
+        <h3>{{ t('home.speed') }}</h3>
+        <p>{{ t('home.speed_desc') }}</p>
+      </div>
+      <div
+        class="mode-card dopamine-card"
         :class="{ selected: mode === 'standard' }"
         @click="mode = 'standard'"
       >
-        <div class="mode-icon" style="background: var(--gradient-primary)">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+        <div class="mode-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
           </svg>
         </div>
@@ -33,8 +54,8 @@
         :class="{ selected: mode === 'advanced' }"
         @click="mode = 'advanced'"
       >
-        <div class="mode-icon" style="background: linear-gradient(135deg, #00B4D8, #56CFE1)">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+        <div class="mode-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
             <circle cx="12" cy="12" r="3"/>
           </svg>
@@ -78,7 +99,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useI18n } from '../composables/useI18n'
 import { useRecentReports } from '../composables/useRecentReports'
@@ -89,15 +110,55 @@ const { t } = useI18n()
 const router = useRouter()
 const { reports } = useRecentReports()
 const mode = ref('standard')
+const savedSession = ref(null)
+const STORAGE_KEY = 'open_personality_session'
+
+function loadSavedSession() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY)
+    if (raw) {
+      const data = JSON.parse(raw)
+      // 检查是否已过期（超过 7 天）
+      const age = Date.now() - (data.savedAt || 0)
+      if (age > 7 * 24 * 60 * 60 * 1000) {
+        localStorage.removeItem(STORAGE_KEY)
+        return null
+      }
+      return data
+    }
+  } catch { /* ignore */ }
+  return null
+}
+
+function resumeTest() {
+  if (savedSession.value) {
+    router.push({
+      path: '/questionnaire',
+      query: {
+        mode: savedSession.value.mode,
+        resume: 'local',
+      },
+    })
+  }
+}
+
+function dismissResume() {
+  localStorage.removeItem(STORAGE_KEY)
+  savedSession.value = null
+}
 
 function startTest() {
   router.push({ path: '/questionnaire', query: { mode: mode.value } })
 }
+
+onMounted(() => {
+  savedSession.value = loadSavedSession()
+})
 </script>
 
 <style scoped>
 .home-page {
-  max-width: 520px;
+  max-width: 580px;
   margin: 0 auto;
   padding: 80px 20px 60px;
   text-align: center;
@@ -105,6 +166,49 @@ function startTest() {
   z-index: 1;
 }
 
+/* ===== 恢复横幅 ===== */
+.resume-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 20px;
+  margin-bottom: 24px;
+  border: 2px solid var(--color-conscientiousness);
+  background: rgba(0, 180, 216, 0.05);
+  animation: bounceIn 0.4s var(--ease-bounce);
+}
+
+.resume-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.resume-detail {
+  color: var(--color-text-secondary);
+  font-size: 13px;
+}
+
+.resume-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.resume-btn {
+  padding: 8px 18px !important;
+  font-size: 13px !important;
+}
+
+.dismiss-btn {
+  padding: 8px 12px !important;
+  font-size: 13px !important;
+}
+
+/* ===== 首屏 ===== */
 .hero {
   margin-bottom: 40px;
   animation: fadeInUp 0.6s var(--ease-bounce);
@@ -124,77 +228,69 @@ function startTest() {
   font-weight: 400;
 }
 
-.hero-dots {
-  display: flex;
-  gap: 8px;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  animation: pulse 2s ease-in-out infinite;
-}
-
-.dot:nth-child(2) { animation-delay: 0.2s; }
-.dot:nth-child(3) { animation-delay: 0.4s; }
-.dot:nth-child(4) { animation-delay: 0.6s; }
-.dot:nth-child(5) { animation-delay: 0.8s; }
-
+/* ===== 模式选择 ===== */
 .mode-select {
   display: flex;
-  gap: 16px;
+  gap: 12px;
   justify-content: center;
   margin-bottom: 32px;
 }
 
 .mode-card {
   flex: 1;
-  max-width: 220px;
-  padding: 28px 20px;
+  max-width: 180px;
+  padding: 24px 14px;
   cursor: pointer;
-  transition: all 0.3s var(--ease-bounce);
+  transition: all 0.25s var(--ease-bounce);
   border: 2px solid var(--color-border);
 }
 
 .mode-card.selected {
-  border-color: var(--color-neuroticism);
-  box-shadow: 0 0 0 4px rgba(255, 0, 110, 0.1), var(--shadow-md);
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 4px var(--color-accent-light), var(--shadow-md);
 }
 
 .mode-card:hover {
-  transform: translateY(-4px);
+  border-color: var(--color-text-secondary);
 }
 
 .mode-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 16px;
+  margin: 0 auto 12px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+}
+
+.mode-icon svg {
+  stroke: currentColor;
+  width: 20px;
+  height: 20px;
 }
 
 .mode-card h3 {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 .mode-card p {
   color: var(--color-text-secondary);
-  font-size: 14px;
+  font-size: 12px;
 }
 
+/* ===== 开始按钮 ===== */
 .start-btn {
   font-size: 18px;
   padding: 16px 48px;
   margin-bottom: 32px;
 }
 
+/* ===== 分割线 ===== */
 .divider {
   display: flex;
   align-items: center;
@@ -216,6 +312,7 @@ function startTest() {
   letter-spacing: 2px;
 }
 
+/* ===== 最近记录 ===== */
 .recent-section {
   margin-top: 40px;
   animation: fadeInUp 0.6s var(--ease-bounce) 0.2s both;

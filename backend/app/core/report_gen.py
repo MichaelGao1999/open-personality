@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import json
 import os
 import uuid
@@ -10,7 +12,6 @@ from backend.app.schemas.models import (
     Report,
     ScoringResult,
 )
-
 
 class ReportGenerator:
     def __init__(self, data_dir: str | None = None):
@@ -37,6 +38,8 @@ class ReportGenerator:
         lang: str,
         session_id: str,
         mode: str,
+        answered_count: int = 0,
+        total_items: int = 0,
     ) -> Report:
         interpretations_data = self._load_interpretations(lang)
 
@@ -76,6 +79,8 @@ class ReportGenerator:
             interpretations=interpretations,
             easter_egg=easter_egg,
             created_at=now,
+            answered_count=answered_count,
+            total_items=total_items,
         )
 
     def _generate_share_token(self) -> str:

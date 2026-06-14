@@ -63,7 +63,7 @@ const dimColors = [
   '#7B2FF7', // Openness - 亮紫
   '#00B4D8', // Conscientiousness - 电光蓝
   '#FFD60A', // Extraversion - 阳光黄
-  '#56CFE1', // Agreeableness - 青柠绿
+  '#06D6A0', // Agreeableness - 翡翠绿
   '#FF006E', // Neuroticism - 热力粉
 ]
 
@@ -96,7 +96,7 @@ defineExpose({ cardRef })
 
 .card-top-border {
   height: 6px;
-  background: var(--gradient-rainbow);
+  background: var(--color-accent);
 }
 
 .card-title {
@@ -131,10 +131,7 @@ defineExpose({ cardRef })
   font-family: var(--font-mono);
   font-size: 32px;
   font-weight: 700;
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--color-accent);
   margin-bottom: 16px;
 }
 

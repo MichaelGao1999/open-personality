@@ -1,17 +1,26 @@
-/* Dopamine Personality — Global Styles */
+/* ═══════════════════════════════════════════
+   主题入口 — 改这里一处，全局跟随
+   调整颜色、字体、圆角、阴影等设计令牌
+   ═══════════════════════════════════════════ */
 
 :root {
-  /* Five-dimension dopamine colors */
+  /* 主色 — 高饱和紫，用于按钮/链接/强调 */
+  --color-accent: #7B2FF7;
+  --color-accent-light: rgba(123, 47, 247, 0.1);
+
+  /* Five-dimension colors */
   --color-openness: #7B2FF7;
   --color-conscientiousness: #00B4D8;
   --color-extraversion: #FFD60A;
-  --color-agreeableness: #56CFE1;
+  --color-agreeableness: #06D6A0;
   --color-neuroticism: #FF006E;
 
-  /* Gradient presets */
-  --gradient-primary: linear-gradient(135deg, #FF006E, #7B2FF7);
-  --gradient-rainbow: linear-gradient(90deg, #7B2FF7, #00B4D8, #FFD60A, #56CFE1, #FF006E);
-  --gradient-hero: linear-gradient(135deg, #FF006E 0%, #7B2FF7 50%, #00B4D8 100%);
+  /* 渐变（仅保留给报告页使用） */
+  --gradient-rainbow: linear-gradient(90deg, #7B2FF7, #00B4D8, #FFD60A, #06D6A0, #FF006E);
+
+  /* 按钮 / 强调色 — 纯色非渐变 */
+  --gradient-primary: var(--color-accent);
+  --gradient-hero: var(--color-accent);
 
   /* Surface colors */
   --color-bg: #FAFAFA;
@@ -72,13 +81,12 @@ a { color: inherit; text-decoration: none; }
   background: var(--color-surface);
   border-radius: var(--radius-md);
   border: 2px solid var(--color-border);
-  box-shadow: var(--shadow-md);
-  transition: transform 0.25s var(--ease-bounce), box-shadow 0.25s ease;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.25s ease;
 }
 
 .dopamine-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-md);
 }
 
 .dopamine-btn {
@@ -89,19 +97,18 @@ a { color: inherit; text-decoration: none; }
   padding: 14px 36px;
   border: none;
   border-radius: var(--radius-full);
-  background: var(--gradient-primary);
+  background: var(--color-accent);
   color: #fff;
   font-family: var(--font-body);
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  transition: transform 0.25s var(--ease-bounce), box-shadow 0.25s ease;
-  box-shadow: 0 4px 16px rgba(255, 0, 110, 0.3);
+  transition: box-shadow 0.25s ease, transform 0.15s ease;
+  box-shadow: 0 4px 16px rgba(123, 47, 247, 0.3);
 }
 
 .dopamine-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 24px rgba(255, 0, 110, 0.4);
+  box-shadow: 0 6px 24px rgba(123, 47, 247, 0.5);
 }
 
 .dopamine-btn:active {
@@ -122,13 +129,12 @@ a { color: inherit; text-decoration: none; }
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.25s var(--ease-bounce);
+  transition: border-color 0.2s ease, color 0.2s ease;
 }
 
 .dopamine-btn-outline:hover {
-  border-color: var(--color-neuroticism);
-  color: var(--color-neuroticism);
-  transform: scale(1.03);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
 }
 
 .gradient-text {
@@ -169,11 +175,7 @@ a { color: inherit; text-decoration: none; }
   to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(123, 47, 247, 0.4); }
-  50% { box-shadow: 0 0 0 8px rgba(123, 47, 247, 0); }
-}
-
+/* Shimmer — only used in report page score bars */
 @keyframes shimmer {
   0% { background-position: -200% center; }
   100% { background-position: 200% center; }

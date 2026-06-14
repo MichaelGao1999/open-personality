@@ -9,7 +9,22 @@
 
     <template v-if="!loading && report">
       <div class="report-header">
-        <h2 class="report-title gradient-text">{{ t('report.title') }}</h2>
+        <!-- 部分结果徽标 -->
+        <div v-if="isPartial" class="partial-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+          </svg>
+          {{ t('report.partial_badge') }}
+        </div>
+        <h2 class="report-title" :class="{ 'gradient-text': !isPartial }">
+          {{ t('report.title') }}
+        </h2>
+        <p v-if="isPartial" class="partial-progress">
+          {{ t('report.partial_progress', { answered: report.answered_count, total: report.total_items }) }}
+        </p>
+        <p v-if="isPartial" class="partial-note">
+          {{ t('report.partial_note') }}
+        </p>
       </div>
 
       <ResultCard :report="report" ref="resultCardRef" />
@@ -33,7 +48,15 @@
       <EasterEggBanner v-if="report.easter_egg" :text="report.easter_egg" />
 
       <div class="actions">
-        <button class="dopamine-btn" @click="exportImage">
+        <!-- 部分结果的继续答题按钮 -->
+        <button v-if="isPartial" class="dopamine-btn continue-btn" @click="continueTest">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+          {{ t('report.continue_test') }}
+        </button>
+
+        <button class="dopamine-btn" :class="{ 'dopamine-btn-outline': isPartial }" @click="exportImage">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
           </svg>
@@ -66,8 +89,8 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
-import { useRoute } from 'vue-router'
+import { ref, computed, onMounted } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import { useI18n } from '../composables/useI18n'
 import { getReport } from '../utils/api'
 import { exportCard } from '../utils/exportImage'
@@ -78,12 +101,15 @@ import ShareLink from '../components/ShareLink.vue'
 
 const { t } = useI18n()
 const route = useRoute()
+const router = useRouter()
 const report = ref(null)
 const loading = ref(true)
 const error = ref(false)
 const resultCardRef = ref(null)
 
-const interpColors = ['#7B2FF7', '#00B4D8', '#FFD60A', '#56CFE1', '#FF006E']
+const interpColors = ['#7B2FF7', '#00B4D8', '#FFD60A', '#06D6A0', '#FF006E']
+
+const isPartial = computed(() => route.query.partial === '1')
 
 async function fetchReport() {
   const token = route.params.token
@@ -105,6 +131,15 @@ async function exportImage() {
   if (resultCardRef.value?.cardRef) {
     await exportCard(resultCardRef.value.cardRef)
   }
+}
+
+function continueTest() {
+  // 从部分结果继续答题
+  const mode = route.query.mode || report.value?.mode || 'standard'
+  router.push({
+    path: '/questionnaire',
+    query: { mode, resume: 'local' },
+  })
 }
 
 onMounted(() => {
@@ -158,6 +193,32 @@ onMounted(() => {
   font-weight: 700;
 }
 
+.partial-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  background: rgba(0, 180, 216, 0.1);
+  border: 1px solid var(--color-conscientiousness);
+  color: var(--color-conscientiousness);
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.partial-progress {
+  color: var(--color-text-secondary);
+  font-size: 15px;
+  margin-top: 8px;
+}
+
+.partial-note {
+  color: var(--color-text-secondary);
+  font-size: 13px;
+  margin-top: 4px;
+}
+
 .section-title {
   font-size: 20px;
   font-weight: 600;
@@ -208,6 +269,11 @@ onMounted(() => {
   align-items: center;
   margin-top: 40px;
   animation: fadeInUp 0.5s var(--ease-bounce) 0.4s both;
+}
+
+.continue-btn {
+  background: linear-gradient(135deg, #00B4D8, #7B2FF7);
+  box-shadow: 0 4px 16px rgba(0, 180, 216, 0.3);
 }
 
 .back-link {
