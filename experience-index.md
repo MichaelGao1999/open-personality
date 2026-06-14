@@ -3,7 +3,7 @@
 > 本文件由 `scripts/build-experience-index.py` 自动生成。
 > 覆盖 troubleshooting / lessons-learned / ADR，统一搜索入口。
 
-> 当前收录 **419** 条记录（问题 48 + 经验 128 + 决策 243）。
+> 当前收录 **486** 条记录（问题 48 + 经验 128 + 决策 310）。
 
 ---
 
@@ -430,6 +430,73 @@
 | python-data | repo_1246437677/ADR-052：聚焦 Excel 驱动流，API 驱动流暂不投入 | 决策 | 架构决策 | qianniu_business_analytics | — | ADR.md#L1610 |
 | python-data | repo_1246437677/ADR-053：保持 `qianniu_business_analytics` 与 `e... | 决策 | 架构决策 | qianniu_business_analytics | — | ADR.md#L1615 |
 | python-data | repo_1246437677/ADR-064：保持 `qianniu_business_analytics` 与 `e... | 决策 | 架构决策 | qianniu_business_analytics | — | ADR.md#L1620 |
+| general | repo_1243304845/ADR-005：分发配置平台感知化 | 决策 | 架构决策 | 母库 | — | ADR.md#L1624 |
+| general | repo_1243304845/ADR-007：状态文档机制重构（待办清理 + 技术债务表格化） | 决策 | 架构决策 | 母库 | — | ADR.md#L1629 |
+| general | repo_1243304845/ADR-009：分发逻辑从覆盖文件改为按条目合并 | 决策 | 架构决策 | 母库 | — | ADR.md#L1634 |
+| general | repo_1243304845/ADR-011：阶段产出不放 starter 模板 | 决策 | 架构决策 | 母库 | — | ADR.md#L1639 |
+| general | repo_1243304845/ADR-012：持久化记忆系统架构选型 | 决策 | 架构决策 | 母库 | — | ADR.md#L1644 |
+| general | repo_1243304845/ADR-030：隐私防护三层防御体系 | 决策 | 架构决策 | 母库 | — | ADR.md#L1649 |
+| general | repo_1243304845/ADR-016：project-starter 公开仓库仅放模板 | 决策 | 架构决策 | 母库 | — | ADR.md#L1654 |
+| general | repo_1243304845/ADR-020：状态文档机制重构（待办清理 + 技术债务表格化） [来源:vibe-co... | 决策 | 架构决策 | 母库 | — | ADR.md#L1659 |
+| general | repo_1243304845/ADR-021：分发逻辑从覆盖文件改为按条目合并 [来源:vibe-coding-pro... | 决策 | 架构决策 | 母库 | — | ADR.md#L1664 |
+| general | repo_1239378927/ADR-004：Node.js 环境隔离方案（nvm + 双 Node.js） [来源:... | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L1669 |
+| general | repo_1239378927/ADR-054：GitHub 认证从 SSH 切换到 GitHub CLI + HTTP... | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L1674 |
+| general | repo_1239378927/ADR-013：同步脚本优先使用仓库 default_branch [来源:agent-... | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L1679 |
+| general | repo_1239378927/ADR-014：syncFrom 配置实现聚合/分发双模式 [来源:agent-codi... | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L1684 |
+| general | repo_1239378927/ADR-015：母库 AGENTS 与其他项目 AGENTS 物理分离 [来源:agen... | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L1689 |
+| general | repo_1239378927/ADR-055：前端技术栈选型 [来源:blindfold-chess] | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L1694 |
+| general | repo_1239378927/ADR-017：测试框架选型 [来源:blindfold-chess] | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L1699 |
+| general | repo_1239378927/ADR-018：AI 开发方式与批次划分 [来源:blindfold-chess] | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L1704 |
+| general | repo_1239378927/ADR-019：棋盘渲染与棋子方案 [来源:blindfold-chess] | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L1709 |
+| general | repo_1239378927/ADR-056：数据持久化方案 [来源:blindfold-chess] | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L1714 |
+| general | repo_1239378927/ADR-057：通用对局配置层设计 [来源:blindfold-chess] | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L1719 |
+| general | repo_1239378927/ADR-022：难度选择从离散按钮改为连续滑块 [来源:blindfold-chess] | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L1724 |
+| general | repo_1239378927/ADR-023：棋盘风格设置交互方案 [来源:blindfold-chess] | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L1729 |
+| general | repo_1239378927/ADR-024：盲棋复盘入口位置 [来源:blindfold-chess] | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L1734 |
+| general | repo_1239378927/ADR-025：Troubleshooting 索引采用独立文件 + 行号链接 | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L1739 |
+| general | repo_1239378927/ADR-026：init-skeleton.py 保持 Python 3.9 兼容 | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L1744 |
+| general | repo_1239378927/ADR-027：假删除模式通过环境变量 `FRENCH_EXIT_DRY_RUN` 控制 | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L1749 |
+| general | repo_1239378927/ADR-028：扫描进度条采用后端全局加权进度计算 | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L1754 |
+| general | repo_1239378927/ADR-029：个人目录全量扫描 + 文件类型分类 | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L1759 |
+| general | repo_1239378927/ADR-058：WebView2 安装模式选择 downloadBootstrapper | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L1764 |
+| general | repo_1239378927/ADR-034：为什么用 Tauri（Rust + WebView2）而非 Electr... | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L1769 |
+| general | repo_1239378927/ADR-035：为什么前端用 React（而非 Vue/Svelte）？ [来源:fre... | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L1774 |
+| general | repo_1239378927/ADR-036：为什么 CPU% 用 `GetProcessTimes` 而非 `sys... | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L1779 |
+| general | repo_1239378927/ADR-037：为什么 Scanner 进度用 `mpsc::channel` 而非 `... | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L1784 |
+| general | repo_1239378927/ADR-038：为什么加密文件回调用同步 `Fn` 而非 `async`？ [来源:fr... | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L1789 |
+| general | repo_1239378927/ADR-039：为什么用 `status.md` + `session-log.md` ... | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L1794 |
+| general | repo_1239378927/ADR-040：WebView2 分发策略——放弃 NSIS bootstrapper，... | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L1799 |
+| general | repo_1239378927/ADR-041：默认深色主题而非跟随系统 [来源:french-exit] | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L1804 |
+| general | repo_1239378927/ADR-042：全选全部功能的技术方案 [来源:french-exit] | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L1809 |
+| general | repo_1239378927/ADR-043：路径交互设计 — 文本可点击 vs 独立按钮 [来源:french-ex... | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L1814 |
+| general | repo_1239378927/ADR-044：删除策略从 DoD 安全擦除改为普通删除 [来源:french-exit... | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L1819 |
+| general | repo_1239378927/ADR-045：扫描范围从 Desktop/Downloads 扩展为全盘扫描 [来源:... | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L1824 |
+| general | repo_1239378927/ADR-046：移除 ResultsPage 默认自动勾选 [来源:french-exi... | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L1829 |
+| general | repo_1239378927/ADR-059：假删除模式通过环境变量 `FRENCH_EXIT_DRY_RUN` 控制... | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L1834 |
+| general | repo_1239378927/ADR-060：扫描进度条采用后端全局加权进度计算 | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L1839 |
+| general | repo_1239378927/ADR-061：个人目录全量扫描 + 文件类型分类 | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L1844 |
+| general | repo_1239378927/ADR-062：WebView2 安装模式选择 downloadBootstrapper | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L1849 |
+| general | repo_1239378927/ADR-047：技术栈选型（Python 3 + requests） [来源:qiann... | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L1854 |
+| general | repo_1239378927/ADR-048：渠道范围限定（仅淘系生意参谋） [来源:qianniu_business... | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L1859 |
+| general | repo_1239378927/ADR-049：Cookie 刷新策略（Digest 自动刷新，不问用户） [来源:qi... | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L1864 |
+| general | repo_1239378927/ADR-050：日期时间格式（T00:00:00+08:00，禁用 23:59:59） ... | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L1869 |
+| general | repo_1239378927/ADR-051：报告形态（Markdown 四段式，单店/多店统一） [来源:qiann... | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L1874 |
+| general | repo_1239378927/ADR-063：聚焦 Excel 驱动流，API 驱动流暂不投入 [来源:qianniu... | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L1879 |
+| general | repo_1254814983/ADR-001：decisions.md 退出分发体系，仅保留聚合 [来源:母库] | 决策 | 架构决策 | ecommerce-compliance-checker | — | ADR.md#L1884 |
+| general | repo_1254814983/ADR-002：anti-patterns-checklist 完整集成到 SOP 五阶... | 决策 | 架构决策 | ecommerce-compliance-checker | — | ADR.md#L1889 |
+| general | repo_1254814983/ADR-003：RULE-04 从 Windows-only 改为跨平台 [来源:母库] | 决策 | 架构决策 | ecommerce-compliance-checker | — | ADR.md#L1894 |
+| general | repo_1254814983/ADR-006：清理冗余索引脚本，补齐骨架 manifest | 决策 | 架构决策 | ecommerce-compliance-checker | — | ADR.md#L1899 |
+| general | repo_1254814983/ADR-008：认知提取交互改进 — 强制检查点（方案 A） [来源:母库] | 决策 | 架构决策 | ecommerce-compliance-checker | — | ADR.md#L1904 |
+| general | repo_1254814983/ADR-010：init-skeleton.py 从本地路径改为 GitHub 拉取模式 | 决策 | 架构决策 | ecommerce-compliance-checker | — | ADR.md#L1909 |
+| general | repo_1254814983/ADR-065：桌面应用选型 - Electron | 决策 | 架构决策 | ecommerce-compliance-checker | — | ADR.md#L1914 |
+| general | repo_1254814983/ADR-066：OCR引擎版本锁定 | 决策 | 架构决策 | ecommerce-compliance-checker | — | ADR.md#L1919 |
+| general | repo_1254814983/ADR-067：敏感词类型分类命名 | 决策 | 架构决策 | ecommerce-compliance-checker | — | ADR.md#L1924 |
+| general | repo_1261261641/ADR-031：（待补充标题） | 决策 | 架构决策 | fact-swarm-v2 | — | ADR.md#L1929 |
+| general | repo_1261261641/ADR-032：SKILL.md 插件模式优于 CLI 独立工具 | 决策 | 架构决策 | fact-swarm-v2 | — | ADR.md#L1934 |
+| general | repo_1261261641/ADR-033：S4-S5 流程重定义 | 决策 | 架构决策 | fact-swarm-v2 | — | ADR.md#L1939 |
+| python-data | repo_1246437677/ADR-052：聚焦 Excel 驱动流，API 驱动流暂不投入 | 决策 | 架构决策 | qianniu_business_analytics | — | ADR.md#L1944 |
+| python-data | repo_1246437677/ADR-053：保持 `qianniu_business_analytics` 与 `e... | 决策 | 架构决策 | qianniu_business_analytics | — | ADR.md#L1949 |
+| python-data | repo_1246437677/ADR-064：保持 `qianniu_business_analytics` 与 `e... | 决策 | 架构决策 | qianniu_business_analytics | — | ADR.md#L1954 |
 
 ---
 
@@ -477,6 +544,11 @@
 - [决策] repo_1239378927/ADR-036：为什么 CPU% 用 `GetProcessTime — `架构决策` → ADR.md#L1445
 - [决策] repo_1239378927/ADR-040：WebView2 分发策略——放弃 NSIS boo — `架构决策` → ADR.md#L1465
 - [决策] repo_1239378927/ADR-062：WebView2 安装模式选择 downloadBo — `架构决策` → ADR.md#L1515
+- [决策] repo_1239378927/ADR-058：WebView2 安装模式选择 downloadBo — `架构决策` → ADR.md#L1764
+- [决策] repo_1239378927/ADR-034：为什么用 Tauri（Rust + WebView2 — `架构决策` → ADR.md#L1769
+- [决策] repo_1239378927/ADR-036：为什么 CPU% 用 `GetProcessTime — `架构决策` → ADR.md#L1779
+- [决策] repo_1239378927/ADR-040：WebView2 分发策略——放弃 NSIS boo — `架构决策` → ADR.md#L1799
+- [决策] repo_1239378927/ADR-062：WebView2 安装模式选择 downloadBo — `架构决策` → ADR.md#L1849
 
 ### JavaScript / React / Vitest
 
@@ -527,6 +599,8 @@
 - [决策] repo_1239378927/ADR-035：为什么前端用 React（而非 Vue/Svelte — `架构决策` → ADR.md#L1106
 - [决策] repo_1239378927/ADR-004：Node.js 环境隔离方案（nvm + 双 Nod — `架构决策` → ADR.md#L1335
 - [决策] repo_1239378927/ADR-035：为什么前端用 React（而非 Vue/Svelte — `架构决策` → ADR.md#L1440
+- [决策] repo_1239378927/ADR-004：Node.js 环境隔离方案（nvm + 双 Nod — `架构决策` → ADR.md#L1669
+- [决策] repo_1239378927/ADR-035：为什么前端用 React（而非 Vue/Svelte — `架构决策` → ADR.md#L1774
 
 ### Python
 
@@ -539,6 +613,8 @@
 - [决策] repo_1239378927/ADR-047：技术栈选型（Python 3 + requests） — `架构决策` → ADR.md#L1186
 - [决策] repo_1239378927/ADR-026：init-skeleton.py 保持 Python — `架构决策` → ADR.md#L1410
 - [决策] repo_1239378927/ADR-047：技术栈选型（Python 3 + requests） — `架构决策` → ADR.md#L1520
+- [决策] repo_1239378927/ADR-026：init-skeleton.py 保持 Python — `架构决策` → ADR.md#L1744
+- [决策] repo_1239378927/ADR-047：技术栈选型（Python 3 + requests） — `架构决策` → ADR.md#L1854
 
 ### AI 工具链 / LLM
 
@@ -574,6 +650,8 @@
 - [决策] repo_1254814983/ADR-010：init-skeleton.py 从本地路径改为 G — `架构决策` → ADR.md#L1241
 - [决策] repo_1239378927/ADR-054：GitHub 认证从 SSH 切换到 GitHub  — `架构决策` → ADR.md#L1340
 - [决策] repo_1254814983/ADR-010：init-skeleton.py 从本地路径改为 G — `架构决策` → ADR.md#L1575
+- [决策] repo_1239378927/ADR-054：GitHub 认证从 SSH 切换到 GitHub  — `架构决策` → ADR.md#L1674
+- [决策] repo_1254814983/ADR-010：init-skeleton.py 从本地路径改为 G — `架构决策` → ADR.md#L1909
 
 ### 网络 / 环境 / 权限
 
@@ -634,6 +712,8 @@
 - [决策] repo_1254814983/ADR-003：RULE-04 从 Windows-only 改为跨 — `架构决策` → ADR.md#L1226
 - [决策] repo_1239378927/ADR-040：WebView2 分发策略——放弃 NSIS boo — `架构决策` → ADR.md#L1465
 - [决策] repo_1254814983/ADR-003：RULE-04 从 Windows-only 改为跨 — `架构决策` → ADR.md#L1560
+- [决策] repo_1239378927/ADR-040：WebView2 分发策略——放弃 NSIS boo — `架构决策` → ADR.md#L1799
+- [决策] repo_1254814983/ADR-003：RULE-04 从 Windows-only 改为跨 — `架构决策` → ADR.md#L1894
 
 ### Chess / 引擎
 
@@ -674,6 +754,15 @@
 - [决策] repo_1239378927/ADR-022：难度选择从离散按钮改为连续滑块 [来源:blindf — `架构决策` → ADR.md#L1390
 - [决策] repo_1239378927/ADR-023：棋盘风格设置交互方案 [来源:blindfold-c — `架构决策` → ADR.md#L1395
 - [决策] repo_1239378927/ADR-024：盲棋复盘入口位置 [来源:blindfold-che — `架构决策` → ADR.md#L1400
+- [决策] repo_1239378927/ADR-055：前端技术栈选型 [来源:blindfold-ches — `架构决策` → ADR.md#L1694
+- [决策] repo_1239378927/ADR-017：测试框架选型 [来源:blindfold-chess — `架构决策` → ADR.md#L1699
+- [决策] repo_1239378927/ADR-018：AI 开发方式与批次划分 [来源:blindfold — `架构决策` → ADR.md#L1704
+- [决策] repo_1239378927/ADR-019：棋盘渲染与棋子方案 [来源:blindfold-ch — `架构决策` → ADR.md#L1709
+- [决策] repo_1239378927/ADR-056：数据持久化方案 [来源:blindfold-ches — `架构决策` → ADR.md#L1714
+- [决策] repo_1239378927/ADR-057：通用对局配置层设计 [来源:blindfold-ch — `架构决策` → ADR.md#L1719
+- [决策] repo_1239378927/ADR-022：难度选择从离散按钮改为连续滑块 [来源:blindf — `架构决策` → ADR.md#L1724
+- [决策] repo_1239378927/ADR-023：棋盘风格设置交互方案 [来源:blindfold-c — `架构决策` → ADR.md#L1729
+- [决策] repo_1239378927/ADR-024：盲棋复盘入口位置 [来源:blindfold-che — `架构决策` → ADR.md#L1734
 
 ### 其他
 
@@ -925,6 +1014,52 @@
 - [决策] repo_1246437677/ADR-052：聚焦 Excel 驱动流，API 驱动流暂不投入 — `架构决策` → ADR.md#L1610
 - [决策] repo_1246437677/ADR-053：保持 `qianniu_business_analy — `架构决策` → ADR.md#L1615
 - [决策] repo_1246437677/ADR-064：保持 `qianniu_business_analy — `架构决策` → ADR.md#L1620
+- [决策] repo_1243304845/ADR-005：分发配置平台感知化 — `架构决策` → ADR.md#L1624
+- [决策] repo_1243304845/ADR-007：状态文档机制重构（待办清理 + 技术债务表格化） — `架构决策` → ADR.md#L1629
+- [决策] repo_1243304845/ADR-009：分发逻辑从覆盖文件改为按条目合并 — `架构决策` → ADR.md#L1634
+- [决策] repo_1243304845/ADR-011：阶段产出不放 starter 模板 — `架构决策` → ADR.md#L1639
+- [决策] repo_1243304845/ADR-012：持久化记忆系统架构选型 — `架构决策` → ADR.md#L1644
+- [决策] repo_1243304845/ADR-030：隐私防护三层防御体系 — `架构决策` → ADR.md#L1649
+- [决策] repo_1243304845/ADR-016：project-starter 公开仓库仅放模板 — `架构决策` → ADR.md#L1654
+- [决策] repo_1243304845/ADR-020：状态文档机制重构（待办清理 + 技术债务表格化） [ — `架构决策` → ADR.md#L1659
+- [决策] repo_1243304845/ADR-021：分发逻辑从覆盖文件改为按条目合并 [来源:vibe- — `架构决策` → ADR.md#L1664
+- [决策] repo_1239378927/ADR-013：同步脚本优先使用仓库 default_branch  — `架构决策` → ADR.md#L1679
+- [决策] repo_1239378927/ADR-014：syncFrom 配置实现聚合/分发双模式 [来源: — `架构决策` → ADR.md#L1684
+- [决策] repo_1239378927/ADR-015：母库 AGENTS 与其他项目 AGENTS 物理分 — `架构决策` → ADR.md#L1689
+- [决策] repo_1239378927/ADR-025：Troubleshooting 索引采用独立文件 + — `架构决策` → ADR.md#L1739
+- [决策] repo_1239378927/ADR-027：假删除模式通过环境变量 `FRENCH_EXIT_D — `架构决策` → ADR.md#L1749
+- [决策] repo_1239378927/ADR-028：扫描进度条采用后端全局加权进度计算 — `架构决策` → ADR.md#L1754
+- [决策] repo_1239378927/ADR-029：个人目录全量扫描 + 文件类型分类 — `架构决策` → ADR.md#L1759
+- [决策] repo_1239378927/ADR-037：为什么 Scanner 进度用 `mpsc::cha — `架构决策` → ADR.md#L1784
+- [决策] repo_1239378927/ADR-038：为什么加密文件回调用同步 `Fn` 而非 `asyn — `架构决策` → ADR.md#L1789
+- [决策] repo_1239378927/ADR-039：为什么用 `status.md` + `sessio — `架构决策` → ADR.md#L1794
+- [决策] repo_1239378927/ADR-041：默认深色主题而非跟随系统 [来源:french-ex — `架构决策` → ADR.md#L1804
+- [决策] repo_1239378927/ADR-042：全选全部功能的技术方案 [来源:french-exi — `架构决策` → ADR.md#L1809
+- [决策] repo_1239378927/ADR-043：路径交互设计 — 文本可点击 vs 独立按钮 [来源 — `架构决策` → ADR.md#L1814
+- [决策] repo_1239378927/ADR-044：删除策略从 DoD 安全擦除改为普通删除 [来源:f — `架构决策` → ADR.md#L1819
+- [决策] repo_1239378927/ADR-045：扫描范围从 Desktop/Downloads 扩展 — `架构决策` → ADR.md#L1824
+- [决策] repo_1239378927/ADR-046：移除 ResultsPage 默认自动勾选 [来源: — `架构决策` → ADR.md#L1829
+- [决策] repo_1239378927/ADR-059：假删除模式通过环境变量 `FRENCH_EXIT_D — `架构决策` → ADR.md#L1834
+- [决策] repo_1239378927/ADR-060：扫描进度条采用后端全局加权进度计算 — `架构决策` → ADR.md#L1839
+- [决策] repo_1239378927/ADR-061：个人目录全量扫描 + 文件类型分类 — `架构决策` → ADR.md#L1844
+- [决策] repo_1239378927/ADR-048：渠道范围限定（仅淘系生意参谋） [来源:qianni — `架构决策` → ADR.md#L1859
+- [决策] repo_1239378927/ADR-049：Cookie 刷新策略（Digest 自动刷新，不问 — `架构决策` → ADR.md#L1864
+- [决策] repo_1239378927/ADR-050：日期时间格式（T00:00:00+08:00，禁用  — `架构决策` → ADR.md#L1869
+- [决策] repo_1239378927/ADR-051：报告形态（Markdown 四段式，单店/多店统一） — `架构决策` → ADR.md#L1874
+- [决策] repo_1239378927/ADR-063：聚焦 Excel 驱动流，API 驱动流暂不投入 [ — `架构决策` → ADR.md#L1879
+- [决策] repo_1254814983/ADR-001：decisions.md 退出分发体系，仅保留聚合  — `架构决策` → ADR.md#L1884
+- [决策] repo_1254814983/ADR-002：anti-patterns-checklist 完整 — `架构决策` → ADR.md#L1889
+- [决策] repo_1254814983/ADR-006：清理冗余索引脚本，补齐骨架 manifest — `架构决策` → ADR.md#L1899
+- [决策] repo_1254814983/ADR-008：认知提取交互改进 — 强制检查点（方案 A） [来源 — `架构决策` → ADR.md#L1904
+- [决策] repo_1254814983/ADR-065：桌面应用选型 - Electron — `架构决策` → ADR.md#L1914
+- [决策] repo_1254814983/ADR-066：OCR引擎版本锁定 — `架构决策` → ADR.md#L1919
+- [决策] repo_1254814983/ADR-067：敏感词类型分类命名 — `架构决策` → ADR.md#L1924
+- [决策] repo_1261261641/ADR-031：（待补充标题） — `架构决策` → ADR.md#L1929
+- [决策] repo_1261261641/ADR-032：SKILL.md 插件模式优于 CLI 独立工具 — `架构决策` → ADR.md#L1934
+- [决策] repo_1261261641/ADR-033：S4-S5 流程重定义 — `架构决策` → ADR.md#L1939
+- [决策] repo_1246437677/ADR-052：聚焦 Excel 驱动流，API 驱动流暂不投入 — `架构决策` → ADR.md#L1944
+- [决策] repo_1246437677/ADR-053：保持 `qianniu_business_analy — `架构决策` → ADR.md#L1949
+- [决策] repo_1246437677/ADR-064：保持 `qianniu_business_analy — `架构决策` → ADR.md#L1954
 
 
 ---
@@ -1045,7 +1180,7 @@
 - **复制粘贴是 i18n 错误的常见来源**：将中文值直接粘贴进英文字典，或反之，属于低级但高频的疏忽 → lessons-learned.md#L33
 - ... 还有 108 条
 
-### 决策（243 条）
+### 决策（310 条）
 
 - ADR-025：decisions.md 退出分发体系，仅保留聚合 → ADR.md#L8
 - ADR-024：anti-patterns-checklist 完整集成到 SOP 五阶段工作流 → ADR.md#L23
@@ -1067,4 +1202,4 @@
 - ADR-005：为什么加密文件回调用同步 `Fn` 而非 `async`？ → ADR.md#L262
 - ADR-006：为什么用 `status.md` + `session-log.md` 替代 `prompt-... → ADR.md#L277
 - ADR-007：WebView2 分发策略——放弃 NSIS bootstrapper，改用携带 DLL → ADR.md#L290
-- ... 还有 223 条
+- ... 还有 290 条
