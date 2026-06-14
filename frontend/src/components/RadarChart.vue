@@ -30,35 +30,44 @@ const dimColors = [
 
 function render() {
   if (!chart.value) return
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark'
   const labels = dimLabels[props.lang] || dimLabels.zh
   const scores = ['O', 'C', 'E', 'A', 'N'].map((d) => {
     const ts = props.scores?.t_scores?.[d] ?? props.scores?.[d] ?? 50
     return Math.round(ts)
   })
+  const axisColor = isDark ? '#c0c0d8' : '#1A1A2E'
+  const splitLineColors = isDark
+    ? ['#1e1e30', '#1e1e30', '#151525', '#151525', '#101020']
+    : ['#D1D5DB', '#D1D5DB', '#E5E7EB', '#E5E7EB', '#F3F4F6']
+  const splitAreaColors = isDark
+    ? ['#0d0d14', '#0a0a12', '#080810', '#0d0d14', '#0a0a12']
+    : ['#FFFFFF', '#F8F9FF', '#F0F2FF', '#FFFFFF', '#F8F9FF']
+  const axisLineColor = isDark ? '#2a2a44' : '#9CA3AF'
   chart.value.setOption({
     radar: {
       indicator: labels.map((name, i) => ({
         name,
         max: 100,
         axisName: {
-          color: '#1A1A2E',
-          fontSize: 13,
-          fontWeight: 600,
+          color: axisColor,
+          fontSize: 14,
+          fontWeight: 700,
         },
         splitLine: {
           lineStyle: {
-            color: ['#F1F5F9', '#E5E7EB', '#D1D5DB', '#9CA3AF', '#6B7280'].reverse(),
+            color: splitLineColors,
           }
         },
         splitArea: {
           show: true,
           areaStyle: {
-            color: ['#FAFAFA', '#F9FAFB', '#F3F4F6', '#FEFEFE', '#FFFFFF'],
+            color: splitAreaColors,
           }
         },
         axisLine: {
           lineStyle: {
-            color: '#E5E7EB',
+            color: axisLineColor,
           }
         }
       })),
@@ -109,13 +118,13 @@ function render() {
     }],
     tooltip: {
       trigger: 'item',
-      backgroundColor: 'rgba(255, 255, 255, 0.95)',
-      borderColor: '#E5E7EB',
+      backgroundColor: isDark ? 'rgba(13, 13, 20, 0.95)' : 'rgba(255, 255, 255, 0.95)',
+      borderColor: isDark ? '#2a2a44' : '#E5E7EB',
       borderWidth: 1,
       borderRadius: 12,
       padding: [12, 16],
       textStyle: {
-        color: '#1A1A2E',
+        color: isDark ? '#c0c0d8' : '#1A1A2E',
         fontSize: 14,
       },
     },
@@ -130,6 +139,14 @@ onMounted(() => {
     chart.value?.resize()
   }
   window.addEventListener('resize', handleResize)
+
+  // 监听深色模式切换
+  const observer = new MutationObserver(() => {
+    chart.value?.dispose()
+    chart.value = echarts.init(chartRef.value)
+    render()
+  })
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] })
 })
 
 watch(() => [props.scores, props.lang], render, { deep: true })

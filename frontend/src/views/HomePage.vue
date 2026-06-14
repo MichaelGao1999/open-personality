@@ -1,6 +1,6 @@
 <template>
   <div class="home-page">
-    <LanguageSwitch />
+    <SettingsMenu />
 
     <!-- 恢复横幅 -->
     <div v-if="savedSession" class="resume-banner dopamine-card">
@@ -54,10 +54,13 @@
         :class="{ selected: mode === 'advanced' }"
         @click="mode = 'advanced'"
       >
-        <div class="mode-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-            <circle cx="12" cy="12" r="3"/>
+        <div class="mode-icon" style="color: var(--color-openness)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M12 2L2 9l10 13L22 9z"/>
+            <path d="M2 9h20"/>
+            <path d="M7 9l5-6 5 6"/>
+            <path d="M12 22V9"/>
+            <path d="M5 12l3 4M19 12l-3 4"/>
           </svg>
         </div>
         <h3>{{ t('home.advanced') }}</h3>
@@ -103,7 +106,7 @@ import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useI18n } from '../composables/useI18n'
 import { useRecentReports } from '../composables/useRecentReports'
-import LanguageSwitch from '../components/LanguageSwitch.vue'
+import SettingsMenu from '../components/SettingsMenu.vue'
 import ShareCodeInput from '../components/ShareCodeInput.vue'
 
 const { t } = useI18n()
@@ -176,7 +179,7 @@ onMounted(() => {
   margin-bottom: 24px;
   border: 2px solid var(--color-conscientiousness);
   background: rgba(0, 180, 216, 0.05);
-  animation: bounceIn 0.4s var(--ease-bounce);
+  animation: bounceIn 0.45s var(--ease-smooth-spring);
 }
 
 .resume-info {

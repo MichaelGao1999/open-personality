@@ -1,6 +1,6 @@
 <template>
   <div class="report-page">
-    <LanguageSwitch />
+    <SettingsMenu />
 
     <div v-if="loading" class="loading">
       <div class="loading-spinner"></div>
@@ -94,7 +94,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { useI18n } from '../composables/useI18n'
 import { getReport } from '../utils/api'
 import { exportCard } from '../utils/exportImage'
-import LanguageSwitch from '../components/LanguageSwitch.vue'
+import SettingsMenu from '../components/SettingsMenu.vue'
 import ResultCard from '../components/ResultCard.vue'
 import EasterEggBanner from '../components/EasterEggBanner.vue'
 import ShareLink from '../components/ShareLink.vue'

@@ -194,5 +194,39 @@
 - `.decisions-migrated` — 删除
 - `troubleshooting.md` — 新增 Vue 3 `_ctx.t` 条目
 
+---
+
+## 2026-06-14 — 极速模式 + 深色模式 + 调试 Dock + 设置菜单
+
+### 本轮概要
+- **极速模式（30题）**：精选 IPIP-120 每 facet 一题生成 `ipip_speed_zh/en.json`；后端支持 speed 模式加载和验证
+- **中断恢复（方案C）**：
+  - 后端：`POST /questionnaires/submit` 支持 `status:partial`，新增 `GET /questionnaires/resume/{token}`
+  - DB：Session 模型加 `status` / `total_items` 字段
+  - 前端：答题过程自动保存 localStorage；报告页显示部分结果 + "继续答题"
+  - 首页：恢复横幅 + 清除功能
+- **CSS 变量重构**：
+  - 统一 `:root` 主题入口（`--color-accent`, `--color-bg`, `--color-text` 等）
+  - 按钮去渐变，统一纯色 `#7B2FF7`
+  - 新增 `--ease-smooth-spring`
+- **深色模式**：设置菜单中 ☀️/🌙 切换；修复 CSS 顺序错误（`:root` 在后覆盖了 `[data-theme="dark"]` 的问题）；RadarChart 深色适配
+- **SettingsMenu**：替换 LanguageSwitch，三行统一布局（语言/主题/反馈），齿轮图标 + 下拉面板
+- **DebugDock**：固定浮窗，提供页面跳转/测试报告生成/彩蛋触发/慢速动画/语言切换/数据清理
+- **Theme Debug Board**：`theme-debug.html` 可视化所有设计 Token
+- **UI 微调**：选项按钮 md 圆角 + hover 实色填充；答题切题动画改平滑 fadeIn；bounceIn 去回弹；首页模式卡加钻石图标
+
+### 修复文件
+- `global.css` — CSS 变量顺序修复（`:root` 在前，`[data-theme="dark"]` 在后）；深色模式颜色值调整
+
+### 新建文件
+- `backend/data/items/ipip_speed_zh.json` — 极速模式 30 题中文
+- `backend/data/items/ipip_speed_en.json` — 极速模式 30 题英文
+- `frontend/src/components/SettingsMenu.vue` — 设置菜单组件
+- `frontend/src/components/DebugDock.vue` — 调试面板组件
+- `frontend/public/theme-debug.html` — 主题调试看板
+- `docs/dev-debug-dock-spec.md` — Debug Dock 规范
+- `docs/theme-debug-board-spec.md` — 主题看板规范
+
 ### 遗留问题 / 下轮开始点
 - P2 尾项：E2E 测试、响应式、动画、IPIP-300、解读模板
+- 继续完善深色模式下的组件适配（如 ECharts 雷达图已修复）

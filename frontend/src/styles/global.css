@@ -47,8 +47,51 @@
   --shadow-glow: 0 0 24px rgba(123, 47, 247, 0.2);
 
   /* Transitions */
-  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.2, 0.64, 1);
   --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-smooth-spring: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ═══════════════════════════════════════════
+   深色模式 — 置于 :root 之后，确保覆盖浅色变量
+   ═══════════════════════════════════════════ */
+[data-theme="dark"] {
+  --color-bg: #000000;
+  --color-surface: #14141f;
+  --color-text: #f0f0f5;
+  --color-text-secondary: #a0a0b8;
+  --color-border: #2e2e44;
+  --color-accent: #a78bfa;
+  --color-accent-light: rgba(167, 139, 250, 0.15);
+  --color-openness: #a78bfa;
+  --color-conscientiousness: #22d3ee;
+  --color-extraversion: #fde047;
+  --color-agreeableness: #34d399;
+  --color-neuroticism: #fb7185;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.7);
+}
+
+[data-theme="dark"] .dopamine-btn {
+  box-shadow: 0 4px 16px rgba(167, 139, 250, 0.3);
+}
+
+[data-theme="dark"] .dopamine-btn:hover {
+  box-shadow: 0 6px 24px rgba(167, 139, 250, 0.5);
+}
+
+[data-theme="dark"] .dopamine-card {
+  background: var(--color-surface);
+  border-color: var(--color-border);
+}
+
+[data-theme="dark"] ::selection {
+  background: rgba(123, 47, 247, 0.4);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: #3d3d5c;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -146,7 +189,7 @@ a { color: inherit; text-decoration: none; }
 
 /* Page transitions */
 .page-enter-active {
-  animation: pageIn 0.4s var(--ease-bounce);
+  animation: pageIn 0.3s var(--ease-smooth);
 }
 
 .page-leave-active {
@@ -154,25 +197,31 @@ a { color: inherit; text-decoration: none; }
 }
 
 @keyframes pageIn {
-  from { opacity: 0; transform: translateY(12px) scale(0.98); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes pageOut {
-  from { opacity: 1; transform: scale(1); }
-  to { opacity: 0; transform: scale(0.98); }
+  from { opacity: 1; }
+  to { opacity: 0; }
 }
 
-/* Elastic bounce */
+/* Gentle scale-in (比 bounceIn 更平滑) */
 @keyframes bounceIn {
-  0% { transform: scale(0.9); opacity: 0; }
-  60% { transform: scale(1.03); }
+  0% { transform: scale(0.92); opacity: 0; }
   100% { transform: scale(1); opacity: 1; }
 }
 
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(16px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* 调试慢速模式 — body 有 .dd-slow-mo 时所有动画放慢 3 倍 */
+body.dd-slow-mo * {
+  animation-duration: 3s !important;
+  animation-delay: 0s !important;
+  transition-duration: 0.9s !important;
 }
 
 /* Shimmer — only used in report page score bars */

@@ -1,6 +1,6 @@
 <template>
   <div class="questionnaire-page">
-    <LanguageSwitch />
+    <SettingsMenu />
 
     <div v-if="loading" class="loading">
       <div class="loading-spinner"></div>
@@ -150,7 +150,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { useI18n } from '../composables/useI18n'
 import { useRecentReports } from '../composables/useRecentReports'
 import { getItems, submitAnswers } from '../utils/api'
-import LanguageSwitch from '../components/LanguageSwitch.vue'
+import SettingsMenu from '../components/SettingsMenu.vue'
 
 const { t, lang } = useI18n()
 const route = useRoute()
@@ -395,32 +395,34 @@ onMounted(async () => {
 }
 
 .option-btn {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  border: 3px solid var(--color-border);
+  width: 64px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--color-border);
   background: var(--color-surface);
   cursor: pointer;
   font-size: 18px;
   font-weight: 600;
   color: var(--color-text-secondary);
-  transition: all 0.25s var(--ease-bounce);
+  transition: all 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .option-btn:hover {
-  border-color: var(--dim-color);
-  color: var(--dim-color);
+  background: var(--dim-color);
+  border-color: color-mix(in srgb, var(--dim-color) 60%, transparent);
+  color: #fff;
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--dim-color) 30%, transparent);
 }
 
 .option-btn.active {
   background: var(--dim-color);
-  border-color: var(--dim-color);
+  border-color: color-mix(in srgb, var(--dim-color) 60%, transparent);
   color: white;
-  transform: scale(1.08);
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  transform: scale(1.06);
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--dim-color) 40%, transparent);
 }
 
 .option-labels {
@@ -450,21 +452,21 @@ onMounted(async () => {
 
 /* ===== 题目切换动画 ===== */
 .question-slide-enter-active {
-  animation: slideIn 0.3s var(--ease-bounce);
+  transition: opacity 0.2s var(--ease-smooth), transform 0.2s var(--ease-smooth);
 }
 
 .question-slide-leave-active {
-  animation: slideOut 0.2s ease-in;
+  transition: opacity 0.12s ease-in, transform 0.12s ease-in;
 }
 
-@keyframes slideIn {
-  from { opacity: 0; transform: translateX(30px); }
-  to { opacity: 1; transform: translateX(0); }
+.question-slide-enter-from {
+  opacity: 0;
+  transform: translateX(12px);
 }
 
-@keyframes slideOut {
-  from { opacity: 1; transform: translateX(0); }
-  to { opacity: 0; transform: translateX(-30px); }
+.question-slide-leave-to {
+  opacity: 0;
+  transform: translateX(-12px);
 }
 
 /* ===== 总览 ===== */
@@ -633,6 +635,6 @@ onMounted(async () => {
 }
 
 /* ===== 动画 ===== */
-.modal-enter-active { animation: bounceIn 0.3s var(--ease-bounce); }
+.modal-enter-active { animation: bounceIn 0.4s var(--ease-smooth-spring); }
 .modal-leave-active { animation: pageOut 0.2s ease-in; }
 </style>

@@ -25,7 +25,7 @@ defineProps({
   display: flex;
   align-items: flex-start;
   gap: 14px;
-  animation: bounceIn 0.5s var(--ease-bounce);
+  animation: bounceIn 0.5s var(--ease-smooth-spring);
 }
 
 .easter-egg-icon {

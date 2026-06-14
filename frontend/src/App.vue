@@ -1,4 +1,5 @@
 <template>
+  <DebugDock />
   <div id="app-root">
     <router-view v-slot="{ Component }">
       <Transition name="page" mode="out-in">
@@ -11,6 +12,7 @@
 <script setup>
 import { onMounted } from 'vue'
 import { useI18n } from './composables/useI18n'
+import DebugDock from './components/DebugDock.vue'
 
 const { setLang } = useI18n()
 

@@ -112,3 +112,4 @@ open-personality/
 | 2026-06-10 | 阶段四+五完成：prompt.md 确认，全部 94 个子任务实现，41 个后端测试通过，前端构建成功 |
 | 2026-06-10 | 修复 CI（Backend PYTHONPATH + Frontend 跳 npm test）；安装 frontend-design 技能；提出前端 UI 重设计方向 |
 | 2026-06-11 | 清理 Trae 冲突文件 + 同步 docs/frontend.md 为 MimoCode 配色 + 修复 LanguageSwitch `t is not a function` 错误 |
+| 2026-06-14 | 极速模式30题 + 中断恢复(方案C) + 深色模式(修复CSS顺序bug) + 调试Dock + 设置菜单(语言/主题/反馈) + 答题UI优化 + 雷达图深色适配 |

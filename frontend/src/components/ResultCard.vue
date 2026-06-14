@@ -91,7 +91,7 @@ defineExpose({ cardRef })
   padding: 0;
   overflow: hidden;
   border: 2px solid var(--color-border);
-  animation: bounceIn 0.6s var(--ease-bounce);
+  animation: bounceIn 0.6s var(--ease-smooth-spring);
 }
 
 .card-top-border {
