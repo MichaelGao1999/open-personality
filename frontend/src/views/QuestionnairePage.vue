@@ -22,7 +22,7 @@
       </div>
 
       <Transition name="question-slide" mode="out-in">
-        <div class="question-card dopamine-card" :key="currentIndex" :style="{ '--card-accent': currentDimColor }">
+        <div class="question-card dopamine-card" :key="currentIndex">
           <p class="q-text">{{ currentItem.text }}</p>
           <div class="options">
             <button
@@ -31,14 +31,21 @@
               class="option-btn"
               :class="{ active: answers[currentItem.item_id] === val }"
               :style="{ '--dim-color': dimColors[idx] }"
+              @mouseenter="hoveredIdx = idx"
+              @mouseleave="hoveredIdx = -1"
               @click="selectAnswer(currentItem.item_id, val)"
             >
               <span class="option-value">{{ val }}</span>
             </button>
           </div>
-          <div class="option-labels">
-            <span>{{ t('questionnaire.disagree') }}</span>
-            <span>{{ t('questionnaire.agree') }}</span>
+          <div class="option-hints">
+            <span
+              v-for="(hint, idx) in hintLabels"
+              :key="idx"
+              class="hint-item"
+              :class="{ visible: hoveredIdx === idx }"
+              :style="{ '--hint-color': dimColors[idx] }"
+            >{{ hint }}</span>
           </div>
         </div>
       </Transition>
@@ -169,17 +176,20 @@ const showConfirm = ref(false)
 const showSummary = ref(false)
 const lastAnswerTime = ref(0)
 
-const dimColors = ['#7B2FF7', '#00B4D8', '#FFD60A', '#06D6A0', '#FF006E']
+// 选项颜色：不同意(靛蓝) → 中立(灰) → 同意(琥珀)
+const dimColors = ['#6366f1', '#a5b4fc', '#9ca3af', '#fde68a', '#f59e0b']
+const hoveredIdx = ref(-1)
+const hintLabels = computed(() => {
+  const isZh = lang.value === 'zh'
+  return isZh
+    ? ['非常不同意', '不同意', '中立', '同意', '非常同意']
+    : ['Strongly Disagree', 'Disagree', 'Neutral', 'Agree', 'Strongly Agree']
+})
 
 const currentItem = computed(() => items.value[currentIndex.value])
 const progress = computed(() => ((currentIndex.value + 1) / items.value.length) * 100)
 const allAnswered = computed(() => items.value.length > 0 && items.value.every((item) => answers.value[item.item_id]))
 const answeredCount = computed(() => items.value.filter((item) => answers.value[item.item_id]).length)
-const currentDimColor = computed(() => {
-  const dim = currentItem.value?.dimension
-  const map = { O: dimColors[0], C: dimColors[1], E: dimColors[2], A: dimColors[3], N: dimColors[4] }
-  return map[dim] || dimColors[0]
-})
 
 // ---- localStorage 自动保存 ----
 function saveToLocalStorage() {
@@ -372,16 +382,6 @@ onMounted(async () => {
   overflow: hidden;
 }
 
-.question-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: var(--card-accent, var(--color-border));
-}
-
 .q-text {
   font-size: 20px;
   line-height: 1.6;
@@ -395,8 +395,8 @@ onMounted(async () => {
 }
 
 .option-btn {
-  width: 64px;
-  height: 52px;
+  flex: 1;
+  height: 54px;
   border-radius: var(--radius-md);
   border: 2px solid var(--color-border);
   background: var(--color-surface);
@@ -425,12 +425,26 @@ onMounted(async () => {
   box-shadow: 0 4px 16px color-mix(in srgb, var(--dim-color) 40%, transparent);
 }
 
-.option-labels {
+.option-hints {
   display: flex;
-  justify-content: space-between;
-  margin-top: 12px;
-  font-size: 12px;
-  color: var(--color-text-secondary);
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
+  min-height: 24px;
+}
+
+.hint-item {
+  flex: 1;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: transparent;
+  transition: color 0.3s ease;
+  max-width: 90px;
+}
+
+.hint-item.visible {
+  color: var(--hint-color, var(--color-accent));
 }
 
 /* ===== 底部导航 ===== */
