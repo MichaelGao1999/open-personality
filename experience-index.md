@@ -3,7 +3,7 @@
 > 本文件由 `scripts/build-experience-index.py` 自动生成。
 > 覆盖 troubleshooting / lessons-learned / ADR，统一搜索入口。
 
-> 当前收录 **218** 条记录（问题 48 + 经验 128 + 决策 42）。
+> 当前收录 **285** 条记录（问题 48 + 经验 128 + 决策 109）。
 
 ---
 
@@ -15,50 +15,50 @@
 | general | 新增条目模板 | 问题 | 未分类 |  | — | troubleshooting.md#L24 |
 | general | [错误关键词] | 问题 | 未分类 | 项目名 | pending | troubleshooting.md#L27 |
 | general | AI 重复实现已有组件（棋盘/网格类 UI） | 问题 | 未分类 | blindfold-chess | pending | troubleshooting.md#L40 |
-| general | Stockfish 加载超时 / 引擎不启动 | 问题 | 未分类 | blindfold-chess | known_limitation | troubleshooting.md#L51 |
-| general | GitHub Pages 国内打不开 | 问题 | 未分类 | blindfold-chess | known_limitation | troubleshooting.md#L60 |
-| general | Node.js 测试运行时 chess.js 未定义 | 问题 | 开发/测试 | blindfold-chess | resolved | troubleshooting.md#L73 |
-| general | CLI subAgent 并行超时 | 问题 | 开发/测试 | blindfold-chess | resolved | troubleshooting.md#L82 |
-| general | 设置面板一闪而过 | 问题 | 开发/测试 | blindfold-chess | resolved | troubleshooting.md#L91 |
-| general | 旧代码与新模块冲突 | 问题 | 运行时 | blindfold-chess | wont_fix | troubleshooting.md#L104 |
-| general | 引擎候选走法未集成 | 问题 | 运行时 | blindfold-chess | wont_fix | troubleshooting.md#L113 |
-| general | JS 数据文件嵌套单引号导致 `Unexpected identifier` | 问题 | 运行时 | blindfold-chess | resolved | troubleshooting.md#L124 |
-| general | 设置面板点击无反应（panel toggle 测试失败） | 问题 | 运行时 | blindfold-chess | resolved | troubleshooting.md#L134 |
-| general | mock DOM 中 `querySelector` / `querySelectorAll` 缺失 | 问题 | 运行时 | blindfold-chess | resolved | troubleshooting.md#L144 |
-| general | `cargo check --lib` 报错：`GetDiskFreeSpaceExW` 未定义 | 问题 | 运行时 | french-exit | — | troubleshooting.md#L156 |
-| general | `cargo check --lib` 报错：`FILETIME` 未定义 | 问题 | 运行时 | french-exit | — | troubleshooting.md#L164 |
-| general | `cargo test --lib` 报错 `0xc0000139`（UCRT DLL 缺失） | 问题 | 运行时错误 | french-exit | resolved | troubleshooting.md#L176 |
-| general | 运行 `french-exit.exe` 报错：`Could not find the WebView2 Runtime... | 问题 | 运行时错误 | french-exit | — | troubleshooting.md#L188 |
-| general | 运行 `french-exit.exe` 报错：`找不到 WebView2Loader.dll` | 问题 | 运行时错误 | french-exit | — | troubleshooting.md#L196 |
-| general | `cargo tauri build` 失败：`另一个程序正在使用此文件` (os error 32) | 问题 | 运行时错误 | french-exit | — | troubleshooting.md#L204 |
-| general | vitest 报错：`Failed to resolve import "@tauri-apps/api/fs"` | 问题 | 测试错误 | french-exit | — | troubleshooting.md#L214 |
-| general | vitest 报错：`act is not a function` | 问题 | 测试错误 | french-exit | — | troubleshooting.md#L223 |
-| general | vitest 报错：React 警告 `Cannot update a component while renderin... | 问题 | 测试错误 | french-exit | — | troubleshooting.md#L231 |
-| general | checkbox 点击后状态不变化 | 问题 | 测试错误 | french-exit | — | troubleshooting.md#L240 |
-| general | 中文路径下编译失败 | 问题 | 环境问题 | french-exit | — | troubleshooting.md#L253 |
-| general | cargo tauri dev 在后台任务中崩溃 | 问题 | 环境问题 | french-exit | — | troubleshooting.md#L264 |
-| general | PowerShell 执行中文脚本报 "UnexpectedToken" | 问题 | 存档提示 | agent-coding-skeleton | — | troubleshooting.md#L285 |
-| general | GitHub push 报错 `Permission denied (publickey)` | 问题 | 存档提示 | agent-coding-skeleton | resolved | troubleshooting.md#L297 |
-| general | `gh auth login` 超时：`read tcp ... operation timed out` | 问题 | 存档提示 | agent-coding-skeleton | resolved | troubleshooting.md#L306 |
-| general | HuggingFace 模型下载连接超时 `curl: (28) Could not connect to server... | 问题 | 存档提示 | agent-coding-skeleton | resolved | troubleshooting.md#L315 |
-| general | PowerShell 添加防火墙规则权限不足 `Access is denied` | 问题 | 存档提示 | agent-coding-skeleton | known_limitation | troubleshooting.md#L324 |
-| general | Vue 3 `<script setup>` `_ctx.t is not a function` | 问题 | 存档提示 | open-personality | resolved | troubleshooting.md#L697 |
-| general | Node.js 报 SyntaxError: Unexpected identifier（i18n 中文字符串） | 问题 | 存档提示 | blindfold-chess | resolved | troubleshooting.md#L707 |
-| general | sed 批量修改误改结构体定义 | 问题 | 存档提示 | french-exit | — | troubleshooting.md#L717 |
-| general | French Exit 进程锁定 exe 导致复制失败 | 问题 | 存档提示 | french-exit | — | troubleshooting.md#L726 |
-| general | Hermes Agent Git 合并冲突导致 SyntaxError | 问题 | 存档提示 | agent-coding-skeleton | resolved | troubleshooting.md#L739 |
-| general | Node.js 环境污染：Hermes Node.js 泄漏到用户 PATH | 问题 | 存档提示 | agent-coding-skeleton | resolved | troubleshooting.md#L751 |
-| python-data | Cookie 过期 / 401 认证失败 | 问题 | 存档提示 | qianniu_business_analytics | resolved | troubleshooting.md#L1096 |
-| python-data | Digest 刷新失败 | 问题 | 存档提示 | qianniu_business_analytics | resolved | troubleshooting.md#L1105 |
-| python-data | auth/jycm.json 缺失字段 | 问题 | 存档提示 | qianniu_business_analytics | resolved | troubleshooting.md#L1114 |
-| python-data | 日期区间多返回一天 | 问题 | 取数相关 | qianniu_business_analytics | resolved | troubleshooting.md#L1127 |
-| python-data | getAllShopList 返回空数组 | 问题 | 取数相关 | qianniu_business_analytics | wont_fix | troubleshooting.md#L1136 |
-| python-data | createAndDownload 返回失败 | 问题 | 取数相关 | qianniu_business_analytics | wont_fix | troubleshooting.md#L1145 |
-| python-data | openpyxl 未安装 | 问题 | 报告相关 | qianniu_business_analytics | wont_fix | troubleshooting.md#L1158 |
-| python-data | 钉钉推送失败 | 问题 | 报告相关 | qianniu_business_analytics | wont_fix | troubleshooting.md#L1167 |
-| python-data | Windows Git Bash LF/CRLF 警告 | 问题 | 环境相关 | qianniu_business_analytics | known_limitation | troubleshooting.md#L1180 |
-| general | CodeBuddy 安装后 package.json 丢失导致命令不可用 | 问题 | 环境相关 | 母库 | resolved | troubleshooting.md#L1191 |
-| general | distribute.py 子进程 GBK 编码错误 | 问题 | 环境相关 | agent-coding-skeleton | known_limitation | troubleshooting.md#L1206 |
+| general | PowerShell 执行中文脚本报 "UnexpectedToken" | 问题 | 未分类 | agent-coding-skeleton | — | troubleshooting.md#L51 |
+| general | GitHub push 报错 `Permission denied (publickey)` | 问题 | 未分类 | agent-coding-skeleton | resolved | troubleshooting.md#L63 |
+| general | `gh auth login` 超时：`read tcp ... operation timed out` | 问题 | 未分类 | agent-coding-skeleton | resolved | troubleshooting.md#L72 |
+| general | HuggingFace 模型下载连接超时 `curl: (28) Could not connect to server... | 问题 | 未分类 | agent-coding-skeleton | resolved | troubleshooting.md#L81 |
+| general | PowerShell 添加防火墙规则权限不足 `Access is denied` | 问题 | 未分类 | agent-coding-skeleton | known_limitation | troubleshooting.md#L90 |
+| general | Vue 3 `<script setup>` `_ctx.t is not a function` | 问题 | 未分类 | open-personality | resolved | troubleshooting.md#L99 |
+| general | Node.js 报 SyntaxError: Unexpected identifier（i18n 中文字符串） | 问题 | 未分类 | blindfold-chess | resolved | troubleshooting.md#L109 |
+| general | sed 批量修改误改结构体定义 | 问题 | 未分类 | french-exit | — | troubleshooting.md#L119 |
+| general | French Exit 进程锁定 exe 导致复制失败 | 问题 | 未分类 | french-exit | — | troubleshooting.md#L128 |
+| general | Hermes Agent Git 合并冲突导致 SyntaxError | 问题 | 未分类 | agent-coding-skeleton | resolved | troubleshooting.md#L141 |
+| general | Node.js 环境污染：Hermes Node.js 泄漏到用户 PATH | 问题 | 未分类 | agent-coding-skeleton | resolved | troubleshooting.md#L153 |
+| general | Stockfish 加载超时 / 引擎不启动 | 问题 | 存档提示 | blindfold-chess | known_limitation | troubleshooting.md#L171 |
+| general | GitHub Pages 国内打不开 | 问题 | 存档提示 | blindfold-chess | known_limitation | troubleshooting.md#L180 |
+| general | Node.js 测试运行时 chess.js 未定义 | 问题 | 开发/测试 | blindfold-chess | resolved | troubleshooting.md#L193 |
+| general | CLI subAgent 并行超时 | 问题 | 开发/测试 | blindfold-chess | resolved | troubleshooting.md#L202 |
+| general | 设置面板一闪而过 | 问题 | 开发/测试 | blindfold-chess | resolved | troubleshooting.md#L211 |
+| general | 旧代码与新模块冲突 | 问题 | 运行时 | blindfold-chess | wont_fix | troubleshooting.md#L224 |
+| general | 引擎候选走法未集成 | 问题 | 运行时 | blindfold-chess | wont_fix | troubleshooting.md#L233 |
+| general | JS 数据文件嵌套单引号导致 `Unexpected identifier` | 问题 | 运行时 | blindfold-chess | resolved | troubleshooting.md#L244 |
+| general | 设置面板点击无反应（panel toggle 测试失败） | 问题 | 运行时 | blindfold-chess | resolved | troubleshooting.md#L254 |
+| general | mock DOM 中 `querySelector` / `querySelectorAll` 缺失 | 问题 | 运行时 | blindfold-chess | resolved | troubleshooting.md#L264 |
+| general | `cargo check --lib` 报错：`GetDiskFreeSpaceExW` 未定义 | 问题 | 运行时 | french-exit | — | troubleshooting.md#L276 |
+| general | `cargo check --lib` 报错：`FILETIME` 未定义 | 问题 | 运行时 | french-exit | — | troubleshooting.md#L284 |
+| general | `cargo test --lib` 报错 `0xc0000139`（UCRT DLL 缺失） | 问题 | 运行时错误 | french-exit | resolved | troubleshooting.md#L296 |
+| general | 运行 `french-exit.exe` 报错：`Could not find the WebView2 Runtime... | 问题 | 运行时错误 | french-exit | — | troubleshooting.md#L308 |
+| general | 运行 `french-exit.exe` 报错：`找不到 WebView2Loader.dll` | 问题 | 运行时错误 | french-exit | — | troubleshooting.md#L316 |
+| general | `cargo tauri build` 失败：`另一个程序正在使用此文件` (os error 32) | 问题 | 运行时错误 | french-exit | — | troubleshooting.md#L324 |
+| general | vitest 报错：`Failed to resolve import "@tauri-apps/api/fs"` | 问题 | 测试错误 | french-exit | — | troubleshooting.md#L334 |
+| general | vitest 报错：`act is not a function` | 问题 | 测试错误 | french-exit | — | troubleshooting.md#L343 |
+| general | vitest 报错：React 警告 `Cannot update a component while renderin... | 问题 | 测试错误 | french-exit | — | troubleshooting.md#L351 |
+| general | checkbox 点击后状态不变化 | 问题 | 测试错误 | french-exit | — | troubleshooting.md#L360 |
+| general | 中文路径下编译失败 | 问题 | 环境问题 | french-exit | — | troubleshooting.md#L373 |
+| general | cargo tauri dev 在后台任务中崩溃 | 问题 | 环境问题 | french-exit | — | troubleshooting.md#L384 |
+| python-data | Cookie 过期 / 401 认证失败 | 问题 | 存档提示 | qianniu_business_analytics | resolved | troubleshooting.md#L405 |
+| python-data | Digest 刷新失败 | 问题 | 存档提示 | qianniu_business_analytics | resolved | troubleshooting.md#L414 |
+| python-data | auth/jycm.json 缺失字段 | 问题 | 存档提示 | qianniu_business_analytics | resolved | troubleshooting.md#L423 |
+| python-data | 日期区间多返回一天 | 问题 | 取数相关 | qianniu_business_analytics | resolved | troubleshooting.md#L436 |
+| python-data | getAllShopList 返回空数组 | 问题 | 取数相关 | qianniu_business_analytics | wont_fix | troubleshooting.md#L445 |
+| python-data | createAndDownload 返回失败 | 问题 | 取数相关 | qianniu_business_analytics | wont_fix | troubleshooting.md#L454 |
+| python-data | openpyxl 未安装 | 问题 | 报告相关 | qianniu_business_analytics | wont_fix | troubleshooting.md#L467 |
+| python-data | 钉钉推送失败 | 问题 | 报告相关 | qianniu_business_analytics | wont_fix | troubleshooting.md#L476 |
+| python-data | Windows Git Bash LF/CRLF 警告 | 问题 | 环境相关 | qianniu_business_analytics | known_limitation | troubleshooting.md#L489 |
+| general | CodeBuddy 安装后 package.json 丢失导致命令不可用 | 问题 | 环境相关 | 母库 | resolved | troubleshooting.md#L500 |
+| general | distribute.py 子进程 GBK 编码错误 | 问题 | 环境相关 | agent-coding-skeleton | known_limitation | troubleshooting.md#L515 |
 | general | 纯 HTML+CSS+JS 项目无需 npm，双击 `index.html` 即可预览，但涉及 Web Worker（如... | 经验 | build-env / testing | blindfold-chess | INFO | lessons-learned.md#L14 |
 | frontend | 手写 IIFE 模块时，用 `window.ModuleName = Module` 暴露 API，内部私有变量用下划线... | 经验 | dom / api-design | blindfold-chess | WARNING | lessons-learned.md#L15 |
 | general | 浏览器集成测试用 TestRunner（自定义极简框架），保持与 Node 测试同一套断言 API，降低切换成本 | 经验 | testing | blindfold-chess | INFO | lessons-learned.md#L16 |
@@ -229,6 +229,73 @@
 | general | ADR-026：认知提取交互改进 — 强制检查点（方案 A） | 决策 | 架构决策 | 母库 | — | ADR.md#L580 |
 | general | ADR-021：分发逻辑从覆盖文件改为按条目合并 [母库 @2026-05-31] | 决策 | 架构决策 |  | — | ADR.md#L595 |
 | general | ADR-022：init-skeleton.py 从本地路径改为 GitHub 拉取模式 [母库 @2026-06-01... | 决策 | 架构决策 |  | — | ADR.md#L608 |
+| general | repo_1243304845/ADR-005：分发配置平台感知化 | 决策 | 架构决策 | 母库 | — | ADR.md#L622 |
+| general | repo_1243304845/ADR-007：状态文档机制重构（待办清理 + 技术债务表格化） | 决策 | 架构决策 | 母库 | — | ADR.md#L627 |
+| general | repo_1243304845/ADR-009：分发逻辑从覆盖文件改为按条目合并 | 决策 | 架构决策 | 母库 | — | ADR.md#L632 |
+| general | repo_1243304845/ADR-011：阶段产出不放 starter 模板 | 决策 | 架构决策 | 母库 | — | ADR.md#L637 |
+| general | repo_1243304845/ADR-012：持久化记忆系统架构选型 | 决策 | 架构决策 | 母库 | — | ADR.md#L642 |
+| general | repo_1243304845/ADR-030：隐私防护三层防御体系 | 决策 | 架构决策 | 母库 | — | ADR.md#L647 |
+| general | repo_1243304845/ADR-016：project-starter 公开仓库仅放模板 | 决策 | 架构决策 | 母库 | — | ADR.md#L652 |
+| general | repo_1243304845/ADR-020：状态文档机制重构（待办清理 + 技术债务表格化） [来源:vibe-co... | 决策 | 架构决策 | 母库 | — | ADR.md#L657 |
+| general | repo_1243304845/ADR-021：分发逻辑从覆盖文件改为按条目合并 [来源:vibe-coding-pro... | 决策 | 架构决策 | 母库 | — | ADR.md#L662 |
+| general | repo_1239378927/ADR-004：Node.js 环境隔离方案（nvm + 双 Node.js） [来源:... | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L667 |
+| general | repo_1239378927/ADR-054：GitHub 认证从 SSH 切换到 GitHub CLI + HTTP... | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L672 |
+| general | repo_1239378927/ADR-013：同步脚本优先使用仓库 default_branch [来源:agent-... | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L677 |
+| general | repo_1239378927/ADR-014：syncFrom 配置实现聚合/分发双模式 [来源:agent-codi... | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L682 |
+| general | repo_1239378927/ADR-015：母库 AGENTS 与其他项目 AGENTS 物理分离 [来源:agen... | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L687 |
+| general | repo_1239378927/ADR-055：前端技术栈选型 [来源:blindfold-chess] | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L692 |
+| general | repo_1239378927/ADR-017：测试框架选型 [来源:blindfold-chess] | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L697 |
+| general | repo_1239378927/ADR-018：AI 开发方式与批次划分 [来源:blindfold-chess] | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L702 |
+| general | repo_1239378927/ADR-019：棋盘渲染与棋子方案 [来源:blindfold-chess] | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L707 |
+| general | repo_1239378927/ADR-056：数据持久化方案 [来源:blindfold-chess] | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L712 |
+| general | repo_1239378927/ADR-057：通用对局配置层设计 [来源:blindfold-chess] | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L717 |
+| general | repo_1239378927/ADR-022：难度选择从离散按钮改为连续滑块 [来源:blindfold-chess] | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L722 |
+| general | repo_1239378927/ADR-023：棋盘风格设置交互方案 [来源:blindfold-chess] | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L727 |
+| general | repo_1239378927/ADR-024：盲棋复盘入口位置 [来源:blindfold-chess] | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L732 |
+| general | repo_1239378927/ADR-025：Troubleshooting 索引采用独立文件 + 行号链接 | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L737 |
+| general | repo_1239378927/ADR-026：init-skeleton.py 保持 Python 3.9 兼容 | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L742 |
+| general | repo_1239378927/ADR-027：假删除模式通过环境变量 `FRENCH_EXIT_DRY_RUN` 控制 | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L747 |
+| general | repo_1239378927/ADR-028：扫描进度条采用后端全局加权进度计算 | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L752 |
+| general | repo_1239378927/ADR-029：个人目录全量扫描 + 文件类型分类 | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L757 |
+| general | repo_1239378927/ADR-058：WebView2 安装模式选择 downloadBootstrapper | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L762 |
+| general | repo_1239378927/ADR-034：为什么用 Tauri（Rust + WebView2）而非 Electr... | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L767 |
+| general | repo_1239378927/ADR-035：为什么前端用 React（而非 Vue/Svelte）？ [来源:fre... | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L772 |
+| general | repo_1239378927/ADR-036：为什么 CPU% 用 `GetProcessTimes` 而非 `sys... | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L777 |
+| general | repo_1239378927/ADR-037：为什么 Scanner 进度用 `mpsc::channel` 而非 `... | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L782 |
+| general | repo_1239378927/ADR-038：为什么加密文件回调用同步 `Fn` 而非 `async`？ [来源:fr... | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L787 |
+| general | repo_1239378927/ADR-039：为什么用 `status.md` + `session-log.md` ... | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L792 |
+| general | repo_1239378927/ADR-040：WebView2 分发策略——放弃 NSIS bootstrapper，... | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L797 |
+| general | repo_1239378927/ADR-041：默认深色主题而非跟随系统 [来源:french-exit] | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L802 |
+| general | repo_1239378927/ADR-042：全选全部功能的技术方案 [来源:french-exit] | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L807 |
+| general | repo_1239378927/ADR-043：路径交互设计 — 文本可点击 vs 独立按钮 [来源:french-ex... | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L812 |
+| general | repo_1239378927/ADR-044：删除策略从 DoD 安全擦除改为普通删除 [来源:french-exit... | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L817 |
+| general | repo_1239378927/ADR-045：扫描范围从 Desktop/Downloads 扩展为全盘扫描 [来源:... | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L822 |
+| general | repo_1239378927/ADR-046：移除 ResultsPage 默认自动勾选 [来源:french-exi... | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L827 |
+| general | repo_1239378927/ADR-059：假删除模式通过环境变量 `FRENCH_EXIT_DRY_RUN` 控制... | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L832 |
+| general | repo_1239378927/ADR-060：扫描进度条采用后端全局加权进度计算 | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L837 |
+| general | repo_1239378927/ADR-061：个人目录全量扫描 + 文件类型分类 | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L842 |
+| general | repo_1239378927/ADR-062：WebView2 安装模式选择 downloadBootstrapper | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L847 |
+| general | repo_1239378927/ADR-047：技术栈选型（Python 3 + requests） [来源:qiann... | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L852 |
+| general | repo_1239378927/ADR-048：渠道范围限定（仅淘系生意参谋） [来源:qianniu_business... | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L857 |
+| general | repo_1239378927/ADR-049：Cookie 刷新策略（Digest 自动刷新，不问用户） [来源:qi... | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L862 |
+| general | repo_1239378927/ADR-050：日期时间格式（T00:00:00+08:00，禁用 23:59:59） ... | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L867 |
+| general | repo_1239378927/ADR-051：报告形态（Markdown 四段式，单店/多店统一） [来源:qiann... | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L872 |
+| general | repo_1239378927/ADR-063：聚焦 Excel 驱动流，API 驱动流暂不投入 [来源:qianniu... | 决策 | 架构决策 | blindfold-chess | — | ADR.md#L877 |
+| general | repo_1254814983/ADR-001：decisions.md 退出分发体系，仅保留聚合 [来源:母库] | 决策 | 架构决策 | ecommerce-compliance-checker | — | ADR.md#L882 |
+| general | repo_1254814983/ADR-002：anti-patterns-checklist 完整集成到 SOP 五阶... | 决策 | 架构决策 | ecommerce-compliance-checker | — | ADR.md#L887 |
+| general | repo_1254814983/ADR-003：RULE-04 从 Windows-only 改为跨平台 [来源:母库] | 决策 | 架构决策 | ecommerce-compliance-checker | — | ADR.md#L892 |
+| general | repo_1254814983/ADR-006：清理冗余索引脚本，补齐骨架 manifest | 决策 | 架构决策 | ecommerce-compliance-checker | — | ADR.md#L897 |
+| general | repo_1254814983/ADR-008：认知提取交互改进 — 强制检查点（方案 A） [来源:母库] | 决策 | 架构决策 | ecommerce-compliance-checker | — | ADR.md#L902 |
+| general | repo_1254814983/ADR-010：init-skeleton.py 从本地路径改为 GitHub 拉取模式 | 决策 | 架构决策 | ecommerce-compliance-checker | — | ADR.md#L907 |
+| general | repo_1254814983/ADR-065：桌面应用选型 - Electron | 决策 | 架构决策 | ecommerce-compliance-checker | — | ADR.md#L912 |
+| general | repo_1254814983/ADR-066：OCR引擎版本锁定 | 决策 | 架构决策 | ecommerce-compliance-checker | — | ADR.md#L917 |
+| general | repo_1254814983/ADR-067：敏感词类型分类命名 | 决策 | 架构决策 | ecommerce-compliance-checker | — | ADR.md#L922 |
+| general | repo_1261261641/ADR-031：（待补充标题） | 决策 | 架构决策 | fact-swarm-v2 | — | ADR.md#L927 |
+| general | repo_1261261641/ADR-032：SKILL.md 插件模式优于 CLI 独立工具 | 决策 | 架构决策 | fact-swarm-v2 | — | ADR.md#L932 |
+| general | repo_1261261641/ADR-033：S4-S5 流程重定义 | 决策 | 架构决策 | fact-swarm-v2 | — | ADR.md#L937 |
+| python-data | repo_1246437677/ADR-052：聚焦 Excel 驱动流，API 驱动流暂不投入 | 决策 | 架构决策 | qianniu_business_analytics | — | ADR.md#L942 |
+| python-data | repo_1246437677/ADR-053：保持 `qianniu_business_analytics` 与 `e... | 决策 | 架构决策 | qianniu_business_analytics | — | ADR.md#L947 |
+| python-data | repo_1246437677/ADR-064：保持 `qianniu_business_analytics` 与 `e... | 决策 | 架构决策 | qianniu_business_analytics | — | ADR.md#L952 |
 
 ---
 
@@ -238,14 +305,14 @@
 
 ### Rust / Tauri
 
-- [问题] `cargo check --lib` 报错：`GetDiskFreeSpaceExW` 未定义 — `运行时` → troubleshooting.md#L156
-- [问题] `cargo check --lib` 报错：`FILETIME` 未定义 — `运行时` → troubleshooting.md#L164
-- [问题] `cargo test --lib` 报错 `0xc0000139`（UCRT DLL 缺失） — `运行时错误` → troubleshooting.md#L176
-- [问题] 运行 `french-exit.exe` 报错：`Could not find the WebVie — `运行时错误` → troubleshooting.md#L188
-- [问题] 运行 `french-exit.exe` 报错：`找不到 WebView2Loader.dll` — `运行时错误` → troubleshooting.md#L196
-- [问题] `cargo tauri build` 失败：`另一个程序正在使用此文件` (os error 32 — `运行时错误` → troubleshooting.md#L204
-- [问题] vitest 报错：`Failed to resolve import "@tauri-apps/a — `测试错误` → troubleshooting.md#L214
-- [问题] cargo tauri dev 在后台任务中崩溃 — `环境问题` → troubleshooting.md#L264
+- [问题] `cargo check --lib` 报错：`GetDiskFreeSpaceExW` 未定义 — `运行时` → troubleshooting.md#L276
+- [问题] `cargo check --lib` 报错：`FILETIME` 未定义 — `运行时` → troubleshooting.md#L284
+- [问题] `cargo test --lib` 报错 `0xc0000139`（UCRT DLL 缺失） — `运行时错误` → troubleshooting.md#L296
+- [问题] 运行 `french-exit.exe` 报错：`Could not find the WebVie — `运行时错误` → troubleshooting.md#L308
+- [问题] 运行 `french-exit.exe` 报错：`找不到 WebView2Loader.dll` — `运行时错误` → troubleshooting.md#L316
+- [问题] `cargo tauri build` 失败：`另一个程序正在使用此文件` (os error 32 — `运行时错误` → troubleshooting.md#L324
+- [问题] vitest 报错：`Failed to resolve import "@tauri-apps/a — `测试错误` → troubleshooting.md#L334
+- [问题] cargo tauri dev 在后台任务中崩溃 — `环境问题` → troubleshooting.md#L384
 - [经验] `GetDiskFreeSpaceExW` 传 `&HSTRING` 作为路径参数，`Option< — `api-design` → lessons-learned.md#L64
 - [经验] `FILETIME` 转 u64：`((high as u64) << 32) — `api-design` → lessons-learned.md#L66
 - [经验] `Arc<dyn Fn(...) + Send + Sync>` 是 Rust 中给同步结构体注入回 — `api-design` → lessons-learned.md#L67
@@ -261,17 +328,22 @@
 - [决策] ADR-001：为什么用 Tauri（Rust + WebView2）而非 Electron？ — `架构决策` → ADR.md#L202
 - [决策] ADR-003：为什么 CPU% 用 `GetProcessTimes` 而非 `sysinfo`  — `架构决策` → ADR.md#L232
 - [决策] ADR-007：WebView2 分发策略——放弃 NSIS bootstrapper，改用携带 D — `架构决策` → ADR.md#L290
+- [决策] repo_1239378927/ADR-058：WebView2 安装模式选择 downloadBo — `架构决策` → ADR.md#L762
+- [决策] repo_1239378927/ADR-034：为什么用 Tauri（Rust + WebView2 — `架构决策` → ADR.md#L767
+- [决策] repo_1239378927/ADR-036：为什么 CPU% 用 `GetProcessTime — `架构决策` → ADR.md#L777
+- [决策] repo_1239378927/ADR-040：WebView2 分发策略——放弃 NSIS boo — `架构决策` → ADR.md#L797
+- [决策] repo_1239378927/ADR-062：WebView2 安装模式选择 downloadBo — `架构决策` → ADR.md#L847
 
 ### JavaScript / React / Vitest
 
-- [问题] Node.js 测试运行时 chess.js 未定义 — `开发/测试` → troubleshooting.md#L73
-- [问题] JS 数据文件嵌套单引号导致 `Unexpected identifier` — `运行时` → troubleshooting.md#L124
-- [问题] mock DOM 中 `querySelector` / `querySelectorAll` 缺失 — `运行时` → troubleshooting.md#L144
-- [问题] vitest 报错：`Failed to resolve import "@tauri-apps/a — `测试错误` → troubleshooting.md#L214
-- [问题] vitest 报错：`act is not a function` — `测试错误` → troubleshooting.md#L223
-- [问题] vitest 报错：React 警告 `Cannot update a component whil — `测试错误` → troubleshooting.md#L231
-- [问题] Node.js 报 SyntaxError: Unexpected identifier（i18n  — `存档提示` → troubleshooting.md#L707
-- [问题] Node.js 环境污染：Hermes Node.js 泄漏到用户 PATH — `存档提示` → troubleshooting.md#L751
+- [问题] Node.js 报 SyntaxError: Unexpected identifier（i18n  — `未分类` → troubleshooting.md#L109
+- [问题] Node.js 环境污染：Hermes Node.js 泄漏到用户 PATH — `未分类` → troubleshooting.md#L153
+- [问题] Node.js 测试运行时 chess.js 未定义 — `开发/测试` → troubleshooting.md#L193
+- [问题] JS 数据文件嵌套单引号导致 `Unexpected identifier` — `运行时` → troubleshooting.md#L244
+- [问题] mock DOM 中 `querySelector` / `querySelectorAll` 缺失 — `运行时` → troubleshooting.md#L264
+- [问题] vitest 报错：`Failed to resolve import "@tauri-apps/a — `测试错误` → troubleshooting.md#L334
+- [问题] vitest 报错：`act is not a function` — `测试错误` → troubleshooting.md#L343
+- [问题] vitest 报错：React 警告 `Cannot update a component whil — `测试错误` → troubleshooting.md#L351
 - [经验] 纯 HTML+CSS+JS 项目无需 npm，双击 `index.html` 即可预览，但涉及 We — `build-env / testing` → lessons-learned.md#L14
 - [经验] 手写 IIFE 模块时，用 `window.ModuleName = Module` 暴露 API， — `dom / api-design` → lessons-learned.md#L15
 - [经验] 浏览器集成测试用 TestRunner（自定义极简框架），保持与 Node 测试同一套断言 API， — `testing` → lessons-learned.md#L16
@@ -305,16 +377,20 @@
 - [经验] v0 by Vercel 是 AI UI 生成工具，输入自然语言 prompt 生成 React 组 — `ai-workflow` → lessons-learned.md#L213
 - [决策] ADR-002：为什么前端用 React（而非 Vue/Svelte）？ — `架构决策` → ADR.md#L217
 - [决策] ADR-019：Node.js 环境隔离方案（nvm + 双 Node.js） [母库 @2026- — `架构决策` → ADR.md#L426
+- [决策] repo_1239378927/ADR-004：Node.js 环境隔离方案（nvm + 双 Nod — `架构决策` → ADR.md#L667
+- [决策] repo_1239378927/ADR-035：为什么前端用 React（而非 Vue/Svelte — `架构决策` → ADR.md#L772
 
 ### Python
 
 - [经验] **WriteFile 不适合超大特殊字符内容**：含大量引号/换行的长文本会因 JSON 转义失败 — `ai-workflow` → lessons-learned.md#L57
 - [经验] 不要在 pipx 安装的 Python 包源码目录中执行 `git pull`，除非确认没有本地修改 — `build-env` → lessons-learned.md#L206
 - [决策] ADR-001：技术栈选型（Python 3 + requests） — `架构决策` → ADR.md#L441
+- [决策] repo_1239378927/ADR-026：init-skeleton.py 保持 Python — `架构决策` → ADR.md#L742
+- [决策] repo_1239378927/ADR-047：技术栈选型（Python 3 + requests） — `架构决策` → ADR.md#L852
 
 ### AI 工具链 / LLM
 
-- [问题] HuggingFace 模型下载连接超时 `curl: (28) Could not connect — `存档提示` → troubleshooting.md#L315
+- [问题] HuggingFace 模型下载连接超时 `curl: (28) Could not connect — `未分类` → troubleshooting.md#L81
 - [经验] ModelScope 首页 HTTP 访问速度（~8KB/s）与实际 CDN 模型下载速度（~2.5 — `未分类` → lessons-learned.md#L163
 - [经验] llama.cpp 的 server 模式兼容 OpenAI API 格式（/v1/chat/com — `未分类` → lessons-learned.md#L165
 - [经验] 国内下载 HuggingFace 模型时，ModelScope 是比 hf-mirror 更可靠的  — `build-env` → lessons-learned.md#L171
@@ -323,11 +399,11 @@
 
 ### Git / GitHub
 
-- [问题] GitHub Pages 国内打不开 — `未分类` → troubleshooting.md#L60
-- [问题] GitHub push 报错 `Permission denied (publickey)` — `存档提示` → troubleshooting.md#L297
-- [问题] `gh auth login` 超时：`read tcp ... operation timed o — `存档提示` → troubleshooting.md#L306
-- [问题] Hermes Agent Git 合并冲突导致 SyntaxError — `存档提示` → troubleshooting.md#L739
-- [问题] Windows Git Bash LF/CRLF 警告 — `环境相关` → troubleshooting.md#L1180
+- [问题] GitHub push 报错 `Permission denied (publickey)` — `未分类` → troubleshooting.md#L63
+- [问题] `gh auth login` 超时：`read tcp ... operation timed o — `未分类` → troubleshooting.md#L72
+- [问题] Hermes Agent Git 合并冲突导致 SyntaxError — `未分类` → troubleshooting.md#L141
+- [问题] GitHub Pages 国内打不开 — `存档提示` → troubleshooting.md#L180
+- [问题] Windows Git Bash LF/CRLF 警告 — `环境相关` → troubleshooting.md#L489
 - [经验] **Shell here-document 在 Windows git bash 中不可靠**：含引 — `cross-platform / ai-workflow` → lessons-learned.md#L58
 - [经验] GitHub Pages 国内访问需代理；unpkg CDN 加载 Stockfish 可能超时，需 — `build-env` → lessons-learned.md#L61
 - [经验] Windows 路径在 git bash / Node.js / cmd 中转义规则不同，写跨平台脚 — `cross-platform` → lessons-learned.md#L62
@@ -340,15 +416,17 @@
 - [经验] **GitHub 上 Fetch 的 SKILL.md 不能只看内容不看场景**。用户发来 `git — `ai-workflow` → lessons-learned.md#L228
 - [决策] ADR-017：GitHub 认证从 SSH 切换到 GitHub CLI + HTTPS — `架构决策` → ADR.md#L186
 - [决策] ADR-022：init-skeleton.py 从本地路径改为 GitHub 拉取模式 [母库 @ — `架构决策` → ADR.md#L608
+- [决策] repo_1239378927/ADR-054：GitHub 认证从 SSH 切换到 GitHub  — `架构决策` → ADR.md#L672
+- [决策] repo_1254814983/ADR-010：init-skeleton.py 从本地路径改为 G — `架构决策` → ADR.md#L907
 
 ### 网络 / 环境 / 权限
 
-- [问题] GitHub Pages 国内打不开 — `未分类` → troubleshooting.md#L60
-- [问题] 中文路径下编译失败 — `环境问题` → troubleshooting.md#L253
-- [问题] HuggingFace 模型下载连接超时 `curl: (28) Could not connect — `存档提示` → troubleshooting.md#L315
-- [问题] PowerShell 添加防火墙规则权限不足 `Access is denied` — `存档提示` → troubleshooting.md#L324
-- [问题] Node.js 环境污染：Hermes Node.js 泄漏到用户 PATH — `存档提示` → troubleshooting.md#L751
-- [问题] distribute.py 子进程 GBK 编码错误 — `环境相关` → troubleshooting.md#L1206
+- [问题] HuggingFace 模型下载连接超时 `curl: (28) Could not connect — `未分类` → troubleshooting.md#L81
+- [问题] PowerShell 添加防火墙规则权限不足 `Access is denied` — `未分类` → troubleshooting.md#L90
+- [问题] Node.js 环境污染：Hermes Node.js 泄漏到用户 PATH — `未分类` → troubleshooting.md#L153
+- [问题] GitHub Pages 国内打不开 — `存档提示` → troubleshooting.md#L180
+- [问题] 中文路径下编译失败 — `环境问题` → troubleshooting.md#L373
+- [问题] distribute.py 子进程 GBK 编码错误 — `环境相关` → troubleshooting.md#L515
 - [经验] SVG path 中密集参数（如 `a2 2 0 0 1-2.83 0`）在某些浏览器中可能解析异常 — `dom` → lessons-learned.md#L22
 - [经验] **UI 布局/样式不要猜测用户意图**：候选走法开关经历了 5 次位置/样式反复，每次修改后用户都 — `ux` → lessons-learned.md#L25
 - [经验] **i18n 分散架构必然导致翻译遗漏**：当项目同时存在"全局字典 + 模块私有字典 + 硬编码" — `i18n` → lessons-learned.md#L31
@@ -372,13 +450,13 @@
 
 ### Windows / PowerShell
 
-- [问题] `cargo test --lib` 报错 `0xc0000139`（UCRT DLL 缺失） — `运行时错误` → troubleshooting.md#L176
-- [问题] 运行 `french-exit.exe` 报错：`Could not find the WebVie — `运行时错误` → troubleshooting.md#L188
-- [问题] 运行 `french-exit.exe` 报错：`找不到 WebView2Loader.dll` — `运行时错误` → troubleshooting.md#L196
-- [问题] PowerShell 执行中文脚本报 "UnexpectedToken" — `存档提示` → troubleshooting.md#L285
-- [问题] PowerShell 添加防火墙规则权限不足 `Access is denied` — `存档提示` → troubleshooting.md#L324
-- [问题] French Exit 进程锁定 exe 导致复制失败 — `存档提示` → troubleshooting.md#L726
-- [问题] Windows Git Bash LF/CRLF 警告 — `环境相关` → troubleshooting.md#L1180
+- [问题] PowerShell 执行中文脚本报 "UnexpectedToken" — `未分类` → troubleshooting.md#L51
+- [问题] PowerShell 添加防火墙规则权限不足 `Access is denied` — `未分类` → troubleshooting.md#L90
+- [问题] French Exit 进程锁定 exe 导致复制失败 — `未分类` → troubleshooting.md#L128
+- [问题] `cargo test --lib` 报错 `0xc0000139`（UCRT DLL 缺失） — `运行时错误` → troubleshooting.md#L296
+- [问题] 运行 `french-exit.exe` 报错：`Could not find the WebVie — `运行时错误` → troubleshooting.md#L308
+- [问题] 运行 `french-exit.exe` 报错：`找不到 WebView2Loader.dll` — `运行时错误` → troubleshooting.md#L316
+- [问题] Windows Git Bash LF/CRLF 警告 — `环境相关` → troubleshooting.md#L489
 - [经验] **Shell here-document 在 Windows git bash 中不可靠**：含引 — `cross-platform / ai-workflow` → lessons-learned.md#L58
 - [经验] Windows 路径在 git bash / Node.js / cmd 中转义规则不同，写跨平台脚 — `cross-platform` → lessons-learned.md#L62
 - [经验] **横跨工具层和应用层的词汇必须确认语境**。用户问"一个项目多个终端能否实现同步处理进度"——"终 — `ai-workflow` → lessons-learned.md#L80
@@ -394,11 +472,13 @@
 - [经验] 跨设备依赖环境变量的方案天然不可迁移。Windows 用户级环境变量（注册表持久化）在另一台设备上不 — `cross-platform` → lessons-learned.md#L221
 - [决策] ADR-023：RULE-04 从 Windows-only 改为跨平台 — `架构决策` → ADR.md#L38
 - [决策] ADR-007：WebView2 分发策略——放弃 NSIS bootstrapper，改用携带 D — `架构决策` → ADR.md#L290
+- [决策] repo_1239378927/ADR-040：WebView2 分发策略——放弃 NSIS boo — `架构决策` → ADR.md#L797
+- [决策] repo_1254814983/ADR-003：RULE-04 从 Windows-only 改为跨 — `架构决策` → ADR.md#L892
 
 ### Chess / 引擎
 
-- [问题] Stockfish 加载超时 / 引擎不启动 — `未分类` → troubleshooting.md#L51
-- [问题] Node.js 测试运行时 chess.js 未定义 — `开发/测试` → troubleshooting.md#L73
+- [问题] Stockfish 加载超时 / 引擎不启动 — `存档提示` → troubleshooting.md#L171
+- [问题] Node.js 测试运行时 chess.js 未定义 — `开发/测试` → troubleshooting.md#L193
 - [经验] 纯 HTML+CSS+JS 项目无需 npm，双击 `index.html` 即可预览，但涉及 We — `build-env / testing` → lessons-learned.md#L14
 - [经验] PGN 解析器对空/无效输入返回 `[]`（空数组）而非 `null`，调用方需区分"无走法"和"解 — `data / api-design` → lessons-learned.md#L18
 - [经验] `cloneNode(true)` 替换含 SVG 的按钮会导致 SVG 渲染异常（显示不完整）；移 — `dom` → lessons-learned.md#L19
@@ -407,6 +487,15 @@
 - [经验] **`cloneNode(true)` 无法移除旧事件监听器，它只是复制了 DOM 结构**：真正安 — `dom` → lessons-learned.md#L42
 - [经验] **手工构建100条结构化数据不现实**：经典棋局的 PGN 分散在各网站，无统一免费 API；手动 — `data` → lessons-learned.md#L56
 - [经验] GitHub Pages 国内访问需代理；unpkg CDN 加载 Stockfish 可能超时，需 — `build-env` → lessons-learned.md#L61
+- [决策] repo_1239378927/ADR-055：前端技术栈选型 [来源:blindfold-ches — `架构决策` → ADR.md#L692
+- [决策] repo_1239378927/ADR-017：测试框架选型 [来源:blindfold-chess — `架构决策` → ADR.md#L697
+- [决策] repo_1239378927/ADR-018：AI 开发方式与批次划分 [来源:blindfold — `架构决策` → ADR.md#L702
+- [决策] repo_1239378927/ADR-019：棋盘渲染与棋子方案 [来源:blindfold-ch — `架构决策` → ADR.md#L707
+- [决策] repo_1239378927/ADR-056：数据持久化方案 [来源:blindfold-ches — `架构决策` → ADR.md#L712
+- [决策] repo_1239378927/ADR-057：通用对局配置层设计 [来源:blindfold-ch — `架构决策` → ADR.md#L717
+- [决策] repo_1239378927/ADR-022：难度选择从离散按钮改为连续滑块 [来源:blindf — `架构决策` → ADR.md#L722
+- [决策] repo_1239378927/ADR-023：棋盘风格设置交互方案 [来源:blindfold-c — `架构决策` → ADR.md#L727
+- [决策] repo_1239378927/ADR-024：盲棋复盘入口位置 [来源:blindfold-che — `架构决策` → ADR.md#L732
 
 ### 其他
 
@@ -414,23 +503,23 @@
 - [问题] 新增条目模板 — `未分类` → troubleshooting.md#L24
 - [问题] [错误关键词] — `未分类` → troubleshooting.md#L27
 - [问题] AI 重复实现已有组件（棋盘/网格类 UI） — `未分类` → troubleshooting.md#L40
-- [问题] CLI subAgent 并行超时 — `开发/测试` → troubleshooting.md#L82
-- [问题] 设置面板一闪而过 — `开发/测试` → troubleshooting.md#L91
-- [问题] 旧代码与新模块冲突 — `运行时` → troubleshooting.md#L104
-- [问题] 引擎候选走法未集成 — `运行时` → troubleshooting.md#L113
-- [问题] 设置面板点击无反应（panel toggle 测试失败） — `运行时` → troubleshooting.md#L134
-- [问题] checkbox 点击后状态不变化 — `测试错误` → troubleshooting.md#L240
-- [问题] Vue 3 `<script setup>` `_ctx.t is not a function` — `存档提示` → troubleshooting.md#L697
-- [问题] sed 批量修改误改结构体定义 — `存档提示` → troubleshooting.md#L717
-- [问题] Cookie 过期 / 401 认证失败 — `存档提示` → troubleshooting.md#L1096
-- [问题] Digest 刷新失败 — `存档提示` → troubleshooting.md#L1105
-- [问题] auth/jycm.json 缺失字段 — `存档提示` → troubleshooting.md#L1114
-- [问题] 日期区间多返回一天 — `取数相关` → troubleshooting.md#L1127
-- [问题] getAllShopList 返回空数组 — `取数相关` → troubleshooting.md#L1136
-- [问题] createAndDownload 返回失败 — `取数相关` → troubleshooting.md#L1145
-- [问题] openpyxl 未安装 — `报告相关` → troubleshooting.md#L1158
-- [问题] 钉钉推送失败 — `报告相关` → troubleshooting.md#L1167
-- [问题] CodeBuddy 安装后 package.json 丢失导致命令不可用 — `环境相关` → troubleshooting.md#L1191
+- [问题] Vue 3 `<script setup>` `_ctx.t is not a function` — `未分类` → troubleshooting.md#L99
+- [问题] sed 批量修改误改结构体定义 — `未分类` → troubleshooting.md#L119
+- [问题] CLI subAgent 并行超时 — `开发/测试` → troubleshooting.md#L202
+- [问题] 设置面板一闪而过 — `开发/测试` → troubleshooting.md#L211
+- [问题] 旧代码与新模块冲突 — `运行时` → troubleshooting.md#L224
+- [问题] 引擎候选走法未集成 — `运行时` → troubleshooting.md#L233
+- [问题] 设置面板点击无反应（panel toggle 测试失败） — `运行时` → troubleshooting.md#L254
+- [问题] checkbox 点击后状态不变化 — `测试错误` → troubleshooting.md#L360
+- [问题] Cookie 过期 / 401 认证失败 — `存档提示` → troubleshooting.md#L405
+- [问题] Digest 刷新失败 — `存档提示` → troubleshooting.md#L414
+- [问题] auth/jycm.json 缺失字段 — `存档提示` → troubleshooting.md#L423
+- [问题] 日期区间多返回一天 — `取数相关` → troubleshooting.md#L436
+- [问题] getAllShopList 返回空数组 — `取数相关` → troubleshooting.md#L445
+- [问题] createAndDownload 返回失败 — `取数相关` → troubleshooting.md#L454
+- [问题] openpyxl 未安装 — `报告相关` → troubleshooting.md#L467
+- [问题] 钉钉推送失败 — `报告相关` → troubleshooting.md#L476
+- [问题] CodeBuddy 安装后 package.json 丢失导致命令不可用 — `环境相关` → troubleshooting.md#L500
 - [经验] 项目文档结构会随时间进化，"存档"或"恢复"操作前应先 `ls`/`glob` 确认当前文件系统现状 — `ai-workflow` → lessons-learned.md#L24
 - [经验] **删除功能必须同步删除对应测试**：移除 `showHints` / `multiPvSettin — `testing` → lessons-learned.md#L29
 - [经验] **焦点管理是盲棋产品的核心体验**：进入对局自动 `input.focus()`、引擎走完后恢复焦 — `ux` → lessons-learned.md#L30
@@ -520,6 +609,52 @@
 - [决策] ADR-020：状态文档机制重构（待办清理 + 技术债务表格化） [母库 @2026-05-30] — `架构决策` → ADR.md#L565
 - [决策] ADR-026：认知提取交互改进 — 强制检查点（方案 A） — `架构决策` → ADR.md#L580
 - [决策] ADR-021：分发逻辑从覆盖文件改为按条目合并 [母库 @2026-05-31] — `架构决策` → ADR.md#L595
+- [决策] repo_1243304845/ADR-005：分发配置平台感知化 — `架构决策` → ADR.md#L622
+- [决策] repo_1243304845/ADR-007：状态文档机制重构（待办清理 + 技术债务表格化） — `架构决策` → ADR.md#L627
+- [决策] repo_1243304845/ADR-009：分发逻辑从覆盖文件改为按条目合并 — `架构决策` → ADR.md#L632
+- [决策] repo_1243304845/ADR-011：阶段产出不放 starter 模板 — `架构决策` → ADR.md#L637
+- [决策] repo_1243304845/ADR-012：持久化记忆系统架构选型 — `架构决策` → ADR.md#L642
+- [决策] repo_1243304845/ADR-030：隐私防护三层防御体系 — `架构决策` → ADR.md#L647
+- [决策] repo_1243304845/ADR-016：project-starter 公开仓库仅放模板 — `架构决策` → ADR.md#L652
+- [决策] repo_1243304845/ADR-020：状态文档机制重构（待办清理 + 技术债务表格化） [ — `架构决策` → ADR.md#L657
+- [决策] repo_1243304845/ADR-021：分发逻辑从覆盖文件改为按条目合并 [来源:vibe- — `架构决策` → ADR.md#L662
+- [决策] repo_1239378927/ADR-013：同步脚本优先使用仓库 default_branch  — `架构决策` → ADR.md#L677
+- [决策] repo_1239378927/ADR-014：syncFrom 配置实现聚合/分发双模式 [来源: — `架构决策` → ADR.md#L682
+- [决策] repo_1239378927/ADR-015：母库 AGENTS 与其他项目 AGENTS 物理分 — `架构决策` → ADR.md#L687
+- [决策] repo_1239378927/ADR-025：Troubleshooting 索引采用独立文件 + — `架构决策` → ADR.md#L737
+- [决策] repo_1239378927/ADR-027：假删除模式通过环境变量 `FRENCH_EXIT_D — `架构决策` → ADR.md#L747
+- [决策] repo_1239378927/ADR-028：扫描进度条采用后端全局加权进度计算 — `架构决策` → ADR.md#L752
+- [决策] repo_1239378927/ADR-029：个人目录全量扫描 + 文件类型分类 — `架构决策` → ADR.md#L757
+- [决策] repo_1239378927/ADR-037：为什么 Scanner 进度用 `mpsc::cha — `架构决策` → ADR.md#L782
+- [决策] repo_1239378927/ADR-038：为什么加密文件回调用同步 `Fn` 而非 `asyn — `架构决策` → ADR.md#L787
+- [决策] repo_1239378927/ADR-039：为什么用 `status.md` + `sessio — `架构决策` → ADR.md#L792
+- [决策] repo_1239378927/ADR-041：默认深色主题而非跟随系统 [来源:french-ex — `架构决策` → ADR.md#L802
+- [决策] repo_1239378927/ADR-042：全选全部功能的技术方案 [来源:french-exi — `架构决策` → ADR.md#L807
+- [决策] repo_1239378927/ADR-043：路径交互设计 — 文本可点击 vs 独立按钮 [来源 — `架构决策` → ADR.md#L812
+- [决策] repo_1239378927/ADR-044：删除策略从 DoD 安全擦除改为普通删除 [来源:f — `架构决策` → ADR.md#L817
+- [决策] repo_1239378927/ADR-045：扫描范围从 Desktop/Downloads 扩展 — `架构决策` → ADR.md#L822
+- [决策] repo_1239378927/ADR-046：移除 ResultsPage 默认自动勾选 [来源: — `架构决策` → ADR.md#L827
+- [决策] repo_1239378927/ADR-059：假删除模式通过环境变量 `FRENCH_EXIT_D — `架构决策` → ADR.md#L832
+- [决策] repo_1239378927/ADR-060：扫描进度条采用后端全局加权进度计算 — `架构决策` → ADR.md#L837
+- [决策] repo_1239378927/ADR-061：个人目录全量扫描 + 文件类型分类 — `架构决策` → ADR.md#L842
+- [决策] repo_1239378927/ADR-048：渠道范围限定（仅淘系生意参谋） [来源:qianni — `架构决策` → ADR.md#L857
+- [决策] repo_1239378927/ADR-049：Cookie 刷新策略（Digest 自动刷新，不问 — `架构决策` → ADR.md#L862
+- [决策] repo_1239378927/ADR-050：日期时间格式（T00:00:00+08:00，禁用  — `架构决策` → ADR.md#L867
+- [决策] repo_1239378927/ADR-051：报告形态（Markdown 四段式，单店/多店统一） — `架构决策` → ADR.md#L872
+- [决策] repo_1239378927/ADR-063：聚焦 Excel 驱动流，API 驱动流暂不投入 [ — `架构决策` → ADR.md#L877
+- [决策] repo_1254814983/ADR-001：decisions.md 退出分发体系，仅保留聚合  — `架构决策` → ADR.md#L882
+- [决策] repo_1254814983/ADR-002：anti-patterns-checklist 完整 — `架构决策` → ADR.md#L887
+- [决策] repo_1254814983/ADR-006：清理冗余索引脚本，补齐骨架 manifest — `架构决策` → ADR.md#L897
+- [决策] repo_1254814983/ADR-008：认知提取交互改进 — 强制检查点（方案 A） [来源 — `架构决策` → ADR.md#L902
+- [决策] repo_1254814983/ADR-065：桌面应用选型 - Electron — `架构决策` → ADR.md#L912
+- [决策] repo_1254814983/ADR-066：OCR引擎版本锁定 — `架构决策` → ADR.md#L917
+- [决策] repo_1254814983/ADR-067：敏感词类型分类命名 — `架构决策` → ADR.md#L922
+- [决策] repo_1261261641/ADR-031：（待补充标题） — `架构决策` → ADR.md#L927
+- [决策] repo_1261261641/ADR-032：SKILL.md 插件模式优于 CLI 独立工具 — `架构决策` → ADR.md#L932
+- [决策] repo_1261261641/ADR-033：S4-S5 流程重定义 — `架构决策` → ADR.md#L937
+- [决策] repo_1246437677/ADR-052：聚焦 Excel 驱动流，API 驱动流暂不投入 — `架构决策` → ADR.md#L942
+- [决策] repo_1246437677/ADR-053：保持 `qianniu_business_analy — `架构决策` → ADR.md#L947
+- [决策] repo_1246437677/ADR-064：保持 `qianniu_business_analy — `架构决策` → ADR.md#L952
 
 
 ---
@@ -533,60 +668,60 @@
 
 ### resolved（19 条）
 
-- Node.js 测试运行时 chess.js 未定义 → troubleshooting.md#L73
-- CLI subAgent 并行超时 → troubleshooting.md#L82
-- 设置面板一闪而过 → troubleshooting.md#L91
-- JS 数据文件嵌套单引号导致 `Unexpected identifier` → troubleshooting.md#L124
-- 设置面板点击无反应（panel toggle 测试失败） → troubleshooting.md#L134
-- mock DOM 中 `querySelector` / `querySelectorAll` 缺失 → troubleshooting.md#L144
-- `cargo test --lib` 报错 `0xc0000139`（UCRT DLL 缺失） → troubleshooting.md#L176
-- GitHub push 报错 `Permission denied (publickey)` → troubleshooting.md#L297
-- `gh auth login` 超时：`read tcp ... operation timed out` → troubleshooting.md#L306
-- HuggingFace 模型下载连接超时 `curl: (28) Could not connect to s... → troubleshooting.md#L315
-- Vue 3 `<script setup>` `_ctx.t is not a function` → troubleshooting.md#L697
-- Node.js 报 SyntaxError: Unexpected identifier（i18n 中文字符串... → troubleshooting.md#L707
-- Hermes Agent Git 合并冲突导致 SyntaxError → troubleshooting.md#L739
-- Node.js 环境污染：Hermes Node.js 泄漏到用户 PATH → troubleshooting.md#L751
-- Cookie 过期 / 401 认证失败 → troubleshooting.md#L1096
-- Digest 刷新失败 → troubleshooting.md#L1105
-- auth/jycm.json 缺失字段 → troubleshooting.md#L1114
-- 日期区间多返回一天 → troubleshooting.md#L1127
-- CodeBuddy 安装后 package.json 丢失导致命令不可用 → troubleshooting.md#L1191
+- GitHub push 报错 `Permission denied (publickey)` → troubleshooting.md#L63
+- `gh auth login` 超时：`read tcp ... operation timed out` → troubleshooting.md#L72
+- HuggingFace 模型下载连接超时 `curl: (28) Could not connect to s... → troubleshooting.md#L81
+- Vue 3 `<script setup>` `_ctx.t is not a function` → troubleshooting.md#L99
+- Node.js 报 SyntaxError: Unexpected identifier（i18n 中文字符串... → troubleshooting.md#L109
+- Hermes Agent Git 合并冲突导致 SyntaxError → troubleshooting.md#L141
+- Node.js 环境污染：Hermes Node.js 泄漏到用户 PATH → troubleshooting.md#L153
+- Node.js 测试运行时 chess.js 未定义 → troubleshooting.md#L193
+- CLI subAgent 并行超时 → troubleshooting.md#L202
+- 设置面板一闪而过 → troubleshooting.md#L211
+- JS 数据文件嵌套单引号导致 `Unexpected identifier` → troubleshooting.md#L244
+- 设置面板点击无反应（panel toggle 测试失败） → troubleshooting.md#L254
+- mock DOM 中 `querySelector` / `querySelectorAll` 缺失 → troubleshooting.md#L264
+- `cargo test --lib` 报错 `0xc0000139`（UCRT DLL 缺失） → troubleshooting.md#L296
+- Cookie 过期 / 401 认证失败 → troubleshooting.md#L405
+- Digest 刷新失败 → troubleshooting.md#L414
+- auth/jycm.json 缺失字段 → troubleshooting.md#L423
+- 日期区间多返回一天 → troubleshooting.md#L436
+- CodeBuddy 安装后 package.json 丢失导致命令不可用 → troubleshooting.md#L500
 
 ### wont_fix（6 条）
 
-- 旧代码与新模块冲突 → troubleshooting.md#L104
-- 引擎候选走法未集成 → troubleshooting.md#L113
-- getAllShopList 返回空数组 → troubleshooting.md#L1136
-- createAndDownload 返回失败 → troubleshooting.md#L1145
-- openpyxl 未安装 → troubleshooting.md#L1158
-- 钉钉推送失败 → troubleshooting.md#L1167
+- 旧代码与新模块冲突 → troubleshooting.md#L224
+- 引擎候选走法未集成 → troubleshooting.md#L233
+- getAllShopList 返回空数组 → troubleshooting.md#L445
+- createAndDownload 返回失败 → troubleshooting.md#L454
+- openpyxl 未安装 → troubleshooting.md#L467
+- 钉钉推送失败 → troubleshooting.md#L476
 
 ### known_limitation（5 条）
 
-- Stockfish 加载超时 / 引擎不启动 → troubleshooting.md#L51
-- GitHub Pages 国内打不开 → troubleshooting.md#L60
-- PowerShell 添加防火墙规则权限不足 `Access is denied` → troubleshooting.md#L324
-- Windows Git Bash LF/CRLF 警告 → troubleshooting.md#L1180
-- distribute.py 子进程 GBK 编码错误 → troubleshooting.md#L1206
+- PowerShell 添加防火墙规则权限不足 `Access is denied` → troubleshooting.md#L90
+- Stockfish 加载超时 / 引擎不启动 → troubleshooting.md#L171
+- GitHub Pages 国内打不开 → troubleshooting.md#L180
+- Windows Git Bash LF/CRLF 警告 → troubleshooting.md#L489
+- distribute.py 子进程 GBK 编码错误 → troubleshooting.md#L515
 
 ### —（15 条）
 
 - 新增条目模板 → troubleshooting.md#L24
-- `cargo check --lib` 报错：`GetDiskFreeSpaceExW` 未定义 → troubleshooting.md#L156
-- `cargo check --lib` 报错：`FILETIME` 未定义 → troubleshooting.md#L164
-- 运行 `french-exit.exe` 报错：`Could not find the WebView2 Ru... → troubleshooting.md#L188
-- 运行 `french-exit.exe` 报错：`找不到 WebView2Loader.dll` → troubleshooting.md#L196
-- `cargo tauri build` 失败：`另一个程序正在使用此文件` (os error 32) → troubleshooting.md#L204
-- vitest 报错：`Failed to resolve import "@tauri-apps/api/fs... → troubleshooting.md#L214
-- vitest 报错：`act is not a function` → troubleshooting.md#L223
-- vitest 报错：React 警告 `Cannot update a component while ren... → troubleshooting.md#L231
-- checkbox 点击后状态不变化 → troubleshooting.md#L240
-- 中文路径下编译失败 → troubleshooting.md#L253
-- cargo tauri dev 在后台任务中崩溃 → troubleshooting.md#L264
-- PowerShell 执行中文脚本报 "UnexpectedToken" → troubleshooting.md#L285
-- sed 批量修改误改结构体定义 → troubleshooting.md#L717
-- French Exit 进程锁定 exe 导致复制失败 → troubleshooting.md#L726
+- PowerShell 执行中文脚本报 "UnexpectedToken" → troubleshooting.md#L51
+- sed 批量修改误改结构体定义 → troubleshooting.md#L119
+- French Exit 进程锁定 exe 导致复制失败 → troubleshooting.md#L128
+- `cargo check --lib` 报错：`GetDiskFreeSpaceExW` 未定义 → troubleshooting.md#L276
+- `cargo check --lib` 报错：`FILETIME` 未定义 → troubleshooting.md#L284
+- 运行 `french-exit.exe` 报错：`Could not find the WebView2 Ru... → troubleshooting.md#L308
+- 运行 `french-exit.exe` 报错：`找不到 WebView2Loader.dll` → troubleshooting.md#L316
+- `cargo tauri build` 失败：`另一个程序正在使用此文件` (os error 32) → troubleshooting.md#L324
+- vitest 报错：`Failed to resolve import "@tauri-apps/api/fs... → troubleshooting.md#L334
+- vitest 报错：`act is not a function` → troubleshooting.md#L343
+- vitest 报错：React 警告 `Cannot update a component while ren... → troubleshooting.md#L351
+- checkbox 点击后状态不变化 → troubleshooting.md#L360
+- 中文路径下编译失败 → troubleshooting.md#L373
+- cargo tauri dev 在后台任务中崩溃 → troubleshooting.md#L384
 
 ---
 
@@ -598,22 +733,22 @@
 - 新增条目模板 → troubleshooting.md#L24
 - [错误关键词] → troubleshooting.md#L27
 - AI 重复实现已有组件（棋盘/网格类 UI） → troubleshooting.md#L40
-- Stockfish 加载超时 / 引擎不启动 → troubleshooting.md#L51
-- GitHub Pages 国内打不开 → troubleshooting.md#L60
-- Node.js 测试运行时 chess.js 未定义 → troubleshooting.md#L73
-- CLI subAgent 并行超时 → troubleshooting.md#L82
-- 设置面板一闪而过 → troubleshooting.md#L91
-- 旧代码与新模块冲突 → troubleshooting.md#L104
-- 引擎候选走法未集成 → troubleshooting.md#L113
-- JS 数据文件嵌套单引号导致 `Unexpected identifier` → troubleshooting.md#L124
-- 设置面板点击无反应（panel toggle 测试失败） → troubleshooting.md#L134
-- mock DOM 中 `querySelector` / `querySelectorAll` 缺失 → troubleshooting.md#L144
-- `cargo check --lib` 报错：`GetDiskFreeSpaceExW` 未定义 → troubleshooting.md#L156
-- `cargo check --lib` 报错：`FILETIME` 未定义 → troubleshooting.md#L164
-- `cargo test --lib` 报错 `0xc0000139`（UCRT DLL 缺失） → troubleshooting.md#L176
-- 运行 `french-exit.exe` 报错：`Could not find the WebView2 Ru... → troubleshooting.md#L188
-- 运行 `french-exit.exe` 报错：`找不到 WebView2Loader.dll` → troubleshooting.md#L196
-- `cargo tauri build` 失败：`另一个程序正在使用此文件` (os error 32) → troubleshooting.md#L204
+- PowerShell 执行中文脚本报 "UnexpectedToken" → troubleshooting.md#L51
+- GitHub push 报错 `Permission denied (publickey)` → troubleshooting.md#L63
+- `gh auth login` 超时：`read tcp ... operation timed out` → troubleshooting.md#L72
+- HuggingFace 模型下载连接超时 `curl: (28) Could not connect to s... → troubleshooting.md#L81
+- PowerShell 添加防火墙规则权限不足 `Access is denied` → troubleshooting.md#L90
+- Vue 3 `<script setup>` `_ctx.t is not a function` → troubleshooting.md#L99
+- Node.js 报 SyntaxError: Unexpected identifier（i18n 中文字符串... → troubleshooting.md#L109
+- sed 批量修改误改结构体定义 → troubleshooting.md#L119
+- French Exit 进程锁定 exe 导致复制失败 → troubleshooting.md#L128
+- Hermes Agent Git 合并冲突导致 SyntaxError → troubleshooting.md#L141
+- Node.js 环境污染：Hermes Node.js 泄漏到用户 PATH → troubleshooting.md#L153
+- Stockfish 加载超时 / 引擎不启动 → troubleshooting.md#L171
+- GitHub Pages 国内打不开 → troubleshooting.md#L180
+- Node.js 测试运行时 chess.js 未定义 → troubleshooting.md#L193
+- CLI subAgent 并行超时 → troubleshooting.md#L202
+- 设置面板一闪而过 → troubleshooting.md#L211
 - ... 还有 28 条
 
 ### 经验（128 条）
@@ -640,7 +775,7 @@
 - **复制粘贴是 i18n 错误的常见来源**：将中文值直接粘贴进英文字典，或反之，属于低级但高频的疏忽 → lessons-learned.md#L33
 - ... 还有 108 条
 
-### 决策（42 条）
+### 决策（109 条）
 
 - ADR-025：decisions.md 退出分发体系，仅保留聚合 → ADR.md#L8
 - ADR-024：anti-patterns-checklist 完整集成到 SOP 五阶段工作流 → ADR.md#L23
@@ -662,4 +797,4 @@
 - ADR-005：为什么加密文件回调用同步 `Fn` 而非 `async`？ → ADR.md#L262
 - ADR-006：为什么用 `status.md` + `session-log.md` 替代 `prompt-... → ADR.md#L277
 - ADR-007：WebView2 分发策略——放弃 NSIS bootstrapper，改用携带 DLL → ADR.md#L290
-- ... 还有 22 条
+- ... 还有 89 条
