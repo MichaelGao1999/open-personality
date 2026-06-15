@@ -263,6 +263,9 @@ onMounted(() => {
   color: var(--color-text-secondary);
   font-size: 18px;
   font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* ===== 模式选择 ===== */
@@ -491,7 +494,7 @@ onMounted(() => {
   font-weight: 700;
   color: var(--color-accent);
   margin-bottom: 8px;
-  padding-right: 30px;
+  text-align: center;
 }
 
 .modal-body {
