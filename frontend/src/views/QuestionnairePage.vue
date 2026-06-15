@@ -21,6 +21,8 @@
         </p>
       </div>
 
+      <p class="questionnaire-hint">{{ t('questionnaire.hint') }}</p>
+
       <Transition name="question-slide" mode="out-in">
         <div class="question-card dopamine-card" :key="currentIndex">
           <p class="q-text">{{ currentItem.text }}</p>
@@ -462,6 +464,17 @@ onMounted(async () => {
 .partial-btn:disabled {
   opacity: 0.3;
   cursor: not-allowed;
+}
+
+/* ===== 答题提示 ===== */
+.questionnaire-hint {
+  text-align: center;
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  margin: 0 auto 16px;
+  padding: 6px 16px;
+  background: var(--color-accent-light);
+  border-radius: var(--radius-full);
 }
 
 /* ===== 题目切换动画 ===== */

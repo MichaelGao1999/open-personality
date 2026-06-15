@@ -45,7 +45,10 @@
         <div class="chart-bars">
           <div v-for="(dim) in dimensionOrder" :key="dim" class="bar-item">
             <div class="bar-header">
-              <span class="bar-label">{{ dimLabelCn[dim] }} <span class="bar-label-en">{{ dimLabelEn[dim] }}</span></span>
+              <span class="bar-label">
+                {{ dimLabelCn[dim] }} <span class="bar-label-en">{{ dimLabelEn[dim] }}</span>
+                <span class="help-icon-sm" @click.stop="showDimHelp = dim">&#9432;</span>
+              </span>
               <span class="bar-value" :style="{ color: dimColors[dimensionOrder.indexOf(dim)] }">
                 {{ getScore(dim) }}
               </span>
@@ -69,7 +72,10 @@
 
       <!-- MBTI 解读 -->
       <div class="mbti-area">
-        <div class="mbti-label">{{ t('report.mbti_label') }}: <strong>{{ report.mbti.type_code }}</strong></div>
+        <div class="mbti-label">
+        {{ t('report.mbti_label') }}: <strong>{{ report.mbti.type_code }}</strong>
+        <span class="help-icon-sm" @click.stop="showMbtiHelp = true">&#9432;</span>
+      </div>
         <div class="mbti-dims">
           <span v-for="(dim, idx) in report.mbti.dimensions" :key="dim.label_a + dim.label_b" class="mbti-dim" :style="{ background: dimColors[idx % dimColors.length] }">
             <span class="mbti-dim-label">{{ dim.label_a }}</span>
@@ -79,6 +85,35 @@
             <span class="mbti-dim-val">{{ (dim.prob_b * 100).toFixed(0) }}%</span>
           </span>
         </div>
+      </div>
+    </div>
+
+    <!-- 维度解释弹窗 -->
+    <div v-if="showDimHelp" class="modal-overlay" @click.self="showDimHelp = false">
+      <div class="modal-card">
+        <button class="modal-close" @click="showDimHelp = false">&times;</button>
+        <h2 class="modal-title" :style="{ color: dimColors[dimensionOrder.indexOf(showDimHelp)] }">
+          {{ dimLabelCn[showDimHelp] }} ({{ showDimHelp }}) — {{ dimLabelEn[showDimHelp] }}
+        </h2>
+        <div class="dim-help-split">
+          <div class="dim-help-side">
+            <span class="dim-help-badge high">&#9650; 高分</span>
+            <p class="modal-body">{{ t('report.dim_' + dimLabelEn[showDimHelp].toLowerCase()) }}</p>
+          </div>
+          <div class="dim-help-side">
+            <span class="dim-help-badge low">&#9660; 低分</span>
+            <p class="modal-body">{{ t('report.dim_' + dimLabelEn[showDimHelp].toLowerCase() + '_low') }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MBTI 解释弹窗 -->
+    <div v-if="showMbtiHelp" class="modal-overlay" @click.self="showMbtiHelp = false">
+      <div class="modal-card">
+        <button class="modal-close" @click="showMbtiHelp = false">&times;</button>
+        <h2 class="modal-title" style="color: var(--color-accent)">{{ t('report.mbti_help_title') }}</h2>
+        <p class="modal-body" style="white-space: pre-line">{{ t('report.mbti_help_body') }}</p>
       </div>
     </div>
   </div>
@@ -96,6 +131,8 @@ const props = defineProps({
 const { t } = useI18n()
 const cardRef = ref(null)
 const showInterpret = ref(false)
+const showDimHelp = ref(false)
+const showMbtiHelp = ref(false)
 
 const dimColors = ['#7B2FF7', '#00B4D8', '#FFD60A', '#06D6A0', '#FF006E']
 const dimensionOrder = ['O', 'C', 'E', 'A', 'N']
@@ -267,4 +304,122 @@ defineExpose({ cardRef })
 .modal-enter-active { animation: bounceIn 0.3s var(--ease-smooth-spring); }
 .modal-leave-active { animation: fadeIn 0.2s ease reverse; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ===== 帮助图标 ===== */
+.help-icon-sm {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  font-size: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--color-accent);
+  background: var(--color-accent-light);
+  margin-left: 4px;
+  vertical-align: middle;
+  transition: transform 0.2s;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.help-icon-sm:hover {
+  transform: scale(1.2);
+}
+
+/* ===== 弹窗遮罩 ===== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.2s ease;
+}
+
+.modal-card {
+  background: var(--color-surface);
+  border-radius: 16px;
+  padding: 32px;
+  max-width: 420px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  animation: slideUp 0.3s var(--ease-bounce);
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.modal-close:hover {
+  background: var(--color-border);
+}
+
+.modal-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-accent);
+  margin-bottom: 12px;
+  padding-right: 30px;
+}
+
+.modal-body {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--color-text);
+  white-space: pre-line;
+}
+
+/* ===== 维度解释双栏 ===== */
+.dim-help-split {
+  display: flex;
+  gap: 16px;
+  margin-top: 4px;
+}
+
+.dim-help-side {
+  flex: 1;
+}
+
+.dim-help-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+}
+
+.dim-help-badge.high {
+  background: rgba(123, 47, 247, 0.12);
+  color: var(--color-accent);
+}
+
+.dim-help-badge.low {
+  background: rgba(255, 0, 110, 0.10);
+  color: #FF006E;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 </style>

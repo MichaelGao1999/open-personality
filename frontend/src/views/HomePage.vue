@@ -19,7 +19,21 @@
 
     <div class="hero">
       <h1 class="hero-title">{{ t('app.title') }}</h1>
-      <p class="hero-subtitle">{{ t('app.subtitle') }}</p>
+      <p class="hero-subtitle">
+        {{ t('app.subtitle') }}
+        <span class="help-icon" @click.stop="showWhyBig = true">&#9432;</span>
+      </p>
+    </div>
+
+    <!-- 大五人格解释弹窗 -->
+    <div v-if="showWhyBig" class="modal-overlay" @click.self="showWhyBig = false">
+      <div class="modal-card">
+        <button class="modal-close" @click="showWhyBig = false">&times;</button>
+        <h2 class="modal-title">{{ t('home.why_big_title_1') }}</h2>
+        <p class="modal-body">{{ t('home.why_big_body_1') }}</p>
+        <h2 class="modal-title" style="margin-top: 20px">{{ t('home.why_big_title_2') }}</h2>
+        <p class="modal-body" style="white-space: pre-line">{{ t('home.why_big_body_2') }}</p>
+      </div>
     </div>
 
     <div class="mode-select">
@@ -33,7 +47,10 @@
             <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
           </svg>
         </div>
-        <h3>{{ t('home.speed') }}</h3>
+        <h3>
+          {{ t('home.speed') }}
+          <span class="help-icon-sm" @click.stop="showModeHelp = 'speed'">&#9432;</span>
+        </h3>
         <p>{{ t('home.speed_desc') }}</p>
       </div>
       <div
@@ -46,7 +63,10 @@
             <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
           </svg>
         </div>
-        <h3>{{ t('home.standard') }}</h3>
+        <h3>
+          {{ t('home.standard') }}
+          <span class="help-icon-sm" @click.stop="showModeHelp = 'standard'">&#9432;</span>
+        </h3>
         <p>{{ t('home.standard_desc') }}</p>
       </div>
       <div
@@ -63,7 +83,10 @@
             <path d="M5 12l3 4M19 12l-3 4"/>
           </svg>
         </div>
-        <h3>{{ t('home.advanced') }}</h3>
+        <h3>
+          {{ t('home.advanced') }}
+          <span class="help-icon-sm" @click.stop="showModeHelp = 'advanced'">&#9432;</span>
+        </h3>
         <p>{{ t('home.advanced_desc') }}</p>
       </div>
     </div>
@@ -98,6 +121,15 @@
       </div>
     </div>
     <p v-else class="no-recent">{{ t('home.no_recent') }}</p>
+
+    <!-- 模式说明弹窗 -->
+    <div v-if="showModeHelp" class="modal-overlay" @click.self="showModeHelp = false">
+      <div class="modal-card">
+        <button class="modal-close" @click="showModeHelp = false">&times;</button>
+        <h2 class="modal-title">{{ t('home.' + showModeHelp) }}</h2>
+        <p class="modal-body">{{ t('home.' + showModeHelp + '_help') }}</p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -114,6 +146,8 @@ const router = useRouter()
 const { reports } = useRecentReports()
 const mode = ref('standard')
 const savedSession = ref(null)
+const showWhyBig = ref(false)
+const showModeHelp = ref(false)
 const STORAGE_KEY = 'open_personality_session'
 
 function loadSavedSession() {
@@ -362,5 +396,118 @@ onMounted(() => {
   color: var(--color-text-secondary);
   font-size: 14px;
   margin-top: 40px;
+}
+
+/* ===== 帮助图标 ===== */
+.help-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  font-size: 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--color-accent);
+  background: var(--color-accent-light);
+  margin-left: 8px;
+  vertical-align: middle;
+  transition: transform 0.2s;
+  user-select: none;
+}
+
+.help-icon:hover {
+  transform: scale(1.2);
+}
+
+.help-icon-sm {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  font-size: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--color-accent);
+  background: var(--color-accent-light);
+  margin-left: 4px;
+  vertical-align: middle;
+  transition: transform 0.2s;
+  user-select: none;
+}
+
+.help-icon-sm:hover {
+  transform: scale(1.2);
+}
+
+/* ===== 弹窗遮罩 ===== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.2s ease;
+}
+
+.modal-card {
+  background: var(--color-surface);
+  border-radius: 16px;
+  padding: 32px;
+  max-width: 480px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: var(--shadow-lg, 0 20px 60px rgba(0,0,0,0.3));
+  animation: slideUp 0.3s var(--ease-bounce);
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.modal-close:hover {
+  background: var(--color-border);
+}
+
+.modal-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-accent);
+  margin-bottom: 8px;
+  padding-right: 30px;
+}
+
+.modal-body {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--color-text);
+  white-space: pre-line;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 </style>

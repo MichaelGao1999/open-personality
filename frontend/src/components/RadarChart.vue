@@ -36,7 +36,7 @@ function render() {
     const ts = props.scores?.t_scores?.[d] ?? props.scores?.[d] ?? 50
     return Math.round(ts)
   })
-  const axisColor = isDark ? '#c0c0d8' : '#1A1A2E'
+  const axisColor = isDark ? '#f0f0f5' : '#1A1A2E'
   const splitLineColors = isDark
     ? ['#1e1e30', '#1e1e30', '#151525', '#151525', '#101020']
     : ['#D1D5DB', '#D1D5DB', '#E5E7EB', '#E5E7EB', '#F3F4F6']
@@ -51,8 +51,9 @@ function render() {
         max: 100,
         axisName: {
           color: axisColor,
-          fontSize: 14,
-          fontWeight: 700,
+          fontSize: 13,
+          fontWeight: 600,
+          fontFamily: 'Inter, sans-serif',
         },
         splitLine: {
           lineStyle: {
@@ -83,25 +84,15 @@ function render() {
         symbolSize: 10,
         lineStyle: {
           width: 3,
-          color: new echarts.graphic.LinearGradient(0, 0, 1, 1, [
-            { offset: 0, color: '#7B2FF7' },
-            { offset: 0.25, color: '#00B4D8' },
-            { offset: 0.5, color: '#FFD60A' },
-            { offset: 0.75, color: '#06D6A0' },
-            { offset: 1, color: '#FF006E' },
-          ]),
+          color: '#7B2FF7',
         },
         itemStyle: {
-          color: '#FF006E',
+          color: '#7B2FF7',
           borderColor: '#fff',
           borderWidth: 2,
         },
         areaStyle: {
-          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-            { offset: 0, color: 'rgba(123, 47, 247, 0.25)' },
-            { offset: 0.5, color: 'rgba(0, 180, 216, 0.15)' },
-            { offset: 1, color: 'rgba(255, 0, 110, 0.05)' },
-          ]),
+          color: 'rgba(123, 47, 247, 0.20)',
         },
       }],
       emphasis: {
@@ -109,10 +100,7 @@ function render() {
           width: 4,
         },
         areaStyle: {
-          color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-            { offset: 0, color: 'rgba(123, 47, 247, 0.35)' },
-            { offset: 1, color: 'rgba(255, 0, 110, 0.1)' },
-          ]),
+          color: 'rgba(123, 47, 247, 0.30)',
         },
       },
     }],
