@@ -316,6 +316,15 @@ onMounted(() => {
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 4px;
+  text-align: center;
+  position: relative;
+}
+
+.mode-card h3 .help-icon-sm {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 4px;
 }
 
 .mode-card p {

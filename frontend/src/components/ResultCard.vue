@@ -13,11 +13,20 @@
             </button>
           </div>
           <div class="interp-panel-body">
-            <div v-for="interp in domainInterpretations" :key="interp.dimension" class="interp-panel-item">
-              <h4 :style="{ color: dimColors[dimensionOrder.indexOf(interp.dimension)] }">
-                {{ report.lang === 'zh' ? interp.title_zh : interp.title_en }}
+            <div v-for="(dim, idx) in dimensionOrder" :key="dim" class="interp-panel-item">
+              <h4 :style="{ color: dimColors[idx] }">
+                {{ dimLabelCn[dim] }} ({{ dim }}) — {{ dimLabelEn[dim] }}
               </h4>
-              <p>{{ report.lang === 'zh' ? interp.body_zh : interp.body_en }}</p>
+              <div class="dim-help-split">
+                <div class="dim-help-side">
+                  <span class="dim-help-badge high">&#9650; 高分</span>
+                  <p>{{ t('report.dim_' + dimLabelEn[dim].toLowerCase()) }}</p>
+                </div>
+                <div class="dim-help-side">
+                  <span class="dim-help-badge low">&#9660; 低分</span>
+                  <p>{{ t('report.dim_' + dimLabelEn[dim].toLowerCase() + '_low') }}</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -30,9 +39,6 @@
       <div class="card-topbar">
         <h2 class="card-title">{{ t('report.title') }}</h2>
         <button class="interp-btn" @click="showInterpret = true" :title="t('report.interpretation')">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/>
-          </svg>
           {{ t('report.interpretation') }}
         </button>
       </div>
@@ -45,10 +51,7 @@
         <div class="chart-bars">
           <div v-for="(dim) in dimensionOrder" :key="dim" class="bar-item">
             <div class="bar-header">
-              <span class="bar-label">
-                {{ dimLabelCn[dim] }} <span class="bar-label-en">{{ dimLabelEn[dim] }}</span>
-                <span class="help-icon-sm" @click.stop="showDimHelp = dim">&#9432;</span>
-              </span>
+              <span class="bar-label">{{ dimLabelCn[dim] }} <span class="bar-label-en">{{ dimLabelEn[dim] }}</span></span>
               <span class="bar-value" :style="{ color: dimColors[dimensionOrder.indexOf(dim)] }">
                 {{ getScore(dim) }}
               </span>
@@ -88,25 +91,6 @@
       </div>
     </div>
 
-    <!-- 维度解释弹窗 -->
-    <div v-if="showDimHelp" class="modal-overlay" @click.self="showDimHelp = false">
-      <div class="modal-card">
-        <button class="modal-close" @click="showDimHelp = false">&times;</button>
-        <h2 class="modal-title" :style="{ color: dimColors[dimensionOrder.indexOf(showDimHelp)] }">
-          {{ dimLabelCn[showDimHelp] }} ({{ showDimHelp }}) — {{ dimLabelEn[showDimHelp] }}
-        </h2>
-        <div class="dim-help-split">
-          <div class="dim-help-side">
-            <span class="dim-help-badge high">&#9650; 高分</span>
-            <p class="modal-body">{{ t('report.dim_' + dimLabelEn[showDimHelp].toLowerCase()) }}</p>
-          </div>
-          <div class="dim-help-side">
-            <span class="dim-help-badge low">&#9660; 低分</span>
-            <p class="modal-body">{{ t('report.dim_' + dimLabelEn[showDimHelp].toLowerCase() + '_low') }}</p>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <!-- MBTI 解释弹窗 -->
     <div v-if="showMbtiHelp" class="modal-overlay" @click.self="showMbtiHelp = false">
@@ -131,7 +115,6 @@ const props = defineProps({
 const { t } = useI18n()
 const cardRef = ref(null)
 const showInterpret = ref(false)
-const showDimHelp = ref(false)
 const showMbtiHelp = ref(false)
 
 const dimColors = ['#7B2FF7', '#00B4D8', '#FFD60A', '#06D6A0', '#FF006E']
@@ -193,9 +176,7 @@ defineExpose({ cardRef })
   margin: 0;
 }
 .interp-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+  display: inline-block;
   padding: 6px 14px;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-full);

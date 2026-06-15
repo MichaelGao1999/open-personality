@@ -275,3 +275,36 @@
 
 ### 遗留问题 / 下轮开始点
 - P2 尾项：E2E 测试、响应式、动画、IPIP-300、解读模板
+
+
+---
+
+## 2026-06-15 — 雷达图改色 + ⓘ 解释弹窗 + 文案模板 + 居中修复
+
+### 本轮概要
+- **雷达图视觉整改**：
+  - 渐变色 → 纯色 `#7B2FF7`（项目主色）— 轮廓线、数据点、填充区、hover 全部统一
+  - 轴标签字体对齐右侧柱状图（13px / 600 / Inter）
+  - 轴颜色修复：深色模式 `#c0c0d8`（偏灰）→ `#f0f0f5`（匹配柱状图标签色）
+- **文案模板**：创建 `docs/popup-content-draft.md`，含 5 个位置的解释文本填写模板
+- **首页**：副标题改「大五人格测评」+ ⓘ 图标弹出大五人格解释（两段）+ 模式卡片 ⓘ 弹出模式说明
+- **报告页**：五维度高分/低分说明 + MBTI 概率化映射机制
+- **答题页**：顶部提示文字「无需纠结，凭直觉选择，可随时回溯修改」
+- **居中修复**：弹窗标题（去掉 padding-right 干扰）+ 模式卡片标题（图标 absolute 不占位）
+- **重构**：取消柱状图每个维度的独立 ⓘ，将五维度高分/低分说明整合到「维度解读」弹窗内
+- **经验沉淀**：`docs/lessons-learned.md` 首次创建，新增 2 条 CSS 经验
+
+### 更新文件
+- `frontend/src/components/RadarChart.vue` — 渐变色→纯色、字体对齐、深色模式颜色修复
+- `frontend/src/i18n/zh.json` — 副标题改文字 + 20+ 弹窗文案键
+- `frontend/src/i18n/en.json` — 英文对应文案
+- `frontend/src/views/HomePage.vue` — ⓘ 弹窗 + 居中修复 + CSS
+- `frontend/src/components/ResultCard.vue` — ⓘ 弹窗 + 维度解读重构 + CSS
+- `frontend/src/views/QuestionnairePage.vue` — 答题提示文字
+
+### 新增文件
+- `docs/popup-content-draft.md` — 解释文案填写模板
+- `docs/lessons-learned.md` — 跨项目 CSS 经验笔记
+
+### 遗留问题 / 下轮开始点
+- 英文版文案待优化翻译
