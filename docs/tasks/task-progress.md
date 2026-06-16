@@ -1,4 +1,4 @@
-# open-personality — 任务分解总进度看板
+﻿# open-personality — 任务分解总进度看板
 
 > 阶段三产出：总进度表
 
@@ -79,8 +79,8 @@ INFRA ──→ DATA ──→ M01 ──┐
 | INFRA-08 | CI 配置（GitHub Actions / 基础测试自动运行） | P2 | INFRA-02 | ⬜ |
 | DATA-01 | IPIP-120 中文题目 JSON | P1 | — | ✅ |
 | DATA-02 | IPIP-120 英文题目 JSON | P1 | — | ✅ |
-| DATA-03 | IPIP-300 中文题目 JSON | P2 | — | ⬜ |
-| DATA-04 | IPIP-300 英文题目 JSON | P2 | — | ⬜ |
+| DATA-03 | IPIP-300 中文题目 JSON | P2 | — | ✅ |
+| DATA-04 | IPIP-300 英文题目 JSON | P2 | — | ✅ |
 | DATA-05 | MBTI 映射权重 JSON（McCrae & Costa 1989） | P1 | — | ✅ |
 | DATA-06 | 常模数据 JSON（T-score 标准化的 M/SD） | P1 | — | ✅ |
 | DATA-07 | 中文解读模板 JSON（5 域 + 30 子维度文字） | P1 | — | ✅ |
@@ -101,7 +101,7 @@ INFRA ──→ DATA ──→ M01 ──┐
 | M02-07 | 固定种子答案计分测试（已知输出比对） | P1 | M02-06 | ✅ |
 | M02-08 | 边界测试：全 1、全 5、全 3、交替 1-5 | P1 | M02-06 | ✅ |
 | M02-09 | Edge case：无效 domain_id 处理 | P2 | M02-06 | ✅ |
-| M02-10 | 性能：120/300 题计分 < 100ms | P2 | M02-06 | ⬜ |
+| M02-10 | 性能：120/300 题计分 < 100ms | P2 | M02-06 | ✅ |
 | M03-01 | MBTI 映射权重加载 | P1 | DATA-05 | ✅ |
 | M03-02 | Sigmoid 校准函数 | P1 | — | ✅ |
 | M03-03 | E/I 维度概率计算 | P1 | M03-01~02 | ✅ |

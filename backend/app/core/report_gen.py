@@ -25,9 +25,9 @@ class ReportGenerator:
 
     def _interpret_domain(self, score: float, high_text: dict, low_text: dict) -> tuple[str, str]:
         if score >= 55:
-            return high_text["title"], high_text["body"]
+            return high_text.get("title", "较高"), high_text.get("body", "你的得分较高。")
         elif score <= 45:
-            return low_text["title"], low_text["body"]
+            return low_text.get("title", "较低"), low_text.get("body", "你的得分较低。")
         return "中等", "你的得分处于中间范围。"
 
     def generate(
@@ -42,13 +42,14 @@ class ReportGenerator:
         total_items: int = 0,
     ) -> Report:
         interpretations_data = self._load_interpretations(lang)
+        interpretations_en = self._load_interpretations("en")
 
         interpretations = []
         for dim in ["O", "C", "E", "A", "N"]:
             dim_data = interpretations_data.get(dim, {})
             t_score = scoring.t_scores.get(dim, 50.0)
             title_zh, body_zh = self._interpret_domain(t_score, dim_data.get("high", {}), dim_data.get("low", {}))
-            en_data = self._load_interpretations("en").get(dim, {})
+            en_data = interpretations_en.get(dim, {})
             title_en, body_en = self._interpret_domain(t_score, en_data.get("high", {}), en_data.get("low", {}))
             interpretations.append(Interpretation(
                 dimension=dim, title_zh=title_zh, title_en=title_en,
@@ -59,7 +60,7 @@ class ReportGenerator:
             dim_data = interpretations_data.get(facet_key, {})
             f_score = scoring.facet_scores.get(facet_key, 50.0)
             title_zh, body_zh = self._interpret_domain(f_score, dim_data.get("high", {}), dim_data.get("low", {}))
-            en_data = self._load_interpretations("en").get(facet_key, {})
+            en_data = interpretations_en.get(facet_key, {})
             title_en, body_en = self._interpret_domain(f_score, en_data.get("high", {}), en_data.get("low", {}))
             interpretations.append(Interpretation(
                 dimension=facet_key, title_zh=title_zh, title_en=title_en,

@@ -16,6 +16,9 @@ jobs:
           python-version: '3.12'
       - name: Install dependencies
         run: pip install -r backend/requirements.txt
+      - name: Lint check
+        run: ruff check
+        working-directory: backend
       - name: Run tests
         env:
           PYTHONPATH: ${{ github.workspace }}
