@@ -39,6 +39,7 @@ function search() {
   gap: 10px;
   justify-content: center;
   align-items: center;
+  animation: fadeInUp 0.8s var(--ease-bounce) 0.6s both;
 }
 
 .share-code-input input {

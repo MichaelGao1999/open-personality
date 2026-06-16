@@ -304,6 +304,11 @@ onMounted(() => {
 
 .mode-card:hover {
   border-color: var(--color-text-secondary);
+  transform: translateY(-2px);
+}
+
+.mode-card {
+  transition: all 0.35s var(--ease-bounce);
 }
 
 .mode-icon {
@@ -397,6 +402,12 @@ onMounted(() => {
   gap: 8px;
 }
 
+.recent-list .recent-item:nth-child(1) { animation: fadeInUp 0.6s var(--ease-bounce) 0s both; }
+.recent-list .recent-item:nth-child(2) { animation: fadeInUp 0.6s var(--ease-bounce) 0.08s both; }
+.recent-list .recent-item:nth-child(3) { animation: fadeInUp 0.6s var(--ease-bounce) 0.16s both; }
+.recent-list .recent-item:nth-child(4) { animation: fadeInUp 0.6s var(--ease-bounce) 0.24s both; }
+.recent-list .recent-item:nth-child(5) { animation: fadeInUp 0.6s var(--ease-bounce) 0.32s both; }
+
 .recent-item {
   display: flex;
   justify-content: space-between;
@@ -404,10 +415,13 @@ onMounted(() => {
   padding: 14px 20px;
   cursor: pointer;
   border: 2px solid transparent;
+  transition: all 0.35s var(--ease-bounce);
 }
 
 .recent-item:hover {
   border-color: var(--color-conscientiousness);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 .recent-code {

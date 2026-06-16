@@ -348,3 +348,37 @@
 - E2E 端到端测试（Playwright）
 - 页面过渡动画
 - GitHub Actions CI 配置
+
+
+---
+
+## 2026-06-16 - P0/P1 Animation Fixes + E2E Tests + Toolbar Refactor
+
+### Summary
+- E2E Tests: Installed Playwright + Chromium, wrote 16 tests (home 9 + questionnaire 4 + full-flow 3), all passing
+- Logo Toolbar Refactor: AppLogo -> fixed top toolbar, font unified to --font-display, enlarged 2x to 26px, settings gear integrated at top-right
+- Progress text moved above progress bar, unified page padding
+- P0 fixes (4): ShareCodeInput enter animation, loading->content cross-fade (questionnaire+report), confirm modal overlay fadeIn
+- P1 fixes (4): mode card hover lift, recent items stagger + hover lift, card topbar animation, partial badge animation
+
+### Updated Files
+- frontend/src/components/AppLogo.vue
+- frontend/src/components/ResultCard.vue
+- frontend/src/components/ShareCodeInput.vue
+- frontend/src/views/HomePage.vue
+- frontend/src/views/QuestionnairePage.vue
+- frontend/src/views/ReportPage.vue
+- frontend/src/i18n/zh.json
+- frontend/src/i18n/en.json
+- status.md
+
+### New Files
+- frontend/e2e/home.spec.ts
+- frontend/e2e/questionnaire.spec.ts
+- frontend/e2e/full-flow.spec.ts
+- frontend/playwright.config.ts
+- docs/lessons-learned.md
+
+### Remaining / Next
+- P2 polish: nav buttons / hint bar / interpretation panel stagger
+- English copy optimization

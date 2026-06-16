@@ -1,12 +1,12 @@
 <template>
   <div class="questionnaire-page">
-    <div v-if="loading" class="loading">
-      <div class="loading-spinner"></div>
-      <p>{{ t('questionnaire.loading') }}</p>
-    </div>
-
-    <!-- 答题模式 -->
-    <template v-if="!loading && items.length && !showSummary">
+    <Transition name="fade" mode="out-in">
+      <div v-if="loading" key="loading" class="loading">
+        <div class="loading-spinner"></div>
+        <p>{{ t('questionnaire.loading') }}</p>
+      </div>
+      <div v-else key="content" class="q-content">
+        <template v-if="items.length && !showSummary">
       <div class="progress-section">
         <p class="progress-text">
           {{ t('questionnaire.progress') }}
@@ -72,8 +72,7 @@
       </div>
     </template>
 
-    <!-- 总览模式 -->
-    <template v-if="!loading && items.length && showSummary">
+        <template v-if="items.length && showSummary">
       <div class="summary-section">
         <div class="summary-header">
           <h2 class="summary-title gradient-text">{{ t('questionnaire.summary_title') }}</h2>
@@ -124,7 +123,9 @@
           </button>
         </div>
       </div>
-    </template>
+        </template>
+      </div>
+    </Transition>
 
     <!-- 确认弹窗 -->
     <Transition name="modal">
@@ -664,6 +665,21 @@ onMounted(async () => {
 /* ===== 动画 ===== */
 .modal-enter-active { animation: bounceIn 0.6s var(--ease-smooth-spring); }
 .modal-leave-active { animation: pageOut 0.3s ease-in; }
+
+/* 加载态→内容过渡 */
+.fade-enter-active { transition: opacity 0.25s ease; }
+.fade-leave-active { transition: opacity 0.15s ease; }
+.fade-enter-from,
+.fade-leave-to { opacity: 0; }
+
+.modal-overlay {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
 
 /* ═══════════════════════════════════════════
    Responsive: mobile < 520px

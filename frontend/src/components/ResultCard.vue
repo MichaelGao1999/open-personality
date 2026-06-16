@@ -166,6 +166,7 @@ defineExpose({ cardRef })
   justify-content: space-between;
   align-items: center;
   padding: 20px 24px 0;
+  animation: fadeInUp 0.6s var(--ease-bounce) 0.1s both;
 }
 .card-title {
   font-family: var(--font-display);

@@ -130,6 +130,7 @@ onMounted(() => {
   border-radius: var(--radius-full); background: rgba(0, 180, 216, 0.1);
   border: 1px solid var(--color-conscientiousness); color: var(--color-conscientiousness);
   font-size: 13px; font-weight: 600; margin-bottom: 12px;
+  animation: fadeInUp 0.6s var(--ease-bounce) 0.15s both;
 }
 .partial-progress { color: var(--color-text-secondary); font-size: 15px; margin-top: 8px; }
 .partial-note { color: var(--color-text-secondary); font-size: 13px; margin-top: 4px; }
@@ -140,6 +141,13 @@ onMounted(() => {
   background: rgba(255, 0, 110, 0.1); display: flex; align-items: center;
   justify-content: center; margin: 0 auto 24px;
 }
+
+/* 加载态→内容过渡 */
+.fade-enter-active { transition: opacity 0.25s ease; }
+.fade-leave-active { transition: opacity 0.15s ease; }
+.fade-enter-from,
+.fade-leave-to { opacity: 0; }
+
 .not-found h2 { font-size: 24px; margin-bottom: 8px; }
 .not-found p { color: var(--color-text-secondary); margin-bottom: 24px; }
 
