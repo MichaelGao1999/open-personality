@@ -346,7 +346,7 @@ onMounted(async () => {
 /* ===== 进度条 ===== */
 .progress-section {
   margin-bottom: 32px;
-  animation: fadeInUp 0.4s var(--ease-bounce);
+  animation: fadeInUp 0.6s var(--ease-bounce);
 }
 
 .progress-bar {
@@ -360,7 +360,7 @@ onMounted(async () => {
 .progress-fill {
   height: 100%;
   border-radius: 5px;
-  transition: width 0.4s var(--ease-smooth);
+  transition: width 0.6s var(--ease-smooth);
 }
 
 .progress-text {
@@ -406,7 +406,7 @@ onMounted(async () => {
   font-size: 18px;
   font-weight: 600;
   color: var(--color-text-secondary);
-  transition: all 0.2s ease;
+  transition: all 0.35s ease;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -441,7 +441,7 @@ onMounted(async () => {
   font-size: 13px;
   font-weight: 600;
   color: transparent;
-  transition: color 0.3s ease;
+  transition: color 0.4s ease;
   max-width: 90px;
 }
 
@@ -479,7 +479,7 @@ onMounted(async () => {
 
 /* ===== 题目切换动画 ===== */
 .question-slide-enter-active {
-  transition: opacity 0.2s var(--ease-smooth), transform 0.2s var(--ease-smooth);
+  transition: opacity 0.35s var(--ease-smooth), transform 0.35s var(--ease-smooth);
 }
 
 .question-slide-leave-active {
@@ -498,7 +498,7 @@ onMounted(async () => {
 
 /* ===== 总览 ===== */
 .summary-section {
-  animation: fadeInUp 0.5s var(--ease-bounce);
+  animation: fadeInUp 0.7s var(--ease-bounce);
 }
 
 .summary-header {
@@ -532,7 +532,7 @@ onMounted(async () => {
   padding: 12px 16px;
   cursor: pointer;
   border: 2px solid var(--color-border);
-  transition: all 0.2s var(--ease-bounce);
+  transition: all 0.35s var(--ease-bounce);
   text-align: left;
   font-family: inherit;
   font-size: inherit;
@@ -662,8 +662,8 @@ onMounted(async () => {
 }
 
 /* ===== 动画 ===== */
-.modal-enter-active { animation: bounceIn 0.4s var(--ease-smooth-spring); }
-.modal-leave-active { animation: pageOut 0.2s ease-in; }
+.modal-enter-active { animation: bounceIn 0.6s var(--ease-smooth-spring); }
+.modal-leave-active { animation: pageOut 0.3s ease-in; }
 
 /* ═══════════════════════════════════════════
    Responsive: mobile < 520px

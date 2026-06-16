@@ -213,7 +213,7 @@ onMounted(() => {
   margin-bottom: 24px;
   border: 2px solid var(--color-conscientiousness);
   background: rgba(0, 180, 216, 0.05);
-  animation: bounceIn 0.45s var(--ease-smooth-spring);
+  animation: bounceIn 0.7s var(--ease-smooth-spring);
 }
 
 .resume-info {
@@ -248,7 +248,7 @@ onMounted(() => {
 /* ===== 首屏 ===== */
 .hero {
   margin-bottom: 40px;
-  animation: fadeInUp 0.6s var(--ease-bounce);
+  animation: fadeInUp 0.8s var(--ease-bounce);
 }
 
 .hero-title {
@@ -274,6 +274,18 @@ onMounted(() => {
   gap: 12px;
   justify-content: center;
   margin-bottom: 32px;
+}
+
+.mode-select .mode-card:nth-child(1) {
+  animation: fadeInUp 0.8s var(--ease-bounce) 0s both;
+}
+
+.mode-select .mode-card:nth-child(2) {
+  animation: fadeInUp 0.8s var(--ease-bounce) 0.12s both;
+}
+
+.mode-select .mode-card:nth-child(3) {
+  animation: fadeInUp 0.8s var(--ease-bounce) 0.24s both;
 }
 
 .mode-card {
@@ -337,6 +349,7 @@ onMounted(() => {
   font-size: 18px;
   padding: 16px 48px;
   margin-bottom: 32px;
+  animation: fadeInUp 0.8s var(--ease-bounce) 0.36s both;
 }
 
 /* ===== 分割线 ===== */
@@ -361,10 +374,14 @@ onMounted(() => {
   letter-spacing: 2px;
 }
 
+.divider {
+  animation: fadeInUp 0.8s var(--ease-bounce) 0.48s both;
+}
+
 /* ===== 最近记录 ===== */
 .recent-section {
   margin-top: 40px;
-  animation: fadeInUp 0.6s var(--ease-bounce) 0.2s both;
+  animation: fadeInUp 0.8s var(--ease-bounce) 0.3s both;
 }
 
 .recent-title {
@@ -408,6 +425,7 @@ onMounted(() => {
   color: var(--color-text-secondary);
   font-size: 14px;
   margin-top: 40px;
+  animation: fadeInUp 0.8s var(--ease-bounce) 0.6s both;
 }
 
 /* ===== 帮助图标 ===== */
@@ -424,12 +442,12 @@ onMounted(() => {
   background: var(--color-accent-light);
   margin-left: 8px;
   vertical-align: middle;
-  transition: transform 0.2s;
+  transition: transform 0.35s;
   user-select: none;
 }
 
 .help-icon:hover {
-  transform: scale(1.2);
+  transform: scale(1.25);
 }
 
 .help-icon-sm {
@@ -445,12 +463,12 @@ onMounted(() => {
   background: var(--color-accent-light);
   margin-left: 4px;
   vertical-align: middle;
-  transition: transform 0.2s;
+  transition: transform 0.35s;
   user-select: none;
 }
 
 .help-icon-sm:hover {
-  transform: scale(1.2);
+  transform: scale(1.25);
 }
 
 /* ===== 弹窗遮罩 ===== */
@@ -463,7 +481,7 @@ onMounted(() => {
   align-items: center;
   justify-content: center;
   padding: 20px;
-  animation: fadeIn 0.2s ease;
+  animation: fadeIn 0.3s ease;
 }
 
 .modal-card {
@@ -475,8 +493,8 @@ onMounted(() => {
   max-height: 80vh;
   overflow-y: auto;
   position: relative;
-  box-shadow: var(--shadow-lg, 0 20px 60px rgba(0,0,0,0.3));
-  animation: slideUp 0.3s var(--ease-bounce);
+  box-shadow: 0 25px 80px rgba(0,0,0,0.25);
+  animation: slideUp 0.5s var(--ease-bounce);
 }
 
 .modal-close {

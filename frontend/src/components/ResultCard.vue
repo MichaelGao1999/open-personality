@@ -198,8 +198,14 @@ defineExpose({ cardRef })
   padding: 16px 16px 8px;
   align-items: start;
 }
-.chart-radar { min-height: 260px; }
-.chart-bars { display: flex; flex-direction: column; gap: 14px; padding-top: 12px; }
+.chart-radar { min-height: 260px; animation: fadeInUp 0.8s var(--ease-bounce) 0s both; }
+.chart-bars { display: flex; flex-direction: column; gap: 14px; padding-top: 12px; animation: fadeInUp 0.8s var(--ease-bounce) 0.15s both; }
+.bar-item:nth-child(1) { animation: fadeInUp 0.6s var(--ease-bounce) 0.2s both; }
+.bar-item:nth-child(2) { animation: fadeInUp 0.6s var(--ease-bounce) 0.27s both; }
+.bar-item:nth-child(3) { animation: fadeInUp 0.6s var(--ease-bounce) 0.34s both; }
+.bar-item:nth-child(4) { animation: fadeInUp 0.6s var(--ease-bounce) 0.41s both; }
+.bar-item:nth-child(5) { animation: fadeInUp 0.6s var(--ease-bounce) 0.48s both; }
+
 .bar-header {
   display: flex;
   justify-content: space-between;
@@ -222,7 +228,7 @@ defineExpose({ cardRef })
   border-radius: var(--radius-md);
   background: linear-gradient(135deg, rgba(123, 47, 247, 0.06), rgba(255, 0, 110, 0.06));
   border: 1px solid rgba(123, 47, 247, 0.15);
-  animation: bounceIn 0.5s var(--ease-smooth-spring);
+  animation: bounceIn 0.7s var(--ease-smooth-spring) 0.3s both;
 }
 .card-egg.no-egg {
   background: rgba(128, 128, 128, 0.04);
@@ -238,7 +244,7 @@ defineExpose({ cardRef })
 .card-egg p { font-size: 13px; line-height: 1.5; color: var(--color-text); margin: 4px 0 0; }
 
 /* ===== MBTI ===== */
-.mbti-area { margin: 12px 24px 20px; text-align: center; }
+.mbti-area { margin: 12px 24px 20px; text-align: center; animation: fadeInUp 0.8s var(--ease-bounce) 0.55s both; }
 .mbti-label { font-size: 14px; color: var(--color-text-secondary); margin-bottom: 10px; }
 .mbti-label strong { font-family: var(--font-mono); font-size: 22px; color: var(--color-accent); margin-left: 4px; }
 .mbti-dims { display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; }
@@ -282,8 +288,8 @@ defineExpose({ cardRef })
 .interp-panel-item p { font-size: 14px; line-height: 1.6; color: var(--color-text-secondary); }
 
 /* ===== 弹窗动画 ===== */
-.modal-enter-active { animation: bounceIn 0.3s var(--ease-smooth-spring); }
-.modal-leave-active { animation: fadeIn 0.2s ease reverse; }
+.modal-enter-active { animation: bounceIn 0.5s var(--ease-smooth-spring); }
+.modal-leave-active { animation: fadeIn 0.3s ease reverse; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
 
 /* ===== 帮助图标 ===== */
@@ -300,13 +306,13 @@ defineExpose({ cardRef })
   background: var(--color-accent-light);
   margin-left: 4px;
   vertical-align: middle;
-  transition: transform 0.2s;
+  transition: transform 0.35s;
   user-select: none;
   flex-shrink: 0;
 }
 
 .help-icon-sm:hover {
-  transform: scale(1.2);
+  transform: scale(1.25);
 }
 
 /* ===== 弹窗遮罩 ===== */
@@ -319,7 +325,7 @@ defineExpose({ cardRef })
   align-items: center;
   justify-content: center;
   padding: 20px;
-  animation: fadeIn 0.2s ease;
+  animation: fadeIn 0.3s ease;
 }
 
 .modal-card {
@@ -331,8 +337,8 @@ defineExpose({ cardRef })
   max-height: 80vh;
   overflow-y: auto;
   position: relative;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-  animation: slideUp 0.3s var(--ease-bounce);
+  box-shadow: 0 25px 80px rgba(0,0,0,0.25);
+  animation: slideUp 0.5s var(--ease-bounce);
 }
 
 .modal-close {

@@ -125,7 +125,7 @@ onMounted(() => {
   margin: 0 auto 16px; animation: spin 0.8s linear infinite;
 }
 @keyframes spin { to { transform: rotate(360deg); } }
-.report-header { text-align: center; margin-bottom: 32px; animation: fadeInUp 0.5s var(--ease-bounce); }
+.report-header { text-align: center; margin-bottom: 32px; animation: fadeInUp 0.8s var(--ease-bounce); }
 .report-title { font-family: var(--font-display); font-size: 36px; font-weight: 700; }
 .partial-badge {
   display: inline-flex; align-items: center; gap: 6px; padding: 6px 16px;
@@ -135,7 +135,7 @@ onMounted(() => {
 }
 .partial-progress { color: var(--color-text-secondary); font-size: 15px; margin-top: 8px; }
 .partial-note { color: var(--color-text-secondary); font-size: 13px; margin-top: 4px; }
-.actions { display: flex; flex-direction: column; gap: 12px; align-items: center; margin-top: 40px; animation: fadeInUp 0.5s var(--ease-bounce) 0.4s both; }
+.actions { display: flex; flex-direction: column; gap: 12px; align-items: center; margin-top: 40px; animation: fadeInUp 0.8s var(--ease-bounce) 0.6s both; }
 .not-found { text-align: center; padding: 80px 0; animation: fadeInUp 0.5s var(--ease-bounce); }
 .not-found-icon {
   width: 80px; height: 80px; border-radius: 50%;
