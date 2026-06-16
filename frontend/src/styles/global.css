@@ -50,6 +50,9 @@
   --ease-bounce: cubic-bezier(0.34, 1.2, 0.64, 1);
   --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
   --ease-smooth-spring: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Breakpoints */
+  --breakpoint-mobile: 520px;
 }
 
 /* ═══════════════════════════════════════════
@@ -228,4 +231,23 @@ body.dd-slow-mo * {
 @keyframes shimmer {
   0% { background-position: -200% center; }
   100% { background-position: 200% center; }
+}
+
+/* ═══════════════════════════════════════════
+   Responsive: mobile < 520px
+   ═══════════════════════════════════════════ */
+@media (max-width: 520px) {
+  .dopamine-btn {
+    padding: 12px 24px;
+    font-size: 15px;
+  }
+
+  .dopamine-btn-outline {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+
+  .dopamine-card {
+    border-radius: var(--radius-sm);
+  }
 }

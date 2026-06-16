@@ -1,0 +1,60 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - button [ref=e4] [cursor=pointer]:
+      - img [ref=e5]
+    - generic [ref=e7]: 🛠 DEV / Report
+    - generic [ref=e8]:
+      - generic [ref=e9]: 📍 页面跳转
+      - button "🏠 首页" [ref=e10] [cursor=pointer]
+      - generic [ref=e11]:
+        - button "📝 答题" [ref=e12] [cursor=pointer]
+        - combobox [ref=e13] [cursor=pointer]:
+          - option "极速30" [selected]
+          - option "标准120"
+          - option "完整300"
+      - button "🚫 404 错误页" [ref=e14] [cursor=pointer]
+    - generic [ref=e15]:
+      - generic [ref=e16]: 📋 报告页
+      - generic [ref=e17]:
+        - textbox "分享码" [ref=e18]
+        - button "🔍" [ref=e19] [cursor=pointer]
+      - button "🧪 生成报告（全3分）" [ref=e20] [cursor=pointer]
+      - button "🔴 生成极端报告（全1分）" [ref=e21] [cursor=pointer]
+    - generic [ref=e22]:
+      - generic [ref=e23]: 🎲 彩蛋
+      - button "🥚 强制触发彩蛋报告" [ref=e24] [cursor=pointer]
+    - generic [ref=e25]:
+      - generic [ref=e26]: 🎬 动画
+      - button "🐌 慢速模式 (3x)" [ref=e27] [cursor=pointer]
+    - generic [ref=e28]:
+      - generic [ref=e29]: 🌐 环境
+      - button "🔤 切换语言 (→ EN)" [ref=e30] [cursor=pointer]
+    - generic [ref=e31]:
+      - generic [ref=e32]: 🗃️ 数据
+      - button "🗑️ 清除答题进度" [ref=e33] [cursor=pointer]
+      - button "🗑️ 清除最近记录" [ref=e34] [cursor=pointer]
+  - generic [ref=e85]:
+    - button "设置" [ref=e87] [cursor=pointer]:
+      - img [ref=e88]
+    - paragraph [ref=e94]: 进度 1 / 120
+    - paragraph [ref=e95]: 无需纠结，凭直觉选择，可随时回溯修改
+    - generic [ref=e96]:
+      - paragraph [ref=e97]: 我有丰富的想象力。
+      - generic [ref=e98]:
+        - button "1" [ref=e99] [cursor=pointer]:
+          - generic [ref=e100]: "1"
+        - button "2" [ref=e101] [cursor=pointer]:
+          - generic [ref=e102]: "2"
+        - button "3" [ref=e103] [cursor=pointer]:
+          - generic [ref=e104]: "3"
+        - button "4" [ref=e105] [cursor=pointer]:
+          - generic [ref=e106]: "4"
+        - button "5" [ref=e107] [cursor=pointer]:
+          - generic [ref=e108]: "5"
+      - generic [ref=e109]:
+        - generic [ref=e110]: 非常不同意
+        - generic [ref=e111]: 不同意
+        - generic [ref=e112]: 中立
+        - generic [ref=e113]: 同意
+        - generic [ref=e114]: 非常同意
+    - button "查看当前结果" [disabled] [ref=e116]

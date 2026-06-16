@@ -522,4 +522,44 @@ onMounted(() => {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* ═══════════════════════════════════════════
+   Responsive: mobile < 520px
+   ═══════════════════════════════════════════ */
+@media (max-width: 520px) {
+  .home-page {
+    padding: 60px 16px 40px;
+  }
+
+  .hero-title {
+    font-size: 36px;
+  }
+
+  .hero-subtitle {
+    font-size: 14px;
+  }
+
+  .mode-select {
+    gap: 10px;
+  }
+
+  .mode-card {
+    padding: 18px 16px;
+  }
+
+  .resume-banner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .resume-info {
+    justify-content: center;
+  }
+
+  .resume-actions {
+    justify-content: center;
+  }
+}
 </style>

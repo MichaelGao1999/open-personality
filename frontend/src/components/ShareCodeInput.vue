@@ -73,4 +73,22 @@ function search() {
   padding: 14px 24px;
   font-size: 14px;
 }
+
+/* ═══════════════════════════════════════════
+   Responsive: mobile < 520px
+   ═══════════════════════════════════════════ */
+@media (max-width: 520px) {
+  .share-code-input input {
+    width: 140px;
+    max-width: 100%;
+    padding: 12px 14px;
+    font-size: 14px;
+    letter-spacing: 2px;
+  }
+
+  .share-btn {
+    padding: 12px 18px;
+    font-size: 13px;
+  }
+}
 </style>

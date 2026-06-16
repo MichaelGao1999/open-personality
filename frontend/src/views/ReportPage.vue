@@ -144,4 +144,17 @@ onMounted(() => {
 }
 .not-found h2 { font-size: 24px; margin-bottom: 8px; }
 .not-found p { color: var(--color-text-secondary); margin-bottom: 24px; }
+
+/* ═══════════════════════════════════════════
+   Responsive: mobile < 520px
+   ═══════════════════════════════════════════ */
+@media (max-width: 520px) {
+  .report-page {
+    padding: 60px 16px 40px;
+  }
+
+  .report-title {
+    font-size: 30px;
+  }
+}
 </style>

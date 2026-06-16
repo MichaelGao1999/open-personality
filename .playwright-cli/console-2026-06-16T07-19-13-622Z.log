@@ -1,0 +1,6 @@
+[   29926ms] [WARNING] [Vue warn]: Property "currentDimColor" was accessed during render but is not defined on instance. 
+  at <QuestionnairePage onVnodeUnmounted=fn<onVnodeUnmounted> ref=Ref< Proxy(Object) > > 
+  at <BaseTransition mode="out-in" appear=false persisted=false  ... > 
+  at <Transition name="page" mode="out-in" > 
+  at <RouterView> 
+  at <App> @ http://localhost:5173/node_modules/.vite/deps/chunk-JSFTWL3E.js?v=4606156e:2224

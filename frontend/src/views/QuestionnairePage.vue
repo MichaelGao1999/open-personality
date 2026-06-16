@@ -664,4 +664,53 @@ onMounted(async () => {
 /* ===== 动画 ===== */
 .modal-enter-active { animation: bounceIn 0.4s var(--ease-smooth-spring); }
 .modal-leave-active { animation: pageOut 0.2s ease-in; }
+
+/* ═══════════════════════════════════════════
+   Responsive: mobile < 520px
+   ═══════════════════════════════════════════ */
+@media (max-width: 520px) {
+  .questionnaire-page {
+    padding: 60px 16px 40px;
+  }
+
+  .q-text {
+    font-size: 18px;
+  }
+
+  .question-card {
+    padding: 24px 16px;
+  }
+
+  .options {
+    gap: 8px;
+  }
+
+  .option-btn {
+    height: 48px;
+    border-radius: 14px;
+    font-size: 16px;
+  }
+
+  .option-hints {
+    gap: 4px;
+    flex-wrap: wrap;
+  }
+
+  .hint-item {
+    max-width: none;
+    font-size: 11px;
+    flex: 1 1 auto;
+    min-width: 0;
+    color: var(--color-text-secondary);
+  }
+
+  .questionnaire-hint {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .summary-title {
+    font-size: 28px;
+  }
+}
 </style>

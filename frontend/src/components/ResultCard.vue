@@ -403,4 +403,58 @@ defineExpose({ cardRef })
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* ═══════════════════════════════════════════
+   Responsive: mobile < 520px
+   ═══════════════════════════════════════════ */
+@media (max-width: 520px) {
+  .charts-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding: 12px 12px 4px;
+  }
+
+  .chart-radar {
+    min-height: 220px;
+  }
+
+  .chart-bars {
+    gap: 10px;
+    padding-top: 8px;
+  }
+
+  .card-title {
+    font-size: 20px;
+  }
+
+  .card-topbar {
+    padding: 16px 16px 0;
+  }
+
+  .bar-label {
+    font-size: 12px;
+  }
+
+  .bar-value {
+    font-size: 14px;
+  }
+
+  .mbti-area {
+    margin: 10px 16px 16px;
+  }
+
+  .mbti-label strong {
+    font-size: 20px;
+  }
+
+  .card-egg {
+    margin: 10px 16px;
+    padding: 10px 14px;
+  }
+
+  .dim-help-split {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
 </style>
