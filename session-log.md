@@ -308,3 +308,43 @@
 
 ### 遗留问题 / 下轮开始点
 - 英文版文案待优化翻译
+
+---
+
+## 2026-06-16 — 响应式布局 + 全局 logo + 卡片优化
+
+### 本轮概要
+- **响应式布局**：6 个文件添加 `@media (max-width: 520px)` 覆盖，桌面优先策略
+  - 页面内边距减至 60px/16px/40px
+  - 模式卡片保持横排、收紧间距
+  - 答题提示移动端始终可见（`color: transparent` → `var(--color-text-secondary)`）
+  - 选项按钮缩小（54px→48px）、圆角缩小（20px→14px）
+  - 报告页图表双列→单列（`grid-template-columns: 1fr`）
+  - 分享码输入框缩小（200px→140px）
+- **全局 logo**：`AppLogo.vue` 组件，Apple 极简风格
+  - 非首页左上角 "open personality" 小字，点击回首页
+  - 首页复用 hero-title "Open Personality" 大 logo
+  - 进入/离开有 fade+translate 动画
+- **报告导出水印**：`exportImage.js` 底部添加 "open personality" 文字
+- **卡片优化**：第三卡片改"完整模式"，padding 减少（24px→16px）
+- **修复**：后端 DB 重建（旧表缺 `status`/`total_items` 列导致 submit 500）
+- **清理**：删除 Playwright 测试截图和 `.playwright-cli/` 目录
+
+### 更新文件
+- `frontend/src/styles/global.css` — 新增 `--breakpoint-mobile` 变量 + 移动端按钮微调
+- `frontend/src/views/HomePage.vue` — 响应式覆盖 + 卡片 padding 下调
+- `frontend/src/views/QuestionnairePage.vue` — 响应式覆盖 + 提示常驻
+- `frontend/src/views/ReportPage.vue` — 响应式覆盖 + 标题缩小
+- `frontend/src/components/ResultCard.vue` — 响应式覆盖（图表单列）
+- `frontend/src/components/ShareCodeInput.vue` — 响应式覆盖
+- `frontend/src/App.vue` — 挂载 AppLogo
+- `frontend/src/i18n/zh.json` — "完整（高级）"→"完整模式"
+- `frontend/src/utils/exportImage.js` — 导出添加 logo 水印
+
+### 新增文件
+- `frontend/src/components/AppLogo.vue` — 全局品牌标识
+
+### 遗留问题
+- E2E 端到端测试（Playwright）
+- 页面过渡动画
+- GitHub Actions CI 配置

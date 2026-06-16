@@ -16,7 +16,7 @@
   "home.standard": "标准模式",
   "home.standard_desc": "IPIP-120 · 约 10 分钟",
   "home.standard_help": "标准120题评估模式，可随时中断和恢复，完成后也可选择继续答题细化评估",
-  "home.advanced": "完整（高级）",
+  "home.advanced": "完整模式",
   "home.advanced_desc": "IPIP-300 · 约 25 分钟",
   "home.advanced_help": "完整300题评估模式，可随时中断和恢复",
   "home.start": "开始测评",

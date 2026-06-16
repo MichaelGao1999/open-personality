@@ -279,7 +279,7 @@ onMounted(() => {
 .mode-card {
   flex: 1;
   max-width: 180px;
-  padding: 24px 14px;
+  padding: 16px 12px;
   cursor: pointer;
   transition: all 0.25s var(--ease-bounce);
   border: 2px solid var(--color-border);
@@ -544,7 +544,7 @@ onMounted(() => {
   }
 
   .mode-card {
-    padding: 18px 16px;
+    padding: 14px 14px;
   }
 
   .resume-banner {

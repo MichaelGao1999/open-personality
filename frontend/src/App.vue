@@ -1,5 +1,6 @@
 <template>
   <DebugDock />
+  <AppLogo />
   <div id="app-root">
     <router-view v-slot="{ Component }">
       <Transition name="page" mode="out-in">
@@ -13,6 +14,7 @@
 import { onMounted } from 'vue'
 import { useI18n } from './composables/useI18n'
 import DebugDock from './components/DebugDock.vue'
+import AppLogo from './components/AppLogo.vue'
 
 const { setLang } = useI18n()
 
