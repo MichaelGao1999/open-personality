@@ -1,5 +1,3 @@
-import json
-import os
 from pathlib import Path
 
 import pytest
@@ -58,10 +56,6 @@ def test_facet_scores_count(engine, all_3_answers):
 
 
 def test_reverse_scoring(engine):
-    items_path = Path(engine.data_dir) / "items" / "ipip120_en.json"
-    with open(items_path, "r", encoding="utf-8") as f:
-        data = json.load(f)
-    reversed_items = {item["item_id"] for item in data["items"] if item["reversed"]}
     answers = [AnswerItem(item_id=f"ipip_{i:03d}", value=5) for i in range(1, 121)]
     result = engine.calculate(answers, "standard")
     assert len(result.raw_scores) == 5

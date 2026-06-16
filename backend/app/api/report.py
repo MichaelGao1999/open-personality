@@ -37,6 +37,6 @@ def get_i18n(lang: str, db: DBSession = Depends(get_db)):
         raise HTTPException(status_code=404, detail={"error": "lang_not_found", "detail": f"Language '{lang}' not supported"})
     filepath = os.path.join(DATA_DIR, f"interpretations_{lang}.json")
     if not os.path.exists(filepath):
-        raise HTTPException(status_code=404, detail={"error": "lang_not_found", "detail": f"Language file not found"})
+        raise HTTPException(status_code=404, detail={"error": "lang_not_found", "detail": "Language file not found"})
     with open(filepath, "r", encoding="utf-8") as f:
         return json.load(f)

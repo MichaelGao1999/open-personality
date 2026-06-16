@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import json
 import os
-from pathlib import Path
 
 from backend.app.config import DATA_DIR
 from backend.app.schemas.models import AnswerItem, ScoringResult

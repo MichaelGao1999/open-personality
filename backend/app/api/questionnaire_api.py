@@ -88,7 +88,7 @@ def submit_answers(req: SubmitRequest, db: DBSession = Depends(get_db)):
 
     if existing_session_id:
         session_id = existing_session_id
-        share_token = repo.save_partial_session(req.mode, req.lang, total_items,
+        repo.save_partial_session(req.mode, req.lang, total_items,
                                                 req.answers, existing_session_id)[1]
     else:
         session_id = str(uuid.uuid4())

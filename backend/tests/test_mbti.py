@@ -4,7 +4,7 @@ import pytest
 
 from backend.app.core.mbti import MBTIInference
 from backend.app.core.scoring import ScoringEngine
-from backend.app.schemas.models import AnswerItem, ScoringResult
+from backend.app.schemas.models import ScoringResult
 
 
 @pytest.fixture
