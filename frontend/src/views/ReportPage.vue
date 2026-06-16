@@ -1,6 +1,5 @@
 <template>
   <div class="report-page">
-    <SettingsMenu />
 
     <div v-if="loading" class="loading">
       <div class="loading-spinner"></div>
@@ -68,7 +67,6 @@ import { useRoute, useRouter } from 'vue-router'
 import { useI18n } from '../composables/useI18n'
 import { getReport } from '../utils/api'
 import { exportCard } from '../utils/exportImage'
-import SettingsMenu from '../components/SettingsMenu.vue'
 import ResultCard from '../components/ResultCard.vue'
 import ShareLink from '../components/ShareLink.vue'
 
@@ -114,6 +112,7 @@ onMounted(() => {
 .report-page {
   max-width: 680px;
   margin: 0 auto;
+  padding-top: 70px;
   padding: 80px 20px 60px;
   position: relative;
   z-index: 1;

@@ -1,7 +1,5 @@
 <template>
   <div class="questionnaire-page">
-    <SettingsMenu />
-
     <div v-if="loading" class="loading">
       <div class="loading-spinner"></div>
       <p>{{ t('questionnaire.loading') }}</p>
@@ -159,7 +157,6 @@ import { useRoute, useRouter } from 'vue-router'
 import { useI18n } from '../composables/useI18n'
 import { useRecentReports } from '../composables/useRecentReports'
 import { getItems, submitAnswers } from '../utils/api'
-import SettingsMenu from '../components/SettingsMenu.vue'
 
 const { t, lang } = useI18n()
 const route = useRoute()
@@ -313,6 +310,7 @@ onMounted(async () => {
 .questionnaire-page {
   max-width: 600px;
   margin: 0 auto;
+  padding-top: 70px;
   padding: 80px 20px 60px;
   position: relative;
   z-index: 1;
