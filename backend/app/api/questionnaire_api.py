@@ -13,12 +13,12 @@ from backend.app.core.scoring import ScoringEngine
 from backend.app.db.database import get_db
 from backend.app.db.models import Session as DBSessionModel
 from backend.app.db.repository import ReportRepository
-from backend.app.schemas.models import Report, ResumeResponse, SubmitRequest
+from backend.app.schemas.models import QuestionnaireResponse, Report, ResumeResponse, SubmitRequest
 
 VALID_MODES = ("standard", "advanced", "speed")
 VALID_LANGS = ("zh", "en")
 
-router = APIRouter()
+router = APIRouter(tags=["Questionnaires"])
 
 questionnaire_loader = QuestionnaireLoader()
 scoring_engine = ScoringEngine()
@@ -34,17 +34,27 @@ def _validate_mode_lang(mode: str, lang: str):
         raise HTTPException(status_code=422, detail={"error": "invalid_lang", "detail": f"Language '{lang}' not supported"})
 
 
-@router.get("/questionnaires/items")
+@router.get(
+    "/questionnaires/items",
+    summary="获取问卷题目",
+    description="根据模式和语言返回题目列表，支持 standard（120 题）、advanced（300 题）、speed（30 题）三种模式。",
+    response_model=QuestionnaireResponse,
+)
 def get_items(mode: str = Query("standard"), lang: str = Query("zh")):
     _validate_mode_lang(mode, lang)
     try:
         items = questionnaire_loader.load_items(mode, lang)
-        return {"items": [item.model_dump() for item in items]}
+        return QuestionnaireResponse(items=items)
     except FileNotFoundError:
         raise HTTPException(status_code=422, detail={"error": "items_not_found", "detail": f"Questionnaire items not found for mode={mode} lang={lang}"})
 
 
-@router.post("/questionnaires/submit")
+@router.post(
+    "/questionnaires/submit",
+    summary="提交问卷答案",
+    description="提交答案并返回评分结果、MBTI 推断和人格解读。支持完整提交和部分提交（partial，用于中断恢复）。",
+    response_model=Report,
+)
 def submit_answers(req: SubmitRequest, db: DBSession = Depends(get_db)):
     _validate_mode_lang(req.mode, req.lang)
 
@@ -117,7 +127,12 @@ def submit_answers(req: SubmitRequest, db: DBSession = Depends(get_db)):
     return report
 
 
-@router.get("/questionnaires/resume/{share_token}")
+@router.get(
+    "/questionnaires/resume/{share_token}",
+    summary="恢复中断的答题",
+    description="通过 share_token 查询已保存的部分答题进度，返回已回答的答案列表和会话信息。",
+    response_model=ResumeResponse,
+)
 def resume_session(share_token: str, db: DBSession = Depends(get_db)):
     repo = ReportRepository(db)
     data = repo.get_partial_session(share_token)
