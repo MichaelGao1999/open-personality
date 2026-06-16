@@ -8,15 +8,15 @@
     <!-- 答题模式 -->
     <template v-if="!loading && items.length && !showSummary">
       <div class="progress-section">
-        <div class="progress-bar">
-          <div class="progress-fill" :style="{ width: progress + '%', background: currentDimColor }"></div>
-        </div>
         <p class="progress-text">
           {{ t('questionnaire.progress') }}
           <span class="progress-num">{{ currentIndex + 1 }}</span>
           {{ t('questionnaire.of') }}
           <span class="progress-num">{{ items.length }}</span>
         </p>
+        <div class="progress-bar">
+          <div class="progress-fill" :style="{ width: progress + '%', background: currentDimColor }"></div>
+        </div>
       </div>
 
       <p class="questionnaire-hint">{{ t('questionnaire.hint') }}</p>
@@ -310,7 +310,6 @@ onMounted(async () => {
 .questionnaire-page {
   max-width: 600px;
   margin: 0 auto;
-  padding-top: 70px;
   padding: 80px 20px 60px;
   position: relative;
   z-index: 1;
@@ -344,6 +343,7 @@ onMounted(async () => {
 /* ===== 进度条 ===== */
 .progress-section {
   margin-bottom: 32px;
+  padding-top: 24px;
   animation: fadeInUp 0.6s var(--ease-bounce);
 }
 
@@ -365,6 +365,8 @@ onMounted(async () => {
   text-align: center;
   color: var(--color-text-secondary);
   font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
 }
 
 .progress-num {

@@ -112,7 +112,6 @@ onMounted(() => {
 .report-page {
   max-width: 680px;
   margin: 0 auto;
-  padding-top: 70px;
   padding: 80px 20px 60px;
   position: relative;
   z-index: 1;
