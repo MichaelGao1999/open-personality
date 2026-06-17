@@ -34,6 +34,22 @@ def _validate_mode_lang(mode: str, lang: str):
         raise HTTPException(status_code=422, detail={"error": "invalid_lang", "detail": f"Language '{lang}' not supported"})
 
 
+def _shuffle_round_robin(items: list) -> list:
+    """将题目按 O→C→E→A→N 轮换排序，每5题覆盖全部5个维度。"""
+    dim_order = ["O", "C", "E", "A", "N"]
+    buckets: dict[str, list] = {d: [] for d in dim_order}
+    for item in items:
+        buckets[item.dimension].append(item)
+
+    result = []
+    max_len = max(len(b) for b in buckets.values())
+    for i in range(max_len):
+        for d in dim_order:
+            if i < len(buckets[d]):
+                result.append(buckets[d][i])
+    return result
+
+
 @router.get(
     "/questionnaires/items",
     summary="获取问卷题目",
@@ -44,6 +60,7 @@ def get_items(mode: str = Query("standard"), lang: str = Query("zh")):
     _validate_mode_lang(mode, lang)
     try:
         items = questionnaire_loader.load_items(mode, lang)
+        items = _shuffle_round_robin(items)
         return QuestionnaireResponse(items=items)
     except FileNotFoundError:
         raise HTTPException(status_code=422, detail={"error": "items_not_found", "detail": f"Questionnaire items not found for mode={mode} lang={lang}"})
