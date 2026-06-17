@@ -91,7 +91,8 @@
 1. **回顾 + 生成草稿**：回顾本轮内容，生成 session-log 草稿；同时从认知角度提炼 0-5 条候选条目
 2. **检查点**：输出 session-log 草稿 + status 修改预览 + 认知候选清单，用户确认后继续
 3. **更新文档**：
-   - `status.md`：待办清理、勾选完成、新增待办、更新记录；技术债务解决时同步到 `lessons-learned.md`
+   - `status.md`：对照 `git diff --stat` 逐条核销待办，已完成的打勾，未触及的说明原因；新增待办、更新记录；技术债务解决时同步到 `lessons-learned.md`
+   - **`docs/tasks/task-progress.md` + `docs/tasks/task-{module}.md`**：基于步1 回顾结果，扫描各模块任务文件的 `[ ]` checkbox，勾选本轮已完成的子任务（`[ ]` → `[x]`），更新模块进度表。此步不做任务-代码自动映射，由 AI 人工复查
    - **知识文件**：有报错 → 追加 `troubleshooting.md`；有经验 → 追加 `lessons-learned.md`；有关键决策 → 追加 `ADR.md`
 4. **定稿 + 审查**：定稿 `session-log.md`；运行 `sensitivity-check.py` 扫描敏感信息；有认知候选时运行 `cognitive-extract.py`
 5. Git 全量提交：`git add -A` → `git commit -m "[session] 摘要"` → `git push`

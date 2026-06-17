@@ -226,3 +226,26 @@
 
 | | TAG:board [来源:agent-coding-skeleton @2026-06-10] | INFO | `BoardFactory.highlight()` 需要同时支持 `data-square`（8×8 棋盘，如 `e2`）和 `data-pos`（6×6 棋盘，如 `2,3`）两种格子标识。非 8×8 棋盘调 `board.highlight('行,列', 'dot')`，8×8 棋盘调 `board.highlight('e2', 'dot')`。调用前必须先确认棋盘是什么尺寸 [blindfold-chess @2026-05-30] | guide.js + board-factory.js |
 | 129 | TAG:ai-workflow | WARNING | **GitHub 上 Fetch 的 SKILL.md 不能只看内容不看场景**。用户发来 `github.com/anthropics/skills/blob/main/skills/brand-guidelines/SKILL.md`，内按内容（Anthropic 品牌色/字体）判断"与本项目几乎无关"。但用户意图是将其作为前端设计的风格参考母版（front design），而非直接输出 Anthropic 风格内容。先问"你想怎么用这个"再评估。 [open-personality @2026-06-10] | 前端设计 |
+
+| | 阶段产出（stage outputs）不应在 starter/ 中预置模板。design.md、frontend.md、database.md 等高度依赖项目上下文，模板指导价值不如在 workflow 中用结构化描述定义章节标准高；模板与 workflow 描述不一致反增维护成本。仅基础设施和自检工具可放模板。 [母库 @2026-06-10] [来源:AI Workbench @2026-06-17] | starter/agent-coding-workflow.md |
+| | 防御性设计采用三层模式最有效：硬规则约束行为 + 流程关卡提供检查点 + 辅助工具提供自动化验证。RULE-12 告诉 AI"必须用占位符"，存档步骤 4 要求"写之前检查一遍"，sensitivity-check.py 是"不放心就扫一下"。缺任何一层都可能漏——规则被跳过、步骤被遗漏、工具没人用。 [母库 @2026-06-12] [来源:AI Workbench @2026-06-17] | AGENTS.md / scripts/sensitivity-check.py |
+| | 隐私泄露的修复成本远高于预防成本。本案例事后清理：40 处替换 × 8 个项目 ≈ 80 次 git 操作 + 6 次 push 修复。事前预防：一行 RULE + 一个 ~120 行脚本。后者在时间和心智成本上低一个数量级。 [母库 @2026-06-12] [来源:AI Workbench @2026-06-17] | scripts/sanitize-downstream.py |
+| | 新建公开仓库时应想清楚其定位：是母库本身（全量内容+规则+经验），还是纯模板（仅 starter/ 内容）。两者物理分离时，母库私有、模板公开，各自职责清晰。混在一起会导致公开库暴露内部决策和基础设施拓扑。 [母库 @2026-06-12] [来源:AI Workbench @2026-06-17] | project-starter |
+| | 分发工具（distribute.py 知识合并）与镜像工具（sync-starter 全量替换）的合并策略不同决定了它们不能互相替代。merge 保留下游独有内容，replace 保证源和目标完全一致。选型时先确定策略，再选工具。 [母库 @2026-06-12] [来源:AI Workbench @2026-06-17] | scripts/distribute.py / scripts/sync-starter.* |
+| | ADR 作为项目特有架构决策记录不应全量分发。跨项目 ADR 参考价值极低（决策上下文绑定具体项目），当前分发实现仅传输标题壳无决策内容，噪音大于价值。仅 lessons-learned 和 troubleshooting 参与知识分发。 [母库 @2026-06-15] [来源:AI Workbench @2026-06-17] | scripts/distribute.py / ADR.md |
+| | ❌ 已记入 `troubleshooting.md` 的具体错误修复步骤 → 那里是"急救手册"，这里是"模式总结" [来源:fact-swarm-v2 @2026-06-16] [来源:AI Workbench @2026-06-17] |  |
+| | ❌ 一次性环境配置错误（如输错密码、网络临时中断） [来源:fact-swarm-v2 @2026-06-16] [来源:AI Workbench @2026-06-17] |  |
+| | ❌ 过于基础的知识（如 "List 的 `add()` 是 O(1)"） [来源:fact-swarm-v2 @2026-06-16] [来源:AI Workbench @2026-06-17] |  |
+| | ❌ 仅适用于本项目特定业务逻辑的 hack [来源:fact-swarm-v2 @2026-06-16] [来源:AI Workbench @2026-06-17] |  |
+| | **AI 助手**：每次会话结束后执行上述评估流程，自主判断并写入 [来源:fact-swarm-v2 @2026-06-16] [来源:AI Workbench @2026-06-17] |  |
+| | **人类把控者**：如发现 AI 漏记了明显有价值的经验，随时补录 [来源:fact-swarm-v2 @2026-06-16] [来源:AI Workbench @2026-06-17] |  |
+| | **正确做法**：遇到"终端""同步""项目"这类横跨多层含义的词，先给两个选项让用户确认，不要默认展开分析 [来源:french-exit @2026-06-16] [来源:AI Workbench @2026-06-17] |  |
+| | **正确做法**：Side-by-side 对比源文件和目标文件的关键段落，尤其是表格、触发词、命令等不可改动的内容 [来源:french-exit @2026-06-16] [来源:AI Workbench @2026-06-17] |  |
+| | **启动**：`npm run dev`（Vite 服务器）→ 浏览器访问 `http://localhost:1420` [来源:french-exit @2026-06-16] [来源:AI Workbench @2026-06-17] |  |
+| | **优势**：HMR 热更新、即时预览、不依赖 Rust 编译 [来源:french-exit @2026-06-16] [来源:AI Workbench @2026-06-17] |  |
+| | **限制**：IPC 调用会失败，需通过 mock 数据或调试导航面板 bypass [来源:french-exit @2026-06-16] [来源:AI Workbench @2026-06-17] |  |
+| | **完整功能验证**：仍需本地 `cargo tauri dev` 或双击 release `.exe` [来源:french-exit @2026-06-16] [来源:AI Workbench @2026-06-17] |  |
+| | **优势**：零侵入 scanner 实现，不需要修改 7 个具体 scanner 的代码 [来源:french-exit @2026-06-16] [来源:AI Workbench @2026-06-17] |  |
+| | ❌ 直接把每个任务的局部 `current/total` 当作全局百分比 [来源:french-exit @2026-06-16] [来源:AI Workbench @2026-06-17] |  |
+| | 设计文档与代码实现之间存在双向验证缺口：文档描述与代码行为不一致时，文档会逐渐变为误导性参考。正确做法是代码落地后做 doc→code + code→doc 双向检查，并优先修代码再对齐文档 [来源:ai-workbench @2026-06-16] [来源:AI Workbench @2026-06-17] | awb CLI P0 |
+| | ❌ 前端"只增不减"机制配合局部进度 = 轻量任务瞬间把进度锁死在 100% [来源:french-exit @2026-06-16] [来源:AI Workbench @2026-06-17] |  |

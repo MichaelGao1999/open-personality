@@ -22,15 +22,18 @@
 
 ### 待办
 - [x] IPIP-300 中英文题目（已完成）
-- [ ] GitHub Actions CI 配置（加 lint）
+- [x] GitHub Actions CI 配置（加 lint）
 - [x] 题目缓存
 - [x] 无效数据容错 / 性能基准测试
 - [x] 缺失模板降级处理
 - [x] 高并发无碰撞测试
 - [x] OpenAPI 文档生成
-- [ ] E2E 端到端测试（Playwright）
+- [x] E2E 端到端测试（Playwright）
 - [x] 响应式布局（移动端适配）
 - [x] 页面过渡动画（P0+P1 已完成）
+- [ ] 人格解读模板填充（ interpret_zh/en.json，5域+30子维度 body 占位符）
+- [ ] popup-content-draft.md 定稿归档
+- [ ] task-progress.md 更新（5项⬜→✅）
 - [ ] 导航按钮 / 提示条 / 解读弹窗内部动画（P2 打磨）
 - [ ] 英文版文案优化翻译
 
@@ -126,3 +129,4 @@ open-personality/
 | 2026-06-16 | 高并发无碰撞测试完成（10000 无碰撞验证）
 | 2026-06-16 | OpenAPI 文档装饰完成（5 端点 + tags + response_model）
 | 2026-06-16 | 响应式布局适配（520px断点）、全局 logo（Apple风格）、卡片文本+padding优化、报告导出水印
+| 2026-06-16 | P0/P1 动画修复 + E2E 测试（Playwright 16 passing）+ Logo 工具栏重构 + ruff lint 修复 + README 重写

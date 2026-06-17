@@ -13,19 +13,25 @@
             </button>
           </div>
           <div class="interp-panel-body">
-            <div v-for="(dim, idx) in dimensionOrder" :key="dim" class="interp-panel-item">
-              <h4 :style="{ color: dimColors[idx] }">
-                {{ dimLabelCn[dim] }} ({{ dim }}) — {{ dimLabelEn[dim] }}
-              </h4>
-              <div class="dim-help-split">
-                <div class="dim-help-side">
-                  <span class="dim-help-badge high">&#9650; 高分</span>
-                  <p>{{ t('report.dim_' + dimLabelEn[dim].toLowerCase()) }}</p>
+            <p class="interp-notice">
+              部分子维度名称重新翻译，详见<a class="interp-link" @click.stop="showTermGlossary = true">术语对照表</a>
+            </p>
+            <div v-for="(dim, didx) in dimensionOrder" :key="dim" class="facet-group">
+              <div class="facet-group-header">
+                <span class="facet-group-title" :style="{ color: dimColors[didx] }">
+                  {{ dimLabelCn[dim] }} ({{ dim }})
+                </span>
+                <span class="facet-group-score" :style="{ color: dimColors[didx] }">{{ getScore(dim) }}</span>
+              </div>
+              <div v-for="facetKey in facetGroups[dim]" :key="facetKey" class="facet-bar-item">
+                <span class="facet-bar-label">{{ facetMeta[facetKey].userTranslation }}</span>
+                <div class="facet-bar-track">
+                  <div
+                    class="facet-bar-fill"
+                    :style="{ width: getFacetScore(facetKey) + '%', background: dimColors[didx] }"
+                  ></div>
                 </div>
-                <div class="dim-help-side">
-                  <span class="dim-help-badge low">&#9660; 低分</span>
-                  <p>{{ t('report.dim_' + dimLabelEn[dim].toLowerCase() + '_low') }}</p>
-                </div>
+                <span class="facet-bar-score">{{ getFacetScore(facetKey) }}</span>
               </div>
             </div>
           </div>
@@ -100,6 +106,36 @@
         <p class="modal-body" style="white-space: pre-line">{{ t('report.mbti_help_body') }}</p>
       </div>
     </div>
+    <!-- 术语对照表弹窗 -->
+    <div v-if="showTermGlossary" class="modal-overlay" @click.self="showTermGlossary = false">
+      <div class="modal-card glossary-card">
+        <button class="modal-close" @click="showTermGlossary = false">&times;</button>
+        <h2 class="modal-title" style="color: var(--color-accent)">子维度术语对照表</h2>
+        <table class="glossary-table">
+          <thead>
+            <tr>
+              <th>英文</th>
+              <th>调整版</th>
+              <th>学术版</th>
+            </tr>
+          </thead>
+          <tbody>
+            <template v-for="(dim, didx) in dimensionOrder" :key="dim">
+              <tr class="glossary-domain-row">
+                <td colspan="3" :style="{ color: dimColors[didx], borderBottomColor: dimColors[didx] }">
+                  {{ dimLabelCn[dim] }} ({{ dim }})
+                </td>
+              </tr>
+              <tr v-for="facetKey in facetGroups[dim]" :key="facetKey">
+                <td class="glossary-en">{{ facetMeta[facetKey].english }}</td>
+                <td class="glossary-mine">{{ facetMeta[facetKey].userTranslation }}</td>
+                <td class="glossary-academic">{{ facetMeta[facetKey].academicTranslation }}</td>
+              </tr>
+            </template>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -116,6 +152,7 @@ const { t } = useI18n()
 const cardRef = ref(null)
 const showInterpret = ref(false)
 const showMbtiHelp = ref(false)
+const showTermGlossary = ref(false)
 
 const dimColors = ['#7B2FF7', '#00B4D8', '#FFD60A', '#06D6A0', '#FF006E']
 const dimensionOrder = ['O', 'C', 'E', 'A', 'N']
@@ -131,9 +168,47 @@ const defaultTips = [
 const dimLabelCn = { O: '开放性', C: '严谨性', E: '外向性', A: '宜人性', N: '神经质' }
 const dimLabelEn = { O: 'Openness', C: 'Conscientiousness', E: 'Extraversion', A: 'Agreeableness', N: 'Neuroticism' }
 
-const domainInterpretations = computed(() => {
-  return props.report.interpretations?.slice(0, 5) || []
-})
+// 子维度元数据：英文 / 我的翻译 / 学术版翻译
+const facetMeta = {
+  O_imagination:    { english: 'Imagination',          userTranslation: '想象力',   academicTranslation: '幻想' },
+  O_aesthetics:     { english: 'Aesthetics',           userTranslation: '审美感受', academicTranslation: '审美' },
+  O_feelings:       { english: 'Feelings',             userTranslation: '情感丰富', academicTranslation: '感受丰富性' },
+  O_adventurousness:{ english: 'Adventurousness',      userTranslation: '冒险精神', academicTranslation: '求新性' },
+  O_intellect:      { english: 'Intellect',            userTranslation: '求知欲',   academicTranslation: '智识' },
+  O_liberalism:     { english: 'Liberalism',           userTranslation: '自由主义', academicTranslation: '价值开放' },
+  C_self_efficacy:         { english: 'Self-Efficacy',        userTranslation: '自我效能', academicTranslation: '胜任感' },
+  C_orderliness:           { english: 'Orderliness',          userTranslation: '条理性',   academicTranslation: '有序性' },
+  C_dutifulness:           { english: 'Dutifulness',          userTranslation: '责任感',   academicTranslation: '尽职' },
+  C_achievement_striving:  { english: 'Achievement-Striving', userTranslation: '成就追求', academicTranslation: '成就努力' },
+  C_self_discipline:       { english: 'Self-Discipline',      userTranslation: '自律',     academicTranslation: '自律性' },
+  C_cautiousness:          { english: 'Cautiousness',         userTranslation: '审慎',     academicTranslation: '审慎性' },
+  E_friendliness:     { english: 'Friendliness',       userTranslation: '友善',       academicTranslation: '热情' },
+  E_gregariousness:   { english: 'Gregariousness',     userTranslation: '乐群',       academicTranslation: '合群性' },
+  E_assertiveness:    { english: 'Assertiveness',      userTranslation: '自信',       academicTranslation: '果敢性' },
+  E_activity_level:   { english: 'Activity Level',     userTranslation: '活跃',       academicTranslation: '活动水平' },
+  E_excitement_seeking:{ english: 'Excitement-Seeking',userTranslation: '寻求刺激',   academicTranslation: '刺激寻求' },
+  E_cheerfulness:     { english: 'Cheerfulness',       userTranslation: '快乐',       academicTranslation: '正性情绪' },
+  A_trust:        { english: 'Trust',        userTranslation: '信任',   academicTranslation: '信任感' },
+  A_morality:     { english: 'Morality',     userTranslation: '道德',   academicTranslation: '坦诚' },
+  A_altruism:     { english: 'Altruism',     userTranslation: '利他',   academicTranslation: '利他性' },
+  A_cooperation:  { english: 'Cooperation',  userTranslation: '合作',   academicTranslation: '顺从' },
+  A_modesty:      { english: 'Modesty',      userTranslation: '谦虚',   academicTranslation: '谦逊' },
+  A_sympathy:     { english: 'Sympathy',     userTranslation: '同理心', academicTranslation: '共情' },
+  N_anxiety:             { english: 'Anxiety',             userTranslation: '焦虑',       academicTranslation: '焦虑感' },
+  N_anger:               { english: 'Anger',               userTranslation: '愤怒',       academicTranslation: '愤怒性敌意' },
+  N_depression:          { english: 'Depression',          userTranslation: '抑郁',       academicTranslation: '抑郁性' },
+  N_self_consciousness:  { english: 'Self-Consciousness',  userTranslation: '自我意识',   academicTranslation: '自我意识性' },
+  N_immoderation:        { english: 'Immoderation',        userTranslation: '冲动',       academicTranslation: '冲动性' },
+  N_vulnerability:       { english: 'Vulnerability',       userTranslation: '脆弱',       academicTranslation: '脆弱性' },
+}
+
+const facetGroups = {
+  O: ['O_imagination', 'O_aesthetics', 'O_feelings', 'O_adventurousness', 'O_intellect', 'O_liberalism'],
+  C: ['C_self_efficacy', 'C_orderliness', 'C_dutifulness', 'C_achievement_striving', 'C_self_discipline', 'C_cautiousness'],
+  E: ['E_friendliness', 'E_gregariousness', 'E_assertiveness', 'E_activity_level', 'E_excitement_seeking', 'E_cheerfulness'],
+  A: ['A_trust', 'A_morality', 'A_altruism', 'A_cooperation', 'A_modesty', 'A_sympathy'],
+  N: ['N_anxiety', 'N_anger', 'N_depression', 'N_self_consciousness', 'N_immoderation', 'N_vulnerability'],
+}
 
 const displayEgg = computed(() => {
   if (props.report.easter_egg) return props.report.easter_egg
@@ -143,6 +218,10 @@ const displayEgg = computed(() => {
 
 function getScore(dim) {
   return Math.round(props.report.scoring?.t_scores?.[dim] ?? props.report.scoring?.[dim] ?? 50)
+}
+
+function getFacetScore(facetKey) {
+  return Math.round(props.report.scoring?.facet_scores?.[facetKey] ?? 50)
 }
 
 defineExpose({ cardRef })
@@ -268,7 +347,7 @@ defineExpose({ cardRef })
   z-index: 200;
 }
 .interp-panel {
-  max-width: 420px; width: 90%; max-height: 80vh; overflow-y: auto;
+  max-width: 520px; width: 94%; max-height: 80vh; overflow-y: auto;
   padding: 0; border: 2px solid var(--color-border);
 }
 .interp-panel-header {
@@ -404,6 +483,145 @@ defineExpose({ cardRef })
 .dim-help-badge.low {
   background: rgba(255, 0, 110, 0.10);
   color: #FF006E;
+}
+
+.dim-help-badge.medium {
+  background: rgba(128, 128, 128, 0.10);
+  color: var(--color-text-secondary);
+}
+
+/* ===== 解读弹窗：提示文字 ===== */
+.interp-notice {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  margin: 0 0 20px 0;
+  padding: 8px 12px;
+  background: rgba(123, 47, 247, 0.05);
+  border-radius: 8px;
+  border: 1px dashed rgba(123, 47, 247, 0.18);
+}
+.interp-link {
+  color: var(--color-accent);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.interp-link:hover { opacity: 0.8; }
+
+/* ===== 解读弹窗：子维度柱状图组 ===== */
+.facet-group {
+  margin-bottom: 24px;
+}
+.facet-group:last-child { margin-bottom: 0; }
+
+.facet-group-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--color-border);
+}
+.facet-group-title {
+  font-size: 15px;
+  font-weight: 700;
+}
+.facet-group-score {
+  font-family: var(--font-mono);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.facet-bar-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.facet-bar-label {
+  width: 64px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text);
+  text-align: right;
+  flex-shrink: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.facet-bar-track {
+  flex: 1;
+  height: 6px;
+  background: var(--color-border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.facet-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  opacity: 0.65;
+  transition: width 0.8s var(--ease-smooth-spring);
+}
+.facet-bar-score {
+  width: 28px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  text-align: left;
+  flex-shrink: 0;
+}
+
+/* ===== 术语对照表 ===== */
+.glossary-card {
+  max-width: 560px;
+  padding: 28px;
+}
+.glossary-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin-top: 12px;
+}
+.glossary-table th {
+  text-align: left;
+  padding: 8px 12px;
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  border-bottom: 2px solid var(--color-border);
+  background: var(--color-bg);
+  position: sticky;
+  top: 0;
+}
+.glossary-table td {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text);
+  line-height: 1.5;
+}
+.glossary-table tbody tr:hover { background: var(--color-bg); }
+.glossary-en {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+.glossary-mine {
+  font-weight: 600;
+  color: var(--color-accent);
+}
+.glossary-academic {
+  color: var(--color-text-secondary);
+  font-style: italic;
+}
+.glossary-domain-row td {
+  font-weight: 700;
+  font-size: 14px;
+  padding: 12px 12px 8px;
+  background: var(--color-bg);
+  border-bottom: 2px solid;
+}
+.glossary-domain-row:not(:first-child) td {
+  padding-top: 18px;
 }
 
 @keyframes slideUp {
