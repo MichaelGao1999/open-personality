@@ -78,14 +78,11 @@
       </div>
 
       <!-- 彩蛋 / 趣味提示 -->
-      <div class="card-egg" :class="{ 'no-egg': !displayEgg }">
-        <div class="egg-icon">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-          </svg>
+      <Transition name="egg">
+        <div v-if="showEgg" class="card-egg" :class="{ 'no-egg': !displayEgg }">
+          <p>{{ displayEgg }}</p>
         </div>
-        <p>{{ displayEgg }}</p>
-      </div>
+      </Transition>
 
       <!-- MBTI 解读 -->
       <div class="mbti-area">
@@ -194,7 +191,7 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useI18n } from '../composables/useI18n'
 import RadarChart from './RadarChart.vue'
 
@@ -286,6 +283,11 @@ const displayEgg = computed(() => {
   if (props.report.easter_egg) return props.report.easter_egg
   const tip = defaultTips[Math.floor(Math.random() * defaultTips.length)]
   return '💡 ' + tip
+})
+
+const showEgg = ref(false)
+onMounted(() => {
+  setTimeout(() => { showEgg.value = true }, 2000)
 })
 
 function getScore(dim) {
@@ -386,28 +388,49 @@ defineExpose({ cardRef })
 
 /* ===== 彩蛋 ===== */
 .card-egg {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
   margin: 12px 24px;
   padding: 12px 16px;
   border-radius: var(--radius-md);
   background: linear-gradient(135deg, rgba(123, 47, 247, 0.06), rgba(255, 0, 110, 0.06));
   border: 1px solid rgba(123, 47, 247, 0.15);
-  animation: bounceIn 0.7s var(--ease-smooth-spring) 0.3s both;
+  max-height: 200px;
 }
 .card-egg.no-egg {
   background: rgba(128, 128, 128, 0.04);
   border-color: var(--color-border);
 }
-.card-egg.no-egg .egg-icon { background: var(--color-text-secondary); }
 .card-egg.no-egg p { font-style: normal; opacity: 0.7; }
-.egg-icon {
-  width: 32px; height: 32px; border-radius: 50%;
-  background: var(--gradient-primary);
-  display: flex; align-items: center; justify-content: center; color: #fff; flex-shrink: 0;
+.card-egg p { font-size: 13px; line-height: 1.5; color: var(--color-text); margin: 0; }
+
+/* ===== 彩蛋展开动画 ===== */
+.egg-enter-active {
+  transition: all 0.5s ease-out;
+  overflow: hidden;
 }
-.card-egg p { font-size: 13px; line-height: 1.5; color: var(--color-text); margin: 4px 0 0; }
+.egg-leave-active {
+  transition: all 0.3s ease-in;
+  overflow: hidden;
+}
+.egg-enter-from {
+  max-height: 0;
+  opacity: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  border-top-width: 0;
+  border-bottom-width: 0;
+}
+.egg-leave-to {
+  max-height: 0;
+  opacity: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  border-top-width: 0;
+  border-bottom-width: 0;
+}
 
 /* ===== MBTI ===== */
 .mbti-area { margin: 12px 24px 20px; text-align: center; animation: fadeInUp 0.8s var(--ease-bounce) 0.55s both; }
