@@ -404,3 +404,34 @@
 - 人格解读正文填充（interpret_zh/en.json body 占位符）
 - popup-content-draft.md 定稿归档
 - P2 动画打磨 + 英文文案优化
+
+---
+
+## 2026-06-17 — 弹窗改造 + 续答机制 + 出题轮换 + 对比设计
+
+### 本轮概要
+- **解读弹窗统一改造**：维度/子维度从 tooltip 改为居中卡片模式
+- **彩蛋模块优化**：2 秒延迟展开动画（从一条线展开），移除左侧 icon，解决卡片拉伸
+- **分享链接修复**：改为只复制分享码
+- **续答机制实现**：ReportPage→问卷页 resumeSession API 恢复；session_id 传递追加答案；save_partial_report 改查重更新（修复 500）
+- **存档再来入口**：首页「继续答题」按钮 + 云端恢复横幅
+- **出题轮换**：O→C→E→A→N 循环，5 题覆盖全 5 维度
+- **好友对比设计**：`docs/compare-design.md`（用户故事、跳转链条、RadarChart 改造、i18n 键表、边界状态矩阵 6 种场景）
+
+### 更新文件
+- `backend/app/api/questionnaire_api.py` — _shuffle_round_robin() 轮换出题
+- `backend/app/db/repository.py` — save_partial_report 改查重更新
+- `frontend/src/components/ResultCard.vue` — 维度/子维度弹窗居中卡片
+- `frontend/src/components/AppLogo.vue` — 顶栏 padding 收窄
+- `frontend/src/components/ShareLink.vue` — 复制分享码
+- `frontend/src/components/ShareCodeInput.vue` — 新增「继续答题」按钮
+- `frontend/src/views/ReportPage.vue` — continueTest 传 friendToken
+- `frontend/src/views/QuestionnairePage.vue` — resumeSession API 恢复
+- `frontend/src/views/HomePage.vue` — 云端恢复横幅 + 最近记录继续按钮
+- `frontend/src/i18n/zh.json`, `en.json` — home.continue_button
+- `docs/compare-design.md` — 新增对比功能设计文档
+
+### 遗留问题 / 下轮开始点
+- 对比功能代码实现（设计已定稿）
+- 人格解读正文填充（interpret_zh/en.json body 占位符）
+- 英文版文案优化翻译

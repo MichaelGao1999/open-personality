@@ -31,10 +31,14 @@
 - [x] E2E 端到端测试（Playwright）
 - [x] 响应式布局（移动端适配）
 - [x] 页面过渡动画（P0+P1 已完成）
-- [ ] 人格解读模板填充（ interpret_zh/en.json，5域+30子维度 body 占位符）
-- [ ] popup-content-draft.md 定稿归档
-- [ ] task-progress.md 更新（5项⬜→✅）
-- [ ] 导航按钮 / 提示条 / 解读弹窗内部动画（P2 打磨）
+- [x] 人格解读模板填充（interpret_zh/en.json body 草案文案已写入）
+- [x] 解读弹窗统一改造（维度+子维度居中卡片模式）
+- [x] 彩蛋模块优化（2秒延迟展开 + 移除 icon）
+- [x] 分享链接修复（复制分享码）
+- [x] 续答机制（session恢复 + 存档再来 + 查重修复）
+- [x] 出题轮换（O→C→E→A→N循环，5题覆盖全维度）
+- [ ] 好友对比功能代码实现（设计已定稿 docs/compare-design.md）
+- [ ] 人格解读正文填充（interpret_zh/en.json body 占位符→部分已填充）
 - [ ] 英文版文案优化翻译
 
 ---

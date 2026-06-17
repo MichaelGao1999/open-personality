@@ -217,15 +217,38 @@ const [myRes, friendRes] = await Promise.all([
 ### 4.1 起点：输入分享码 → `ShareCodeInput.vue`
 
 ```js
-// 当前：router.push(`/report/${token}`)              ← 无 ?friend=1
-// 改为：
+// 当前：router.push(`/report/${token}`)
+// 改为——检测是否已有自己的报告：
 function search() {
   const token = code.value.trim()
-  if (token) {
-    router.push(`/report/${token}?friend=1`)          // ← 标记为好友报告
+  if (!token) return
+  const myReports = useRecentReports()
+  if (myReports.reports.length > 0) {
+    // 已有报告 → 直接对比
+    router.push(`/compare/${myReports.reports[0].share_token}/${token}`)
+  } else {
+    // 未测过 → 好友报告页
+    router.push(`/report/${token}?friend=1`)
   }
 }
 ```
+
+`resume()` 按钮也需要感知 friend 场景——用户输入别人分享码点「继续答题」无意义：
+
+```js
+// 当前：无区分
+// 改为：
+function resume() {
+  const token = code.value.trim()
+  if (!token) return
+  // 如果输入的是自己的分享码（从历史记录复制），正常 resume
+  // 但无法区分自己/他人（无认证），所以统一行为：resume 走问卷，search 走对比/查看
+  // resume 按钮文案保持不变，但在首页的「最近记录」中有专用继续按钮
+  router.push({ path: '/questionnaire', query: { mode: 'advanced', resume: token } })
+}
+```
+
+**结论**：`resume()` 按钮保持现有行为（通过 resume token 恢复答题），`search()` 按钮承担「对比/查看」职能。首页横幅的「继续答题」按钮指向自己的进度，不冲突。
 
 ### 4.2 中继：好友报告页 → `ReportPage.vue`
 
@@ -288,8 +311,11 @@ ShareCodeInput.vue                 ReportPage.vue                    Questionnai
 | 场景 | URL | 含义 |
 |------|-----|------|
 | 自己测完查看 | `/report/AbCd1234` | 个人报告 |
-| 好友输入分享码查看 | `/report/AbCd1234?friend=1` | 好友的报告，显示「我也要测」 |
+| 好友输入分享码查看（未测过） | `/report/AbCd1234?friend=1` | 好友报告 +「我也要测」 |
+| 已有报告 + 输入好友分享码 | `/compare/{myToken}/{friendToken}` | 直接进对比页 |
 | 从历史记录点击 | `/report/AbCd1234` | 个人报告 |
+
+**关键分支**：`ShareCodeInput.search()` 在跳转前检测 `useRecentReports().reports.length > 0`，有则跳对比页、无则跳好友报告页。这是用户故事 1.2 的完整实现路径。
 
 无用户认证系统，`?friend=1` 是唯一的区分方式。
 
@@ -380,62 +406,80 @@ interface CompareResult {
 
 ## 7. RadarChart 双 series 改造
 
-### 7.1 Props 接口定义（精确契约）
+### 7.1 Props 接口定义（保留旧 prop，新增可选）
 
 ```js
-// 当前 props（仅单数据）
+// 当前 props（ResultCard.vue 传 :scores="report.scoring"）
 props: {
-  scores: { type: Object, required: true },    // { t_scores: {...}, facet_scores: {...} }
-  lang:   { type: String, default: 'zh' },
+  scores:       { type: Object, required: true },    // 单数据
+  facetScores:  { type: Object, default: () => ({}) },
+  lang:         { type: String, default: 'zh' },
 }
 
-// 改造后——mode 切换单/双模式
+// 改造后——保留 scores，新增可选 friendScores
 props: {
-  mode:         { type: String, default: 'single' },   // 'single' | 'compare'
-  myScores:     { type: Object, required: true },       // 你的 t_scores
-  friendScores: { type: Object, default: null },        // 对比方 t_scores
-  myLabel:      { type: String, default: '你' },
-  friendLabel:  { type: String, default: '好友' },
+  // 保留原有（ResultCard.vue 照常使用）
+  scores:       { type: Object, required: true },
+  facetScores:  { type: Object, default: () => ({}) },
   lang:         { type: String, default: 'zh' },
+  // 新增对比参数（可选，默认 null → 单模式）
+  friendScores: { type: Object, default: null },
+  friendLabel:  { type: String, default: '好友' },
 }
 ```
 
-### 7.2 双 series 渲染逻辑
+### 7.2 数据桥接（computed 统一数据源）
+
+```js
+// 判断是否双模式：friendScores 有值则双雷达
+const isCompare = computed(() => props.friendScores !== null)
+
+// 主数据——始终从 scores.t_scores 取
+const myRadarData = computed(() => props.scores.t_scores)
+// 对比数据——仅在 friendScores 传入时存在
+const friendRadarData = computed(() => props.friendScores?.t_scores ?? null)
+```
+
+### 7.3 双 series 渲染逻辑
 
 ```js
 const seriesData = []
 
-// 主数据（实线）
+// 主数据（实线）——始终渲染
 seriesData.push({
-  name: props.myLabel,
+  name: '你',
   type: 'radar',
   lineStyle: { width: 2, type: 'solid' },
   areaStyle: { opacity: 0.15, color: '#7B2FF7' },
-  data: [props.myScores],
+  data: [myRadarData.value],
 })
 
-// 对比数据（虚线），仅在 compare 模式添加
-if (props.mode === 'compare' && props.friendScores) {
+// 对比数据（虚线）——仅在 friendScores 存在时
+if (friendRadarData.value) {
   seriesData.push({
     name: props.friendLabel,
     type: 'radar',
     lineStyle: { width: 2, type: 'dashed' },
     areaStyle: { opacity: 0.1, color: '#FF006E' },
-    data: [props.friendScores],
+    data: [friendRadarData.value],
   })
 }
 
-option.legend = { data: [props.myLabel, props.friendLabel] }
+option.legend = { data: friendRadarData.value ? ['你', props.friendLabel] : [] }
 ```
 
-### 7.3 向后兼容
+### 7.4 向后兼容验证
 
 ```js
-// 保留对旧 props 的支持
-const effectiveMode = computed(() => {
-  if (props.mode === 'compare') return 'compare'
-  return 'single'
-})
+// ResultCard.vue——完全不动，照常工作
+// <RadarChart :scores="report.scoring" :lang="report.lang" />
+// → friendScores 默认 null → isCompare = false → 单雷达
+
+// CompareView.vue——传两份数据触发双雷达
+// <RadarChart :scores="myReport.scoring"
+//             :friend-scores="friendReport.scoring"
+//             friend-label="好友" />
+// → friendScores 有值 → isCompare = true → 双雷达叠加
 ```
 
 ---
