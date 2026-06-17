@@ -97,8 +97,8 @@ async function exportImage() {
 }
 
 function continueTest() {
-  const mode = route.query.mode || report.value?.mode || 'standard'
-  router.push({ path: '/questionnaire', query: { mode, resume: 'local' } })
+  // 续答时切换到 300 题模式，已答过的题自动跳过
+  router.push({ path: '/questionnaire', query: { mode: 'advanced', resume: report.value.share_token } })
 }
 
 onMounted(() => {

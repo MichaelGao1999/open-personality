@@ -117,6 +117,9 @@
         >
           <div class="recent-code">{{ r.share_token }}</div>
           <div class="recent-date">{{ new Date(r.created_at).toLocaleDateString() }}</div>
+          <button class="recent-continue" @click.stop="$router.push({ path: '/questionnaire', query: { mode: 'advanced', resume: r.share_token } })">
+            {{ t('home.continue_button') }}
+          </button>
         </div>
       </div>
     </div>
@@ -433,6 +436,23 @@ onMounted(() => {
 .recent-date {
   font-size: 13px;
   color: var(--color-text-secondary);
+}
+
+.recent-continue {
+  font-size: 12px;
+  padding: 4px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+  color: var(--color-accent);
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+.recent-continue:hover {
+  border-color: var(--color-accent);
+  background: var(--color-accent-light);
 }
 
 .no-recent {

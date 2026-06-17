@@ -157,7 +157,7 @@ import { ref, computed, onMounted, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useI18n } from '../composables/useI18n'
 import { useRecentReports } from '../composables/useRecentReports'
-import { getItems, submitAnswers } from '../utils/api'
+import { getItems, submitAnswers, resumeSession } from '../utils/api'
 
 const { t, lang } = useI18n()
 const route = useRoute()
@@ -167,10 +167,11 @@ const { add } = useRecentReports()
 const STORAGE_KEY = 'open_personality_session'
 
 const mode = route.query.mode || 'standard'
-const isResume = route.query.resume === 'local'
+const resumeToken = route.query.resume || null
 const items = ref([])
 const answers = ref({})
 const currentIndex = ref(0)
+const sessionId = ref(null)  // 续答时的 session_id，用于追加答案
 const loading = ref(false)
 const showConfirm = ref(false)
 const showSummary = ref(false)
@@ -235,22 +236,18 @@ function jumpTo(idx) {
 async function viewPartialResult() {
   if (answeredCount.value === 0) return
   const ansList = Object.entries(answers.value).map(([item_id, value]) => ({ item_id, value }))
-  // 保存到后端，获取 share_token
   loading.value = true
   try {
-    const res = await submitAnswers(mode, lang.value, ansList, 'partial')
+    const res = await submitAnswers(mode, lang.value, ansList, 'partial', sessionId.value)
     const report = res.data
-    // 清理 localStorage 中的当前进度（已保存到云端）
     localStorage.removeItem(STORAGE_KEY)
-    // 跳转到报告页，标记为 partial
     router.push({
       path: `/report/${report.share_token}`,
       query: { partial: '1', mode },
     })
-  } catch {
-    // 如果你只想看本地结果预览，可以不提交——但为了准确度我们提交了
-    // 如果失败，回退到本地粗略计算
-    alert(t('error.422') || '提交失败，请稍后重试')
+  } catch (e) {
+    const msg = e?.response?.data?.detail?.detail || e?.response?.data?.error || e?.message || t('error.422')
+    alert(msg)
   } finally {
     loading.value = false
   }
@@ -265,12 +262,12 @@ async function submit() {
   loading.value = true
   try {
     const ansList = Object.entries(answers.value).map(([item_id, value]) => ({ item_id, value }))
-    const res = await submitAnswers(mode, lang.value, ansList, 'complete')
+    const res = await submitAnswers(mode, lang.value, ansList, 'complete', sessionId.value)
     add(res.data)
     localStorage.removeItem(STORAGE_KEY)
     router.push(`/report/${res.data.share_token}`)
-  } catch {
-    alert(t('error.422'))
+  } catch (e) {
+    alert(e?.response?.data?.detail?.detail || e?.response?.data?.error || e?.message || t('error.422'))
   } finally {
     loading.value = false
   }
@@ -292,14 +289,33 @@ function restoreFromLocalStorage() {
   } catch { return false }
 }
 
+// ---- 从服务端恢复进度 ----
+async function restoreFromServer(token) {
+  try {
+    const res = await resumeSession(token)
+    const data = res.data
+    sessionId.value = data.session_id
+    for (const ans of data.answers) {
+      answers.value[ans.item_id] = ans.value
+    }
+    const firstUnanswered = items.value.findIndex(item => !answers.value[item.item_id])
+    currentIndex.value = firstUnanswered > 0 ? firstUnanswered : 0
+    return true
+  } catch {
+    return false
+  }
+}
+
 // ---- 初始化 ----
 onMounted(async () => {
   try {
     const res = await getItems(mode, lang.value)
     items.value = res.data.items
-    // 如果是恢复模式，还原答案
-    if (isResume) {
-      restoreFromLocalStorage()
+    if (resumeToken) {
+      const restored = await restoreFromServer(resumeToken)
+      if (!restored) {
+        restoreFromLocalStorage()
+      }
     }
   } catch {
     alert('Failed to load questions')

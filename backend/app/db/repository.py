@@ -91,17 +91,27 @@ class ReportRepository:
         return session_id, share_token
 
     def save_partial_report(self, session_id: str, report: Report) -> None:
-        """单独保存报告到 reports 表（用于部分结果查询）"""
+        """保存或更新报告到 reports 表（用于部分结果查询）"""
         try:
-            db_report = DBReport(
-                session_id=session_id,
-                big_five_scores=report.scoring.model_dump_json(),
-                mbti_result=report.mbti.model_dump_json(),
-                interpretations=json.dumps([i.model_dump() for i in report.interpretations]),
-                easter_egg=report.easter_egg,
-                created_at=report.created_at,
-            )
-            self.db.add(db_report)
+            existing = self.db.query(DBReport).filter(
+                DBReport.session_id == session_id
+            ).first()
+            if existing:
+                existing.big_five_scores = report.scoring.model_dump_json()
+                existing.mbti_result = report.mbti.model_dump_json()
+                existing.interpretations = json.dumps([i.model_dump() for i in report.interpretations])
+                existing.easter_egg = report.easter_egg
+                existing.created_at = report.created_at
+            else:
+                db_report = DBReport(
+                    session_id=session_id,
+                    big_five_scores=report.scoring.model_dump_json(),
+                    mbti_result=report.mbti.model_dump_json(),
+                    interpretations=json.dumps([i.model_dump() for i in report.interpretations]),
+                    easter_egg=report.easter_egg,
+                    created_at=report.created_at,
+                )
+                self.db.add(db_report)
             self.db.commit()
         except Exception:
             self.db.rollback()

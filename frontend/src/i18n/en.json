@@ -22,6 +22,7 @@
   "home.start": "Start Test",
   "home.share_code_placeholder": "Enter share code to view report",
   "home.share_code_button": "Search",
+  "home.continue_button": "Continue",
   "home.recent_title": "Recent Reports",
   "home.no_recent": "No recent reports",
   "home.resume_banner": "You have an unfinished test",
