@@ -38,12 +38,7 @@
           {{ t('report.export') }}
         </button>
         <ShareLink :share-token="report.share_token" />
-        <router-link to="/" class="dopamine-btn-outline">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M19 12H5M12 19l-7-7 7-7"/>
-          </svg>
-          {{ t('report.back_home') }}
-        </router-link>
+
       </div>
     </template>
 

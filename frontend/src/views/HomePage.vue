@@ -152,38 +152,61 @@ const savedSession = ref(null)
 const showWhyBig = ref(false)
 const showModeHelp = ref(false)
 const STORAGE_KEY = 'open_personality_session'
+const PARTIAL_KEY = 'open_personality_partial'
 
 function loadSavedSession() {
+  // 1. 先检查本地答题进度（未查看结果）
   try {
     const raw = localStorage.getItem(STORAGE_KEY)
     if (raw) {
       const data = JSON.parse(raw)
-      // 检查是否已过期（超过 7 天）
       const age = Date.now() - (data.savedAt || 0)
       if (age > 7 * 24 * 60 * 60 * 1000) {
         localStorage.removeItem(STORAGE_KEY)
-        return null
+      } else {
+        return data
       }
-      return data
     }
   } catch { /* ignore */ }
+
+  // 2. 再检查云端已保存的进度（已查看结果）
+  try {
+    const raw = localStorage.getItem(PARTIAL_KEY)
+    if (raw) {
+      const data = JSON.parse(raw)
+      const age = Date.now() - (data.savedAt || 0)
+      if (age > 7 * 24 * 60 * 60 * 1000) {
+        localStorage.removeItem(PARTIAL_KEY)
+      } else {
+        return data
+      }
+    }
+  } catch { /* ignore */ }
+
   return null
 }
 
 function resumeTest() {
-  if (savedSession.value) {
+  if (!savedSession.value) return
+  const s = savedSession.value
+  if (s.share_token) {
+    // 云端进度：通过 share_token 恢复
     router.push({
       path: '/questionnaire',
-      query: {
-        mode: savedSession.value.mode,
-        resume: 'local',
-      },
+      query: { mode: 'advanced', resume: s.share_token },
+    })
+  } else {
+    // 本地进度：从 localStorage 恢复
+    router.push({
+      path: '/questionnaire',
+      query: { mode: s.mode, resume: 'local' },
     })
   }
 }
 
 function dismissResume() {
   localStorage.removeItem(STORAGE_KEY)
+  localStorage.removeItem(PARTIAL_KEY)
   savedSession.value = null
 }
 

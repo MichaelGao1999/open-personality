@@ -241,6 +241,14 @@ async function viewPartialResult() {
     const res = await submitAnswers(mode, lang.value, ansList, 'partial', sessionId.value)
     const report = res.data
     localStorage.removeItem(STORAGE_KEY)
+    // 保存云端 token 到 localStorage，供首页显示恢复横幅
+    localStorage.setItem('open_personality_partial', JSON.stringify({
+      share_token: report.share_token,
+      mode,
+      answered: answeredCount.value,
+      total: items.value.length,
+      savedAt: Date.now(),
+    }))
     router.push({
       path: `/report/${report.share_token}`,
       query: { partial: '1', mode },
