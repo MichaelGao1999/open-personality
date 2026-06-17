@@ -2,351 +2,351 @@
   "O": {
     "high": {
       "title": "High in Openness",
-      "body": "You scored high in Openness. Detailed interpretation pending."
+      "body": "You are curious, imaginative, and open to new experiences. You enjoy exploring abstract ideas, art, and unconventional ways of living. You have a rich inner life and are drawn to novelty, whether it's traveling to new places or learning about different cultures."
     },
     "low": {
       "title": "Low in Openness",
-      "body": "You scored low in Openness. Detailed interpretation pending."
+      "body": "You prefer the familiar and the practical. You are down-to-earth, focusing on what's tangible and useful rather than abstract or speculative ideas. You like routine and tradition, and are more comfortable with tried-and-true approaches than experimental ones."
     }
   },
   "O_imagination": {
     "high": {
-      "title": "High O_imagination",
-      "body": "You scored high on O_imagination."
+      "title": "High in Imagination",
+      "body": "You have a vivid imagination and a rich inner world. You enjoy daydreaming, getting lost in stories, and exploring creative ideas. Your imagination is a source of creativity, though it may sometimes pull you away from the here and now."
     },
     "low": {
-      "title": "Low O_imagination",
-      "body": "You scored low on O_imagination."
+      "title": "Low in Imagination",
+      "body": "You are practical and grounded, preferring concrete facts to fantasy. You focus on what's real and tangible rather than what's imaginary. Your thinking is direct and straightforward — you rarely get lost in daydreams."
     }
   },
   "O_aesthetics": {
     "high": {
-      "title": "High O_aesthetics",
-      "body": "You scored high on O_aesthetics."
+      "title": "High in Aesthetics",
+      "body": "You have a deep appreciation for beauty in art, music, nature, and design. You are moved by visual and sensory experiences — a beautiful melody, a striking painting, or a well-designed space can genuinely affect your mood."
     },
     "low": {
-      "title": "Low O_aesthetics",
-      "body": "You scored low on O_aesthetics."
+      "title": "Low in Aesthetics",
+      "body": "You are less concerned with beauty and artistic expression. You care more about function than form, and don't spend much time contemplating art or design. This isn't a flaw — you simply focus your attention elsewhere."
     }
   },
   "O_feelings": {
     "high": {
-      "title": "High O_feelings",
-      "body": "You scored high on O_feelings."
+      "title": "High in Feelings",
+      "body": "You experience emotions deeply and are highly attuned to your inner emotional states. You are sensitive to subtle emotional cues in yourself and others, and may be deeply moved by music, films, and literature."
     },
     "low": {
-      "title": "Low O_feelings",
-      "body": "You scored low on O_feelings."
+      "title": "Low in Feelings",
+      "body": "Your emotional responses are measured and controlled. You are not easily swept up by emotional experiences and tend to approach situations with rationality rather than sentiment. This helps you stay calm under pressure."
     }
   },
   "O_adventurousness": {
     "high": {
-      "title": "High O_adventurousness",
-      "body": "You scored high on O_adventurousness."
+      "title": "High in Adventurousness",
+      "body": "You crave novelty and variety. You love trying new things — exotic foods, unfamiliar places, and new activities. Routine bores you, and you're always looking for your next adventure, whether big or small."
     },
     "low": {
-      "title": "Low O_adventurousness",
-      "body": "You scored low on O_adventurousness."
+      "title": "Low in Adventurousness",
+      "body": "You prefer familiarity and stability over novelty and change. You like knowing what to expect and stick with what works for you. Trying new things feels more stressful than exciting, and you find comfort in routine."
     }
   },
   "O_intellect": {
     "high": {
-      "title": "High O_intellect",
-      "body": "You scored high on O_intellect."
+      "title": "High in Intellect",
+      "body": "You have a strong intellectual curiosity and enjoy engaging with complex ideas. You love philosophical discussions, theoretical debates, and learning for its own sake. Your mind is always active, exploring connections and asking 'why'."
     },
     "low": {
-      "title": "Low O_intellect",
-      "body": "You scored low on O_intellect."
+      "title": "Low in Intellect",
+      "body": "You prefer practical, hands-on thinking over abstract intellectual pursuits. You're interested in how things work in the real world rather than theoretical debates. You'd rather learn a useful skill than explore abstract concepts."
     }
   },
   "O_liberalism": {
     "high": {
-      "title": "High O_liberalism",
-      "body": "You scored high on O_liberalism."
+      "title": "High in Liberalism",
+      "body": "You are open to challenging tradition and authority. You respect others' right to live differently and believe there's rarely one right answer. You tend to question established norms and think independently about moral and social issues."
     },
     "low": {
-      "title": "Low O_liberalism",
-      "body": "You scored low on O_liberalism."
+      "title": "Low in Liberalism",
+      "body": "You respect tradition and established values. You believe certain principles shouldn't be easily discarded and that social stability matters more than radical change. You prefer clear guidelines and predictable ways of living."
     }
   },
   "C": {
     "high": {
       "title": "High in Conscientiousness",
-      "body": "You scored high in Conscientiousness. Detailed interpretation pending."
+      "body": "You are organized, disciplined, and reliable. You set high standards for yourself and work diligently to achieve your goals. Your self-control and ability to plan ahead help you succeed in school, work, and personal projects. Others see you as responsible and dependable."
     },
     "low": {
       "title": "Low in Conscientiousness",
-      "body": "You scored low in Conscientiousness. Detailed interpretation pending."
+      "body": "You prefer a spontaneous and flexible lifestyle. You dislike being tied down by strict schedules or rigid plans. While you may be seen as disorganized at times, your flexibility makes you adaptable to change and better at living in the moment."
     }
   },
   "C_self_efficacy": {
     "high": {
-      "title": "High C_self_efficacy",
-      "body": "You scored high on C_self_efficacy."
+      "title": "High in Self-Efficacy",
+      "body": "You have strong confidence in your ability to get things done. When faced with a challenge, you believe you can figure it out. This self-assurance helps you take initiative and persist through difficulties without being paralyzed by self-doubt."
     },
     "low": {
-      "title": "Low C_self_efficacy",
-      "body": "You scored low on C_self_efficacy."
+      "title": "Low in Self-Efficacy",
+      "body": "You often doubt your abilities and may hesitate when facing new challenges. Even when you have the skills to succeed, you tend to second-guess yourself. This caution can make you more thorough, but it may also hold you back from seizing opportunities."
     }
   },
   "C_orderliness": {
     "high": {
-      "title": "High C_orderliness",
-      "body": "You scored high on C_orderliness."
+      "title": "High in Orderliness",
+      "body": "You value neatness, structure, and routine. Your workspace and living area are likely tidy and well-organized. You find comfort in order and may feel uneasy when things are out of place. Lists and schedules help you stay on top of things."
     },
     "low": {
-      "title": "Low C_orderliness",
-      "body": "You scored low on C_orderliness."
+      "title": "Low in Orderliness",
+      "body": "You are not particularly concerned with neatness or organization. Your space may be messy, but you know where things are. You feel that too much structure can be stifling and prefer a more relaxed approach to order."
     }
   },
   "C_dutifulness": {
     "high": {
-      "title": "High C_dutifulness",
-      "body": "You scored high on C_dutifulness."
+      "title": "High in Dutifulness",
+      "body": "You are highly reliable and take your commitments seriously. When you say you'll do something, you follow through. Others count on you because they know you keep your word. You have a strong sense of responsibility to others."
     },
     "low": {
-      "title": "Low C_dutifulness",
-      "body": "You scored low on C_dutifulness."
+      "title": "Low in Dutifulness",
+      "body": "You value your freedom and don't like being tied down by obligations. You may change plans at the last minute or be less careful about keeping promises. This isn't about not caring — you just prefer to keep your options open."
     }
   },
   "C_achievement_striving": {
     "high": {
-      "title": "High C_achievement_striving",
-      "body": "You scored high on C_achievement_striving."
+      "title": "High in Achievement-Striving",
+      "body": "You are ambitious and driven to succeed. You set high goals for yourself and work hard to reach them. You take pride in your accomplishments and are always looking for ways to improve and do better."
     },
     "low": {
-      "title": "Low C_achievement_striving",
-      "body": "You scored low on C_achievement_striving."
+      "title": "Low in Achievement-Striving",
+      "body": "You are content with meeting basic expectations and don't feel the need to constantly push for more. You value quality of life and personal satisfaction over climbing the ladder. This relaxed attitude helps you avoid burnout."
     }
   },
   "C_self_discipline": {
     "high": {
-      "title": "High C_self_discipline",
-      "body": "You scored high on C_self_discipline."
+      "title": "High in Self-Discipline",
+      "body": "You have strong willpower and can push through tasks even when they're boring or difficult. You resist distractions and stay focused on your goals. Your ability to delay gratification helps you achieve long-term objectives."
     },
     "low": {
-      "title": "Low C_self_discipline",
-      "body": "You scored low on C_self_discipline."
+      "title": "Low in Self-Discipline",
+      "body": "You struggle with procrastination and find it hard to stick with tasks that don't interest you. You're easily distracted and may start many projects without finishing them. You need external motivation or deadlines to stay on track."
     }
   },
   "C_cautiousness": {
     "high": {
-      "title": "High C_cautiousness",
-      "body": "You scored high on C_cautiousness."
+      "title": "High in Cautiousness",
+      "body": "You think carefully before acting and consider all possible consequences. You prefer to play it safe rather than take unnecessary risks. While this prevents many mistakes, it can also lead to missed opportunities from overthinking."
     },
     "low": {
-      "title": "Low C_cautiousness",
-      "body": "You scored low on C_cautiousness."
+      "title": "Low in Cautiousness",
+      "body": "You are spontaneous and act on impulse without overthinking. You trust your gut and are comfortable with risk. This makes you quick to act and seize opportunities, though sometimes you may wish you'd thought things through more carefully."
     }
   },
   "E": {
     "high": {
       "title": "High in Extraversion",
-      "body": "You scored high in Extraversion. Detailed interpretation pending."
+      "body": "You are energetic, outgoing, and thrive in social settings. You enjoy being around people, making new friends, and being the center of attention. You tend to be positive and enthusiastic, bringing energy to group situations."
     },
     "low": {
       "title": "Low in Extraversion",
-      "body": "You scored low in Extraversion. Detailed interpretation pending."
+      "body": "You prefer quiet, low-key environments and find too much social stimulation draining rather than energizing. You value deeper one-on-one connections over large social circles. Your rich inner life sustains you, and you're selective about where you invest your social energy."
     }
   },
   "E_friendliness": {
     "high": {
-      "title": "High E_friendliness",
-      "body": "You scored high on E_friendliness."
+      "title": "High in Friendliness",
+      "body": "You are warm and genuinely like people. You easily strike up conversations with strangers and make others feel welcome. Your warmth draws people to you and helps you build relationships quickly."
     },
     "low": {
-      "title": "Low E_friendliness",
-      "body": "You scored low on E_friendliness."
+      "title": "Low in Friendliness",
+      "body": "You keep people at a distance and don't easily open up to others. You may come across as cool or formal, but this is just your natural style — you need time to build trust before showing your warm side."
     }
   },
   "E_gregariousness": {
     "high": {
-      "title": "High E_gregariousness",
-      "body": "You scored high on E_gregariousness."
+      "title": "High in Gregariousness",
+      "body": "You love being around lots of people. Crowds energize you and you seek out social gatherings and parties. You dislike being alone for too long and thrive in bustling social environments."
     },
     "low": {
-      "title": "Low E_gregariousness",
-      "body": "You scored low on E_gregariousness."
+      "title": "Low in Gregariousness",
+      "body": "You prefer solitude or small groups. Large social gatherings drain your energy and you need alone time to recharge. You'd much rather have a quiet conversation with a close friend than attend a loud party."
     }
   },
   "E_assertiveness": {
     "high": {
-      "title": "High E_assertiveness",
-      "body": "You scored high on E_assertiveness."
+      "title": "High in Assertiveness",
+      "body": "You are comfortable taking charge and expressing your opinions. You're not afraid to speak up, even in disagreement. In groups, you naturally step into leadership roles and drive conversations forward."
     },
     "low": {
-      "title": "Low E_assertiveness",
-      "body": "You scored low on E_assertiveness."
+      "title": "Low in Assertiveness",
+      "body": "You prefer to stay in the background and let others take the lead. You don't enjoy voicing disagreement or pushing your opinions on others. This isn't about lacking ideas — you just prefer harmony over confrontation."
     }
   },
   "E_activity_level": {
     "high": {
-      "title": "High E_activity_level",
-      "body": "You scored high on E_activity_level."
+      "title": "High in Activity Level",
+      "body": "You are energetic and live life at a fast pace. You like to stay busy and have a hard time sitting still. Your high energy level allows you to accomplish a lot, but you may struggle with relaxation."
     },
     "low": {
-      "title": "Low E_activity_level",
-      "body": "You scored low on E_activity_level."
+      "title": "Low in Activity Level",
+      "body": "You have a more relaxed pace of life. You don't like to rush and prefer to take things as they come. Your energy levels are moderate, and you're comfortable with leisure and downtime without feeling guilty."
     }
   },
   "E_excitement_seeking": {
     "high": {
-      "title": "High E_excitement_seeking",
-      "body": "You scored high on E_excitement_seeking."
+      "title": "High in Excitement-Seeking",
+      "body": "You crave excitement and thrill. You're drawn to adventure, whether it's extreme sports, travel, or a vibrant nightlife. Routine bores you and you need stimulation to feel alive. You're always up for something new and daring."
     },
     "low": {
-      "title": "Low E_excitement_seeking",
-      "body": "You scored low on E_excitement_seeking."
+      "title": "Low in Excitement-Seeking",
+      "body": "You prefer a calm and predictable life without too much excitement. You don't understand why people enjoy thrills like skydiving or roller coasters. You're content with peaceful, low-stimulation activities."
     }
   },
   "E_cheerfulness": {
     "high": {
-      "title": "High E_cheerfulness",
-      "body": "You scored high on E_cheerfulness."
+      "title": "High in Cheerfulness",
+      "body": "You are naturally cheerful and optimistic. You laugh easily and find joy in everyday moments. Your positive outlook is contagious, and people around you often feel happier in your presence."
     },
     "low": {
-      "title": "Low E_cheerfulness",
-      "body": "You scored low on E_cheerfulness."
+      "title": "Low in Cheerfulness",
+      "body": "You tend to be serious and reserved in your emotional expression. You're not easily excited and don't show overt happiness about small things. This doesn't mean you're unhappy — you just express positivity in more measured ways."
     }
   },
   "A": {
     "high": {
       "title": "High in Agreeableness",
-      "body": "You scored high in Agreeableness. Detailed interpretation pending."
+      "body": "You are compassionate, trusting, and cooperative. You value harmony in relationships and go out of your way to help others. People find you warm, kind, and easy to get along with. You believe the best in others and avoid unnecessary conflict."
     },
     "low": {
       "title": "Low in Agreeableness",
-      "body": "You scored low in Agreeableness. Detailed interpretation pending."
+      "body": "You are more self-oriented and less concerned with pleasing others. You make decisions based on your own needs and aren't afraid of conflict. This assertiveness serves you well in competitive environments, though others may find you challenging to work with."
     }
   },
   "A_trust": {
     "high": {
-      "title": "High A_trust",
-      "body": "You scored high on A_trust."
+      "title": "High in Trust",
+      "body": "You tend to believe that people are basically honest and well-intentioned. You give others the benefit of the doubt and trust easily. This openness helps you form relationships quickly, though it may occasionally leave you vulnerable."
     },
     "low": {
-      "title": "Low A_trust",
-      "body": "You scored low on A_trust."
+      "title": "Low in Trust",
+      "body": "You are skeptical of others' intentions and assume people may have hidden motives. You need time and evidence before trusting someone new. This cautiousness protects you from being taken advantage of, but can also keep genuine people at a distance."
     }
   },
   "A_morality": {
     "high": {
-      "title": "High A_morality",
-      "body": "You scored high on A_morality."
+      "title": "High in Morality",
+      "body": "You are straightforward and genuine in your dealings with others. You dislike manipulation and believe honesty is the best policy. You'd rather tell an uncomfortable truth than a comfortable lie."
     },
     "low": {
-      "title": "Low A_morality",
-      "body": "You scored low on A_morality."
+      "title": "Low in Morality",
+      "body": "You are pragmatic and willing to bend rules when it serves your purpose. You don't believe all rules must be strictly followed, and see nothing wrong with the occasional white lie. This flexibility helps you navigate complex social situations."
     }
   },
   "A_altruism": {
     "high": {
-      "title": "High A_altruism",
-      "body": "You scored high on A_altruism."
+      "title": "High in Altruism",
+      "body": "You are generous and caring, with a strong desire to help those in need. You find satisfaction in giving your time and energy to others. When someone needs help, you're usually the first to offer."
     },
     "low": {
-      "title": "Low A_altruism",
-      "body": "You scored low on A_altruism."
+      "title": "Low in Altruism",
+      "body": "You prioritize your own needs and are less inclined to sacrifice your time for others. This isn't selfishness — you simply believe everyone should look after themselves first. You help when it makes sense, not out of obligation."
     }
   },
   "A_cooperation": {
     "high": {
-      "title": "High A_cooperation",
-      "body": "You scored high on A_cooperation."
+      "title": "High in Cooperation",
+      "body": "You are highly cooperative and avoid conflict whenever possible. You're willing to compromise and accommodate others' needs, even at your own expense. You're easy to work with, though you may struggle to assert yourself when it matters."
     },
     "low": {
-      "title": "Low A_cooperation",
-      "body": "You scored low on A_cooperation."
+      "title": "Low in Cooperation",
+      "body": "You are competitive and stubborn. You stand your ground in disagreements and are not easily swayed. You don't mind conflict and will fight for your position rather than give in for the sake of harmony. This makes you formidable in negotiations."
     }
   },
   "A_modesty": {
     "high": {
-      "title": "High A_modesty",
-      "body": "You scored high on A_modesty."
+      "title": "High in Modesty",
+      "body": "You are humble and unassuming. You don't boast about your achievements and prefer to let your actions speak for themselves. You have a realistic view of your abilities and don't need external validation."
     },
     "low": {
-      "title": "Low A_modesty",
-      "body": "You scored low on A_modesty."
+      "title": "Low in Modesty",
+      "body": "You are confident in your abilities and aren't shy about letting others know. You believe in promoting yourself and see nothing wrong with being the center of attention. You know your worth and aren't afraid to show it."
     }
   },
   "A_sympathy": {
     "high": {
-      "title": "High A_sympathy",
-      "body": "You scored high on A_sympathy."
+      "title": "High in Sympathy",
+      "body": "You are tender-hearted and deeply affected by others' suffering. You feel a strong urge to comfort those in pain and are easily moved by emotional stories. Your compassion makes you a caring and supportive friend."
     },
     "low": {
-      "title": "Low A_sympathy",
-      "body": "You scored low on A_sympathy."
+      "title": "Low in Sympathy",
+      "body": "You are tough-minded and not easily moved by others' emotional distress. You make decisions based on logic rather than compassion. You don't understand why people cry over fictional stories — for you, rational analysis matters more than emotional resonance."
     }
   },
   "N": {
     "high": {
       "title": "High in Neuroticism",
-      "body": "You scored high in Neuroticism. Detailed interpretation pending."
+      "body": "You are prone to experiencing negative emotions like anxiety, worry, anger, and sadness. You are sensitive to stress and may find everyday challenges overwhelming at times. However, this sensitivity also gives you deep emotional awareness and can be a wellspring of creativity."
     },
     "low": {
       "title": "Low in Neuroticism",
-      "body": "You scored low in Neuroticism. Detailed interpretation pending."
+      "body": "You are emotionally stable and resilient. You stay calm under pressure and don't get easily upset by life's challenges. Your steady mood and positive outlook make you a source of stability for those around you."
     }
   },
   "N_anxiety": {
     "high": {
-      "title": "High N_anxiety",
-      "body": "You scored high on N_anxiety."
+      "title": "High in Anxiety",
+      "body": "You tend to feel tense and worried, even when there's no clear threat. Your mind constantly anticipates what could go wrong. This vigilance can help you prepare for risks, but more often it keeps you in a state of unnecessary stress."
     },
     "low": {
-      "title": "Low N_anxiety",
-      "body": "You scored low on N_anxiety."
+      "title": "Low in Anxiety",
+      "body": "You rarely feel anxious or tense. You don't worry excessively about the future and trust that things will work out. You're generally relaxed and able to stay calm even in stressful situations."
     }
   },
   "N_anger": {
     "high": {
-      "title": "High N_anger",
-      "body": "You scored high on N_anger."
+      "title": "High in Anger",
+      "body": "You are easily frustrated and quick to anger. When things don't go your way, your first reaction is often irritation. While your anger tends to pass quickly, it can be intense in the moment and affect your relationships."
     },
     "low": {
-      "title": "Low N_anger",
-      "body": "You scored low on N_anger."
+      "title": "Low in Anger",
+      "body": "You are slow to anger and difficult to provoke. Even in frustrating situations, you remain patient and composed. You prefer to resolve conflicts calmly rather than react with anger. People find your even temper reassuring."
     }
   },
   "N_depression": {
     "high": {
-      "title": "High N_depression",
-      "body": "You scored high on N_depression."
+      "title": "High in Depression",
+      "body": "You are prone to feelings of sadness, guilt, and discouragement. You tend to dwell on past mistakes and can get stuck in gloomy moods. While this emotional depth can feel heavy, it also gives you a profound understanding of life's complexities."
     },
     "low": {
-      "title": "Low N_depression",
-      "body": "You scored low on N_depression."
+      "title": "Low in Depression",
+      "body": "You rarely feel sad or discouraged. You don't dwell on past regrets and maintain a generally upbeat outlook. You bounce back quickly from setbacks and approach life with a light-hearted attitude."
     }
   },
   "N_self_consciousness": {
     "high": {
-      "title": "High N_self_consciousness",
-      "body": "You scored high on N_self_consciousness."
+      "title": "High in Self-Consciousness",
+      "body": "You are highly aware of how others perceive you and may feel uncomfortable in social situations. You worry about saying the wrong thing or being judged. This sensitivity makes you considerate of others' feelings, but can also cause social anxiety."
     },
     "low": {
-      "title": "Low N_self_consciousness",
-      "body": "You scored low on N_self_consciousness."
+      "title": "Low in Self-Consciousness",
+      "body": "You are socially confident and don't worry much about what others think of you. You're comfortable in your own skin and can be yourself in any situation. Social situations don't make you nervous, and you rarely feel embarrassed."
     }
   },
   "N_immoderation": {
     "high": {
-      "title": "High N_immoderation",
-      "body": "You scored high on N_immoderation."
+      "title": "High in Immoderation",
+      "body": "You struggle with self-control and giving in to temptations. Whether it's food, shopping, or entertainment, you often act on impulse and regret it later. Resisting immediate gratification is a real challenge for you."
     },
     "low": {
-      "title": "Low N_immoderation",
-      "body": "You scored low on N_immoderation."
+      "title": "Low in Immoderation",
+      "body": "You have strong self-control and are not easily swayed by impulses. You can delay gratification and make decisions based on long-term thinking rather than immediate desires. Your disciplined approach helps you avoid regretful choices."
     }
   },
   "N_vulnerability": {
     "high": {
-      "title": "High N_vulnerability",
-      "body": "You scored high on N_vulnerability."
+      "title": "High in Vulnerability",
+      "body": "You struggle to cope with stress and pressure. When faced with emergencies or difficult situations, you may feel overwhelmed and unable to think clearly. Stress can affect you physically as well as emotionally."
     },
     "low": {
-      "title": "Low N_vulnerability",
-      "body": "You scored low on N_vulnerability."
+      "title": "Low in Vulnerability",
+      "body": "You handle stress and pressure with resilience. When faced with a crisis, you keep a cool head and find effective solutions. Challenges motivate rather than paralyze you, and you bounce back from setbacks quickly."
     }
   }
 }

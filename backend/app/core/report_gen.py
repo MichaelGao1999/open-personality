@@ -54,6 +54,10 @@ class ReportGenerator:
             interpretations.append(Interpretation(
                 dimension=dim, title_zh=title_zh, title_en=title_en,
                 body_zh=body_zh, body_en=body_en,
+                body_high_zh=dim_data.get("high", {}).get("body", ""),
+                body_low_zh=dim_data.get("low", {}).get("body", ""),
+                body_high_en=en_data.get("high", {}).get("body", ""),
+                body_low_en=en_data.get("low", {}).get("body", ""),
             ))
 
         for facet_key in sorted(scoring.facet_scores.keys()):
@@ -65,6 +69,10 @@ class ReportGenerator:
             interpretations.append(Interpretation(
                 dimension=facet_key, title_zh=title_zh, title_en=title_en,
                 body_zh=body_zh, body_en=body_en,
+                body_high_zh=dim_data.get("high", {}).get("body", ""),
+                body_low_zh=dim_data.get("low", {}).get("body", ""),
+                body_high_en=en_data.get("high", {}).get("body", ""),
+                body_low_en=en_data.get("low", {}).get("body", ""),
             ))
 
         now = datetime.now(timezone.utc).isoformat()
