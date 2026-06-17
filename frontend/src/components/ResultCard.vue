@@ -1,5 +1,5 @@
 <template>
-  <div class="result-card-wrapper" @click="activeDimKey = null">
+  <div class="result-card-wrapper">
     <!-- 解读弹窗 -->
     <Transition name="modal">
       <div v-if="showInterpret" class="interp-overlay" @click.self="showInterpret = false">
@@ -26,8 +26,6 @@
               <div
                 v-for="facetKey in facetGroups[dim]" :key="facetKey"
                 class="facet-bar-item"
-                @mouseenter="showFacetPopup(facetKey)"
-                @mouseleave="hideFacetPopup"
                 @click.stop="toggleFacetPopup(facetKey)"
               >
                 <span class="facet-bar-label">{{ facetMeta[facetKey].userTranslation }}</span>
@@ -38,34 +36,6 @@
                   ></div>
                 </div>
                 <span class="facet-bar-score">{{ getFacetScore(facetKey) }}</span>
-                <!-- 子维度高低分解读弹窗 -->
-                <Transition name="popup">
-                  <div
-                    v-if="activeFacetKey === facetKey"
-                    class="facet-popup"
-                    @mouseenter="showFacetPopup(facetKey)"
-                    @mouseleave="hideFacetPopup"
-                  >
-                    <div class="facet-popup-header">
-                      <span class="facet-popup-name">{{ facetMeta[facetKey].userTranslation }}</span>
-                      <span class="facet-popup-score">得分 {{ getFacetScore(facetKey) }}</span>
-                    </div>
-                    <div class="facet-popup-body">
-                      <div class="facet-popup-row">
-                        <span class="dim-help-badge high">高分</span>
-                        <p class="dim-help-text">
-                          {{ (lang === 'en' ? facetInterpretation(facetKey)?.body_high_en : facetInterpretation(facetKey)?.body_high_zh) || (lang === 'en' ? facetInterpretation(facetKey)?.body_en : facetInterpretation(facetKey)?.body_zh) }}
-                        </p>
-                      </div>
-                      <div class="facet-popup-row">
-                        <span class="dim-help-badge low">低分</span>
-                        <p class="dim-help-text">
-                          {{ (lang === 'en' ? facetInterpretation(facetKey)?.body_low_en : facetInterpretation(facetKey)?.body_low_zh) || (lang === 'en' ? facetInterpretation(facetKey)?.body_en : facetInterpretation(facetKey)?.body_zh) }}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </Transition>
               </div>
             </div>
           </div>
@@ -91,7 +61,7 @@
         <div class="chart-bars">
           <div
             v-for="(dim) in dimensionOrder" :key="dim" class="bar-item"
-            @click.stop="toggleDimPopup(dim)"
+            @click="toggleDimPopup(dim)"
           >
             <div class="bar-header">
               <span class="bar-label">{{ dimLabelCn[dim] }} <span class="bar-label-en">{{ dimLabelEn[dim] }}</span></span>
@@ -102,29 +72,7 @@
             <div class="bar-track">
               <div class="bar-fill" :style="{ width: getScore(dim) + '%', background: dimColors[dimensionOrder.indexOf(dim)] }"></div>
             </div>
-            <!-- 维度高低分解读弹窗 -->
-            <Transition name="popup">
-              <div
-                v-if="activeDimKey === dim"
-                class="dim-popup"
-                @click.stop
-              >
-                <div class="facet-popup-header">
-                  <span class="facet-popup-name">{{ dimLabelCn[dim] }} ({{ dim }})</span>
-                  <span class="facet-popup-score">得分 {{ getScore(dim) }}</span>
-                </div>
-                <div class="facet-popup-body">
-                  <div class="facet-popup-row">
-                    <span class="dim-help-badge high">高分</span>
-                    <p class="dim-help-text">{{ facetInterpretation(dim)?.body_high_zh }}</p>
-                  </div>
-                  <div class="facet-popup-row">
-                    <span class="dim-help-badge low">低分</span>
-                    <p class="dim-help-text">{{ facetInterpretation(dim)?.body_low_zh }}</p>
-                  </div>
-                </div>
-              </div>
-            </Transition>
+
           </div>
         </div>
       </div>
@@ -157,6 +105,52 @@
       </div>
     </div>
 
+
+    <!-- 维度解读弹窗 -->
+    <div v-if="activeDimKey" class="modal-overlay" @click.self="activeDimKey = null">
+      <div class="modal-card">
+        <button class="modal-close" @click="activeDimKey = null">&times;</button>
+        <h2 class="modal-title" :style="{ color: dimColors[dimensionOrder.indexOf(activeDimKey)] }">
+          {{ dimLabelCn[activeDimKey] }} ({{ activeDimKey }})
+          <span class="modal-score">{{ getScore(activeDimKey) }}</span>
+        </h2>
+        <div class="facet-popup-body">
+          <div class="facet-popup-row">
+            <span class="dim-help-badge high">高分</span>
+            <p class="dim-help-text">{{ facetInterpretation(activeDimKey)?.body_high_zh }}</p>
+          </div>
+          <div class="facet-popup-row">
+            <span class="dim-help-badge low">低分</span>
+            <p class="dim-help-text">{{ facetInterpretation(activeDimKey)?.body_low_zh }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 子维度解读弹窗 -->
+    <div v-if="activeFacetKey" class="modal-overlay" @click.self="activeFacetKey = null">
+      <div class="modal-card facet-modal-card">
+        <button class="modal-close" @click="activeFacetKey = null">&times;</button>
+        <h2 class="modal-title" style="color: var(--color-accent)">
+          {{ facetMeta[activeFacetKey]?.userTranslation }}
+          <span class="modal-score">得分 {{ getFacetScore(activeFacetKey) }}</span>
+        </h2>
+        <div class="facet-popup-body">
+          <div class="facet-popup-row">
+            <span class="dim-help-badge high">高分</span>
+            <p class="dim-help-text">
+              {{ (lang === 'en' ? facetInterpretation(activeFacetKey)?.body_high_en : facetInterpretation(activeFacetKey)?.body_high_zh) || (lang === 'en' ? facetInterpretation(activeFacetKey)?.body_en : facetInterpretation(activeFacetKey)?.body_zh) }}
+            </p>
+          </div>
+          <div class="facet-popup-row">
+            <span class="dim-help-badge low">低分</span>
+            <p class="dim-help-text">
+              {{ (lang === 'en' ? facetInterpretation(activeFacetKey)?.body_low_en : facetInterpretation(activeFacetKey)?.body_low_zh) || (lang === 'en' ? facetInterpretation(activeFacetKey)?.body_en : facetInterpretation(activeFacetKey)?.body_zh) }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- MBTI 解释弹窗 -->
     <div v-if="showMbtiHelp" class="modal-overlay" @click.self="showMbtiHelp = false">
@@ -216,24 +210,12 @@ const showTermGlossary = ref(false)
 
 // 子维度详情弹窗
 const activeFacetKey = ref(null)
-let popupTimer = null
 
 // 维度详情弹窗（主卡片柱状条）
 const activeDimKey = ref(null)
 
 function facetInterpretation(facetKey) {
   return props.report.interpretations?.find(i => i.dimension === facetKey) ?? null
-}
-
-function showFacetPopup(facetKey) {
-  clearTimeout(popupTimer)
-  activeFacetKey.value = facetKey
-}
-
-function hideFacetPopup() {
-  popupTimer = setTimeout(() => {
-    activeFacetKey.value = null
-  }, 200) // 小延迟，允许鼠标移入弹窗
 }
 
 function toggleFacetPopup(facetKey) {
@@ -552,6 +534,14 @@ defineExpose({ cardRef })
   padding-right: 30px;
 }
 
+.modal-score {
+  font-family: var(--font-mono);
+  font-size: 16px;
+  font-weight: 700;
+  margin-left: 8px;
+  opacity: 0.7;
+}
+
 .modal-body {
   font-size: 14px;
   line-height: 1.7;
@@ -646,6 +636,10 @@ defineExpose({ cardRef })
   position: relative;
   cursor: pointer;
 }
+.facet-modal-card {
+  max-width: 480px;
+}
+
 .facet-bar-item:hover .facet-bar-fill {
   opacity: 0.9;
 }
@@ -682,40 +676,10 @@ defineExpose({ cardRef })
   flex-shrink: 0;
 }
 
-/* ===== 子维度详情弹窗 ===== */
-.facet-popup {
-  position: absolute;
-  top: calc(100% + 6px);
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 50;
-  width: 300px;
+
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: 12px;
-  padding: 14px 16px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-  pointer-events: auto;
-}
-.facet-popup-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid var(--color-border);
-}
-.facet-popup-name {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--color-text);
-}
-.facet-popup-score {
-  font-family: var(--font-mono);
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--color-accent);
-}
+
 .dim-help-text {
   font-size: 12px;
   line-height: 1.6;
@@ -723,33 +687,10 @@ defineExpose({ cardRef })
   margin: 4px 0 0;
 }
 
-/* ===== 维度弹窗（主卡片柱状条） ===== */
-.dim-popup {
-  position: absolute;
-  right: -8px;
-  top: 50%;
-  transform: translate(100%, -50%);
-  z-index: 60;
-  width: 300px;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 12px;
-  padding: 14px 16px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-  pointer-events: auto;
-}
+
 
 /* ===== 弹窗飞入动画 ===== */
-.popup-enter-active {
-  animation: popupIn 0.2s var(--ease-bounce);
-}
-.popup-leave-active {
-  animation: popupIn 0.15s ease reverse;
-}
-@keyframes popupIn {
-  from { opacity: 0; transform: translateX(-50%) translateY(-4px) scale(0.95); }
-  to   { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); }
-}
+
 
 /* ===== 术语对照表 ===== */
 .glossary-card {
@@ -857,33 +798,6 @@ defineExpose({ cardRef })
     padding: 10px 14px;
   }
 
-  .facet-popup {
-    width: 260px;
-    left: 0;
-    transform: none;
-  }
 
-  .dim-popup {
-    position: fixed;
-    top: auto;
-    left: 50%;
-    right: auto;
-    bottom: 20px;
-    transform: translateX(-50%);
-    width: 92%;
-    max-width: 320px;
-    z-index: 300;
-  }
-
-  .popup-enter-active {
-    animation: popupInMobile 0.2s var(--ease-bounce);
-  }
-  .popup-leave-active {
-    animation: popupInMobile 0.15s ease reverse;
-  }
-  @keyframes popupInMobile {
-    from { opacity: 0; transform: translateY(-4px) scale(0.95); }
-    to   { opacity: 1; transform: translateY(0) scale(1); }
-  }
 }
 </style>
