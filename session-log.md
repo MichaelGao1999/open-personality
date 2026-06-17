@@ -382,3 +382,25 @@
 ### Remaining / Next
 - P2 polish: nav buttons / hint bar / interpretation panel stagger
 - English copy optimization
+
+---
+
+## 2026-06-17 — 子维度译名同步：draft.md ↔ ResultCard.vue
+
+### 本轮概要
+- 用户恢复被中断的任务：`docs/interpretation-content-draft.md` 术语表修改
+- 列名统一：5 个表格表头 + 说明文字中「你的译名」→「调整版」（6 处）
+- 发现不一致：用户察觉 O_aesthetics「审美敏感度」(draft.md) vs「审美感受」(前端)
+- 排查结果：`ResultCard.vue` 中 `facetMeta.userTranslation` 有 25/30 子维度使用旧译名
+- 用户决策：前端代码和文档一起同步为调整版
+  - `ResultCard.vue`：`facetMeta.userTranslation` 25 个值更新
+  - `draft.md`：30 个子维度章节标题从旧名改为调整版名称
+
+### 更新文件
+- `docs/interpretation-content-draft.md` — 列名修改（6 处）+ 章节标题同步（30 处）
+- `frontend/src/components/ResultCard.vue` — facetMeta.userTranslation 同步（25 处）
+
+### 遗留问题 / 下轮开始点
+- 人格解读正文填充（interpret_zh/en.json body 占位符）
+- popup-content-draft.md 定稿归档
+- P2 动画打磨 + 英文文案优化

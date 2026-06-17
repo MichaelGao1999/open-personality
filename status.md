@@ -130,3 +130,4 @@ open-personality/
 | 2026-06-16 | OpenAPI 文档装饰完成（5 端点 + tags + response_model）
 | 2026-06-16 | 响应式布局适配（520px断点）、全局 logo（Apple风格）、卡片文本+padding优化、报告导出水印
 | 2026-06-16 | P0/P1 动画修复 + E2E 测试（Playwright 16 passing）+ Logo 工具栏重构 + ruff lint 修复 + README 重写
+| 2026-06-17 | 子维度译名同步：draft.md 译名列→调整版 + ResultCard.vue facetMeta 对齐（25/30 项）
