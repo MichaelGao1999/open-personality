@@ -503,6 +503,7 @@ defineExpose({ cardRef })
   max-height: 80vh;
   overflow-y: auto;
   position: relative;
+  margin-top: 40px;
   box-shadow: 0 25px 80px rgba(0,0,0,0.25);
   animation: slideUp 0.5s var(--ease-bounce);
 }
