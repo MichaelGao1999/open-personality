@@ -29,8 +29,7 @@ const { t } = useI18n()
 const copied = ref(false)
 
 function copyLink() {
-  const url = `${window.location.origin}${window.location.pathname}#/report/${props.shareToken}`
-  navigator.clipboard.writeText(url).then(() => {
+  navigator.clipboard.writeText(props.shareToken).then(() => {
     copied.value = true
     setTimeout(() => { copied.value = false }, 2000)
   })
