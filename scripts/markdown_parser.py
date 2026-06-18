@@ -14,15 +14,18 @@ markdown_parser.py — 统一 Markdown 经验文件解析器
 """
 
 import re
-from typing import Any, Dict, List, Optional, Tuple
+import sys
+from typing import Dict, List, Optional, Tuple
 
 from utils import clean_source_tag, extract_source_tags
 
 
 # ─────────────────────────── 区段解析 ───────────────────────────
 
+
 class Section:
     """Markdown 区段：由标题行及其下内容组成。"""
+
     __slots__ = ("level", "title", "title_clean", "sources", "body", "line_start")
 
     def __init__(self, level: int, title: str, body: str, line_start: int):
@@ -49,7 +52,7 @@ def parse_sections(text: str, min_level: int = 2, max_level: int = 3) -> List[Se
     heading_pattern = re.compile(r"^(#{1,6})\s+(.+?)\s*$")
 
     current_start: Optional[int] = None
-    current_level: Optional[int] = None
+    current_level: int = 0
     current_title: Optional[str] = None
 
     for i, line in enumerate(lines):
@@ -60,12 +63,15 @@ def parse_sections(text: str, min_level: int = 2, max_level: int = 3) -> List[Se
                 # 保存上一个区段
                 if current_start is not None and current_title is not None:
                     body = "".join(lines[current_start:i])
-                    sections.append(Section(
-                        level=current_level,
-                        title=current_title,
-                        body=body,
-                        line_start=current_start + 1,
-                    ))
+                    assert current_level is not None
+                    sections.append(
+                        Section(
+                            level=current_level,
+                            title=current_title,
+                            body=body,
+                            line_start=current_start + 1,
+                        )
+                    )
                 current_start = i
                 current_level = level
                 current_title = m.group(2).strip()
@@ -74,17 +80,21 @@ def parse_sections(text: str, min_level: int = 2, max_level: int = 3) -> List[Se
     # 最后一个区段
     if current_start is not None and current_title is not None:
         body = "".join(lines[current_start:])
-        sections.append(Section(
-            level=current_level,
-            title=current_title,
-            body=body,
-            line_start=current_start + 1,
-        ))
+        assert current_level is not None
+        sections.append(
+            Section(
+                level=current_level,
+                title=current_title,
+                body=body,
+                line_start=current_start + 1,
+            )
+        )
 
     return sections
 
 
 # ─────────────────────────── 表格解析 ───────────────────────────
+
 
 def _find_table_region(text: str) -> Optional[Tuple[int, int]]:
     """
@@ -205,6 +215,7 @@ def parse_table(text: str) -> List[Dict[str, str]]:
 
 # ─────────────────────────── ADR 解析 ───────────────────────────
 
+
 def parse_adr(text: str) -> List[dict]:
     """
     解析 ADR.md，返回条目列表。
@@ -231,7 +242,7 @@ def parse_adr(text: str) -> List[dict]:
         m = re.match(
             r"(?:(?:repo_\d+/)?)?"
             r"(ADR-\d+)[：:]\s*(.+)",
-            sec.title_clean
+            sec.title_clean,
         )
         if not m:
             continue
@@ -246,20 +257,23 @@ def parse_adr(text: str) -> List[dict]:
         body_lines = sec.body.splitlines(keepends=True)
         body_content = "".join(body_lines[1:]).strip() if len(body_lines) > 1 else ""
 
-        entries.append({
-            "adr_id": adr_id,
-            "title": adr_title,
-            "title_raw": sec.title,
-            "sources": sec.sources,
-            "fields": fields,
-            "body": body_content,
-            "line_start": sec.line_start,
-        })
+        entries.append(
+            {
+                "adr_id": adr_id,
+                "title": adr_title,
+                "title_raw": sec.title,
+                "sources": sec.sources,
+                "fields": fields,
+                "body": body_content,
+                "line_start": sec.line_start,
+            }
+        )
 
     return entries
 
 
 # ─────────────────────────── lessons-learned 解析 ───────────────────────────
+
 
 def parse_lessons(text: str) -> List[dict]:
     """
@@ -302,18 +316,20 @@ def parse_lessons(text: str) -> List[dict]:
             tags_str = ""
             severity = "INFO"
             num = ""
-            entries.append({
-                "type": "table",
-                "num": num,
-                "tags": tags_str,
-                "severity": severity,
-                "description": desc,
-                "description_clean": clean_source_tag(desc),
-                "source": source,
-                "module": module,
-                "sources": extract_source_tags(desc) + extract_source_tags(source),
-                "line_start": row_line,
-            })
+            entries.append(
+                {
+                    "type": "table",
+                    "num": num,
+                    "tags": tags_str,
+                    "severity": severity,
+                    "description": desc,
+                    "description_clean": clean_source_tag(desc),
+                    "source": source,
+                    "module": module,
+                    "sources": extract_source_tags(desc) + extract_source_tags(source),
+                    "line_start": row_line,
+                }
+            )
             continue
 
         if col_count < 4:
@@ -337,18 +353,20 @@ def parse_lessons(text: str) -> List[dict]:
         if not desc:
             continue
 
-        entries.append({
-            "type": "table",
-            "num": num,
-            "tags": tags_str.strip(),
-            "severity": severity.strip(),
-            "description": desc,
-            "description_clean": clean_source_tag(desc),
-            "source": source.strip(),
-            "module": module.strip(),
-            "sources": extract_source_tags(desc) + extract_source_tags(source),
-            "line_start": row_line,
-        })
+        entries.append(
+            {
+                "type": "table",
+                "num": num,
+                "tags": tags_str.strip(),
+                "severity": severity.strip(),
+                "description": desc,
+                "description_clean": clean_source_tag(desc),
+                "source": source.strip(),
+                "module": module.strip(),
+                "sources": extract_source_tags(desc) + extract_source_tags(source),
+                "line_start": row_line,
+            }
+        )
 
     # ── 解析列表条目（以 - 或 * 开头的行） ──
     for line_idx, line in enumerate(text.splitlines(), 1):
@@ -357,23 +375,26 @@ def parse_lessons(text: str) -> List[dict]:
             desc = m.group(1).strip()
             if not desc:
                 continue
-            entries.append({
-                "type": "list",
-                "num": "",
-                "tags": "",
-                "severity": "INFO",
-                "description": desc,
-                "description_clean": clean_source_tag(desc),
-                "source": "",
-                "module": "",
-                "sources": extract_source_tags(desc),
-                "line_start": line_idx,
-            })
+            entries.append(
+                {
+                    "type": "list",
+                    "num": "",
+                    "tags": "",
+                    "severity": "INFO",
+                    "description": desc,
+                    "description_clean": clean_source_tag(desc),
+                    "source": "",
+                    "module": "",
+                    "sources": extract_source_tags(desc),
+                    "line_start": line_idx,
+                }
+            )
 
     return entries
 
 
 # ─────────────────────────── troubleshooting 解析 ───────────────────────────
+
 
 def parse_troubleshooting(text: str) -> List[dict]:
     """
@@ -402,11 +423,9 @@ def parse_troubleshooting(text: str) -> List[dict]:
 
     # 为每个 ### 条目找到它所属的 ## 分类
     def _find_category(line_start: int) -> str:
-        cat_line = 0
         cat_name = ""
         for cl, cn in sorted(categories.items(), reverse=True):
             if cl < line_start:
-                cat_line = cl
                 cat_name = cn
                 break
         return cat_name
@@ -421,39 +440,45 @@ def parse_troubleshooting(text: str) -> List[dict]:
         body_lines = item.body.splitlines(keepends=True)
         body_content = "".join(body_lines[1:]).strip() if len(body_lines) > 1 else ""
 
-        entries.append({
-            "keyword": item.title_clean,
-            "keyword_raw": item.title,
-            "category": category,
-            "sources": item.sources,
-            "fields": fields,
-            "status": fields.get("状态", ""),
-            "symptom": fields.get("现象", ""),
-            "cause": fields.get("原因", ""),
-            "solution": fields.get("解决", ""),
-            "body": body_content,
-            "line_start": item.line_start,
-        })
+        entries.append(
+            {
+                "keyword": item.title_clean,
+                "keyword_raw": item.title,
+                "category": category,
+                "sources": item.sources,
+                "fields": fields,
+                "status": fields.get("状态", ""),
+                "symptom": fields.get("现象", ""),
+                "cause": fields.get("原因", ""),
+                "solution": fields.get("解决", ""),
+                "body": body_content,
+                "line_start": item.line_start,
+            }
+        )
 
     return entries
 
 
 # ─────────────────────────── 主入口 / 独立使用 ───────────────────────────
 
+
 def main():
     """命令行入口，用于快速验证解析结果。"""
     import argparse
-    import sys
     from pathlib import Path
 
     parser = argparse.ArgumentParser(description="Markdown 经验文件解析器")
     parser.add_argument("file", help="要解析的 .md 文件路径")
-    parser.add_argument("--type", "-t", choices=["adr", "lessons", "troubleshooting"],
-                        help="文件类型（自动检测）")
-    parser.add_argument("--count", "-c", action="store_true",
-                        help="只输出条目数量")
-    parser.add_argument("--list", "-l", action="store_true",
-                        help="列出所有条目标题/关键词")
+    parser.add_argument(
+        "--type",
+        "-t",
+        choices=["adr", "lessons", "troubleshooting"],
+        help="文件类型（自动检测）",
+    )
+    parser.add_argument("--count", "-c", action="store_true", help="只输出条目数量")
+    parser.add_argument(
+        "--list", "-l", action="store_true", help="列出所有条目标题/关键词"
+    )
     args = parser.parse_args()
 
     path = Path(args.file)

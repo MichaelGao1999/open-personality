@@ -7,6 +7,7 @@ const routes = [
   { path: '/', name: 'Home', component: HomePage },
   { path: '/questionnaire', name: 'Questionnaire', component: QuestionnairePage },
   { path: '/report/:token?', name: 'Report', component: ReportPage },
+  { path: '/compare/:myToken/:friendToken', name: 'Compare', component: () => import('../views/ComparePage.vue') },
 ]
 
 const router = createRouter({

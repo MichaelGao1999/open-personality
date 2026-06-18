@@ -66,7 +66,8 @@
 | **RULE-09** | **技术债务解决后，必须从 `status.md` 债务表删除，追加到「已解决债务」，并记录到 `lessons-learned.md`（标注 TAG:debt）** | 债务与经验脱节、重复犯错、无法追溯解决过程 |
 | **RULE-10** | **阶段口令触发后，必须先做前置条件检查（status.md + 前置文件确认），不通过则禁止启动该阶段** | 跳步导致产出无上下文、接口缺失依赖 |
 | **RULE-11** | **阶段口令是启动器而非执行器：口令只负责「检查+说明目标+确认启动」，具体执行细节严格引用 agent-coding-workflow.md 对应章节，禁止在口令逻辑中重写执行规范** | 规则在两处维护导致版本分歧 |
-| **RULE-12** | **写入 `troubleshooting.md` / `lessons-learned.md` / `ADR.md` 时，所有 IP 地址、本地文件路径、邮箱等敏感信息必须使用占位符替代（如 `{SERVER_IP}`、`{PROJECT_PATH}`）；仅在问题重现必须精确信息时才保留，同时写入备注说明** | 经验文档聚合后泄露个人/基础设施信息；下游项目分发后无法逐一清理 |
+| **RULE-12** | **写入 `troubleshooting.md` / `lessons-learned.md` / `ADR.md` 时，所有 IP 地址、本地文件路径、邮箱等敏感信息必须使用占位符替代（如 `{SERVER_IP}`、`{PROJECT_PATH}`）；仅在问题重现必须精确信息���才保留，同时写入备注说明** | 经验文档聚合后泄露个人/基础设施信息；下游项目分发后无法逐一清理 |
+| **RULE-14** | **所有文件 I/O 和 `subprocess.run()` 必须显式传入 `encoding` 参数** | Windows GBK 环境下不指定会导致 UnicodeDecodeError |
 
 <!-- /@sync -->
 ---

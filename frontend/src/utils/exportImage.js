@@ -26,3 +26,7 @@ export async function exportCard(element, filename = 'personality-report.png') {
   link.href = canvas.toDataURL('image/png')
   link.click()
 }
+
+export async function exportCompareCard(element, filename = 'personality-comparison.png') {
+  return exportCard(element, filename)
+}

@@ -3,7 +3,7 @@
 > 本文件由 `scripts/build-experience-index.py` 自动生成。
 > 覆盖 troubleshooting / lessons-learned / ADR，统一搜索入口。
 
-> 当前收录 **577** 条记录（问题 48 + 经验 219 + 决策 310）。
+> 当前收录 **579** 条记录（问题 48 + 经验 221 + 决策 310）。
 
 ---
 
@@ -250,28 +250,30 @@
 | general | **设计文档交付后应主动邀请用户逐节评审**。本轮用户检查 design.md 发现 5 个不一致问题（事务保护、命名对... | 经验 | ai-workflow |  | INFO | lessons-learned.md#L225 |
 | general | `BoardFactory.highlight()` 需要同时支持 `data-square`（8×8 棋盘，如 `e2... | 经验 | board |  | INFO | lessons-learned.md#L227 |
 | general | **GitHub 上 Fetch 的 SKILL.md 不能只看内容不看场景**。用户发来 `github.com/an... | 经验 | ai-workflow |  | WARNING | lessons-learned.md#L228 |
-| general | 阶段产出（stage outputs）不应在 starter/ 中预置模板。design.md、frontend.md、... | 经验 | 未分类 | [来源:AI Workbench | INFO | lessons-learned.md#L230 |
-| general | 防御性设计采用三层模式最有效：硬规则约束行为 + 流程关卡提供检查点 + 辅助工具提供自动化验证。RULE-12 告诉 ... | 经验 | 未分类 | [来源:AI Workbench | INFO | lessons-learned.md#L231 |
-| general | 隐私泄露的修复成本远高于预防成本。本案例事后清理：40 处替换 × 8 个项目 ≈ 80 次 git 操作 + 6 次 ... | 经验 | 未分类 | [来源:AI Workbench | INFO | lessons-learned.md#L232 |
-| general | 新建公开仓库时应想清楚其定位：是母库本身（全量内容+规则+经验），还是纯模板（仅 starter/ 内容）。两者物理分离... | 经验 | 未分类 | [来源:AI Workbench | INFO | lessons-learned.md#L233 |
-| general | 分发工具（distribute.py 知识合并）与镜像工具（sync-starter 全量替换）的合并策略不同决定了它们... | 经验 | 未分类 | [来源:AI Workbench | INFO | lessons-learned.md#L234 |
-| general | ADR 作为项目特有架构决策记录不应全量分发。跨项目 ADR 参考价值极低（决策上下文绑定具体项目），当前分发实现仅传输... | 经验 | 未分类 | [来源:AI Workbench | INFO | lessons-learned.md#L235 |
-| general | ❌ 已记入 `troubleshooting.md` 的具体错误修复步骤 → 那里是"急救手册"，这里是"模式总结" [... | 经验 | 未分类 | [来源:fact-swarm-v2 | INFO | lessons-learned.md#L236 |
-| general | ❌ 一次性环境配置错误（如输错密码、网络临时中断） [来源:fact-swarm-v2 @2026-06-16] [来源... | 经验 | 未分类 | [来源:fact-swarm-v2 | INFO | lessons-learned.md#L237 |
-| general | ❌ 过于基础的知识（如 "List 的 `add()` 是 O(1)"） [来源:fact-swarm-v2 @2026... | 经验 | 未分类 | [来源:fact-swarm-v2 | INFO | lessons-learned.md#L238 |
-| general | ❌ 仅适用于本项目特定业务逻辑的 hack [来源:fact-swarm-v2 @2026-06-16] [来源:AI ... | 经验 | 未分类 | [来源:fact-swarm-v2 | INFO | lessons-learned.md#L239 |
-| general | **AI 助手**：每次会话结束后执行上述评估流程，自主判断并写入 [来源:fact-swarm-v2 @2026-06... | 经验 | 未分类 | [来源:fact-swarm-v2 | INFO | lessons-learned.md#L240 |
-| general | **人类把控者**：如发现 AI 漏记了明显有价值的经验，随时补录 [来源:fact-swarm-v2 @2026-06... | 经验 | 未分类 | [来源:fact-swarm-v2 | INFO | lessons-learned.md#L241 |
-| general | **正确做法**：遇到"终端""同步""项目"这类横跨多层含义的词，先给两个选项让用户确认，不要默认展开分析 [来源:f... | 经验 | 未分类 | [来源:french-exit | INFO | lessons-learned.md#L242 |
-| general | **正确做法**：Side-by-side 对比源文件和目标文件的关键段落，尤其是表格、触发词、命令等不可改动的内容 [... | 经验 | 未分类 | [来源:french-exit | INFO | lessons-learned.md#L243 |
-| general | **启动**：`npm run dev`（Vite 服务器）→ 浏览器访问 `http://localhost:1420... | 经验 | 未分类 | [来源:french-exit | INFO | lessons-learned.md#L244 |
-| general | **优势**：HMR 热更新、即时预览、不依赖 Rust 编译 [来源:french-exit @2026-06-16]... | 经验 | 未分类 | [来源:french-exit | INFO | lessons-learned.md#L245 |
-| general | **限制**：IPC 调用会失败，需通过 mock 数据或调试导航面板 bypass [来源:french-exit @... | 经验 | 未分类 | [来源:french-exit | INFO | lessons-learned.md#L246 |
-| general | **完整功能验证**：仍需本地 `cargo tauri dev` 或双击 release `.exe` [来源:fre... | 经验 | 未分类 | [来源:french-exit | INFO | lessons-learned.md#L247 |
-| general | **优势**：零侵入 scanner 实现，不需要修改 7 个具体 scanner 的代码 [来源:french-exi... | 经验 | 未分类 | [来源:french-exit | INFO | lessons-learned.md#L248 |
-| general | ❌ 直接把每个任务的局部 `current/total` 当作全局百分比 [来源:french-exit @2026-0... | 经验 | 未分类 | [来源:french-exit | INFO | lessons-learned.md#L249 |
-| general | 设计文档与代码实现之间存在双向验证缺口：文档描述与代码行为不一致时，文档会逐渐变为误导性参考。正确做法是代码落地后做 d... | 经验 | 未分类 | [来源:ai-workbench | INFO | lessons-learned.md#L250 |
-| general | ❌ 前端"只增不减"机制配合局部进度 = 轻量任务瞬间把进度锁死在 100% [来源:french-exit @2026... | 经验 | 未分类 | [来源:french-exit | INFO | lessons-learned.md#L251 |
+| infra | `transition: all` 是前端性能陷阱。浏览器无法预测哪些属性会变化，每帧都执行 layout 检查。应始终... | 经验 | performance / css |  | WARNING | lessons-learned.md#L229 |
+| infra | **零 layout 动画三板斧**：①元素始终占位（不用 `v-if`/`v-show` 插入 DOM）；②视觉展开用... | 经验 | performance / css |  | INFO | lessons-learned.md#L230 |
+| general | 阶段产出（stage outputs）不应在 starter/ 中预置模板。design.md、frontend.md、... | 经验 | 未分类 | [来源:AI Workbench | INFO | lessons-learned.md#L232 |
+| general | 防御性设计采用三层模式最有效：硬规则约束行为 + 流程关卡提供检查点 + 辅助工具提供自动化验证。RULE-12 告诉 ... | 经验 | 未分类 | [来源:AI Workbench | INFO | lessons-learned.md#L233 |
+| general | 隐私泄露的修复成本远高于预防成本。本案例事后清理：40 处替换 × 8 个项目 ≈ 80 次 git 操作 + 6 次 ... | 经验 | 未分类 | [来源:AI Workbench | INFO | lessons-learned.md#L234 |
+| general | 新建公开仓库时应想清楚其定位：是母库本身（全量内容+规则+经验），还是纯模板（仅 starter/ 内容）。两者物理分离... | 经验 | 未分类 | [来源:AI Workbench | INFO | lessons-learned.md#L235 |
+| general | 分发工具（distribute.py 知识合并）与镜像工具（sync-starter 全量替换）的合并策略不同决定了它们... | 经验 | 未分类 | [来源:AI Workbench | INFO | lessons-learned.md#L236 |
+| general | ADR 作为项目特有架构决策记录不应全量分发。跨项目 ADR 参考价值极低（决策上下文绑定具体项目），当前分发实现仅传输... | 经验 | 未分类 | [来源:AI Workbench | INFO | lessons-learned.md#L237 |
+| general | ❌ 已记入 `troubleshooting.md` 的具体错误修复步骤 → 那里是"急救手册"，这里是"模式总结" [... | 经验 | 未分类 | [来源:fact-swarm-v2 | INFO | lessons-learned.md#L238 |
+| general | ❌ 一次性环境配置错误（如输错密码、网络临时中断） [来源:fact-swarm-v2 @2026-06-16] [来源... | 经验 | 未分类 | [来源:fact-swarm-v2 | INFO | lessons-learned.md#L239 |
+| general | ❌ 过于基础的知识（如 "List 的 `add()` 是 O(1)"） [来源:fact-swarm-v2 @2026... | 经验 | 未分类 | [来源:fact-swarm-v2 | INFO | lessons-learned.md#L240 |
+| general | ❌ 仅适用于本项目特定业务逻辑的 hack [来源:fact-swarm-v2 @2026-06-16] [来源:AI ... | 经验 | 未分类 | [来源:fact-swarm-v2 | INFO | lessons-learned.md#L241 |
+| general | **AI 助手**：每次会话结束后执行上述评估流程，自主判断并写入 [来源:fact-swarm-v2 @2026-06... | 经验 | 未分类 | [来源:fact-swarm-v2 | INFO | lessons-learned.md#L242 |
+| general | **人类把控者**：如发现 AI 漏记了明显有价值的经验，随时补录 [来源:fact-swarm-v2 @2026-06... | 经验 | 未分类 | [来源:fact-swarm-v2 | INFO | lessons-learned.md#L243 |
+| general | **正确做法**：遇到"终端""同步""项目"这类横跨多层含义的词，先给两个选项让用户确认，不要默认展开分析 [来源:f... | 经验 | 未分类 | [来源:french-exit | INFO | lessons-learned.md#L244 |
+| general | **正确做法**：Side-by-side 对比源文件和目标文件的关键段落，尤其是表格、触发词、命令等不可改动的内容 [... | 经验 | 未分类 | [来源:french-exit | INFO | lessons-learned.md#L245 |
+| general | **启动**：`npm run dev`（Vite 服务器）→ 浏览器访问 `http://localhost:1420... | 经验 | 未分类 | [来源:french-exit | INFO | lessons-learned.md#L246 |
+| general | **优势**：HMR 热更新、即时预览、不依赖 Rust 编译 [来源:french-exit @2026-06-16]... | 经验 | 未分类 | [来源:french-exit | INFO | lessons-learned.md#L247 |
+| general | **限制**：IPC 调用会失败，需通过 mock 数据或调试导航面板 bypass [来源:french-exit @... | 经验 | 未分类 | [来源:french-exit | INFO | lessons-learned.md#L248 |
+| general | **完整功能验证**：仍需本地 `cargo tauri dev` 或双击 release `.exe` [来源:fre... | 经验 | 未分类 | [来源:french-exit | INFO | lessons-learned.md#L249 |
+| general | **优势**：零侵入 scanner 实现，不需要修改 7 个具体 scanner 的代码 [来源:french-exi... | 经验 | 未分类 | [来源:french-exit | INFO | lessons-learned.md#L250 |
+| general | ❌ 直接把每个任务的局部 `current/total` 当作全局百分比 [来源:french-exit @2026-0... | 经验 | 未分类 | [来源:french-exit | INFO | lessons-learned.md#L251 |
+| general | 设计文档与代码实现之间存在双向验证缺口：文档描述与代码行为不一致时，文档会逐渐变为误导性参考。正确做法是代码落地后做 d... | 经验 | 未分类 | [来源:ai-workbench | INFO | lessons-learned.md#L252 |
+| general | ❌ 前端"只增不减"机制配合局部进度 = 轻量任务瞬间把进度锁死在 100% [来源:french-exit @2026... | 经验 | 未分类 | [来源:french-exit | INFO | lessons-learned.md#L253 |
 | general | 测试驱动开发能在手工测试无法触及的边界条件下发现 bug（如"恰好取消所有勾选"触发死循环）[来源:french-exi... | 经验 | 未分类 | [来源:french-exit | INFO | lessons-learned.md#L114 |
 | general | `AGENTS.md` 定义触发词和行为约束，`status.md` 记录动态进度，两者分工明确，新会话读 2 份文件即... | 经验 | 未分类 | [来源:french-exit | INFO | lessons-learned.md#L117 |
 | general | 涉及 7+ 文件读改测的架构重构，应新开会话执行，避免上下文压缩导致信息丢失 [来源:blindfold-chess @... | 经验 | 未分类 | [来源:blindfold-chess | INFO | lessons-learned.md#L118 |
@@ -619,8 +621,8 @@
 - [经验] **完整功能验证**：仍需本地运行 `cargo tauri dev` 或双击 release `. — `build-env` → lessons-learned.md#L95
 - [经验] **`tauri::AppHandle` 出现在 `async fn` 签名中 + MinGW =  — `未分类` → lessons-learned.md#L158
 - [经验] 修改范围：Rust `ScanProgress` / `ProgressEvent` 结构 → `S — `未分类` → lessons-learned.md#L183
-- [经验] **优势**：HMR 热更新、即时预览、不依赖 Rust 编译 [来源:french-exit @2 — `未分类` → lessons-learned.md#L245
-- [经验] **完整功能验证**：仍需本地 `cargo tauri dev` 或双击 release `.ex — `未分类` → lessons-learned.md#L247
+- [经验] **优势**：HMR 热更新、即时预览、不依赖 Rust 编译 [来源:french-exit @2 — `未分类` → lessons-learned.md#L247
+- [经验] **完整功能验证**：仍需本地 `cargo tauri dev` 或双击 release `.ex — `未分类` → lessons-learned.md#L249
 - [经验] 中文路径 + MinGW = 链接器失败。解决方案：复制到纯 ASCII 路径后编译 [来源:fre — `未分类` → lessons-learned.md#L121
 - [经验] `cargo check --lib` 不需要链接，可以在中文路径直接跑；`cargo test - — `未分类` → lessons-learned.md#L122
 - [决策] ADR-001: 为什么用 Tauri（Rust + WebView2）而非 Electron？ — `架构决策` → ADR.md#L202
@@ -697,7 +699,8 @@
 - [经验] Hermes Agent 自带完整的 Node.js 环境（`~/.hermes/node/`），安 — `build-env` → lessons-learned.md#L205
 - [经验] nvm（Node Version Manager）是隔离 Node.js 环境的最佳方案。安装后每个 — `build-env` → lessons-learned.md#L207
 - [经验] v0 by Vercel 是 AI UI 生成工具，输入自然语言 prompt 生成 React 组 — `ai-workflow` → lessons-learned.md#L213
-- [经验] **启动**：`npm run dev`（Vite 服务器）→ 浏览器访问 `http://loca — `未分类` → lessons-learned.md#L244
+- [经验] **零 layout 动画三板斧**：①元素始终占位（不用 `v-if`/`v-show` 插入 D — `performance / css` → lessons-learned.md#L230
+- [经验] **启动**：`npm run dev`（Vite 服务器）→ 浏览器访问 `http://loca — `未分类` → lessons-learned.md#L246
 - [经验] Windows 路径在 git bash / Node.js / cmd 中转义规则不同，写跨平台脚 — `未分类` → lessons-learned.md#L123
 - [决策] ADR-002: 为什么前端用 React（而非 Vue/Svelte）？ — `架构决策` → ADR.md#L217
 - [决策] ADR-019: Node.js 环境隔离方案（nvm + 双 Node.js） [母库 @2026 — `架构决策` → ADR.md#L426
@@ -747,8 +750,8 @@
 - [经验] Windows Git Bash 下执行 `git init` 时，所有文本文件会触发 `LF wi — `未分类` → lessons-learned.md#L199
 - [经验] 不要在 pipx 安装的 Python 包源码目录中执行 `git pull`，除非确认没有本地修改 — `build-env` → lessons-learned.md#L206
 - [经验] **GitHub 上 Fetch 的 SKILL.md 不能只看内容不看场景**。用户发来 `git — `ai-workflow` → lessons-learned.md#L228
-- [经验] 隐私泄露的修复成本远高于预防成本。本案例事后清理：40 处替换 × 8 个项目 ≈ 80 次 git — `未分类` → lessons-learned.md#L232
-- [经验] 分发工具（distribute.py 知识合并）与镜像工具（sync-starter 全量替换）的合 — `未分类` → lessons-learned.md#L234
+- [经验] 隐私泄露的修复成本远高于预防成本。本案例事后清理：40 处替换 × 8 个项目 ≈ 80 次 git — `未分类` → lessons-learned.md#L234
+- [经验] 分发工具（distribute.py 知识合并）与镜像工具（sync-starter 全量替换）的合 — `未分类` → lessons-learned.md#L236
 - [经验] Windows 路径在 git bash / Node.js / cmd 中转义规则不同，写跨平台脚 — `未分类` → lessons-learned.md#L123
 - [决策] ADR-017: GitHub 认证从 SSH 切换到 GitHub CLI + HTTPS — `架构决策` → ADR.md#L186
 - [决策] ADR-022: init-skeleton.py 从本地路径改为 GitHub 拉取模式 [母库  — `架构决策` → ADR.md#L608
@@ -792,7 +795,7 @@
 - [经验] 文档中的硬编码内网 IP（192.168.x.x）虽不可公网路由，但在公开仓库中暴露基础设施拓扑仍属 — `security / documentation` → lessons-learned.md#L215
 - [经验] 配置模式演进时应保留旧字段作为 fallback。当 `path` 单字段→`paths` 多平台字 — `config / maintainability` → lessons-learned.md#L223
 - [经验] **设计文档交付后应主动邀请用户逐节评审**。本轮用户检查 design.md 发现 5 个不一致问 — `ai-workflow` → lessons-learned.md#L225
-- [经验] ❌ 一次性环境配置错误（如输错密码、网络临时中断） [来源:fact-swarm-v2 @2026- — `未分类` → lessons-learned.md#L237
+- [经验] ❌ 一次性环境配置错误（如输错密码、网络临时中断） [来源:fact-swarm-v2 @2026- — `未分类` → lessons-learned.md#L239
 - [经验] 中文路径 + MinGW = 链接器失败。解决方案：复制到纯 ASCII 路径后编译 [来源:fre — `未分类` → lessons-learned.md#L121
 - [经验] `cargo check --lib` 不需要链接，可以在中文路径直接跑；`cargo test - — `未分类` → lessons-learned.md#L122
 - [经验] Windows 路径在 git bash / Node.js / cmd 中转义规则不同，写跨平台脚 — `未分类` → lessons-learned.md#L123
@@ -823,7 +826,7 @@
 - [经验] Windows Git Bash 下执行 `git init` 时，所有文本文件会触发 `LF wi — `未分类` → lessons-learned.md#L199
 - [经验] PowerShell 中 `\` 续行符与 Bash 的 `\` 不一致（PowerShell 用反 — `cross-platform` → lessons-learned.md#L217
 - [经验] 跨设备依赖环境变量的方案天然不可迁移。Windows 用户级环境变量（注册表持久化）在另一台设备上不 — `cross-platform` → lessons-learned.md#L221
-- [经验] **完整功能验证**：仍需本地 `cargo tauri dev` 或双击 release `.ex — `未分类` → lessons-learned.md#L247
+- [经验] **完整功能验证**：仍需本地 `cargo tauri dev` 或双击 release `.ex — `未分类` → lessons-learned.md#L249
 - [经验] 中文路径 + MinGW = 链接器失败。解决方案：复制到纯 ASCII 路径后编译 [来源:fre — `未分类` → lessons-learned.md#L121
 - [经验] Windows 路径在 git bash / Node.js / cmd 中转义规则不同，写跨平台脚 — `未分类` → lessons-learned.md#L123
 - [决策] ADR-023: RULE-04 从 Windows-only 改为跨平台 — `架构决策` → ADR.md#L38
@@ -986,22 +989,23 @@
 - [经验] 平台感知配置模式：配置文件按 `sys.platform`（win32/darwin/linux）分 — `cross-platform / config` → lessons-learned.md#L222
 - [经验] **信任优先原则**：用户直接告知的内容（行号范围、文件摘要、决策信息等），AI 应直接信任并消化， — `ai-workflow` → lessons-learned.md#L224
 - [经验] `BoardFactory.highlight()` 需要同时支持 `data-square`（8× — `board` → lessons-learned.md#L227
-- [经验] 阶段产出（stage outputs）不应在 starter/ 中预置模板。design.md、fr — `未分类` → lessons-learned.md#L230
-- [经验] 防御性设计采用三层模式最有效：硬规则约束行为 + 流程关卡提供检查点 + 辅助工具提供自动化验证。R — `未分类` → lessons-learned.md#L231
-- [经验] 新建公开仓库时应想清楚其定位：是母库本身（全量内容+规则+经验），还是纯模板（仅 starter/  — `未分类` → lessons-learned.md#L233
-- [经验] ADR 作为项目特有架构决策记录不应全量分发。跨项目 ADR 参考价值极低（决策上下文绑定具体项目） — `未分类` → lessons-learned.md#L235
-- [经验] ❌ 已记入 `troubleshooting.md` 的具体错误修复步骤 → 那里是"急救手册"，这 — `未分类` → lessons-learned.md#L236
-- [经验] ❌ 过于基础的知识（如 "List 的 `add()` 是 O(1)"） [来源:fact-swar — `未分类` → lessons-learned.md#L238
-- [经验] ❌ 仅适用于本项目特定业务逻辑的 hack [来源:fact-swarm-v2 @2026-06-1 — `未分类` → lessons-learned.md#L239
-- [经验] **AI 助手**：每次会话结束后执行上述评估流程，自主判断并写入 [来源:fact-swarm-v — `未分类` → lessons-learned.md#L240
-- [经验] **人类把控者**：如发现 AI 漏记了明显有价值的经验，随时补录 [来源:fact-swarm-v — `未分类` → lessons-learned.md#L241
-- [经验] **正确做法**：遇到"终端""同步""项目"这类横跨多层含义的词，先给两个选项让用户确认，不要默认 — `未分类` → lessons-learned.md#L242
-- [经验] **正确做法**：Side-by-side 对比源文件和目标文件的关键段落，尤其是表格、触发词、命令 — `未分类` → lessons-learned.md#L243
-- [经验] **限制**：IPC 调用会失败，需通过 mock 数据或调试导航面板 bypass [来源:fre — `未分类` → lessons-learned.md#L246
-- [经验] **优势**：零侵入 scanner 实现，不需要修改 7 个具体 scanner 的代码 [来源: — `未分类` → lessons-learned.md#L248
-- [经验] ❌ 直接把每个任务的局部 `current/total` 当作全局百分比 [来源:french-ex — `未分类` → lessons-learned.md#L249
-- [经验] 设计文档与代码实现之间存在双向验证缺口：文档描述与代码行为不一致时，文档会逐渐变为误导性参考。正确做 — `未分类` → lessons-learned.md#L250
-- [经验] ❌ 前端"只增不减"机制配合局部进度 = 轻量任务瞬间把进度锁死在 100% [来源:french- — `未分类` → lessons-learned.md#L251
+- [经验] `transition: all` 是前端性能陷阱。浏览器无法预测哪些属性会变化，每帧都执行 lay — `performance / css` → lessons-learned.md#L229
+- [经验] 阶段产出（stage outputs）不应在 starter/ 中预置模板。design.md、fr — `未分类` → lessons-learned.md#L232
+- [经验] 防御性设计采用三层模式最有效：硬规则约束行为 + 流程关卡提供检查点 + 辅助工具提供自动化验证。R — `未分类` → lessons-learned.md#L233
+- [经验] 新建公开仓库时应想清楚其定位：是母库本身（全量内容+规则+经验），还是纯模板（仅 starter/  — `未分类` → lessons-learned.md#L235
+- [经验] ADR 作为项目特有架构决策记录不应全量分发。跨项目 ADR 参考价值极低（决策上下文绑定具体项目） — `未分类` → lessons-learned.md#L237
+- [经验] ❌ 已记入 `troubleshooting.md` 的具体错误修复步骤 → 那里是"急救手册"，这 — `未分类` → lessons-learned.md#L238
+- [经验] ❌ 过于基础的知识（如 "List 的 `add()` 是 O(1)"） [来源:fact-swar — `未分类` → lessons-learned.md#L240
+- [经验] ❌ 仅适用于本项目特定业务逻辑的 hack [来源:fact-swarm-v2 @2026-06-1 — `未分类` → lessons-learned.md#L241
+- [经验] **AI 助手**：每次会话结束后执行上述评估流程，自主判断并写入 [来源:fact-swarm-v — `未分类` → lessons-learned.md#L242
+- [经验] **人类把控者**：如发现 AI 漏记了明显有价值的经验，随时补录 [来源:fact-swarm-v — `未分类` → lessons-learned.md#L243
+- [经验] **正确做法**：遇到"终端""同步""项目"这类横跨多层含义的词，先给两个选项让用户确认，不要默认 — `未分类` → lessons-learned.md#L244
+- [经验] **正确做法**：Side-by-side 对比源文件和目标文件的关键段落，尤其是表格、触发词、命令 — `未分类` → lessons-learned.md#L245
+- [经验] **限制**：IPC 调用会失败，需通过 mock 数据或调试导航面板 bypass [来源:fre — `未分类` → lessons-learned.md#L248
+- [经验] **优势**：零侵入 scanner 实现，不需要修改 7 个具体 scanner 的代码 [来源: — `未分类` → lessons-learned.md#L250
+- [经验] ❌ 直接把每个任务的局部 `current/total` 当作全局百分比 [来源:french-ex — `未分类` → lessons-learned.md#L251
+- [经验] 设计文档与代码实现之间存在双向验证缺口：文档描述与代码行为不一致时，文档会逐渐变为误导性参考。正确做 — `未分类` → lessons-learned.md#L252
+- [经验] ❌ 前端"只增不减"机制配合局部进度 = 轻量任务瞬间把进度锁死在 100% [来源:french- — `未分类` → lessons-learned.md#L253
 - [经验] 测试驱动开发能在手工测试无法触及的边界条件下发现 bug（如"恰好取消所有勾选"触发死循环）[来源: — `未分类` → lessons-learned.md#L114
 - [经验] `AGENTS.md` 定义触发词和行为约束，`status.md` 记录动态进度，两者分工明确，新 — `未分类` → lessons-learned.md#L117
 - [决策] ADR-025: decisions.md 退出分发体系，仅保留聚合 — `架构决策` → ADR.md#L8
@@ -1354,7 +1358,7 @@
 - `cargo tauri build` 失败：`另一个程序正在使用此文件` (os error 32) → troubleshooting.md#L204
 - ... 还有 28 条
 
-### 经验（219 条）
+### 经验（221 条）
 
 - 纯 HTML+CSS+JS 项目无需 npm，双击 `index.html` 即可预览，但涉及 Web Wor... → lessons-learned.md#L14
 - 手写 IIFE 模块时，用 `window.ModuleName = Module` 暴露 API，内部私有变... → lessons-learned.md#L15
@@ -1376,7 +1380,7 @@
 - **i18n 分散架构必然导致翻译遗漏**：当项目同时存在"全局字典 + 模块私有字典 + 硬编码"三种翻译方... → lessons-learned.md#L31
 - **JS 中的硬编码人类可读字符串是翻译遗漏的重灾区**：HTML 中的 `data-i18n` 至少能被肉眼... → lessons-learned.md#L32
 - **复制粘贴是 i18n 错误的常见来源**：将中文值直接粘贴进英文字典，或反之，属于低级但高频的疏忽 [来源... → lessons-learned.md#L33
-- ... 还有 199 条
+- ... 还有 201 条
 
 ### 决策（310 条）
 

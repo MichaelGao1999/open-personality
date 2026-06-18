@@ -249,10 +249,14 @@ async function viewPartialResult() {
       total: items.value.length,
       savedAt: Date.now(),
     }))
-    router.push({
-      path: `/report/${report.share_token}`,
-      query: { partial: '1', mode },
-    })
+    if (route.query.friendToken) {
+      router.replace(`/compare/${report.share_token}/${route.query.friendToken}`)
+    } else {
+      router.push({
+        path: `/report/${report.share_token}`,
+        query: { partial: '1', mode },
+      })
+    }
   } catch (e) {
     const msg = e?.response?.data?.detail?.detail || e?.response?.data?.error || e?.message || t('error.422')
     alert(msg)
@@ -273,7 +277,11 @@ async function submit() {
     const res = await submitAnswers(mode, lang.value, ansList, 'complete', sessionId.value)
     add(res.data)
     localStorage.removeItem(STORAGE_KEY)
-    router.push(`/report/${res.data.share_token}`)
+    if (route.query.friendToken) {
+      router.replace(`/compare/${res.data.share_token}/${route.query.friendToken}`)
+    } else {
+      router.push(`/report/${res.data.share_token}`)
+    }
   } catch (e) {
     alert(e?.response?.data?.detail?.detail || e?.response?.data?.error || e?.message || t('error.422'))
   } finally {

@@ -15,6 +15,7 @@
           {{ t('report.partial_badge') }}
         </div>
         <h2 class="report-title gradient-text">{{ t('report.title') }}</h2>
+        <span v-if="isFriend" class="friend-badge">{{ t('report.friend_badge') }}</span>
         <p v-if="isPartial" class="partial-progress">
           {{ t('report.partial_progress', { answered: report.answered_count, total: report.total_items }) }}
         </p>
@@ -40,6 +41,22 @@
         <ShareLink :share-token="report.share_token" />
 
       </div>
+
+      <div v-if="isFriend" class="friend-cta">
+        <p class="friend-prompt">{{ t('report.friend_prompt') }}</p>
+        <div class="friend-cta-actions">
+          <button class="dopamine-btn start-btn" @click="continueTest">
+            {{ t('report.friend_take_test') }}
+          </button>
+          <button
+            v-if="reports.length > 0"
+            class="dopamine-btn-outline compare-now-btn"
+            @click="compareNow"
+          >
+            {{ t('report.compare_now') }}
+          </button>
+        </div>
+      </div>
     </template>
 
     <div v-if="!loading && error" class="not-found">
@@ -62,6 +79,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { useI18n } from '../composables/useI18n'
 import { getReport } from '../utils/api'
 import { exportCard } from '../utils/exportImage'
+import { useRecentReports } from '../composables/useRecentReports'
 import ResultCard from '../components/ResultCard.vue'
 import ShareLink from '../components/ShareLink.vue'
 
@@ -74,6 +92,12 @@ const error = ref(false)
 const resultCardRef = ref(null)
 
 const isPartial = computed(() => route.query.partial === '1')
+const { reports } = useRecentReports()
+const isFriend = computed(() => {
+  const token = route.params.token
+  if (!token) return false
+  return !reports.some(r => r.share_token === token)
+})
 
 async function fetchReport() {
   const token = route.params.token
@@ -92,8 +116,15 @@ async function exportImage() {
 }
 
 function continueTest() {
-  // 续答时切换到 300 题模式，已答过的题自动跳过
-  router.push({ path: '/questionnaire', query: { mode: 'advanced', resume: report.value.share_token } })
+  const query = { mode: 'advanced', resume: report.value.share_token }
+  if (isFriend.value) {
+    query.friendToken = route.params.token
+  }
+  router.push({ path: '/questionnaire', query })
+}
+
+function compareNow() {
+  router.push(`/compare/${reports[0].share_token}/${route.params.token}`)
 }
 
 onMounted(() => {
@@ -129,6 +160,42 @@ onMounted(() => {
 }
 .partial-progress { color: var(--color-text-secondary); font-size: 15px; margin-top: 8px; }
 .partial-note { color: var(--color-text-secondary); font-size: 13px; margin-top: 4px; }
+.friend-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  background: var(--color-accent-light);
+  color: var(--color-accent);
+  font-size: 12px;
+  font-weight: 600;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+.friend-cta {
+  margin-top: 32px;
+  padding: 24px;
+  border-radius: var(--radius-md);
+  background: var(--color-accent-light);
+  text-align: center;
+  animation: fadeInUp 0.8s var(--ease-bounce) 0.6s both;
+}
+.friend-prompt {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-accent);
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+.friend-cta-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.compare-now-btn {
+  padding: 16px 32px;
+  font-size: 16px;
+}
 .actions { display: flex; flex-direction: column; gap: 12px; align-items: center; margin-top: 40px; animation: fadeInUp 0.8s var(--ease-bounce) 0.6s both; }
 .not-found { text-align: center; padding: 80px 0; animation: fadeInUp 0.5s var(--ease-bounce); }
 .not-found-icon {

@@ -16,7 +16,11 @@ import re
 import sys
 from pathlib import Path
 
-from markdown_parser import parse_adr, parse_lessons, parse_troubleshooting as mp_parse_troubleshooting
+from markdown_parser import (
+    parse_adr,
+    parse_lessons,
+    parse_troubleshooting as mp_parse_troubleshooting,
+)
 
 
 TROUBLE_FILE = "troubleshooting.md"
@@ -26,38 +30,105 @@ INDEX_FILE = "experience-index.md"
 
 TECH_STACK_KEYWORDS: dict[str, list[str]] = {
     "Rust / Tauri": [
-        "rust", "cargo", "tauri", "rustc", "crate", "webview2",
-        "filetime", "getdiskfreespaceexw", "mingw", "ucrt", "dll",
-        "0xc0000139", "0xc0000005", "status_entrypoint",
+        "rust",
+        "cargo",
+        "tauri",
+        "rustc",
+        "crate",
+        "webview2",
+        "filetime",
+        "getdiskfreespaceexw",
+        "mingw",
+        "ucrt",
+        "dll",
+        "0xc0000139",
+        "0xc0000005",
+        "status_entrypoint",
     ],
     "JavaScript / React / Vitest": [
-        "javascript", "react", "jsx", "node", "npm", "vitest", "vite",
-        "jest", "dom", "chess.js", "canvas", "svg", "queryselector",
-        "queryselectorall", "addeventlistener", "event",
-        "unexpected identifier", "cannot update",
+        "javascript",
+        "react",
+        "jsx",
+        "node",
+        "npm",
+        "vitest",
+        "vite",
+        "jest",
+        "dom",
+        "chess.js",
+        "canvas",
+        "svg",
+        "queryselector",
+        "queryselectorall",
+        "addeventlistener",
+        "event",
+        "unexpected identifier",
+        "cannot update",
     ],
     "Python": ["python", "pip", "pytest"],
     "网络 / 环境 / 权限": [
-        "网络", "cdn", "dns", "代理", "proxy", "timeout", "连接超时",
-        "防火墙", "firewall", "path", "编码", "utf", "权限",
-        "中文路径", "huggingface", "modelscope", "github pages",
+        "网络",
+        "cdn",
+        "dns",
+        "代理",
+        "proxy",
+        "timeout",
+        "连接超时",
+        "防火墙",
+        "firewall",
+        "path",
+        "编码",
+        "utf",
+        "权限",
+        "中文路径",
+        "huggingface",
+        "modelscope",
+        "github pages",
         "access is denied",
     ],
     "AI 工具链 / LLM": [
-        "llm", "ollama", "llama", "llama-server", "model",
-        "deepseek", "qwen", "gguf", "modelscope", "huggingface",
+        "llm",
+        "ollama",
+        "llama",
+        "llama-server",
+        "model",
+        "deepseek",
+        "qwen",
+        "gguf",
+        "modelscope",
+        "huggingface",
     ],
     "Git / GitHub": [
-        "git", "github", "ssh", "push", "pull", "commit", "merge",
-        "gh auth", "permission denied",
+        "git",
+        "github",
+        "ssh",
+        "push",
+        "pull",
+        "commit",
+        "merge",
+        "gh auth",
+        "permission denied",
     ],
     "Windows / PowerShell": [
-        "powershell", "windows", "ucrt", "dll", "mingw", "exe",
-        "unexpectedtoken", "bom", "防火墙",
+        "powershell",
+        "windows",
+        "ucrt",
+        "dll",
+        "mingw",
+        "exe",
+        "unexpectedtoken",
+        "bom",
+        "防火墙",
     ],
     "Chess / 引擎": [
-        "stockfish", "chess", "uci", "pgn", "engine",
-        "gomultipv", "candidate", "move",
+        "stockfish",
+        "chess",
+        "uci",
+        "pgn",
+        "engine",
+        "gomultipv",
+        "candidate",
+        "move",
     ],
 }
 
@@ -94,16 +165,19 @@ def infer_domain(source: str, tags: list[str], category: str = "") -> str:
         return "general"
     # french-exit → rust-tauri 或 frontend
     if "french-exit" in s or "tauri" in s or "rust" in tags_lower:
-        if any(t in tags_lower for t in
-               ["cross-platform", "state-management", "pagination", "security"]):
+        if any(
+            t in tags_lower
+            for t in ["cross-platform", "state-management", "pagination", "security"]
+        ):
             return "rust-tauri"
         if "dom" in tags_lower or "ux" in tags_lower:
             return "frontend"
         return "general"
     # 母库/无来源/骨架自身 → infra 或 general
     if not source or s.startswith("母库") or "AI Workbench" in s:
-        if any(t in tags_lower for t in
-               ["project-structure", "indexing", "performance"]):
+        if any(
+            t in tags_lower for t in ["project-structure", "indexing", "performance"]
+        ):
             return "infra"
         return "general"
     return "general"
@@ -151,25 +225,33 @@ def parse_troubleshooting(path: str) -> list[dict]:
     for e in raw_entries:
         source_str = " | ".join(e.get("sources", []))
         domain = infer_domain(source_str, [], e.get("category", ""))
-        entries.append({
-            "type": "问题",
-            "category": e.get("category", ""),
-            "title": e.get("keyword", ""),
-            "source": source_str,
-            "domain": domain,
-            "status": normalize_status(e.get("status", "")),
-            "symptom": e.get("symptom", ""),
-            "cause": e.get("cause", ""),
-            "solution": e.get("solution", ""),
-            "tags": [],
-            "module": "",
-            "line_start": e.get("line_start", 0),
-            "file": TROUBLE_FILE,
-        })
+        entries.append(
+            {
+                "type": "问题",
+                "category": e.get("category", ""),
+                "title": e.get("keyword", ""),
+                "source": source_str,
+                "domain": domain,
+                "status": normalize_status(e.get("status", "")),
+                "symptom": e.get("symptom", ""),
+                "cause": e.get("cause", ""),
+                "solution": e.get("solution", ""),
+                "tags": [],
+                "module": "",
+                "line_start": e.get("line_start", 0),
+                "file": TROUBLE_FILE,
+            }
+        )
 
     # 去重：相同标题（去来源标签后）保留 resolved/promoted 超过 pending/wont_fix
     best: dict[str, dict] = {}
-    RESOLVED_PRIORITY = {"resolved": 3, "promoted": 2, "known_limitation": 1, "pending": 0, "wont_fix": 0}
+    RESOLVED_PRIORITY = {
+        "resolved": 3,
+        "promoted": 2,
+        "known_limitation": 1,
+        "pending": 0,
+        "wont_fix": 0,
+    }
     for e in entries:
         key = e["title"].lower().strip()
         if key not in best:
@@ -187,6 +269,7 @@ def parse_troubleshooting(path: str) -> list[dict]:
 
 # ── Lessons-learned 解析 ──
 
+
 def parse_lessons_learned(path: str) -> list[dict]:
     """解析 lessons-learned.md（使用 markdown_parser 统一解析器）"""
     text = Path(path).read_text(encoding="utf-8")
@@ -203,24 +286,27 @@ def parse_lessons_learned(path: str) -> list[dict]:
         severity = e.get("severity", "INFO").strip()
         module = e.get("module", "").strip()
 
-        entries.append({
-            "type": "经验",
-            "category": " / ".join(tags) if tags else "未分类",
-            "title": desc[:80] + ("..." if len(desc) > 80 else ""),
-            "source": source_str,
-            "domain": infer_domain(source_str, tags),
-            "status": severity,
-            "tags": tags,
-            "module": module,
-            "line_start": e.get("line_start", 0),
-            "file": LESSONS_FILE,
-        })
+        entries.append(
+            {
+                "type": "经验",
+                "category": " / ".join(tags) if tags else "未分类",
+                "title": desc[:80] + ("..." if len(desc) > 80 else ""),
+                "source": source_str,
+                "domain": infer_domain(source_str, tags),
+                "status": severity,
+                "tags": tags,
+                "module": module,
+                "line_start": e.get("line_start", 0),
+                "file": LESSONS_FILE,
+            }
+        )
 
     log(f"Parsed {len(entries)} entries from {LESSONS_FILE}")
     return entries
 
 
 # ── Decisions 解析 ──
+
 
 def parse_decisions(path: str) -> list[dict]:
     """解析 ADR.md（使用 markdown_parser 统一解析器）"""
@@ -233,23 +319,26 @@ def parse_decisions(path: str) -> list[dict]:
         adr_title = e.get("title", "")
         source_str = " | ".join(e.get("sources", []))
 
-        entries.append({
-            "type": "决策",
-            "category": "架构决策",
-            "title": f"{adr_id}: {adr_title}",
-            "source": source_str,
-            "domain": infer_domain(source_str, []),
-            "status": "—",
-            "tags": [],
-            "module": "",
-            "line_start": e.get("line_start", 0),
-            "file": DECISIONS_FILE,
-        })
+        entries.append(
+            {
+                "type": "决策",
+                "category": "架构决策",
+                "title": f"{adr_id}: {adr_title}",
+                "source": source_str,
+                "domain": infer_domain(source_str, []),
+                "status": "—",
+                "tags": [],
+                "module": "",
+                "line_start": e.get("line_start", 0),
+                "file": DECISIONS_FILE,
+            }
+        )
 
     return entries
 
 
 # ── 索引生成 ──
+
 
 def generate_index(
     trouble_entries: list[dict],
@@ -288,15 +377,17 @@ def generate_index(
         )
 
     # ── 按技术栈分组 ──
-    lines.extend([
-        "",
-        "---",
-        "",
-        "## 按技术栈分组",
-        "",
-        "> 一个条目可能同时属于多个技术栈。",
-        "",
-    ])
+    lines.extend(
+        [
+            "",
+            "---",
+            "",
+            "## 按技术栈分组",
+            "",
+            "> 一个条目可能同时属于多个技术栈。",
+            "",
+        ]
+    )
 
     stack_map: dict[str, list[dict]] = {}
     for e in all_entries:
@@ -325,7 +416,9 @@ def generate_index(
         lines.append("")
         for e in stack_map[stack]:
             category = e["category"] or "未分类"
-            lines.append(f"- [{e['type']}] {e['title'][:50]} — `{category}` → {e['file']}#L{e['line_start']}")
+            lines.append(
+                f"- [{e['type']}] {e['title'][:50]} — `{category}` → {e['file']}#L{e['line_start']}"
+            )
         lines.append("")
 
     # ── 按状态分组（troubleshooting 专用） ──
@@ -335,14 +428,23 @@ def generate_index(
         trouble_by_status.setdefault(status, []).append(e)
 
     if trouble_by_status:
-        lines.extend([
-            "",
-            "---",
-            "",
-            "## 按状态分组（troubleshooting）",
-            "",
-        ])
-        status_order = ["pending", "resolved", "promoted", "wont_fix", "known_limitation", "—"]
+        lines.extend(
+            [
+                "",
+                "---",
+                "",
+                "## 按状态分组（troubleshooting）",
+                "",
+            ]
+        )
+        status_order = [
+            "pending",
+            "resolved",
+            "promoted",
+            "wont_fix",
+            "known_limitation",
+            "—",
+        ]
         for status in status_order:
             items = trouble_by_status.get(status, [])
             if not items:
@@ -357,12 +459,14 @@ def generate_index(
             lines.append("")
 
     # ── 按类型分组 ──
-    lines.extend([
-        "---",
-        "",
-        "## 按类型分组",
-        "",
-    ])
+    lines.extend(
+        [
+            "---",
+            "",
+            "## 按类型分组",
+            "",
+        ]
+    )
 
     type_map: dict[str, list[dict]] = {}
     for e in all_entries:
@@ -386,7 +490,9 @@ def generate_index(
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Build unified experience index")
-    parser.add_argument("--check", action="store_true", help="Check if index is up-to-date")
+    parser.add_argument(
+        "--check", action="store_true", help="Check if index is up-to-date"
+    )
     args = parser.parse_args()
 
     files = {

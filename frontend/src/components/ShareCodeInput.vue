@@ -33,9 +33,8 @@ const code = ref('')
 
 function search() {
   const token = code.value.trim()
-  if (token) {
-    router.push(`/report/${token}`)
-  }
+  if (!token) return
+  router.push(`/report/${token}`)
 }
 
 function resume() {
