@@ -279,7 +279,7 @@ onMounted(() => {
 
 /* ===== 首屏 ===== */
 .hero {
-  margin-bottom: 0;
+  margin-bottom: 4px;
   animation: fadeInUp 0.8s var(--ease-bounce);
 }
 
@@ -306,7 +306,7 @@ onMounted(() => {
   gap: 12px;
   justify-content: center;
   margin-bottom: 32px;
-  transform: translateY(-72px);
+  transform: translateY(-32px);
   transition: transform 1.8s var(--ease-smooth-spring);
 }
 
