@@ -6,12 +6,6 @@
       maxlength="8"
       @keyup.enter="search"
     />
-    <button class="dopamine-btn-outline share-btn" @click="resume">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M5 12h14M12 5l7 7-7 7"/>
-      </svg>
-      {{ t('home.continue_button') }}
-    </button>
     <button class="dopamine-btn share-btn" @click="search">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <circle cx="11" cy="11" r="8"/>
@@ -35,13 +29,6 @@ function search() {
   const token = code.value.trim()
   if (!token) return
   router.push(`/report/${token}`)
-}
-
-function resume() {
-  const token = code.value.trim()
-  if (token) {
-    router.push({ path: '/questionnaire', query: { mode: 'advanced', resume: token } })
-  }
 }
 </script>
 

@@ -93,12 +93,28 @@
       </div>
     </div>
 
-    <button class="dopamine-btn start-btn" @click="startTest">
-      {{ t('home.start') }}
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M5 12h14M12 5l7 7-7 7"/>
-      </svg>
-    </button>
+    <div class="start-row">
+      <button class="dopamine-btn start-btn" @click="startTest">
+        {{ t('home.start') }}
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </button>
+      <button
+        v-if="showContinue"
+        class="dopamine-btn-outline start-btn resume-inline-btn"
+        @click="resumeTest"
+      >
+        {{ t('home.continue_button') }}
+      </button>
+      <button
+        v-if="showContinueTo300"
+        class="dopamine-btn-outline start-btn continue300-btn"
+        @click="continueTo300"
+      >
+        {{ t('home.continue_to_300') }}
+      </button>
+    </div>
 
     <div class="divider">
       <span></span>
@@ -139,7 +155,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useI18n } from '../composables/useI18n'
 import { useRecentReports } from '../composables/useRecentReports'
@@ -154,6 +170,25 @@ const savedSession = ref(null)
 const showWhyBig = ref(false)
 const showWhatIsBubble = ref(false)
 const showModeHelp = ref(false)
+const showContinue = computed(() => {
+  if (!savedSession.value) return false
+  return savedSession.value.answered < savedSession.value.total
+})
+
+const showContinueTo300 = computed(() => {
+  if (savedSession.value) return false
+  if (reports.length === 0) return false
+  return reports[0].mode !== 'advanced'
+})
+
+function continueTo300() {
+  if (reports.length === 0) return
+  router.push({
+    path: '/questionnaire',
+    query: { mode: 'advanced', resume: reports[0].share_token },
+  })
+}
+
 const STORAGE_KEY = 'open_personality_session'
 const PARTIAL_KEY = 'open_personality_partial'
 
@@ -387,12 +422,24 @@ onMounted(() => {
   font-size: 12px;
 }
 
-/* ===== 开始按钮 ===== */
-.start-btn {
-  font-size: 18px;
-  padding: 16px 48px;
+/* ===== 开始按钮行 ===== */
+.start-row {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
   margin-bottom: 32px;
   animation: fadeInUp 0.8s var(--ease-bounce) 0.36s both;
+}
+
+.start-row .start-btn {
+  margin-bottom: 0;
+  font-size: 18px;
+  padding: 16px 48px;
+}
+
+.resume-inline-btn,
+.continue300-btn {
+  padding: 16px 32px;
 }
 
 /* ===== 分割线 ===== */
