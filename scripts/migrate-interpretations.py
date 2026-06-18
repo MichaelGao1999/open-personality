@@ -14,9 +14,9 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from backend.app.db.models import Report as DBReport
-from backend.app.core.report_gen import ReportGenerator
-from backend.app.schemas.models import ScoringResult, MBTIResult
+from backend.app.db.models import Report as DBReport  # type: ignore[import-not-found]
+from backend.app.core.report_gen import ReportGenerator  # type: ignore[import-not-found]
+from backend.app.schemas.models import ScoringResult, MBTIResult  # type: ignore[import-not-found]
 
 # ---------- 数据库连接 ----------
 # 从环境变量读取，或直接填写
@@ -45,7 +45,7 @@ for report in reports:
         mbti = MBTIResult(**mbti_dict)
 
         # 从 session 获取 lang
-        from backend.app.db.models import Session as DBSession
+        from backend.app.db.models import Session as DBSession  # type: ignore[import-not-found]
         session = db.query(DBSession).filter(
             DBSession.id == report.session_id
         ).first()

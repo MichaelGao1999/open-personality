@@ -26,7 +26,7 @@ from pathlib import Path
 from typing import Any, List, Optional, Union
 from urllib.parse import quote
 
-import requests
+import requests  # type: ignore[import-untyped]
 
 
 DEFAULT_CONFIG = "config/github-sync.json"
@@ -40,7 +40,7 @@ def log(msg: str) -> None:
 
 def load_config(path: str) -> dict:
     with open(path, "r", encoding="utf-8") as f:
-        return json.load(f)
+        return json.load(f)  # type: ignore[no-any-return]
 
 
 def save_config(path: str, cfg: dict) -> None:
@@ -64,7 +64,7 @@ def api_get(endpoint: str) -> Optional[Union[dict, list]]:
         if result.returncode != 0:
             log(f"gh api 失败: {result.stderr.strip()}")
             return None
-        return json.loads(result.stdout)
+        return json.loads(result.stdout)  # type: ignore[no-any-return]
     except FileNotFoundError:
         log("错误: 未找到 gh CLI，请先安装: https://cli.github.com")
         return None
@@ -80,7 +80,7 @@ def fetch_raw(owner: str, repo: str, branch: str, filepath: str) -> Optional[str
         if resp.status_code == 404:
             return None
         resp.raise_for_status()
-        return resp.text
+        return resp.text  # type: ignore[no-any-return]
     except requests.RequestException as e:
         log(f"拉取失败: {url} -> {e}")
         return None
@@ -98,7 +98,7 @@ def list_repos(username: str) -> List[dict]:
         for page in data:
             flat.extend(page)
         return flat
-    return data
+    return data  # type: ignore[return-value]
 
 
 def filter_repos(repos: list[dict], include: list[str], exclude: list[str]) -> list[dict]:
@@ -339,7 +339,7 @@ def run_sync(config_path: str) -> int:
     if sync_from:
         log(f"母库同步模式: 只从 {sync_from} 拉取更新")
         repo_info = api_get(f"/repos/{username}/{sync_from}")
-        if not repo_info:
+        if not isinstance(repo_info, dict):
             log(f"错误: 无法获取仓库 {sync_from} 的信息")
             return 1
         repo_branch = repo_info.get("default_branch", branch)

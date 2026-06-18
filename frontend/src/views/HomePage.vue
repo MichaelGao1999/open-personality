@@ -178,7 +178,8 @@ const showContinue = computed(() => {
 const showContinueTo300 = computed(() => {
   if (savedSession.value) return false
   if (reports.length === 0) return false
-  return reports[0].mode !== 'advanced'
+  const mode = reports[0].mode
+  return mode === 'speed' || mode === 'standard'
 })
 
 function continueTo300() {
@@ -433,13 +434,14 @@ onMounted(() => {
 
 .start-row .start-btn {
   margin-bottom: 0;
-  font-size: 18px;
-  padding: 16px 48px;
+  font-size: 16px;
+  padding: 12px 32px;
 }
 
 .resume-inline-btn,
 .continue300-btn {
-  padding: 16px 32px;
+  padding: 12px 24px;
+  font-size: 13px;
 }
 
 /* ===== 分割线 ===== */

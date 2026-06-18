@@ -1,5 +1,6 @@
 import json
 import os
+from typing import Any
 
 DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "backend", "data")
 
@@ -414,7 +415,7 @@ with open(os.path.join(DATA_DIR, "mbti_mapping.json"), "w", encoding="utf-8") as
 print("Saved mbti_mapping.json")
 
 all_facet_keys = [f"{dim}_{facet}" for dim in ["O","C","E","A","N"] for facet in facets[dim]]
-norms = {}
+norms: dict[str, Any] = {}
 for dim in ["O","C","E","A","N"]:
     norms[dim] = {"mean": 50.0, "sd": 10.0}
 for key in all_facet_keys:
