@@ -465,7 +465,7 @@ onUnmounted(() => {
 .option-hints {
   display: flex;
   justify-content: center;
-  gap: 8px;
+  gap: 12px;
   margin-top: 8px;
   min-height: 24px;
 }
@@ -477,7 +477,6 @@ onUnmounted(() => {
   font-weight: 600;
   color: transparent;
   transition: color 0.4s ease;
-  max-width: 90px;
 }
 
 .hint-item.visible {
