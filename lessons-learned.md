@@ -226,6 +226,8 @@
 
 | | TAG:board [来源:agent-coding-skeleton @2026-06-10] | INFO | `BoardFactory.highlight()` 需要同时支持 `data-square`（8×8 棋盘，如 `e2`）和 `data-pos`（6×6 棋盘，如 `2,3`）两种格子标识。非 8×8 棋盘调 `board.highlight('行,列', 'dot')`，8×8 棋盘调 `board.highlight('e2', 'dot')`。调用前必须先确认棋盘是什么尺寸 [blindfold-chess @2026-05-30] | guide.js + board-factory.js |
 | 129 | TAG:ai-workflow | WARNING | **GitHub 上 Fetch 的 SKILL.md 不能只看内容不看场景**。用户发来 `github.com/anthropics/skills/blob/main/skills/brand-guidelines/SKILL.md`，内按内容（Anthropic 品牌色/字体）判断"与本项目几乎无关"。但用户意图是将其作为前端设计的风格参考母版（front design），而非直接输出 Anthropic 风格内容。先问"你想怎么用这个"再评估。 [open-personality @2026-06-10] | 前端设计 |
+| 130 | TAG:performance TAG:css | WARNING | `transition: all` 是前端性能陷阱。浏览器无法预测哪些属性会变化，每帧都执行 layout 检查。应始终指定精确属性名（如 `transform 0.3s, opacity 0.3s`），即使当前只打算动一个属性 [open-personality @2026-06-18] | HomePage.vue / 全项目审计 |
+| 131 | TAG:performance TAG:css | INFO | **零 layout 动画三板斧**：①元素始终占位（不用 `v-if`/`v-show` 插入 DOM）；②视觉展开用 `transform: scaleX()`（GPU compositor）；③周围元素位移用 `transform: translateY()`（GPU compositor）而非 `margin`/`top`。三者全走 compositor 层，浏览器主线程零负担 [open-personality @2026-06-18] | HomePage.vue 胶囊动画 |
 
 | | 阶段产出（stage outputs）不应在 starter/ 中预置模板。design.md、frontend.md、database.md 等高度依赖项目上下文，模板指导价值不如在 workflow 中用结构化描述定义章节标准高；模板与 workflow 描述不一致反增维护成本。仅基础设施和自检工具可放模板。 [母库 @2026-06-10] [来源:AI Workbench @2026-06-17] | starter/agent-coding-workflow.md |
 | | 防御性设计采用三层模式最有效：硬规则约束行为 + 流程关卡提供检查点 + 辅助工具提供自动化验证。RULE-12 告诉 AI"必须用占位符"，存档步骤 4 要求"写之前检查一遍"，sensitivity-check.py 是"不放心就扫一下"。缺任何一层都可能漏——规则被跳过、步骤被遗漏、工具没人用。 [母库 @2026-06-12] [来源:AI Workbench @2026-06-17] | AGENTS.md / scripts/sensitivity-check.py |

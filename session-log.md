@@ -2,6 +2,35 @@
 
 ---
 
+## 2026-06-18 — 首页胶囊 Dynamic Island 改造 + 动画性能优化
+
+### 改动
+- 副标题"大五人格**测评**" → "大五人格**测试**"（`zh.json` + `home.spec.ts` 同步）
+- 帮助标识从 `ⓘ` 内联图标 → Dynamic Island 胶囊，副标题下方居中
+- 胶囊动画经过三轮迭代：`max-width` @keyframes → `scaleX` @keyframes → 始终占位 `transition` 零 layout 方案
+- mode-select 从 `margin-top` 改为 `transform: translateY(-72px→0)`，与胶囊同步 GPU compositor 动画
+- i18n 新增 `home.what_is_this`（中文"这是什么？"/英文"What's this?"）
+
+### 技术要点
+- **零 layout 动画方案**：胶囊始终占位（去掉 `v-if`），`transform: scaleX(0.12→1)` + `opacity(0→1)` + mode-select `translateY(-72px→0)`，三者全走 GPU compositor，零 layout 帧参与
+- **`transition: all` 是性能陷阱**：浏览器无法预测变化属性，每帧执行 layout 检查。10 处 `transition: all` 审计并记录待办
+- 全项目动画审计：18 处 layout 级动画待优化（`transition: all` ×10 + `width` ×4 + egg max-height ×1 + 辅助 ×3）
+- `will-change: transform, opacity` 提前创建 GPU layer
+
+### 更新文件
+- `frontend/src/views/HomePage.vue` — 胶囊位置 + 动画全面重构
+- `frontend/src/i18n/zh.json` — `app.subtitle` + `home.what_is_this`
+- `frontend/src/i18n/en.json` — `home.what_is_this`
+- `frontend/e2e/home.spec.ts` — 测试断言同步
+- `status.md` — 新增动画 GPU 化可选待办
+
+### 遗留问题 / 下轮开始点
+- 全项目动画 GPU 化（status.md 待办，18 处改造）
+- 对比功能代码实现
+- 人格解读正文填充
+
+---
+
 ## 2026-06-09 — 初始骨架存档
 
 ### 本轮概要

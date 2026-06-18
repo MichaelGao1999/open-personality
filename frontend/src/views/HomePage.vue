@@ -1,5 +1,5 @@
 <template>
-  <div class="home-page">
+  <div class="home-page" :class="{ 'bubble-visible': showWhatIsBubble }">
     <SettingsMenu />
 
     <!-- 恢复横幅 -->
@@ -22,12 +22,10 @@
       <p class="hero-subtitle">{{ t('app.subtitle') }}</p>
     </div>
 
-    <!-- 这是什么？胶囊（Dynamic Island 弹性展开） -->
-    <Transition name="bubble-appear">
-      <div v-if="showWhatIsBubble" class="what-is-this-capsule" @click="showWhyBig = true">
-        {{ t('home.what_is_this') }}
-      </div>
-    </Transition>
+    <!-- 这是什么？胶囊（Dynamic Island 弹性展开，始终占位 zero-layout） -->
+    <div class="what-is-this-capsule" :class="{ revealing: showWhatIsBubble }" @click="showWhyBig = true">
+      {{ t('home.what_is_this') }}
+    </div>
 
     <!-- 大五人格解释弹窗 -->
     <div v-if="showWhyBig" class="modal-overlay" @click.self="showWhyBig = false">
@@ -281,7 +279,7 @@ onMounted(() => {
 
 /* ===== 首屏 ===== */
 .hero {
-  margin-bottom: 40px;
+  margin-bottom: 0;
   animation: fadeInUp 0.8s var(--ease-bounce);
 }
 
@@ -308,7 +306,12 @@ onMounted(() => {
   gap: 12px;
   justify-content: center;
   margin-bottom: 32px;
-  transition: margin-top 1.8s var(--ease-smooth-spring);
+  transform: translateY(-72px);
+  transition: transform 1.8s var(--ease-smooth-spring);
+}
+
+.bubble-visible .mode-select {
+  transform: translateY(0);
 }
 
 .mode-select .mode-card:nth-child(1) {
@@ -494,7 +497,7 @@ onMounted(() => {
   animation: fadeInUp 0.8s var(--ease-bounce) 0.6s both;
 }
 
-/* ===== 胶囊容器（Easter Egg 模式: v-if 从无到有） ===== */
+/* ===== 胶囊容器（始终占位，transform 零 layout 开销） ===== */
 .what-is-this-capsule {
   display: inline-flex;
   align-items: center;
@@ -506,59 +509,28 @@ onMounted(() => {
   color: #fff;
   font-size: 13px;
   font-weight: 600;
-  cursor: pointer;
+  cursor: default;
   user-select: none;
-  margin: 4px auto 32px;
+  margin: 0 auto 40px;
   white-space: nowrap;
   box-shadow: 0 2px 12px rgba(123, 47, 247, 0.2);
+  transform: scaleX(0.12);
+  opacity: 0;
+  pointer-events: none;
+  will-change: transform, opacity;
+  transition: transform 1.8s var(--ease-smooth-spring),
+              opacity 1.8s var(--ease-smooth-spring);
 }
 
-.what-is-this-capsule:hover {
+.what-is-this-capsule.revealing {
+  transform: scaleX(1);
+  opacity: 1;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.what-is-this-capsule.revealing:hover {
   box-shadow: 0 4px 20px rgba(123, 47, 247, 0.4);
-  transform: scale(1.05);
-  transition: transform 0.2s var(--ease-bounce), box-shadow 0.2s ease;
-}
-
-.what-is-this-capsule:active {
-  transform: scale(0.97);
-}
-
-/* ===== 胶囊出现动画（Dynamic Island 弹性展开） ===== */
-.bubble-appear-enter-active {
-  animation: capsuleReveal 1.8s var(--ease-smooth-spring);
-}
-
-@keyframes capsuleReveal {
-  0% {
-    max-width: 24px;
-    opacity: 0;
-    padding: 0;
-    border-radius: 50%;
-  }
-  25% {
-    max-width: 50px;
-    opacity: 0.5;
-    padding: 0 8px;
-    border-radius: 50%;
-  }
-  50% {
-    max-width: 100px;
-    opacity: 0.8;
-    padding: 0 12px;
-    border-radius: 20px;
-  }
-  75% {
-    max-width: 150px;
-    opacity: 1;
-    padding: 0 16px;
-    border-radius: 16px;
-  }
-  100% {
-    max-width: 200px;
-    opacity: 1;
-    padding: 0 16px;
-    border-radius: 16px;
-  }
 }
 
 .help-icon-sm {

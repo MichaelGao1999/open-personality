@@ -40,6 +40,7 @@
 - [ ] 好友对比功能代码实现（设计已定稿 docs/compare-design.md）
 - [ ] 人格解读正文填充（interpret_zh/en.json body 占位符→部分已填充）
 - [ ] 英文版文案优化翻译
+- [ ] 【可选】全项目动画 GPU 化：18 处 layout 动画改造（10 处 transition:all → 精确属性 + 4 处 width → scaleX + 1 处 egg max-height + 3 处辅助），详见 audit 记录
 
 ---
 
