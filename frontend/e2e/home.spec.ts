@@ -7,7 +7,7 @@ test.describe('首页', () => {
 
   test('加载标题和副标题', async ({ page }) => {
     await expect(page.getByText('Open Personality')).toBeVisible()
-    await expect(page.getByText('大五人格测评')).toBeVisible()
+    await expect(page.getByText('大五人格测试')).toBeVisible()
   })
 
   test('三种模式卡片可见', async ({ page }) => {

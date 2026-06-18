@@ -10,7 +10,7 @@
 
 > **目录结构**：根目录只保留规则文件（`AGENTS.md`、`README.md`）。所有模板文件在 `starter/` 子目录下，消费时按需复制，禁止直接复制整个目录。
 
-### 基础设施层（项目启动时立刻建立）
+### 基础设施层
 
 | 文件 | 职责 |
 |------|------|
@@ -202,75 +202,17 @@ Step 5: 确认后，按 agent-coding-workflow.md 对应章节执行
 确认后开始执行。（y/n）
 ```
 
-### 6.1 阶段一（「阶段一」）
+### 6.1-6.5 阶段定义
 
-**触发词**：`阶段一`（去除标点后精确等于）
-**别名**：`需求讨论`
+| 触发词 | 阶段 | 前置条件 | 主要产出 | Spec |
+|--------|------|---------|---------|------|
+| `阶段一` | 需求讨论 | 无 | `docs/proposal.md` + T-01~T-05 | `agent-coding-workflow.md §阶段一` |
+| `阶段二` | 设计文档搭建 | proposal.md 存在 + 阶段一 ✅ | `docs/design.md`, `docs/brief.md` | `agent-coding-workflow.md §阶段二` |
+| `阶段三` | 划分任务 | design.md + brief.md + 阶段二 ✅ | `docs/tasks/task-{module}.md`, `task-progress.md` | `agent-coding-workflow.md §阶段三` |
+| `阶段四` | 生成 Prompt | task-progress.md 存在 | `prompt.md` | `agent-coding-workflow.md §阶段四` |
+| `阶段五` | 执行开发 | prompt.md 存在 | 源码 + 测试 + 集成 | `agent-coding-workflow.md §阶段五` |
 
-| 项 | 内容 |
-|----|------|
-| **目标** | 把模糊的想法变成清晰的需求文档 |
-| **前置条件** | 无（纯新项目起点）；如项目已有文档则提示「已非新项目，是否强制重开？」 |
-| **关键动作** | 用提问方式确认需求，绝不猜测意图；完成 T-01 ~ T-05 技术需求确认 |
-| **将产出** | `docs/proposal.md` |
-| **执行规范** | `agent-coding-workflow.md §阶段一` |
-| **完成标志** | `docs/proposal.md` 产出，T-01~T-05 有明确答案 |
-
-### 6.2 阶段二（「阶段二」）
-
-**触发词**：`阶段二`（去除标点后精确等于）
-**别名**：`设计文档搭建`
-
-| 项 | 内容 |
-|----|------|
-| **目标** | 根据需求文档生成概要设计文档 |
-| **前置条件** | `docs/proposal.md` 已存在且非占位符；status.md 显示阶段一 ✅ |
-| **关键动作** | 设计前先做反模式检查；每确认一项决策同步大白话记录到 brief.md |
-| **将产出** | `docs/design.md`、`docs/brief.md`、条件性 `docs/frontend.md`（T-05②）、条件性 `docs/database.md`（T-01②/③） |
-| **执行规范** | `agent-coding-workflow.md §阶段二` |
-| **完成标志** | `docs/design.md` + `docs/brief.md` 产出，阶段边界 = 会话边界（结束当前会话） |
-
-### 6.3 阶段三（「阶段三」）
-
-**触发词**：`阶段三`（去除标点后精确等于）
-**别名**：`划分任务`
-
-| 项 | 内容 |
-|----|------|
-| **目标** | 为每个模块拆分成最小可执行子任务 |
-| **前置条件** | `docs/design.md` + `docs/brief.md` 已存在且非占位符；status.md 显示阶段二 ✅ |
-| **关键动作** | 子任务小到「一个 subAgent 一次能做完」；包含测试点；标注优先级（P1/P2） |
-| **将产出** | `docs/tasks/task-{module}.md`（每模块一个文件）、`docs/tasks/task-progress.md`（总进度看板） |
-| **执行规范** | `agent-coding-workflow.md §阶段三` |
-| **完成标志** | 所有模块的 task 文件产出 + task-progress.md 总进度表产出 |
-
-### 6.4 阶段四（「阶段四」）
-
-**触发词**：`阶段四`（去除标点后精确等于）
-**别名**：`生成 Prompt`
-
-| 项 | 内容 |
-|----|------|
-| **目标** | 生成 agent coding 用的主控 prompt |
-| **前置条件** | `docs/tasks/task-progress.md` 已存在；**条件性检查**：如存在 `docs/frontend.md`，检查 §10 决策检查点的 TODO 项是否全部确认 |
-| **关键动作** | prompt.md 作为启动入口（引用式而非复制式），包含「启动声明（必读文件清单）+ 项目特定信息 + 内嵌关键规则摘要 + 验收标准」 |
-| **将产出** | `prompt.md`（项目根目录） |
-| **执行规范** | `agent-coding-workflow.md §阶段四` |
-| **完成标志** | `prompt.md` 产出，frontend.md §10 TODO 全部清零 |
-
-### 6.5 阶段五（「阶段五」）
-
-**触发词**：`阶段五`（去除标点后精确等于）
-**别名**：`执行开发`
-
-| 项 | 内容 |
-|----|------|
-| **目标** | 按批次逐个实现模块，每轮控制在 subAgent 超时范围内 |
-| **前置条件** | `prompt.md` 已存在且非占位符 |
-| **关键动作** | Orchestrator 先读后派；拆成多轮接力，每轮有明确交付物；争议时引用 brief.md 纠偏 |
-| **将产出** | 各模块源码（`src/`）+ 测试（`tests/`）+ 集成 |
-| **执行规范** | `agent-coding-workflow.md §阶段五` |
-| **完成标志** | 按 task-progress.md 分批完成，每轮会话只做一件事 |
+> 各阶段的完整目标、关键动作、完成标志见 `agent-coding-workflow.md` 对应章节。
 
 ### 6.6 当前阶段（「当前阶段」）
 

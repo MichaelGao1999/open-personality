@@ -19,11 +19,15 @@
 
     <div class="hero">
       <h1 class="hero-title">{{ t('app.title') }}</h1>
-      <p class="hero-subtitle">
-        {{ t('app.subtitle') }}
-        <span class="help-icon" @click.stop="showWhyBig = true">&#9432;</span>
-      </p>
+      <p class="hero-subtitle">{{ t('app.subtitle') }}</p>
     </div>
+
+    <!-- 这是什么？胶囊（Dynamic Island 弹性展开） -->
+    <Transition name="bubble-appear">
+      <div v-if="showWhatIsBubble" class="what-is-this-capsule" @click="showWhyBig = true">
+        {{ t('home.what_is_this') }}
+      </div>
+    </Transition>
 
     <!-- 大五人格解释弹窗 -->
     <div v-if="showWhyBig" class="modal-overlay" @click.self="showWhyBig = false">
@@ -150,6 +154,7 @@ const { reports } = useRecentReports()
 const mode = ref('standard')
 const savedSession = ref(null)
 const showWhyBig = ref(false)
+const showWhatIsBubble = ref(false)
 const showModeHelp = ref(false)
 const STORAGE_KEY = 'open_personality_session'
 const PARTIAL_KEY = 'open_personality_partial'
@@ -216,6 +221,9 @@ function startTest() {
 
 onMounted(() => {
   savedSession.value = loadSavedSession()
+  setTimeout(() => {
+    showWhatIsBubble.value = true
+  }, 3000)
 })
 </script>
 
@@ -300,6 +308,7 @@ onMounted(() => {
   gap: 12px;
   justify-content: center;
   margin-bottom: 32px;
+  transition: margin-top 1.8s var(--ease-smooth-spring);
 }
 
 .mode-select .mode-card:nth-child(1) {
@@ -485,26 +494,71 @@ onMounted(() => {
   animation: fadeInUp 0.8s var(--ease-bounce) 0.6s both;
 }
 
-/* ===== 帮助图标 ===== */
-.help-icon {
+/* ===== 胶囊容器（Easter Egg 模式: v-if 从无到有） ===== */
+.what-is-this-capsule {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 22px;
-  height: 22px;
-  font-size: 14px;
-  border-radius: 50%;
+  height: 32px;
+  padding: 0 16px;
+  border-radius: 16px;
+  background: var(--color-accent);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
   cursor: pointer;
-  color: var(--color-accent);
-  background: var(--color-accent-light);
-  margin-left: 8px;
-  vertical-align: middle;
-  transition: transform 0.35s;
   user-select: none;
+  margin: 4px auto 32px;
+  white-space: nowrap;
+  box-shadow: 0 2px 12px rgba(123, 47, 247, 0.2);
 }
 
-.help-icon:hover {
-  transform: scale(1.25);
+.what-is-this-capsule:hover {
+  box-shadow: 0 4px 20px rgba(123, 47, 247, 0.4);
+  transform: scale(1.05);
+  transition: transform 0.2s var(--ease-bounce), box-shadow 0.2s ease;
+}
+
+.what-is-this-capsule:active {
+  transform: scale(0.97);
+}
+
+/* ===== 胶囊出现动画（Dynamic Island 弹性展开） ===== */
+.bubble-appear-enter-active {
+  animation: capsuleReveal 1.8s var(--ease-smooth-spring);
+}
+
+@keyframes capsuleReveal {
+  0% {
+    max-width: 24px;
+    opacity: 0;
+    padding: 0;
+    border-radius: 50%;
+  }
+  25% {
+    max-width: 50px;
+    opacity: 0.5;
+    padding: 0 8px;
+    border-radius: 50%;
+  }
+  50% {
+    max-width: 100px;
+    opacity: 0.8;
+    padding: 0 12px;
+    border-radius: 20px;
+  }
+  75% {
+    max-width: 150px;
+    opacity: 1;
+    padding: 0 16px;
+    border-radius: 16px;
+  }
+  100% {
+    max-width: 200px;
+    opacity: 1;
+    padding: 0 16px;
+    border-radius: 16px;
+  }
 }
 
 .help-icon-sm {

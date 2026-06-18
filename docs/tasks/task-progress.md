@@ -76,7 +76,7 @@ INFRA ──→ DATA ──→ M01 ──┐
 | INFRA-05 | 前端入口：index.html + App.vue + main.js | P1 | INFRA-03 | ✅ |
 | INFRA-06 | 配置模块：config.py（环境变量 + 路径） | P1 | INFRA-01 | ✅ |
 | INFRA-07 | 数据库初始化和迁移脚本 | P1 | INFRA-06 | ✅ |
-| INFRA-08 | CI 配置（GitHub Actions / 基础测试自动运行） | P2 | INFRA-02 | ⬜ |
+| INFRA-08 | CI 配置（GitHub Actions / 基础测试自动运行） | P2 | INFRA-02 | ✅ |
 | DATA-01 | IPIP-120 中文题目 JSON | P1 | — | ✅ |
 | DATA-02 | IPIP-120 英文题目 JSON | P1 | — | ✅ |
 | DATA-03 | IPIP-300 中文题目 JSON | P2 | — | ✅ |
@@ -133,7 +133,7 @@ INFRA ──→ DATA ──→ M01 ──┐
 | M06-05 | get_report_by_token 查询方法 | P1 | M06-01 | ✅ |
 | M06-06 | 事务回滚测试（模拟写入失败 → 无孤儿数据） | P1 | M06-04 | ✅ |
 | M06-07 | 测试：token 查询命中/未命中 | P1 | M06-05 | ✅ |
-| M06-08 | 测试：token 唯一性（短时大量插入无碰撞） | P2 | M06-04 | ⬜ |
+| M06-08 | 测试：token 唯一性（短时大量插入无碰撞） | P2 | M06-04 | ✅ |
 | M07-01 | FastAPI 应用初始化 + CORS 配置 | P1 | INFRA-04 | ✅ |
 | M07-02 | GET /api/questionnaires/items 端点 | P1 | M01, M07-01 | ✅ |
 | M07-03 | POST /api/questionnaires/submit 端点 | P1 | M01~06, M07-01 | ✅ |
@@ -163,9 +163,9 @@ INFRA ──→ DATA ──→ M01 ──┐
 | M08-17 | EasterEggBanner 组件（彩蛋展示） | P1 | M08-05 | ✅ |
 | M08-18 | ReportPage 视图（组装全部结果） | P1 | M08-14~17 | ✅ |
 | M08-19 | ShareLink 组件（复制分享链接） | P1 | M08-18 | ✅ |
-| M08-20 | E2E 测试 | P2 | M08-18 | ⬜ |
-| M08-21 | 响应式布局适配 | P2 | M08-18 | ⬜ |
-| M08-22 | 页面过渡动画 | P2 | M08-18 | ⬜ |
+| M08-20 | E2E 测试 | P2 | M08-18 | ✅ |
+| M08-21 | 响应式布局适配 | P2 | M08-18 | ✅ |
+| M08-22 | 页面过渡动画 | P2 | M08-18 | ✅ |
 
 ---
 
