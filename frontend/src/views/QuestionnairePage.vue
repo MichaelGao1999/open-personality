@@ -14,9 +14,6 @@
           {{ t('questionnaire.of') }}
           <span class="progress-num">{{ items.length }}</span>
         </p>
-        <div class="progress-bar">
-          <div class="progress-fill" :style="{ width: progress + '%', background: currentDimColor }"></div>
-        </div>
       </div>
 
       <p class="questionnaire-hint">{{ t('questionnaire.hint') }}</p>
@@ -70,6 +67,8 @@
           {{ t('questionnaire.partial_view') }}
         </button>
       </div>
+
+      <p class="keyboard-hint">{{ t('questionnaire.keyboard_hint') }}</p>
     </template>
 
         <template v-if="items.length && showSummary">
@@ -153,7 +152,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, watch } from 'vue'
+import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useI18n } from '../composables/useI18n'
 import { useRecentReports } from '../composables/useRecentReports'
@@ -322,8 +321,21 @@ async function restoreFromServer(token) {
   }
 }
 
+// ---- 键盘快捷选择 ----
+function handleKeydown(e) {
+  if (loading.value || showSummary.value) return
+  const key = e.key
+  // 主键盘 1-5 或数字小键盘 1-5
+  const num = parseInt(key)
+  if (num >= 1 && num <= 5 && key.length === 1) {
+    e.preventDefault()
+    selectAnswer(currentItem.value.item_id, num)
+  }
+}
+
 // ---- 初始化 ----
 onMounted(async () => {
+  window.addEventListener('keydown', handleKeydown)
   try {
     const res = await getItems(mode, lang.value)
     items.value = res.data.items
@@ -336,6 +348,10 @@ onMounted(async () => {
   } catch {
     alert('Failed to load questions')
   }
+})
+
+onUnmounted(() => {
+  window.removeEventListener('keydown', handleKeydown)
 })
 </script>
 
@@ -378,20 +394,6 @@ onMounted(async () => {
   margin-bottom: 32px;
   padding-top: 24px;
   animation: fadeInUp 0.6s var(--ease-bounce);
-}
-
-.progress-bar {
-  height: 10px;
-  background: var(--color-border);
-  border-radius: 5px;
-  overflow: hidden;
-  margin-bottom: 12px;
-}
-
-.progress-fill {
-  height: 100%;
-  border-radius: 5px;
-  transition: width 0.6s var(--ease-smooth);
 }
 
 .progress-text {
@@ -480,6 +482,18 @@ onMounted(async () => {
 
 .hint-item.visible {
   color: var(--hint-color, var(--color-accent));
+}
+
+.keyboard-hint {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  opacity: 0.7;
+  z-index: 10;
 }
 
 /* ===== 底部导航 ===== */

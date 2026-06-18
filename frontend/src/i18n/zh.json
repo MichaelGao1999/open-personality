@@ -56,6 +56,7 @@
   "questionnaire.summary_return": "返回修改",
   "questionnaire.loading": "正在计算你的性格画像...",
   "questionnaire.hint": "无需纠结，凭直觉选择，可随时回溯修改",
+  "questionnaire.keyboard_hint": "数字键盘可快速选择",
   "report.title": "你的性格画像",
   "report.big_five": "大五人格",
   "report.dim_openness": "想象力丰富、喜欢创新、艺术敏感度高",

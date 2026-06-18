@@ -56,6 +56,7 @@
   "questionnaire.summary_submit": "Submit Answers",
   "questionnaire.summary_return": "Back to Review",
   "questionnaire.hint": "No right or wrong answers — go with your first instinct, you can always go back",
+  "questionnaire.keyboard_hint": "Use numpad 1-5 for quick selection",
   "report.title": "Your Personality Profile",
   "report.big_five": "Big Five",
   "report.dim_openness": "Imaginative, innovative, artistically sensitive",
