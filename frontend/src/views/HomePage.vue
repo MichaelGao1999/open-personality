@@ -554,15 +554,15 @@ onMounted(() => {
   height: 32px;
   padding: 0 16px;
   border-radius: 16px;
-  background: var(--color-accent);
-  color: #fff;
+  border: 1.5px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text-secondary);
   font-size: 13px;
   font-weight: 600;
   cursor: default;
   user-select: none;
   margin: 0 auto 40px;
   white-space: nowrap;
-  box-shadow: 0 2px 12px rgba(123, 47, 247, 0.2);
   transform: scaleX(0.12);
   opacity: 0;
   pointer-events: none;
@@ -579,7 +579,8 @@ onMounted(() => {
 }
 
 .what-is-this-capsule.revealing:hover {
-  box-shadow: 0 4px 20px rgba(123, 47, 247, 0.4);
+  background: var(--color-surface);
+  border-color: var(--color-text-secondary);
 }
 
 .help-icon-sm {
