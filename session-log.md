@@ -2,6 +2,18 @@
 
 ---
 
+## 2026-06-18 — 好友对比功能实现 + 首页按钮重构
+
+**首页 UI**：间距调整（hero margin-bottom 4px, mode-select translateY -32px）、胶囊文案去问号、DevTools CSS sourcemap 联动、按钮重构（开始测试 + 继续答题 + 继续答满300题）、ShareCodeInput 精简
+
+**对比功能**（gaps 1-9 全部关闭）：facetMeta.js / compare.js / CompareView.vue / ComparePage.vue 新建；RadarChart 双 series、ReportPage friend 模式、QuestionnairePage friendToken 回调改造；/compare 路由；exportCompareCard；i18n 13 key
+
+**分享码归属**：ShareCodeInput 不再猜测，统一跳 /report/{token}；ReportPage 基于 useRecentReports 自动判断 isFriend + "直接对比"按钮
+
+**构建**：vite build 通过，无新增问题。
+
+---
+
 ## 2026-06-18 — 首页胶囊 Dynamic Island 改造 + 动画性能优化
 
 ### 改动

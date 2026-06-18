@@ -37,7 +37,7 @@
 - [x] 分享链接修复（复制分享码）
 - [x] 续答机制（session恢复 + 存档再来 + 查重修复）
 - [x] 出题轮换（O→C→E→A→N循环，5题覆盖全维度）
-- [ ] 好友对比功能代码实现（设计已定稿 docs/compare-design.md）
+- [x] 好友对比功能代码实现（设计已定稿 docs/compare-design.md）
 - [ ] 人格解读正文填充（interpret_zh/en.json body 占位符→部分已填充）
 - [ ] 英文版文案优化翻译
 - [ ] 【可选】全项目动画 GPU 化：18 处 layout 动画改造（10 处 transition:all → 精确属性 + 4 处 width → scaleX + 1 处 egg max-height + 3 处辅助），详见 audit 记录
@@ -87,11 +87,11 @@ open-personality/
 │   └── tests/                # 41 个测试用例
 ├── frontend/
 │   ├── src/
-│   │   ├── views/            # 3 个页面（首页/问卷/报告）
-│   │   ├── components/       # 6 个组件
+│   │   ├── views/            # 4 个页面（首页/问卷/报告/对比）
+│   │   ├── components/       # 8 个组件
 │   │   ├── composables/      # 3 个 composable
 │   │   ├── i18n/             # zh + en 语言包
-│   │   └── utils/            # API + 图片导出
+│   │   └── utils/            # API + 图片导出 + 对比 + 共享常量
 │   └── vite.config.js
 ├── docs/
 │   ├── proposal.md / brief.md / design.md / frontend.md / tasks/
@@ -135,4 +135,5 @@ open-personality/
 | 2026-06-16 | OpenAPI 文档装饰完成（5 端点 + tags + response_model）
 | 2026-06-16 | 响应式布局适配（520px断点）、全局 logo（Apple风格）、卡片文本+padding优化、报告导出水印
 | 2026-06-16 | P0/P1 动画修复 + E2E 测试（Playwright 16 passing）+ Logo 工具栏重构 + ruff lint 修复 + README 重写
-| 2026-06-17 | 子维度译名同步：draft.md 译名列→调整版 + ResultCard.vue facetMeta 对齐（25/30 项）
+| 2026-06-17 | 子维度译名同步：draft.md 译名列→调整版 + ResultCard.vue facetMeta 对���（25/30 项）
+| 2026-06-18 | 好友对比功能完整实现（9项差距全部关闭），首页 UI 调整（间距/按钮/文案），分享码归属自动判断，ShareCodeInput 精简，CSS sourcemap 配置 |
