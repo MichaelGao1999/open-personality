@@ -7,6 +7,10 @@
     "low": {
       "title": "Low in Openness",
       "body": "You prefer the familiar and the practical. You are down-to-earth, focusing on what's tangible and useful rather than abstract or speculative ideas. You like routine and tradition, and are more comfortable with tried-and-true approaches than experimental ones."
+    },
+    "medium": {
+      "title": "Moderate Openness",
+      "body": "You have a balanced level of Openness to Experience. You're curious enough to explore new ideas but practical enough to stay grounded. You appreciate novelty without being easily distracted by every new trend, finding a comfortable middle ground between tradition and innovation."
     }
   },
   "O_imagination": {
@@ -17,6 +21,10 @@
     "low": {
       "title": "Low in Imagination",
       "body": "You are practical and grounded, preferring concrete facts to fantasy. You focus on what's real and tangible rather than what's imaginary. Your thinking is direct and straightforward — you rarely get lost in daydreams."
+    },
+    "medium": {
+      "title": "Moderate Imagination",
+      "body": "You have a moderate imagination — creative enough to think outside the box, but practical enough to stay grounded in reality."
     }
   },
   "O_aesthetics": {
@@ -27,6 +35,10 @@
     "low": {
       "title": "Low in Aesthetics",
       "body": "You are less concerned with beauty and artistic expression. You care more about function than form, and don't spend much time contemplating art or design. This isn't a flaw — you simply focus your attention elsewhere."
+    },
+    "medium": {
+      "title": "Moderate Aesthetic Sensitivity",
+      "body": "You have a moderate appreciation for beauty and art — you can enjoy aesthetic experiences without being consumed by them."
     }
   },
   "O_feelings": {
@@ -37,6 +49,10 @@
     "low": {
       "title": "Low in Feelings",
       "body": "Your emotional responses are measured and controlled. You are not easily swept up by emotional experiences and tend to approach situations with rationality rather than sentiment. This helps you stay calm under pressure."
+    },
+    "medium": {
+      "title": "Moderate Emotional Depth",
+      "body": "You have moderate emotional depth — you're aware of your feelings but not entirely driven by them."
     }
   },
   "O_adventurousness": {
@@ -47,6 +63,10 @@
     "low": {
       "title": "Low in Adventurousness",
       "body": "You prefer familiarity and stability over novelty and change. You like knowing what to expect and stick with what works for you. Trying new things feels more stressful than exciting, and you find comfort in routine."
+    },
+    "medium": {
+      "title": "Moderate Adventurousness",
+      "body": "You have a moderate sense of adventure — willing to try new things, but with reasonable caution."
     }
   },
   "O_intellect": {
@@ -57,6 +77,10 @@
     "low": {
       "title": "Low in Intellect",
       "body": "You prefer practical, hands-on thinking over abstract intellectual pursuits. You're interested in how things work in the real world rather than theoretical debates. You'd rather learn a useful skill than explore abstract concepts."
+    },
+    "medium": {
+      "title": "Moderate Intellectual Curiosity",
+      "body": "You have moderate intellectual curiosity — open to learning, with focused interests rather than scattered exploration."
     }
   },
   "O_liberalism": {
@@ -67,6 +91,10 @@
     "low": {
       "title": "Low in Liberalism",
       "body": "You respect tradition and established values. You believe certain principles shouldn't be easily discarded and that social stability matters more than radical change. You prefer clear guidelines and predictable ways of living."
+    },
+    "medium": {
+      "title": "Moderate Openness to Values",
+      "body": "You have a moderate openness to new values — respectful of different perspectives while holding your own core beliefs."
     }
   },
   "C": {
@@ -77,6 +105,10 @@
     "low": {
       "title": "Low in Conscientiousness",
       "body": "You prefer a spontaneous and flexible lifestyle. You dislike being tied down by strict schedules or rigid plans. While you may be seen as disorganized at times, your flexibility makes you adaptable to change and better at living in the moment."
+    },
+    "medium": {
+      "title": "Moderate Conscientiousness",
+      "body": "You have a balanced level of Conscientiousness. You can be organized and disciplined when needed, but you also know when to be flexible and go with the flow. This adaptability lets you work hard without burning out."
     }
   },
   "C_self_efficacy": {
@@ -87,6 +119,10 @@
     "low": {
       "title": "Low in Self-Efficacy",
       "body": "You often doubt your abilities and may hesitate when facing new challenges. Even when you have the skills to succeed, you tend to second-guess yourself. This caution can make you more thorough, but it may also hold you back from seizing opportunities."
+    },
+    "medium": {
+      "title": "Moderate Self-Efficacy",
+      "body": "You have moderate self-efficacy — you trust your abilities but acknowledge that success isn't always certain."
     }
   },
   "C_orderliness": {
@@ -97,6 +133,10 @@
     "low": {
       "title": "Low in Orderliness",
       "body": "You are not particularly concerned with neatness or organization. Your space may be messy, but you know where things are. You feel that too much structure can be stifling and prefer a more relaxed approach to order."
+    },
+    "medium": {
+      "title": "Moderate Orderliness",
+      "body": "You have moderate orderliness — you like some structure but can adapt when plans change."
     }
   },
   "C_dutifulness": {
@@ -107,6 +147,10 @@
     "low": {
       "title": "Low in Dutifulness",
       "body": "You value your freedom and don't like being tied down by obligations. You may change plans at the last minute or be less careful about keeping promises. This isn't about not caring — you just prefer to keep your options open."
+    },
+    "medium": {
+      "title": "Moderate Dutifulness",
+      "body": "You have a moderate sense of duty — you keep your promises but know when to reprioritize."
     }
   },
   "C_achievement_striving": {
@@ -117,6 +161,10 @@
     "low": {
       "title": "Low in Achievement-Striving",
       "body": "You are content with meeting basic expectations and don't feel the need to constantly push for more. You value quality of life and personal satisfaction over climbing the ladder. This relaxed attitude helps you avoid burnout."
+    },
+    "medium": {
+      "title": "Moderate Achievement Striving",
+      "body": "You have moderate achievement drive — ambitious enough to aim high, but balanced enough not to sacrifice everything for success."
     }
   },
   "C_self_discipline": {
@@ -127,6 +175,10 @@
     "low": {
       "title": "Low in Self-Discipline",
       "body": "You struggle with procrastination and find it hard to stick with tasks that don't interest you. You're easily distracted and may start many projects without finishing them. You need external motivation or deadlines to stay on track."
+    },
+    "medium": {
+      "title": "Moderate Self-Discipline",
+      "body": "You have moderate self-discipline — you can stay on task but also allow yourself breaks when needed."
     }
   },
   "C_cautiousness": {
@@ -137,6 +189,10 @@
     "low": {
       "title": "Low in Cautiousness",
       "body": "You are spontaneous and act on impulse without overthinking. You trust your gut and are comfortable with risk. This makes you quick to act and seize opportunities, though sometimes you may wish you'd thought things through more carefully."
+    },
+    "medium": {
+      "title": "Moderate Cautiousness",
+      "body": "You have moderate cautiousness — you think before acting without being overly hesitant."
     }
   },
   "E": {
@@ -147,6 +203,10 @@
     "low": {
       "title": "Low in Extraversion",
       "body": "You prefer quiet, low-key environments and find too much social stimulation draining rather than energizing. You value deeper one-on-one connections over large social circles. Your rich inner life sustains you, and you're selective about where you invest your social energy."
+    },
+    "medium": {
+      "title": "Moderate Extraversion",
+      "body": "You have a balanced level of Extraversion. You're comfortable in social settings but also value your alone time. You can be outgoing when the situation calls for it, yet you don't depend on constant social stimulation."
     }
   },
   "E_friendliness": {
@@ -157,6 +217,10 @@
     "low": {
       "title": "Low in Friendliness",
       "body": "You keep people at a distance and don't easily open up to others. You may come across as cool or formal, but this is just your natural style — you need time to build trust before showing your warm side."
+    },
+    "medium": {
+      "title": "Moderate Friendliness",
+      "body": "You have moderate friendliness — warm and approachable, but not overly eager to please."
     }
   },
   "E_gregariousness": {
@@ -167,6 +231,10 @@
     "low": {
       "title": "Low in Gregariousness",
       "body": "You prefer solitude or small groups. Large social gatherings drain your energy and you need alone time to recharge. You'd much rather have a quiet conversation with a close friend than attend a loud party."
+    },
+    "medium": {
+      "title": "Moderate Gregariousness",
+      "body": "You have a moderate social drive — you enjoy company but also value solitude."
     }
   },
   "E_assertiveness": {
@@ -177,6 +245,10 @@
     "low": {
       "title": "Low in Assertiveness",
       "body": "You prefer to stay in the background and let others take the lead. You don't enjoy voicing disagreement or pushing your opinions on others. This isn't about lacking ideas — you just prefer harmony over confrontation."
+    },
+    "medium": {
+      "title": "Moderate Assertiveness",
+      "body": "You have moderate assertiveness — you speak up when needed while respecting others' input."
     }
   },
   "E_activity_level": {
@@ -187,6 +259,10 @@
     "low": {
       "title": "Low in Activity Level",
       "body": "You have a more relaxed pace of life. You don't like to rush and prefer to take things as they come. Your energy levels are moderate, and you're comfortable with leisure and downtime without feeling guilty."
+    },
+    "medium": {
+      "title": "Moderate Activity Level",
+      "body": "You have a moderate activity level — energetic enough for daily demands without being constantly on the go."
     }
   },
   "E_excitement_seeking": {
@@ -197,6 +273,10 @@
     "low": {
       "title": "Low in Excitement-Seeking",
       "body": "You prefer a calm and predictable life without too much excitement. You don't understand why people enjoy thrills like skydiving or roller coasters. You're content with peaceful, low-stimulation activities."
+    },
+    "medium": {
+      "title": "Moderate Excitement Seeking",
+      "body": "You have a moderate need for excitement — you enjoy some thrill but don't chase extreme experiences."
     }
   },
   "E_cheerfulness": {
@@ -207,6 +287,10 @@
     "low": {
       "title": "Low in Cheerfulness",
       "body": "You tend to be serious and reserved in your emotional expression. You're not easily excited and don't show overt happiness about small things. This doesn't mean you're unhappy — you just express positivity in more measured ways."
+    },
+    "medium": {
+      "title": "Moderate Cheerfulness",
+      "body": "You have moderate cheerfulness — generally positive in outlook while acknowledging life's difficulties."
     }
   },
   "A": {
@@ -217,6 +301,10 @@
     "low": {
       "title": "Low in Agreeableness",
       "body": "You are more self-oriented and less concerned with pleasing others. You make decisions based on your own needs and aren't afraid of conflict. This assertiveness serves you well in competitive environments, though others may find you challenging to work with."
+    },
+    "medium": {
+      "title": "Moderate Agreeableness",
+      "body": "You have a balanced level of Agreeableness. You care about others' feelings but also know how to stand your ground when necessary. You navigate cooperation and self-assertion with reasonable ease."
     }
   },
   "A_trust": {
@@ -227,6 +315,10 @@
     "low": {
       "title": "Low in Trust",
       "body": "You are skeptical of others' intentions and assume people may have hidden motives. You need time and evidence before trusting someone new. This cautiousness protects you from being taken advantage of, but can also keep genuine people at a distance."
+    },
+    "medium": {
+      "title": "Moderate Trust",
+      "body": "You have a moderate level of trust — you give people the benefit of the doubt while keeping reasonable caution."
     }
   },
   "A_morality": {
@@ -237,6 +329,10 @@
     "low": {
       "title": "Low in Morality",
       "body": "You are pragmatic and willing to bend rules when it serves your purpose. You don't believe all rules must be strictly followed, and see nothing wrong with the occasional white lie. This flexibility helps you navigate complex social situations."
+    },
+    "medium": {
+      "title": "Moderate Morality",
+      "body": "You have a moderate moral compass — honest and principled, yet able to navigate gray areas."
     }
   },
   "A_altruism": {
@@ -247,6 +343,10 @@
     "low": {
       "title": "Low in Altruism",
       "body": "You prioritize your own needs and are less inclined to sacrifice your time for others. This isn't selfishness — you simply believe everyone should look after themselves first. You help when it makes sense, not out of obligation."
+    },
+    "medium": {
+      "title": "Moderate Altruism",
+      "body": "You have moderate altruism — you help others without neglecting your own needs."
     }
   },
   "A_cooperation": {
@@ -257,6 +357,10 @@
     "low": {
       "title": "Low in Cooperation",
       "body": "You are competitive and stubborn. You stand your ground in disagreements and are not easily swayed. You don't mind conflict and will fight for your position rather than give in for the sake of harmony. This makes you formidable in negotiations."
+    },
+    "medium": {
+      "title": "Moderate Cooperation",
+      "body": "You have a moderate tendency to cooperate — you work well in teams while maintaining independent thinking."
     }
   },
   "A_modesty": {
@@ -267,6 +371,10 @@
     "low": {
       "title": "Low in Modesty",
       "body": "You are confident in your abilities and aren't shy about letting others know. You believe in promoting yourself and see nothing wrong with being the center of attention. You know your worth and aren't afraid to show it."
+    },
+    "medium": {
+      "title": "Moderate Modesty",
+      "body": "You have moderate modesty — you don't show off, but you also recognize your own worth."
     }
   },
   "A_sympathy": {
@@ -277,6 +385,10 @@
     "low": {
       "title": "Low in Sympathy",
       "body": "You are tough-minded and not easily moved by others' emotional distress. You make decisions based on logic rather than compassion. You don't understand why people cry over fictional stories — for you, rational analysis matters more than emotional resonance."
+    },
+    "medium": {
+      "title": "Moderate Sympathy",
+      "body": "You have moderate sympathy — you can feel for others without being overwhelmed by their emotions."
     }
   },
   "N": {
@@ -287,6 +399,10 @@
     "low": {
       "title": "Low in Neuroticism",
       "body": "You are emotionally stable and resilient. You stay calm under pressure and don't get easily upset by life's challenges. Your steady mood and positive outlook make you a source of stability for those around you."
+    },
+    "medium": {
+      "title": "Moderate Emotional Stability",
+      "body": "You have a moderate level of Neuroticism. You experience normal ups and downs in your emotions, but you generally recover well from stress and setbacks. Your emotional responses are proportionate to situations."
     }
   },
   "N_anxiety": {
@@ -297,6 +413,10 @@
     "low": {
       "title": "Low in Anxiety",
       "body": "You rarely feel anxious or tense. You don't worry excessively about the future and trust that things will work out. You're generally relaxed and able to stay calm even in stressful situations."
+    },
+    "medium": {
+      "title": "Moderate Anxiety",
+      "body": "You have a moderate tendency toward anxiety — you worry about important matters but usually move past it."
     }
   },
   "N_anger": {
@@ -307,6 +427,10 @@
     "low": {
       "title": "Low in Anger",
       "body": "You are slow to anger and difficult to provoke. Even in frustrating situations, you remain patient and composed. You prefer to resolve conflicts calmly rather than react with anger. People find your even temper reassuring."
+    },
+    "medium": {
+      "title": "Moderate Anger",
+      "body": "You have a moderate tendency toward anger — you can express frustration when needed but generally recover quickly."
     }
   },
   "N_depression": {
@@ -317,6 +441,10 @@
     "low": {
       "title": "Low in Depression",
       "body": "You rarely feel sad or discouraged. You don't dwell on past regrets and maintain a generally upbeat outlook. You bounce back quickly from setbacks and approach life with a light-hearted attitude."
+    },
+    "medium": {
+      "title": "Moderate Depression",
+      "body": "You have a moderate tendency toward low mood — you experience occasional sadness but typically bounce back."
     }
   },
   "N_self_consciousness": {
@@ -327,6 +455,10 @@
     "low": {
       "title": "Low in Self-Consciousness",
       "body": "You are socially confident and don't worry much about what others think of you. You're comfortable in your own skin and can be yourself in any situation. Social situations don't make you nervous, and you rarely feel embarrassed."
+    },
+    "medium": {
+      "title": "Moderate Self-Consciousness",
+      "body": "You have moderate self-consciousness — you care about others' perceptions without being overly sensitive."
     }
   },
   "N_immoderation": {
@@ -337,6 +469,10 @@
     "low": {
       "title": "Low in Immoderation",
       "body": "You have strong self-control and are not easily swayed by impulses. You can delay gratification and make decisions based on long-term thinking rather than immediate desires. Your disciplined approach helps you avoid regretful choices."
+    },
+    "medium": {
+      "title": "Moderate Immoderation",
+      "body": "You have moderate self-control — you occasionally indulge but maintain overall discipline."
     }
   },
   "N_vulnerability": {
@@ -347,6 +483,10 @@
     "low": {
       "title": "Low in Vulnerability",
       "body": "You handle stress and pressure with resilience. When faced with a crisis, you keep a cool head and find effective solutions. Challenges motivate rather than paralyze you, and you bounce back from setbacks quickly."
+    },
+    "medium": {
+      "title": "Moderate Vulnerability to Stress",
+      "body": "You have moderate resilience to stress — you can cope with pressure but it does take its toll at times."
     }
   }
 }

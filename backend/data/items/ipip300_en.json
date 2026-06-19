@@ -79,350 +79,350 @@
     {
       "item_id": "ipip_011",
       "dimension": "O",
-      "facet": "O_artistic",
+      "facet": "O_aesthetics",
       "text": "I appreciate beauty in art and nature.",
       "reversed": false
     },
     {
       "item_id": "ipip_012",
       "dimension": "O",
-      "facet": "O_artistic",
+      "facet": "O_aesthetics",
       "text": "I do not enjoy visiting art museums.",
       "reversed": true
     },
     {
       "item_id": "ipip_013",
       "dimension": "O",
-      "facet": "O_artistic",
+      "facet": "O_aesthetics",
       "text": "I love listening to music.",
       "reversed": false
     },
     {
       "item_id": "ipip_014",
       "dimension": "O",
-      "facet": "O_artistic",
+      "facet": "O_aesthetics",
       "text": "I am not interested in poetry.",
       "reversed": true
     },
     {
       "item_id": "ipip_015",
       "dimension": "O",
-      "facet": "O_artistic",
+      "facet": "O_aesthetics",
       "text": "I notice aesthetic details in my surroundings.",
       "reversed": false
     },
     {
       "item_id": "ipip_016",
       "dimension": "O",
-      "facet": "O_artistic",
+      "facet": "O_aesthetics",
       "text": "I seldom appreciate artistic works.",
       "reversed": true
     },
     {
       "item_id": "ipip_017",
       "dimension": "O",
-      "facet": "O_artistic",
+      "facet": "O_aesthetics",
       "text": "I enjoy creating art or crafts.",
       "reversed": false
     },
     {
       "item_id": "ipip_018",
       "dimension": "O",
-      "facet": "O_artistic",
+      "facet": "O_aesthetics",
       "text": "I find art boring.",
       "reversed": true
     },
     {
       "item_id": "ipip_019",
       "dimension": "O",
-      "facet": "O_artistic",
+      "facet": "O_aesthetics",
       "text": "I am moved by beautiful things.",
       "reversed": false
     },
     {
       "item_id": "ipip_020",
       "dimension": "O",
-      "facet": "O_artistic",
+      "facet": "O_aesthetics",
       "text": "I have difficulty enjoying art.",
       "reversed": true
     },
     {
       "item_id": "ipip_021",
       "dimension": "O",
-      "facet": "O_emotionality",
+      "facet": "O_feelings",
       "text": "I experience my emotions intensely.",
       "reversed": false
     },
     {
       "item_id": "ipip_022",
       "dimension": "O",
-      "facet": "O_emotionality",
+      "facet": "O_feelings",
       "text": "I am not easily affected by emotions.",
       "reversed": true
     },
     {
       "item_id": "ipip_023",
       "dimension": "O",
-      "facet": "O_emotionality",
+      "facet": "O_feelings",
       "text": "I feel things deeply.",
       "reversed": false
     },
     {
       "item_id": "ipip_024",
       "dimension": "O",
-      "facet": "O_emotionality",
+      "facet": "O_feelings",
       "text": "I rarely have strong emotional reactions.",
       "reversed": true
     },
     {
       "item_id": "ipip_025",
       "dimension": "O",
-      "facet": "O_emotionality",
+      "facet": "O_feelings",
       "text": "I am passionate about many things.",
       "reversed": false
     },
     {
       "item_id": "ipip_026",
       "dimension": "O",
-      "facet": "O_emotionality",
+      "facet": "O_feelings",
       "text": "I tend to be emotionally flat.",
       "reversed": true
     },
     {
       "item_id": "ipip_027",
       "dimension": "O",
-      "facet": "O_emotionality",
+      "facet": "O_feelings",
       "text": "I am a very emotional person.",
       "reversed": false
     },
     {
       "item_id": "ipip_028",
       "dimension": "O",
-      "facet": "O_emotionality",
+      "facet": "O_feelings",
       "text": "I don't understand people who get emotional.",
       "reversed": true
     },
     {
       "item_id": "ipip_029",
       "dimension": "O",
-      "facet": "O_emotionality",
+      "facet": "O_feelings",
       "text": "My feelings are easily stirred.",
       "reversed": false
     },
     {
       "item_id": "ipip_030",
       "dimension": "O",
-      "facet": "O_emotionality",
+      "facet": "O_feelings",
       "text": "I seldom get carried away by emotions.",
       "reversed": true
     },
     {
       "item_id": "ipip_031",
       "dimension": "O",
-      "facet": "O_adventurous",
+      "facet": "O_adventurousness",
       "text": "I prefer variety to routine.",
       "reversed": false
     },
     {
       "item_id": "ipip_032",
       "dimension": "O",
-      "facet": "O_adventurous",
+      "facet": "O_adventurousness",
       "text": "I dislike change.",
       "reversed": true
     },
     {
       "item_id": "ipip_033",
       "dimension": "O",
-      "facet": "O_adventurous",
+      "facet": "O_adventurousness",
       "text": "I enjoy visiting new places.",
       "reversed": false
     },
     {
       "item_id": "ipip_034",
       "dimension": "O",
-      "facet": "O_adventurous",
+      "facet": "O_adventurousness",
       "text": "I prefer staying close to home.",
       "reversed": true
     },
     {
       "item_id": "ipip_035",
       "dimension": "O",
-      "facet": "O_adventurous",
+      "facet": "O_adventurousness",
       "text": "I like a familiar environment.",
       "reversed": true
     },
     {
       "item_id": "ipip_036",
       "dimension": "O",
-      "facet": "O_adventurous",
+      "facet": "O_adventurousness",
       "text": "I enjoy trying unfamiliar things.",
       "reversed": false
     },
     {
       "item_id": "ipip_037",
       "dimension": "O",
-      "facet": "O_adventurous",
+      "facet": "O_adventurousness",
       "text": "I am open to new experiences.",
       "reversed": false
     },
     {
       "item_id": "ipip_038",
       "dimension": "O",
-      "facet": "O_adventurous",
+      "facet": "O_adventurousness",
       "text": "I stick to the tried and tested.",
       "reversed": true
     },
     {
       "item_id": "ipip_039",
       "dimension": "O",
-      "facet": "O_adventurous",
+      "facet": "O_adventurousness",
       "text": "I seek adventure in life.",
       "reversed": false
     },
     {
       "item_id": "ipip_040",
       "dimension": "O",
-      "facet": "O_adventurous",
+      "facet": "O_adventurousness",
       "text": "I avoid the unknown.",
       "reversed": true
     },
     {
       "item_id": "ipip_041",
       "dimension": "O",
-      "facet": "O_intellectual",
+      "facet": "O_intellect",
       "text": "I enjoy intellectual conversations.",
       "reversed": false
     },
     {
       "item_id": "ipip_042",
       "dimension": "O",
-      "facet": "O_intellectual",
+      "facet": "O_intellect",
       "text": "I have difficulty understanding abstract ideas.",
       "reversed": true
     },
     {
       "item_id": "ipip_043",
       "dimension": "O",
-      "facet": "O_intellectual",
+      "facet": "O_intellect",
       "text": "I love to explore new ideas.",
       "reversed": false
     },
     {
       "item_id": "ipip_044",
       "dimension": "O",
-      "facet": "O_intellectual",
+      "facet": "O_intellect",
       "text": "I am not curious about how things work.",
       "reversed": true
     },
     {
       "item_id": "ipip_045",
       "dimension": "O",
-      "facet": "O_intellectual",
+      "facet": "O_intellect",
       "text": "I enjoy solving complex problems.",
       "reversed": false
     },
     {
       "item_id": "ipip_046",
       "dimension": "O",
-      "facet": "O_intellectual",
+      "facet": "O_intellect",
       "text": "I prefer simple tasks to complex ones.",
       "reversed": true
     },
     {
       "item_id": "ipip_047",
       "dimension": "O",
-      "facet": "O_intellectual",
+      "facet": "O_intellect",
       "text": "I find philosophical discussions stimulating.",
       "reversed": false
     },
     {
       "item_id": "ipip_048",
       "dimension": "O",
-      "facet": "O_intellectual",
+      "facet": "O_intellect",
       "text": "I avoid deep thinking when possible.",
       "reversed": true
     },
     {
       "item_id": "ipip_049",
       "dimension": "O",
-      "facet": "O_intellectual",
+      "facet": "O_intellect",
       "text": "I like to ponder life's big questions.",
       "reversed": false
     },
     {
       "item_id": "ipip_050",
       "dimension": "O",
-      "facet": "O_intellectual",
+      "facet": "O_intellect",
       "text": "I am not interested in theoretical ideas.",
       "reversed": true
     },
     {
       "item_id": "ipip_051",
       "dimension": "O",
-      "facet": "O_liberal",
+      "facet": "O_liberalism",
       "text": "I believe in individual freedom.",
       "reversed": false
     },
     {
       "item_id": "ipip_052",
       "dimension": "O",
-      "facet": "O_liberal",
+      "facet": "O_liberalism",
       "text": "I tend to follow authority without question.",
       "reversed": true
     },
     {
       "item_id": "ipip_053",
       "dimension": "O",
-      "facet": "O_liberal",
+      "facet": "O_liberalism",
       "text": "I am open to different lifestyles.",
       "reversed": false
     },
     {
       "item_id": "ipip_054",
       "dimension": "O",
-      "facet": "O_liberal",
+      "facet": "O_liberalism",
       "text": "I think traditional values should be preserved.",
       "reversed": true
     },
     {
       "item_id": "ipip_055",
       "dimension": "O",
-      "facet": "O_liberal",
+      "facet": "O_liberalism",
       "text": "I support progressive social change.",
       "reversed": false
     },
     {
       "item_id": "ipip_056",
       "dimension": "O",
-      "facet": "O_liberal",
+      "facet": "O_liberalism",
       "text": "I believe in strict obedience to rules.",
       "reversed": true
     },
     {
       "item_id": "ipip_057",
       "dimension": "O",
-      "facet": "O_liberal",
+      "facet": "O_liberalism",
       "text": "I respect others' choices even when different from mine.",
       "reversed": false
     },
     {
       "item_id": "ipip_058",
       "dimension": "O",
-      "facet": "O_liberal",
+      "facet": "O_liberalism",
       "text": "I think conforming to norms is important.",
       "reversed": true
     },
     {
       "item_id": "ipip_059",
       "dimension": "O",
-      "facet": "O_liberal",
+      "facet": "O_liberalism",
       "text": "I am open-minded about social issues.",
       "reversed": false
     },
     {
       "item_id": "ipip_060",
       "dimension": "O",
-      "facet": "O_liberal",
+      "facet": "O_liberalism",
       "text": "I believe in upholding traditional customs.",
       "reversed": true
     },
@@ -639,70 +639,70 @@
     {
       "item_id": "ipip_091",
       "dimension": "C",
-      "facet": "C_achievement",
+      "facet": "C_achievement_striving",
       "text": "I strive to excel in everything I do.",
       "reversed": false
     },
     {
       "item_id": "ipip_092",
       "dimension": "C",
-      "facet": "C_achievement",
+      "facet": "C_achievement_striving",
       "text": "I have little ambition.",
       "reversed": true
     },
     {
       "item_id": "ipip_093",
       "dimension": "C",
-      "facet": "C_achievement",
+      "facet": "C_achievement_striving",
       "text": "I work hard to achieve my goals.",
       "reversed": false
     },
     {
       "item_id": "ipip_094",
       "dimension": "C",
-      "facet": "C_achievement",
+      "facet": "C_achievement_striving",
       "text": "I am satisfied with just getting by.",
       "reversed": true
     },
     {
       "item_id": "ipip_095",
       "dimension": "C",
-      "facet": "C_achievement",
+      "facet": "C_achievement_striving",
       "text": "I set high standards for myself.",
       "reversed": false
     },
     {
       "item_id": "ipip_096",
       "dimension": "C",
-      "facet": "C_achievement",
+      "facet": "C_achievement_striving",
       "text": "I don't push myself very hard.",
       "reversed": true
     },
     {
       "item_id": "ipip_097",
       "dimension": "C",
-      "facet": "C_achievement",
+      "facet": "C_achievement_striving",
       "text": "I am driven to succeed.",
       "reversed": false
     },
     {
       "item_id": "ipip_098",
       "dimension": "C",
-      "facet": "C_achievement",
+      "facet": "C_achievement_striving",
       "text": "I lack motivation to accomplish much.",
       "reversed": true
     },
     {
       "item_id": "ipip_099",
       "dimension": "C",
-      "facet": "C_achievement",
+      "facet": "C_achievement_striving",
       "text": "I aim for the highest quality.",
       "reversed": false
     },
     {
       "item_id": "ipip_100",
       "dimension": "C",
-      "facet": "C_achievement",
+      "facet": "C_achievement_striving",
       "text": "I am content with mediocrity.",
       "reversed": true
     },
@@ -1059,140 +1059,140 @@
     {
       "item_id": "ipip_151",
       "dimension": "E",
-      "facet": "E_activity",
+      "facet": "E_activity_level",
       "text": "I live a fast-paced life.",
       "reversed": false
     },
     {
       "item_id": "ipip_152",
       "dimension": "E",
-      "facet": "E_activity",
+      "facet": "E_activity_level",
       "text": "I am not a very active person.",
       "reversed": true
     },
     {
       "item_id": "ipip_153",
       "dimension": "E",
-      "facet": "E_activity",
+      "facet": "E_activity_level",
       "text": "I am always on the go.",
       "reversed": false
     },
     {
       "item_id": "ipip_154",
       "dimension": "E",
-      "facet": "E_activity",
+      "facet": "E_activity_level",
       "text": "I prefer a leisurely pace.",
       "reversed": true
     },
     {
       "item_id": "ipip_155",
       "dimension": "E",
-      "facet": "E_activity",
+      "facet": "E_activity_level",
       "text": "I have a lot of energy.",
       "reversed": false
     },
     {
       "item_id": "ipip_156",
       "dimension": "E",
-      "facet": "E_activity",
+      "facet": "E_activity_level",
       "text": "I tend to be sluggish.",
       "reversed": true
     },
     {
       "item_id": "ipip_157",
       "dimension": "E",
-      "facet": "E_activity",
+      "facet": "E_activity_level",
       "text": "I like to stay busy.",
       "reversed": false
     },
     {
       "item_id": "ipip_158",
       "dimension": "E",
-      "facet": "E_activity",
+      "facet": "E_activity_level",
       "text": "I often feel lethargic.",
       "reversed": true
     },
     {
       "item_id": "ipip_159",
       "dimension": "E",
-      "facet": "E_activity",
+      "facet": "E_activity_level",
       "text": "I move through my day with vigor.",
       "reversed": false
     },
     {
       "item_id": "ipip_160",
       "dimension": "E",
-      "facet": "E_activity",
+      "facet": "E_activity_level",
       "text": "I take my time with things.",
       "reversed": true
     },
     {
       "item_id": "ipip_161",
       "dimension": "E",
-      "facet": "E_excitement",
+      "facet": "E_excitement_seeking",
       "text": "I enjoy thrilling experiences.",
       "reversed": false
     },
     {
       "item_id": "ipip_162",
       "dimension": "E",
-      "facet": "E_excitement",
+      "facet": "E_excitement_seeking",
       "text": "I prefer calm and quiet activities.",
       "reversed": true
     },
     {
       "item_id": "ipip_163",
       "dimension": "E",
-      "facet": "E_excitement",
+      "facet": "E_excitement_seeking",
       "text": "I seek out excitement.",
       "reversed": false
     },
     {
       "item_id": "ipip_164",
       "dimension": "E",
-      "facet": "E_excitement",
+      "facet": "E_excitement_seeking",
       "text": "I avoid risky adventures.",
       "reversed": true
     },
     {
       "item_id": "ipip_165",
       "dimension": "E",
-      "facet": "E_excitement",
+      "facet": "E_excitement_seeking",
       "text": "I love the feeling of adrenaline.",
       "reversed": false
     },
     {
       "item_id": "ipip_166",
       "dimension": "E",
-      "facet": "E_excitement",
+      "facet": "E_excitement_seeking",
       "text": "I prefer safe and predictable fun.",
       "reversed": true
     },
     {
       "item_id": "ipip_167",
       "dimension": "E",
-      "facet": "E_excitement",
+      "facet": "E_excitement_seeking",
       "text": "I enjoy being spontaneous and daring.",
       "reversed": false
     },
     {
       "item_id": "ipip_168",
       "dimension": "E",
-      "facet": "E_excitement",
+      "facet": "E_excitement_seeking",
       "text": "I am cautious in my leisure choices.",
       "reversed": true
     },
     {
       "item_id": "ipip_169",
       "dimension": "E",
-      "facet": "E_excitement",
+      "facet": "E_excitement_seeking",
       "text": "I like to try extreme activities.",
       "reversed": false
     },
     {
       "item_id": "ipip_170",
       "dimension": "E",
-      "facet": "E_excitement",
+      "facet": "E_excitement_seeking",
       "text": "I dislike being in high-stimulation situations.",
       "reversed": true
     },

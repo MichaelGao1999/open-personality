@@ -42,3 +42,19 @@
 ```
 
 **适用场景**：标题/标签文字后有附属图标（ⓘ、❓、⏵ 等），要求文字独立居中、图标附在右侧不占位。
+
+---
+
+## DATA · Facet naming must match across item and interpretation files
+
+**TAG**: `data-consistency`, `testing`, `facet-keys`
+
+**问题**：IPIP-300 数据文件使用缩写形式的 facet 名称（如 `O_artistic`, `E_activity`），而 interpretations 文件使用全称（如 `O_aesthetics`, `E_activity_level`），导致 80 个题目在报告生成时找不到对应的解读内容。
+
+**根因**：数据文件之间没有命名一致性校验，开发测试只覆盖 standard 模式（IPIP-120），没有针对 advanced 模式的 facet 解释查找测试。
+
+**解决方案**：
+1. 统一命名：将 `O_artistic`→`O_aesthetics`, `E_activity`→`E_activity_level` 等 8 个 facet 名称修正为匹配 interpretations
+2. 新增测试：`test_item_facet_names_match_interpretations` 验证所有模式下 facet 名称与解释文案键完全一致
+
+**适用场景**：多数据源/多文件结构中的关键字段命名同步；防止因命名不一致导致运行时数据丢失。

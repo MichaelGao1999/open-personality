@@ -79,350 +79,350 @@
     {
       "item_id": "ipip_011",
       "dimension": "O",
-      "facet": "O_artistic",
+      "facet": "O_aesthetics",
       "text": "我对艺术有浓厚的兴趣。",
       "reversed": false
     },
     {
       "item_id": "ipip_012",
       "dimension": "O",
-      "facet": "O_artistic",
+      "facet": "O_aesthetics",
       "text": "我不喜欢参观美术馆。",
       "reversed": true
     },
     {
       "item_id": "ipip_013",
       "dimension": "O",
-      "facet": "O_artistic",
+      "facet": "O_aesthetics",
       "text": "优美的音乐让我感动。",
       "reversed": false
     },
     {
       "item_id": "ipip_014",
       "dimension": "O",
-      "facet": "O_artistic",
+      "facet": "O_aesthetics",
       "text": "我对诗歌没有感觉。",
       "reversed": true
     },
     {
       "item_id": "ipip_015",
       "dimension": "O",
-      "facet": "O_artistic",
+      "facet": "O_aesthetics",
       "text": "我喜欢欣赏美丽的风景画。",
       "reversed": false
     },
     {
       "item_id": "ipip_016",
       "dimension": "O",
-      "facet": "O_artistic",
+      "facet": "O_aesthetics",
       "text": "我觉得艺术活动很无聊。",
       "reversed": true
     },
     {
       "item_id": "ipip_017",
       "dimension": "O",
-      "facet": "O_artistic",
+      "facet": "O_aesthetics",
       "text": "我经常被艺术作品深深打动。",
       "reversed": false
     },
     {
       "item_id": "ipip_018",
       "dimension": "O",
-      "facet": "O_artistic",
+      "facet": "O_aesthetics",
       "text": "我对美学没什么追求。",
       "reversed": true
     },
     {
       "item_id": "ipip_019",
       "dimension": "O",
-      "facet": "O_artistic",
+      "facet": "O_aesthetics",
       "text": "我喜欢阅读文学作品。",
       "reversed": false
     },
     {
       "item_id": "ipip_020",
       "dimension": "O",
-      "facet": "O_artistic",
+      "facet": "O_aesthetics",
       "text": "我不太在意事物的美感。",
       "reversed": true
     },
     {
       "item_id": "ipip_021",
       "dimension": "O",
-      "facet": "O_emotionality",
+      "facet": "O_feelings",
       "text": "我能敏锐地感知自己的情绪。",
       "reversed": false
     },
     {
       "item_id": "ipip_022",
       "dimension": "O",
-      "facet": "O_emotionality",
+      "facet": "O_feelings",
       "text": "我不太关注自己的内心感受。",
       "reversed": true
     },
     {
       "item_id": "ipip_023",
       "dimension": "O",
-      "facet": "O_emotionality",
+      "facet": "O_feelings",
       "text": "我的情绪波动很大。",
       "reversed": false
     },
     {
       "item_id": "ipip_024",
       "dimension": "O",
-      "facet": "O_emotionality",
+      "facet": "O_feelings",
       "text": "我很少被情绪左右。",
       "reversed": true
     },
     {
       "item_id": "ipip_025",
       "dimension": "O",
-      "facet": "O_emotionality",
+      "facet": "O_feelings",
       "text": "我很容易感受到他人的情绪。",
       "reversed": false
     },
     {
       "item_id": "ipip_026",
       "dimension": "O",
-      "facet": "O_emotionality",
+      "facet": "O_feelings",
       "text": "我觉得谈论情绪很尴尬。",
       "reversed": true
     },
     {
       "item_id": "ipip_027",
       "dimension": "O",
-      "facet": "O_emotionality",
+      "facet": "O_feelings",
       "text": "我经常沉浸在某种情绪中。",
       "reversed": false
     },
     {
       "item_id": "ipip_028",
       "dimension": "O",
-      "facet": "O_emotionality",
+      "facet": "O_feelings",
       "text": "我不擅长表达自己的感受。",
       "reversed": true
     },
     {
       "item_id": "ipip_029",
       "dimension": "O",
-      "facet": "O_emotionality",
+      "facet": "O_feelings",
       "text": "我的情感世界很丰富。",
       "reversed": false
     },
     {
       "item_id": "ipip_030",
       "dimension": "O",
-      "facet": "O_emotionality",
+      "facet": "O_feelings",
       "text": "我认为情绪是理性的干扰。",
       "reversed": true
     },
     {
       "item_id": "ipip_031",
       "dimension": "O",
-      "facet": "O_adventurous",
+      "facet": "O_adventurousness",
       "text": "我喜欢尝试新事物。",
       "reversed": false
     },
     {
       "item_id": "ipip_032",
       "dimension": "O",
-      "facet": "O_adventurous",
+      "facet": "O_adventurousness",
       "text": "我宁愿待在熟悉的环境里。",
       "reversed": true
     },
     {
       "item_id": "ipip_033",
       "dimension": "O",
-      "facet": "O_adventurous",
+      "facet": "O_adventurousness",
       "text": "我热衷于探索未知的领域。",
       "reversed": false
     },
     {
       "item_id": "ipip_034",
       "dimension": "O",
-      "facet": "O_adventurous",
+      "facet": "O_adventurousness",
       "text": "我觉得改变令人不安。",
       "reversed": true
     },
     {
       "item_id": "ipip_035",
       "dimension": "O",
-      "facet": "O_adventurous",
+      "facet": "O_adventurousness",
       "text": "我经常寻求新鲜的体验。",
       "reversed": false
     },
     {
       "item_id": "ipip_036",
       "dimension": "O",
-      "facet": "O_adventurous",
+      "facet": "O_adventurousness",
       "text": "我更喜欢一成不变的生活。",
       "reversed": true
     },
     {
       "item_id": "ipip_037",
       "dimension": "O",
-      "facet": "O_adventurous",
+      "facet": "O_adventurousness",
       "text": "我对新奇的地方充满好奇。",
       "reversed": false
     },
     {
       "item_id": "ipip_038",
       "dimension": "O",
-      "facet": "O_adventurous",
+      "facet": "O_adventurousness",
       "text": "我不喜欢打破常规。",
       "reversed": true
     },
     {
       "item_id": "ipip_039",
       "dimension": "O",
-      "facet": "O_adventurous",
+      "facet": "O_adventurousness",
       "text": "我乐于接受新的挑战。",
       "reversed": false
     },
     {
       "item_id": "ipip_040",
       "dimension": "O",
-      "facet": "O_adventurous",
+      "facet": "O_adventurousness",
       "text": "我对冒险活动没有兴趣。",
       "reversed": true
     },
     {
       "item_id": "ipip_041",
       "dimension": "O",
-      "facet": "O_intellectual",
+      "facet": "O_intellect",
       "text": "我喜欢思考复杂的问题。",
       "reversed": false
     },
     {
       "item_id": "ipip_042",
       "dimension": "O",
-      "facet": "O_intellectual",
+      "facet": "O_intellect",
       "text": "我对哲学讨论不感兴趣。",
       "reversed": true
     },
     {
       "item_id": "ipip_043",
       "dimension": "O",
-      "facet": "O_intellectual",
+      "facet": "O_intellect",
       "text": "我喜欢学习新知识。",
       "reversed": false
     },
     {
       "item_id": "ipip_044",
       "dimension": "O",
-      "facet": "O_intellectual",
+      "facet": "O_intellect",
       "text": "我遇到难题时很快就放弃。",
       "reversed": true
     },
     {
       "item_id": "ipip_045",
       "dimension": "O",
-      "facet": "O_intellectual",
+      "facet": "O_intellect",
       "text": "我喜欢探讨抽象的理论。",
       "reversed": false
     },
     {
       "item_id": "ipip_046",
       "dimension": "O",
-      "facet": "O_intellectual",
+      "facet": "O_intellect",
       "text": "我觉得深入的思考很累人。",
       "reversed": true
     },
     {
       "item_id": "ipip_047",
       "dimension": "O",
-      "facet": "O_intellectual",
+      "facet": "O_intellect",
       "text": "我享受解决智力挑战的过程。",
       "reversed": false
     },
     {
       "item_id": "ipip_048",
       "dimension": "O",
-      "facet": "O_intellectual",
+      "facet": "O_intellect",
       "text": "我不喜欢需要动脑筋的活动。",
       "reversed": true
     },
     {
       "item_id": "ipip_049",
       "dimension": "O",
-      "facet": "O_intellectual",
+      "facet": "O_intellect",
       "text": "我对科学话题充满好奇。",
       "reversed": false
     },
     {
       "item_id": "ipip_050",
       "dimension": "O",
-      "facet": "O_intellectual",
+      "facet": "O_intellect",
       "text": "我觉得理论性的东西很枯燥。",
       "reversed": true
     },
     {
       "item_id": "ipip_051",
       "dimension": "O",
-      "facet": "O_liberal",
+      "facet": "O_liberalism",
       "text": "我思想开放，愿意接纳不同观点。",
       "reversed": false
     },
     {
       "item_id": "ipip_052",
       "dimension": "O",
-      "facet": "O_liberal",
+      "facet": "O_liberalism",
       "text": "我认为传统价值观不可动摇。",
       "reversed": true
     },
     {
       "item_id": "ipip_053",
       "dimension": "O",
-      "facet": "O_liberal",
+      "facet": "O_liberalism",
       "text": "我支持社会变革和进步。",
       "reversed": false
     },
     {
       "item_id": "ipip_054",
       "dimension": "O",
-      "facet": "O_liberal",
+      "facet": "O_liberalism",
       "text": "我觉得既有规则应该严格遵循。",
       "reversed": true
     },
     {
       "item_id": "ipip_055",
       "dimension": "O",
-      "facet": "O_liberal",
+      "facet": "O_liberalism",
       "text": "我尊重与自己不同的生活方式。",
       "reversed": false
     },
     {
       "item_id": "ipip_056",
       "dimension": "O",
-      "facet": "O_liberal",
+      "facet": "O_liberalism",
       "text": "我认为新观念往往不靠谱。",
       "reversed": true
     },
     {
       "item_id": "ipip_057",
       "dimension": "O",
-      "facet": "O_liberal",
+      "facet": "O_liberalism",
       "text": "我乐于挑战权威的看法。",
       "reversed": false
     },
     {
       "item_id": "ipip_058",
       "dimension": "O",
-      "facet": "O_liberal",
+      "facet": "O_liberalism",
       "text": "我不喜欢别人质疑我的信仰。",
       "reversed": true
     },
     {
       "item_id": "ipip_059",
       "dimension": "O",
-      "facet": "O_liberal",
+      "facet": "O_liberalism",
       "text": "我对多元文化很包容。",
       "reversed": false
     },
     {
       "item_id": "ipip_060",
       "dimension": "O",
-      "facet": "O_liberal",
+      "facet": "O_liberalism",
       "text": "我觉得异类应该被规范。",
       "reversed": true
     },
@@ -639,70 +639,70 @@
     {
       "item_id": "ipip_091",
       "dimension": "C",
-      "facet": "C_achievement",
+      "facet": "C_achievement_striving",
       "text": "我为自己设定了很高的标准。",
       "reversed": false
     },
     {
       "item_id": "ipip_092",
       "dimension": "C",
-      "facet": "C_achievement",
+      "facet": "C_achievement_striving",
       "text": "我满足于完成基本要求就够了。",
       "reversed": true
     },
     {
       "item_id": "ipip_093",
       "dimension": "C",
-      "facet": "C_achievement",
+      "facet": "C_achievement_striving",
       "text": "我不断追求进步和成长。",
       "reversed": false
     },
     {
       "item_id": "ipip_094",
       "dimension": "C",
-      "facet": "C_achievement",
+      "facet": "C_achievement_striving",
       "text": "我不太在意自己能否取得成就。",
       "reversed": true
     },
     {
       "item_id": "ipip_095",
       "dimension": "C",
-      "facet": "C_achievement",
+      "facet": "C_achievement_striving",
       "text": "我努力做到最好。",
       "reversed": false
     },
     {
       "item_id": "ipip_096",
       "dimension": "C",
-      "facet": "C_achievement",
+      "facet": "C_achievement_striving",
       "text": "我觉得尽力而为和全力以赴没有区别。",
       "reversed": true
     },
     {
       "item_id": "ipip_097",
       "dimension": "C",
-      "facet": "C_achievement",
+      "facet": "C_achievement_striving",
       "text": "我渴望在事业上有所建树。",
       "reversed": false
     },
     {
       "item_id": "ipip_098",
       "dimension": "C",
-      "facet": "C_achievement",
+      "facet": "C_achievement_striving",
       "text": "我对自己没有什么高要求。",
       "reversed": true
     },
     {
       "item_id": "ipip_099",
       "dimension": "C",
-      "facet": "C_achievement",
+      "facet": "C_achievement_striving",
       "text": "我会为了目标付出额外努力。",
       "reversed": false
     },
     {
       "item_id": "ipip_100",
       "dimension": "C",
-      "facet": "C_achievement",
+      "facet": "C_achievement_striving",
       "text": "我觉得平庸也是一种生活方式。",
       "reversed": true
     },
@@ -997,7 +997,7 @@
       "item_id": "ipip_142",
       "dimension": "E",
       "facet": "E_assertiveness",
-      "text": "我很难对别人说\u201c不\u201d。",
+      "text": "我很难对别人说“不”。",
       "reversed": true
     },
     {
@@ -1059,140 +1059,140 @@
     {
       "item_id": "ipip_151",
       "dimension": "E",
-      "facet": "E_activity",
+      "facet": "E_activity_level",
       "text": "我的生活节奏很快。",
       "reversed": false
     },
     {
       "item_id": "ipip_152",
       "dimension": "E",
-      "facet": "E_activity",
+      "facet": "E_activity_level",
       "text": "我做事总是慢吞吞的。",
       "reversed": true
     },
     {
       "item_id": "ipip_153",
       "dimension": "E",
-      "facet": "E_activity",
+      "facet": "E_activity_level",
       "text": "我精力充沛，活力十足。",
       "reversed": false
     },
     {
       "item_id": "ipip_154",
       "dimension": "E",
-      "facet": "E_activity",
+      "facet": "E_activity_level",
       "text": "我很容易感到疲倦。",
       "reversed": true
     },
     {
       "item_id": "ipip_155",
       "dimension": "E",
-      "facet": "E_activity",
+      "facet": "E_activity_level",
       "text": "我每天都充满干劲。",
       "reversed": false
     },
     {
       "item_id": "ipip_156",
       "dimension": "E",
-      "facet": "E_activity",
+      "facet": "E_activity_level",
       "text": "我更喜欢悠闲地度过一天。",
       "reversed": true
     },
     {
       "item_id": "ipip_157",
       "dimension": "E",
-      "facet": "E_activity",
+      "facet": "E_activity_level",
       "text": "我总是忙个不停。",
       "reversed": false
     },
     {
       "item_id": "ipip_158",
       "dimension": "E",
-      "facet": "E_activity",
+      "facet": "E_activity_level",
       "text": "我常常觉得自己打不起精神。",
       "reversed": true
     },
     {
       "item_id": "ipip_159",
       "dimension": "E",
-      "facet": "E_activity",
+      "facet": "E_activity_level",
       "text": "我喜欢快节奏的生活方式。",
       "reversed": false
     },
     {
       "item_id": "ipip_160",
       "dimension": "E",
-      "facet": "E_activity",
+      "facet": "E_activity_level",
       "text": "我做事拖拖拉拉的。",
       "reversed": true
     },
     {
       "item_id": "ipip_161",
       "dimension": "E",
-      "facet": "E_excitement",
+      "facet": "E_excitement_seeking",
       "text": "我喜欢追求刺激和冒险。",
       "reversed": false
     },
     {
       "item_id": "ipip_162",
       "dimension": "E",
-      "facet": "E_excitement",
+      "facet": "E_excitement_seeking",
       "text": "我害怕尝试有风险的事情。",
       "reversed": true
     },
     {
       "item_id": "ipip_163",
       "dimension": "E",
-      "facet": "E_excitement",
+      "facet": "E_excitement_seeking",
       "text": "我渴望生活中的兴奋感。",
       "reversed": false
     },
     {
       "item_id": "ipip_164",
       "dimension": "E",
-      "facet": "E_excitement",
+      "facet": "E_excitement_seeking",
       "text": "我更喜欢平静安稳的生活。",
       "reversed": true
     },
     {
       "item_id": "ipip_165",
       "dimension": "E",
-      "facet": "E_excitement",
+      "facet": "E_excitement_seeking",
       "text": "我对极限运动充满向往。",
       "reversed": false
     },
     {
       "item_id": "ipip_166",
       "dimension": "E",
-      "facet": "E_excitement",
+      "facet": "E_excitement_seeking",
       "text": "我觉得刺激的娱乐活动很危险。",
       "reversed": true
     },
     {
       "item_id": "ipip_167",
       "dimension": "E",
-      "facet": "E_excitement",
+      "facet": "E_excitement_seeking",
       "text": "我喜欢让生活充满变化。",
       "reversed": false
     },
     {
       "item_id": "ipip_168",
       "dimension": "E",
-      "facet": "E_excitement",
+      "facet": "E_excitement_seeking",
       "text": "我偏好按部就班的日子。",
       "reversed": true
     },
     {
       "item_id": "ipip_169",
       "dimension": "E",
-      "facet": "E_excitement",
+      "facet": "E_excitement_seeking",
       "text": "我乐于尝试令人心跳加速的活动。",
       "reversed": false
     },
     {
       "item_id": "ipip_170",
       "dimension": "E",
-      "facet": "E_excitement",
+      "facet": "E_excitement_seeking",
       "text": "我不喜欢任何不确定的因素。",
       "reversed": true
     },

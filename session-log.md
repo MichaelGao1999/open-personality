@@ -476,3 +476,29 @@
 - 对比功能代码实现（设计已定稿）
 - 人格解读正文填充（interpret_zh/en.json body 占位符）
 - 英文版文案优化翻译
+
+---
+
+## 2026-06-19 — IPIP-300 facet 命名修复
+
+### 本轮概要
+- **数据不一致问题**：IPIP-300 数据文件（zh/en）facet 名称与 interpretations 文件不匹配
+- **发现过程**：通过分享码 p1XDaEOg 的报告数据分析，发现 8 个 facet 名称差异
+- **修复内容**：更改 80 个题目的 facet 字段
+  - `O_artistic` → `O_aesthetics`
+  - `O_emotionality` → `O_feelings`
+  - `O_intellectual` → `O_intellect`
+  - `O_liberal` → `O_liberalism`
+  - `O_adventurous` → `O_adventurousness`
+  - `C_achievement` → `C_achievement_striving`
+  - `E_activity` → `E_activity_level`
+  - `E_excitement` → `E_excitement_seeking`
+- **测试增强**：新增 `test_item_facet_names_match_interpretations` 防止回归
+- **经验沉淀**：记录到 `lessons-learned.md`（TAG:data-consistency）
+
+### 更新文件
+- `backend/data/items/ipip300_zh.json` — 修复 80 个 facet 名称
+- `backend/data/items/ipip300_en.json` — 修复 80 个 facet 名称
+- `backend/tests/test_scoring.py` — 新增 facet 名称一致性测试
+- `status.md` — 更新记录
+- `docs/lessons-learned.md` — 新增数据一致性经验
