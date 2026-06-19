@@ -57,4 +57,4 @@
 1. 统一命名：将 `O_artistic`→`O_aesthetics`, `E_activity`→`E_activity_level` 等 8 个 facet 名称修正为匹配 interpretations
 2. 新增测试：`test_item_facet_names_match_interpretations` 验证所有模式下 facet 名称与解释文案键完全一致
 
-**适用场景**：多数据源/多文件结构中的关键字段命名同步；防止因命名不一致导致运行时数据丢失。
+**适用场景**：多数据源/多文件结构中的关键字段命名同步；防止因命名不一致导致运行时数据丢失；新增 `medium` 解释支持需要更新代码逻辑。

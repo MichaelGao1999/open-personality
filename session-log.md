@@ -479,26 +479,40 @@
 
 ---
 
-## 2026-06-19 — IPIP-300 facet 命名修复
+## 2026-06-19 — IPIP-300 facet 命名修复 + medium 解释支持
 
 ### 本轮概要
 - **数据不一致问题**：IPIP-300 数据文件（zh/en）facet 名称与 interpretations 文件不匹配
 - **发现过程**：通过分享码 p1XDaEOg 的报告数据分析，发现 8 个 facet 名称差异
-- **修复内容**：更改 80 个题目的 facet 字段
-  - `O_artistic` → `O_aesthetics`
-  - `O_emotionality` → `O_feelings`
-  - `O_intellectual` → `O_intellect`
-  - `O_liberal` → `O_liberalism`
-  - `O_adventurous` → `O_adventurousness`
-  - `C_achievement` → `C_achievement_striving`
-  - `E_activity` → `E_activity_level`
-  - `E_excitement` → `E_excitement_seeking`
+- **修复内容**：
+  1. 更改 80 个题目的 facet 字段（见下方表格）
+  2. ReportGenerator 支持 `medium` 解释（新增 `medium_text` 参数）
+  3. interpretations 添加 `medium` 键（5 个维度 + 8 个子维度）
 - **测试增强**：新增 `test_item_facet_names_match_interpretations` 防止回归
-- **经验沉淀**：记录到 `lessons-learned.md`（TAG:data-consistency）
+
+**Facet 名称映射:**
+| 原名称 | 新名称 |
+|--------|--------|
+| O_artistic | O_aesthetics |
+| O_emotionality | O_feelings |
+| O_intellectual | O_intellect |
+| O_liberal | O_liberalism |
+| O_adventurous | O_adventurousness |
+| C_achievement | C_achievement_striving |
+| E_activity | E_activity_level |
+| E_excitement | E_excitement_seeking |
 
 ### 更新文件
 - `backend/data/items/ipip300_zh.json` — 修复 80 个 facet 名称
 - `backend/data/items/ipip300_en.json` — 修复 80 个 facet 名称
+- `backend/app/core/report_gen.py` — 支持 medium 解释
+- `backend/data/interpretations_zh.json` — 添加 medium 解释（40 项）
+- `backend/data/interpretations_en.json` — 添加 medium 解释（40 项）
 - `backend/tests/test_scoring.py` — 新增 facet 名称一致性测试
 - `status.md` — 更新记录
 - `docs/lessons-learned.md` — 新增数据一致性经验
+
+### 变更统计
+- 8 个 facet 名称统一 → 匹配 interpretations
+- 17 个维度 + 子维度增添 `medium` 解释
+- 44 个测试全部通过
