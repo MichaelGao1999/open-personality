@@ -479,7 +479,7 @@
 
 ---
 
-## 2026-06-19 — IPIP-300 facet 命名修复 + medium 解释支持
+## 2026-06-19 — IPIP-300 facet 命名修复 + medium 解释支持 + 首页按钮调优
 
 ### 本轮概要
 - **数据不一致问题**：IPIP-300 数据文件（zh/en）facet 名称与 interpretations 文件不匹配
@@ -487,8 +487,9 @@
 - **修复内容**：
   1. 更改 80 个题目的 facet 字段（见下方表格）
   2. ReportGenerator 支持 `medium` 解释（新增 `medium_text` 参数）
-  3. interpretations 添加 `medium` 键（5 个维度 + 8 个子维度）
+  3. interpretations 添加 `medium` 键（覆盖全部 5 维度 + 30 子维度）
 - **测试增强**：新增 `test_item_facet_names_match_interpretations` 防止回归
+- **首页按钮调优**：「开始测试」padding/font-size 缩小；「继续答满300题」增加 font-size:13px 一行显示；显示条件收紧为仅 speed/standard 模式后显示
 
 **Facet 名称映射:**
 | 原名称 | 新名称 |
@@ -505,14 +506,17 @@
 ### 更新文件
 - `backend/data/items/ipip300_zh.json` — 修复 80 个 facet 名称
 - `backend/data/items/ipip300_en.json` — 修复 80 个 facet 名称
-- `backend/app/core/report_gen.py` — 支持 medium 解释
-- `backend/data/interpretations_zh.json` — 添加 medium 解释（40 项）
-- `backend/data/interpretations_en.json` — 添加 medium 解释（40 项）
+- `backend/app/core/report_gen.py` — 支持 medium 解释（medium_text 参数）
+- `backend/data/interpretations_zh.json` — 添加 medium 解释（35 项：5 维度 + 30 子维度）
+- `backend/data/interpretations_en.json` — 添加 medium 解释（35 项：5 维度 + 30 子维度）
 - `backend/tests/test_scoring.py` — 新增 facet 名称一致性测试
+- `frontend/src/views/HomePage.vue` — 按钮 CSS 缩小 + showContinueTo300 条件收紧
+- `scripts/add_medium_interpretations.py` — 新增辅助脚本
+- `mypy.ini` + `scripts/*.py` — type hint 补充
 - `status.md` — 更新记录
 - `docs/lessons-learned.md` — 新增数据一致性经验
 
 ### 变更统计
 - 8 个 facet 名称统一 → 匹配 interpretations
-- 17 个维度 + 子维度增添 `medium` 解释
+- 35 个维度 + 子维度增添 `medium` 解释
 - 44 个测试全部通过
