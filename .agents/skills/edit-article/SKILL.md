@@ -1,6 +1,7 @@
 ---
 name: edit-article
 description: Edit and improve articles by restructuring sections, improving clarity, and tightening prose. Use when user wants to edit, revise, or improve an article draft.
+description_zh: 通过重组章节、改善清晰度和精简文本来编辑和改进文章
 ---
 
 1. First, divide the article into sections based on its headings. Think about the main points you want to make during those sections.

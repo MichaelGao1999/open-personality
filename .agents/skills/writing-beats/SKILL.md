@@ -1,6 +1,7 @@
 ---
 name: writing-beats
 description: Shape an article as a journey of beats, choose-your-own-adventure style. The user picks a starting beat from the raw material, you write only that beat, then offer options for where to pivot next, beat by beat, until the article reaches a natural end. Use when the user has raw material and wants to assemble it as a narrative rather than an argument.
+description_zh: 以节拍journey的方式逐节塑造文章，用户选择起点，直到文章自然结束
 ---
 
 <what-to-do>

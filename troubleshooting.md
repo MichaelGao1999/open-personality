@@ -1219,3 +1219,19 @@ pending → resolved → promoted
 
 **用户说「存储」时**，AI 应回顾本轮会话内容，评估是否有新的具体报错需要记入本文件。有则按模板追加；没有则跳过。
 ---
+
+### CC 拼接 apiKeyHelper 命令碎片导致 /login [来源:AI Workbench @2026-06-21]
+
+| | 内容 |
+|---|---|
+| **状态** | 已修复 |
+| **现象** | CC 弹 /login 页，无法获取 API key；settings.json 中 apiKeyHelper 命令为 `bash -c.echo $DEEPSEEK_API_KEY.cat ~/.cc-connect/.deepseek_key.`（exit 127）；hooks 残留未清理 |
+| **原因** | CC 在同一轮交互中处理两个非连续意图时（意图 A: `echo $DEEPSEEK_API_KEY`，意图 B: `cat ~/.cc-connect/.deepseek_key`），将命令碎片拼接为一个无效命令，同时 hooks 写入未完全清除 |
+| **解决** | 1. apiKeyHelper 恢复为 `echo $DEEPSEEK_API_KEY`<br>2. 移除残留 hooks<br>3. 验证 settings.json JSON 语法合法性<br>4. 清理残留进程 |
+| **预防** | 1. hooks/apiKeyHelper 操作后立即验证 settings.json 语法和功能（`claude settings` 或直接 cat 检查）<br>2. 同一轮交互中避免让 CC 交叉处理多个非连续的配置意图 |
+
+---
+
+*新增条目时复制上方模板，填写后追加到文件末尾。*
+---
+

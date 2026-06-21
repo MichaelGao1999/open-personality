@@ -1,6 +1,7 @@
 ---
 name: teach
 description: Teach the user a new skill or concept, within this workspace.
+description_zh: 在当前工作区内教用户一项新技能或概念
 disable-model-invocation: true
 argument-hint: "What would you like to learn about?"
 ---
