@@ -66,8 +66,10 @@
 | **RULE-09** | **技术债务解决后，必须从 `status.md` 债务表删除，追加到「已解决债务」，并记录到 `lessons-learned.md`（标注 TAG:debt）** | 债务与经验脱节、重复犯错、无法追溯解决过程 |
 | **RULE-10** | **阶段口令触发后，必须先做前置条件检查（status.md + 前置文件确认），不通过则禁止启动该阶段** | 跳步导致产出无上下文、接口缺失依赖 |
 | **RULE-11** | **阶段口令是启动器而非执行器：口令只负责「检查+说明目标+确认启动」，具体执行细节严格引用 agent-coding-workflow.md 对应章节，禁止在口令逻辑中重写执行规范** | 规则在两处维护导致版本分歧 |
-| **RULE-12** | **写入 `troubleshooting.md` / `lessons-learned.md` / `ADR.md` 时，所有 IP 地址、本地文件路径、邮箱等敏感信息必须使用占位符替代（如 `{SERVER_IP}`、`{PROJECT_PATH}`）；仅在问题重现必须精确信息���才保留，同时写入备注说明** | 经验文档聚合后泄露个人/基础设施信息；下游项目分发后无法逐一清理 |
+| **RULE-12** | **写入 `troubleshooting.md` / `lessons-learned.md` / `ADR.md` 时，所有 IP 地址、本地文件路径、邮箱等敏感信息必须使用占位符替代（如 `{SERVER_IP}`、`{PROJECT_PATH}`）；仅在问题重现必须精确信息时才保留，同时写入备注说明** | 经验文档聚合后泄露个人/基础设施信息；下游项目分发后无法逐一清理 |
+| **RULE-13** | **禁止在最终输出中出现占位符（`[...]`、`<...>`、`TBD`、`TODO`、`待补充`）；信息不足时使用通用表述替代，宁可放宽粒度不可留空洞** | 下游 agent 无法消费输出、内容不可用、需人工返工 |
 | **RULE-14** | **所有文件 I/O 和 `subprocess.run()` 必须显式传入 `encoding` 参数** | Windows GBK 环境下不指定会导致 UnicodeDecodeError |
+| **RULE-15** | **`git merge` 因文件系统不兼容失败时，禁止使用 `-s ours` / `-X ours`。必须改用 `git merge-tree --write-tree` 在对象空间完成合并，仅排除无法在当前文件系统创建的文件（`scripts/pre-merge-check.py` 预检 + `scripts/check-merge-integrity.py` 后检）** | 丢弃远端变更导致跨平台同步数据静默丢失 |
 
 <!-- /@sync -->
 ---
@@ -104,7 +106,8 @@
    - `status.md`：对照 `git diff --stat` 逐条核销待办，已完成的打勾，未触及的说明原因；新增待办、更新记录；技术债务解决时同步到 `lessons-learned.md`
    - **`docs/tasks/task-progress.md` + `docs/tasks/task-{module}.md`**：基于步1 回顾结果，扫描各模块任务文件的 `[ ]` checkbox，勾选本轮已完成的子任务（`[ ]` → `[x]`），更新模块进度表。此步不做任务-代码自动映射，由 AI 人工复查
    - **知识文件**：有报错 → 追加 `troubleshooting.md`；有经验 → 追加 `lessons-learned.md`；有关键决策 → 追加 `ADR.md`
-4. **定稿 + 审查**：定稿 `session-log.md`；运行 `sensitivity-check.py` 扫描敏感信息；有认知候选时运行 `cognitive-extract.py`
+4. **定稿 + 审查**：定稿 `session-log.md`；运行 `sensitivity-check.py` 扫描拟写入内容；有认知候选时运行 `cognitive-extract.py`
+   > **辅助工具**：`python scripts/error-detector.py` 可检测命令输出中的常见错误模式
 5. Git 全量提交：`git add -A` → `git commit -m "[session] 摘要"` → `git push`
 6. 汇报完成
 

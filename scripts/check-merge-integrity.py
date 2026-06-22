@@ -1,0 +1,152 @@
+#!/usr/bin/env python3
+"""合并完整性校验：合并后检查远端侧文件是否意外丢失。
+
+用法：
+  python scripts/check-merge-integrity.py [--theirs <commit>] [--ours <commit>]
+
+  默认行为：读取当前 HEAD，若为合并提交则自动取第一父为 --ours、第二父为 --theirs。
+
+  退出码：
+    0 — 全部通过
+    1 — 存在意外丢失的文件（需人工审核）
+    2 — 参数错误
+"""
+
+import argparse
+import os
+import subprocess
+import sys
+
+# ── 已知在当前平台无法创建的字符（仅针对文件名/目录名，不含路径分隔符）──
+_ILLEGAL_CHARS = {
+    "win32": set('<>:"\\|?*'),
+    "darwin": set(":"),
+    "linux": set(),
+}.get(sys.platform, set('<>:"\\|?*'))
+
+# Windows 保留文件名（不区分扩展名，不区分大小写）
+_ILLEGAL_PATTERNS = {
+    "win32": {"CON", "PRN", "AUX", "NUL",
+              *(f"COM{i}" for i in range(1, 10)),
+              *(f"LPT{i}" for i in range(1, 10))},
+    "darwin": set(),
+    "linux": set(),
+}.get(sys.platform, set())
+
+
+def run_git(*args: str) -> str:
+    """Run a git command, return stdout or raise."""
+    r = subprocess.run(
+        ["git"] + list(args),
+        capture_output=True,
+        encoding="utf-8",
+        timeout=30,
+    )
+    if r.returncode != 0:
+        sys.stderr.write(f"git {' '.join(args)} failed: {r.stderr.strip()}\n")
+        sys.exit(2)
+    return r.stdout.strip()
+
+
+def is_path_legal(path: str) -> bool:
+    """Return True if all path components can be created on this platform."""
+    for part in path.split("/"):
+        # 检查非法字符（仅针对组件名，不检查路径分隔符 /）
+        if any(c in _ILLEGAL_CHARS for c in part):
+            return False
+        # 检查 Windows 保留名（仅检查纯文件名，不含点号部分）
+        base = part.rsplit(".", 1)[0].upper() if "." in part else part.upper()
+        if base in _ILLEGAL_PATTERNS:
+            return False
+    return True
+
+
+def get_merge_parents() -> tuple[str, str]:
+    """Return (ours, theirs) commit hashes for current HEAD if it is a merge."""
+    parents = run_git("log", "-1", "--format=%P").split()
+    if len(parents) != 2:
+        print("ERROR: HEAD is not a merge commit (2 parents).")
+        print("  Use --ours and --theirs to specify commits manually.")
+        sys.exit(2)
+    return parents[0], parents[1]
+
+
+def main():
+    parser = argparse.ArgumentParser(description="合并完整性校验")
+    parser.add_argument("--theirs", help="被合并的远端提交（默认：HEAD 的第二父）")
+    parser.add_argument("--ours", help="合并前的本地提交（默认：HEAD 的第一父）")
+    parser.add_argument("--verbose", "-v", action="store_true", help="显示所有检查项")
+    args = parser.parse_args()
+
+    ours = args.ours
+    theirs = args.theirs
+
+    if ours and theirs:
+        pass
+    elif ours or theirs:
+        print("ERROR: --ours 和 --theirs 必须同时提供或同时省略。")
+        sys.exit(2)
+    else:
+        ours, theirs = get_merge_parents()
+
+    # 1. 获取 merge base
+    base = run_git("merge-base", ours, theirs)
+    print(f"ours:   {ours[:7]}")
+    print(f"theirs: {theirs[:7]}")
+    print(f"base:   {base[:7]}")
+    print()
+
+    # 2. 列出 theirs 相对于 base 新增/修改的文件（排除删除，删除是预期行为）
+    changed = run_git("diff", "--name-only", "--diff-filter=AMRC", base, theirs).splitlines()
+
+    # 3. 检查每个文件是否存在于当前工作树
+    missing = []
+    illegal = []
+    ok_count = 0
+
+    for path in changed:
+        if not path.strip():
+            continue
+        if not is_path_legal(path):
+            illegal.append(path)
+            if args.verbose:
+                print(f"  SKIP (OS illegal): {path}")
+            continue
+        if os.path.exists(path):
+            ok_count += 1
+            if args.verbose:
+                print(f"  OK: {path}")
+        else:
+            missing.append(path)
+            print(f"  MISSING: {path}")
+
+    print()
+    print(f"总计: {len(changed)} 个文件")
+    print(f"  通过: {ok_count}")
+    print(f"  OS 不兼容（预期跳过）: {len(illegal)}")
+    print(f"  意外丢失: {len(missing)}")
+
+    if illegal:
+        print()
+        print("OS 不兼容文件（可安全忽略）:")
+        for p in illegal:
+            print(f"  {p}")
+
+    if missing:
+        print()
+        print("以下文件意外丢失，需恢复：")
+        for p in missing:
+            print(f"  {p}")
+        print()
+        print("恢复命令示例：")
+        print(f"  git checkout {theirs[:7]} -- {' '.join(missing[:5])}")
+        if len(missing) > 5:
+            print(f"  ... 等 {len(missing)} 个文件")
+        sys.exit(1)
+    else:
+        print("合并完整性检查通过。")
+        sys.exit(0)
+
+
+if __name__ == "__main__":
+    main()
