@@ -11,3 +11,6 @@
 *.png binary
 *.jpg binary
 *.pdf binary
+# 追加型文件：两边都只追加不删改，union 自动合并避免冲突
+session-log.md merge=union
+cognitive-log.md merge=union
