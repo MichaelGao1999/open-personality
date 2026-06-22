@@ -66,7 +66,6 @@ def api_get(endpoint: str) -> Optional[Union[dict, list]]:
             log(f"gh api 失败: {result.stderr.strip()}")
             return None
         return json.loads(result.stdout)  # type: ignore[no-any-return]
-        return data  # type: ignore[no-any-return]
     except FileNotFoundError:
         log("错误: 未找到 gh CLI，请先安装: https://cli.github.com")
         return None
@@ -82,8 +81,7 @@ def fetch_raw(owner: str, repo: str, branch: str, filepath: str) -> Optional[str
         if resp.status_code == 404:
             return None
         resp.raise_for_status()
-        return resp.text
-        return data  # type: ignore[no-any-return]
+        return resp.text  # type: ignore[no-any-return]
     except requests.RequestException as e:
         log(f"拉取失败: {url} -> {e}")
         return None
