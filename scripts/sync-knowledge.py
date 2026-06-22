@@ -99,7 +99,7 @@ def list_repos(username: str) -> List[dict]:
         for page in data:
             flat.extend(page)
         return flat
-    return data
+    return data  # type: ignore[return-value]
 
 
 def filter_repos(repos: list[dict], include: list[str], exclude: list[str]) -> list[dict]:
@@ -324,7 +324,7 @@ def run_sync(config_path: str) -> int:
         return 1
 
     cfg = load_config(config_path)
-    username = cfg.get("username", "").strip()
+    username = cfg.get("username", "").strip()  # type: ignore[union-attr]
     include = cfg.get("includeRepos", [])
     exclude = cfg.get("excludeRepos", [])
     branch = cfg.get("branch", "main")
