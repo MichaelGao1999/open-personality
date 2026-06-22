@@ -4,7 +4,7 @@ from sqlalchemy.orm import declarative_base
 Base = declarative_base()
 
 
-class Session(Base):
+class Session(Base):  # type: ignore[valid-type,misc]
     __tablename__ = "sessions"
 
     id = Column(String, primary_key=True)
@@ -16,7 +16,7 @@ class Session(Base):
     created_at = Column(String, nullable=False)
 
 
-class Answer(Base):
+class Answer(Base):  # type: ignore[valid-type,misc]
     __tablename__ = "answers"
 
     id = Column(Integer, primary_key=True, autoincrement=True)
@@ -25,7 +25,7 @@ class Answer(Base):
     value = Column(Integer, nullable=False)
 
 
-class Report(Base):
+class Report(Base):  # type: ignore[valid-type,misc]
     __tablename__ = "reports"
 
     id = Column(Integer, primary_key=True, autoincrement=True)

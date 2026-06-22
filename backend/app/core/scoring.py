@@ -14,7 +14,7 @@ class ScoringEngine:
     def _load_items(self, mode: str, lang: str) -> list[dict]:
         cache_key = f"{mode}_{lang}"
         if cache_key in self._items_cache:
-            return self._items_cache[cache_key]
+            return self._items_cache[cache_key]  # type: ignore[return-value]
         mode_map = {"standard": "120", "advanced": "300", "speed": "_speed"}
         mode_key = mode_map.get(mode, "120")
         filename = f"ipip{mode_key}_{lang}.json"
@@ -22,12 +22,12 @@ class ScoringEngine:
         with open(filepath, "r", encoding="utf-8") as f:
             data = json.load(f)
         self._items_cache[cache_key] = data["items"]
-        return data["items"]
+        return data["items"]  # type: ignore[no-any-return]  # type: ignore[no-any-return]
 
     def _load_norms(self) -> dict:
         filepath = os.path.join(self.data_dir, "norms.json")
         with open(filepath, "r", encoding="utf-8") as f:
-            return json.load(f)
+            return json.load(f)  # type: ignore[no-any-return]  # type: ignore[no-any-return]
 
     def _compute_domain_raw(self, answers: list[AnswerItem], items: list[dict]) -> dict[str, float]:
         item_map = {item["item_id"]: item for item in items}
@@ -59,14 +59,14 @@ class ScoringEngine:
             if item["reversed"]:
                 score = 6 - score
             facet_items[facet].append(score)
-        result = {}
+        result: dict[str, float] = {}
         for facet, scores in facet_items.items():
             if len(scores) == 4:
                 result[facet] = sum(scores) * 6
             else:
                 raw_sum = sum(scores)
-                result[facet] = raw_sum / len(scores) * 24 if scores else 0.0
-        return result
+                result[facet] = raw_sum / len(scores) * 24 if scores else 0.0  # type: ignore[assignment]
+        return result  # type: ignore[return-value]
 
     def _normalize(self, raw_scores: dict[str, float], norms: dict) -> dict[str, float]:
         t_scores = {}

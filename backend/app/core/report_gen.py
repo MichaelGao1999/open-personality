@@ -21,7 +21,7 @@ class ReportGenerator:
     def _load_interpretations(self, lang: str) -> dict:
         filepath = os.path.join(self.data_dir, f"interpretations_{lang}.json")
         with open(filepath, "r", encoding="utf-8") as f:
-            return json.load(f)
+            return json.load(f)  # type: ignore[no-any-return]
 
     def _interpret_domain(self, score: float, high_text: dict, low_text: dict, medium_text: dict | None = None) -> tuple[str, str]:
         if score >= 55:

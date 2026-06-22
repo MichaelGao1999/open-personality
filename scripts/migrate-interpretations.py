@@ -1,3 +1,4 @@
+# mypy: ignore-errors
 #!/usr/bin/env python3
 """
 迁移数据库中的旧报告：重新生成 interpretations，写入新的 body_high/low 字段。

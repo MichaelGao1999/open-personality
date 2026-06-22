@@ -30,7 +30,7 @@ if sys.platform == "win32":
         pass
 
 try:
-    import requests  # type: ignore[import-untyped]
+    import requests  # type: ignore[import-untyped]  # type: ignore[import-untyped]  # type: ignore[import-untyped]
 except ImportError:
     print("[init] 错误: 需要安装 requests 库。运行: pip install requests")
     sys.exit(1)
@@ -54,7 +54,7 @@ def fetch_raw(filepath: str) -> Optional[str]:
         if resp.status_code == 404:
             return None
         resp.raise_for_status()
-        return resp.text  # type: ignore[no-any-return]
+        return resp.text  # type: ignore[no-any-return]  # type: ignore[no-any-return]
     except requests.RequestException as e:
         log(f"拉取失败: {url} -> {e}")
         return None

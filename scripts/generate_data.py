@@ -420,7 +420,7 @@ for dim in ["O","C","E","A","N"]:
     norms[dim] = {"mean": 50.0, "sd": 10.0}
 for key in all_facet_keys:
     norms[key] = {"mean": 50.0, "sd": 10.0}
-norms["metadata"] = {"standard": "T-score (M=50, SD=10)", "source": "initial preset"}
+norms["metadata"] = {"standard": "T-score (M=50, SD=10)", "source": "initial preset"}  # type: ignore[dict-item]
 with open(os.path.join(DATA_DIR, "norms.json"), "w", encoding="utf-8") as f:
     json.dump(norms, f, ensure_ascii=False, indent=2)
 print("Saved norms.json")

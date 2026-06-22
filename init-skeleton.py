@@ -101,7 +101,7 @@ def prompt_entry_point() -> str:
 def fetch_text(url: str) -> Optional[str]:
     try:
         resp = urllib.request.urlopen(url)
-        return resp.read().decode("utf-8")
+        return resp.read().decode("utf-8")  # type: ignore[no-any-return]
     except (urllib.error.HTTPError, urllib.error.URLError):
         return None
 

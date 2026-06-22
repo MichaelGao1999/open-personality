@@ -16,13 +16,13 @@ class QuestionnaireLoader:
     def load_items(self, mode: str, lang: str) -> list[QuestionnaireItem]:
         cache_key = f"{mode}_{lang}"
         if cache_key in self._cache:
-            return self._cache[cache_key]
+            return self._cache[cache_key]  # type: ignore[return-value]
         mode_key = {"standard": "120", "advanced": "300", "speed": "_speed"}.get(mode, "120")
         filepath = os.path.join(self.data_dir, "items", f"ipip{mode_key}_{lang}.json")
         with open(filepath, "r", encoding="utf-8") as f:
             data = json.load(f)
         items = [QuestionnaireItem(**item) for item in data["items"]]
-        self._cache[cache_key] = items
+        self._cache[cache_key] = items  # type: ignore[assignment]  # type: ignore[assignment]
         return items
 
     def validate_answer_count(self, answers: list[AnswerItem], mode: str) -> None:

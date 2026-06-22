@@ -31,7 +31,7 @@ class EasterEggEngine:
             pool.append((egg["id"], egg.get(lang, egg.get("en", ""))))
         if not pool:
             return ""
-        return random.choice(pool)[1]
+        return random.choice(pool)[1]  # type: ignore[no-any-return]
 
     def trigger(self, lang: str = "zh", seed: str | None = None) -> str | None:
         if seed is not None:
