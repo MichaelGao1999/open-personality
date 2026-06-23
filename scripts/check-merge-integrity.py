@@ -70,7 +70,7 @@ def get_merge_parents() -> tuple[str, str]:
     # 尝试获取 reflog 上一个位置（对 merge 和 fast-forward 均有效）
     try:
         ours_prev = run_git("rev-parse", "--verify", "HEAD@{1}")
-    except SystemExit:
+    except (SystemExit, subprocess.TimeoutExpired):
         ours_prev = None
 
     parents = run_git("log", "-1", "--format=%P").split()
