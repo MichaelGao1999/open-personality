@@ -520,3 +520,23 @@
 - 8 个 facet 名称统一 → 匹配 interpretations
 - 35 个维度 + 子维度增添 `medium` 解释
 - 44 个测试全部通过
+
+---
+
+## 2026-06-23 — 域级+子维度解读文案精简
+
+### 本轮概要
+- 恢复流程启动，母库经验分发引入「三层安全闸」（AGENTS.md §4.2）
+- 域级解读（O/C/E/A/N × high/low = 10条）从长文（4-6句）精简为2-3句
+- 子维度解读（30 facet × high/low = 60条）同步精简，去掉心理学引用和具体建议
+- 同步更新 `docs/interpretation-content-draft.md` 文案草案 + 修复风格声明
+- review 确认：无 bug，JSON 格式有效，两文件一致
+
+### 更新文件
+- `backend/data/interpretations_zh.json` — 70 条 body 精简
+- `docs/interpretation-content-draft.md` — 同步文案 + 风格声明修正（"专业详实"→"简洁精炼"）
+
+### 遗留问题 / 下轮开始点
+- 英文版文案优化翻译
+- 人格解读正文继续填充（部分子维度 medium 三级仍为占位符）
+- 【可选】全项目动画 GPU 化

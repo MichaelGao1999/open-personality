@@ -138,3 +138,4 @@ open-personality/
 | 2026-06-17 | 子维度译名同步：draft.md 译名列→调整版 + ResultCard.vue facetMeta 对���（25/30 项）
 | 2026-06-18 | 好友对比功能完整实现（9项差距全部关闭），首页 UI 调整（间距/按钮/文案），分享码归属自动判断，ShareCodeInput 精简，CSS sourcemap 配置 |
 | 2026-06-19 | 修复 IPIP-300 数据文件 facet 命名不一致（8 个 facet 名称 → 匹配 interpretations） + ReportGenerator 支持 medium 解释 + 全量 medium 条目(35/35) + 新增回归测试 + 首页按钮缩小 + 显示条件收紧 |
+| 2026-06-23 | 域级+子维度解读文案精简（70 条 body 长文→2-3句）+ 同步 draft 文档 + 母库经验分发引入三层安全闸 |
