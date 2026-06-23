@@ -102,7 +102,13 @@ def submit_answers(req: SubmitRequest, db: DBSession = Depends(get_db)):
 
     mbti_result = mbti_inference.infer(scoring_result)
     force_egg = req.mode == "advanced" and not is_partial
-    easter_egg = easter_egg_engine.trigger(lang=req.lang, force=force_egg)
+    easter_egg = easter_egg_engine.trigger(
+        lang=req.lang,
+        force=force_egg,
+        scoring=scoring_result,
+        mbti=mbti_result,
+        mode=req.mode,
+    )
 
     if existing_session_id:
         session_id = existing_session_id

@@ -540,3 +540,29 @@
 - 英文版文案优化翻译
 - 人格解读正文继续填充（部分子维度 medium 三级仍为占位符）
 - 【可选】全项目动画 GPU 化
+
+---
+
+## 2026-06-23（续）— 彩蛋条件触发 + 分层概率 + 无替代文案
+
+### 本轮概要
+- **触发机制重构**：彩蛋从纯随机（10%）改为条件匹配，新增 `_match_condition()` 递归求值，支持 domain 阈值、MBTI、mode、flat、and/or/not 复合条件
+- **分层信号体系**：strong（≥60）、medium（≥55 / ≤45）、flat（全域 45~55）三层覆盖，16 条蛋全部分配条件
+- **分层概率**：advanced=100%（force）、standard=50%、speed=10%
+- **无替代文案**：`ResultCard.vue` 删除 fallback tips `defaultTips`，无彩蛋时不显示任何内容
+- **全覆盖验证**：13 种画像（5高+5低+平坦+advanced+speed）全部通过管道测试
+- 新增 `docs/debug/` 调试文档目录 + `docs/debug/easter-eggs.md` 工作台
+
+### 更新文件
+- `backend/app/core/easter_egg.py` — 条件匹配引擎 + 分层概率
+- `backend/app/api/questionnaire_api.py` — 传入 scoring/mbti/mode
+- `backend/data/easter_eggs.json` — 16 条蛋全部加 condition
+- `frontend/src/components/ResultCard.vue` — 去掉 fallback 文案
+- `backend/tests/test_easter_egg.py` — 63 个测试（55→63）
+- `docs/debug/easter-eggs.md` — 新建
+- `docs/debug/` — 新建目录
+
+### 遗留问题 / 下轮开始点
+- 英文版文案优化翻译
+- 人格解读正文继续填充
+- speed 模式暂无专属彩蛋（走 domain 条件覆盖）

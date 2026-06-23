@@ -6,6 +6,7 @@ import random
 
 from backend.app.config import DATA_DIR
 
+
 class EasterEggEngine:
     def __init__(self, data_dir: str | None = None):
         self.data_dir = data_dir or DATA_DIR
@@ -19,23 +20,144 @@ class EasterEggEngine:
             self._eggs = json.load(f)
         return self._eggs
 
-    def _roll(self) -> bool:
-        return random.random() < 0.1
+    _TRIGGER_RATES = {"standard": 0.5, "speed": 0.1}
 
-    def _pick(self, lang: str) -> str:
+    def _roll(self, mode: str = "standard") -> bool:
+        rate = self._TRIGGER_RATES.get(mode, 0.1)
+        return random.random() < rate
+
+    def _match_condition(self, condition: dict, scoring, mbti, mode: str) -> bool:
+        if not condition:
+            return True
+
+        if "and" in condition:
+            return all(self._match_condition(c, scoring, mbti, mode) for c in condition["and"])
+
+        if "or" in condition:
+            return any(self._match_condition(c, scoring, mbti, mode) for c in condition["or"])
+
+        if "not" in condition:
+            return not self._match_condition(condition["not"], scoring, mbti, mode)
+
+        if "highest_domain" in condition:
+            target = condition["highest_domain"]
+            if not scoring or not scoring.t_scores:
+                return False
+            max_domain = max(scoring.t_scores, key=scoring.t_scores.get)
+            return max_domain == target
+
+        if "lowest_domain" in condition:
+            target = condition["lowest_domain"]
+            if not scoring or not scoring.t_scores:
+                return False
+            min_domain = min(scoring.t_scores, key=scoring.t_scores.get)
+            return min_domain == target
+
+        if "highest_facet" in condition:
+            target = condition["highest_facet"]
+            if not scoring or not scoring.facet_scores:
+                return False
+            max_facet = max(scoring.facet_scores, key=scoring.facet_scores.get)
+            return max_facet == target
+
+        if "lowest_facet" in condition:
+            target = condition["lowest_facet"]
+            if not scoring or not scoring.facet_scores:
+                return False
+            min_facet = min(scoring.facet_scores, key=scoring.facet_scores.get)
+            return min_facet == target
+
+        if "domain" in condition:
+            score = scoring.t_scores.get(condition["domain"], 50) if scoring else 50
+            if "ge" in condition and score < condition["ge"]:
+                return False
+            if "le" in condition and score > condition["le"]:
+                return False
+            return True
+
+        if "facet" in condition:
+            score = scoring.facet_scores.get(condition["facet"], 50) if scoring else 50
+            if "ge" in condition and score < condition["ge"]:
+                return False
+            if "le" in condition and score > condition["le"]:
+                return False
+            return True
+
+        if "mbti" in condition:
+            return mbti is not None and mbti.type_code == condition["mbti"]
+
+        if "mbti_in" in condition:
+            return mbti is not None and mbti.type_code in condition["mbti_in"]
+
+        if "mbti_dim" in condition:
+            if mbti is None:
+                return False
+            dim = condition["mbti_dim"]
+            axis = dim["axis"]
+            prefer = dim["prefer"]
+            min_prob = dim.get("min_prob", 0.0)
+            for d in mbti.dimensions:
+                labels = (d.label_a, d.label_b)
+                if all(x in [d.label_a, d.label_b] for x in [axis[:1], axis[-1:]]):
+                    if d.label_a == prefer:
+                        return d.prob_a >= min_prob
+                    elif d.label_b == prefer:
+                        return d.prob_b >= min_prob
+            return False
+
+        if "mbti_confidence_ge" in condition:
+            return mbti is not None and mbti.confidence >= condition["mbti_confidence_ge"]
+
+        if "mbti_confidence_le" in condition:
+            return mbti is not None and mbti.confidence <= condition["mbti_confidence_le"]
+
+        if "mode" in condition:
+            return mode == condition["mode"]
+
+        if "mode_in" in condition:
+            return mode in condition["mode_in"]
+
+        if "flat" in condition and condition["flat"]:
+            if not scoring or not scoring.t_scores:
+                return False
+            return all(45 <= v <= 55 for v in scoring.t_scores.values())
+
+        return True
+
+    def _pick_conditional(self, lang: str, scoring, mbti, mode: str) -> str:
         eggs_data = self._load_eggs()
         pool = []
+        has_data = scoring is not None and mbti is not None
         for egg in eggs_data.get("eggs", []):
-            pool.append((egg["id"], egg.get(lang, egg.get("en", ""))))
+            if not has_data:
+                pool.append(egg.get(lang, egg.get("en", "")))
+            else:
+                condition = egg.get("condition", {})
+                if self._match_condition(condition, scoring, mbti, mode):
+                    pool.append(egg.get(lang, egg.get("en", "")))
         for egg in eggs_data.get("medium", []):
-            pool.append((egg["id"], egg.get(lang, egg.get("en", ""))))
+            if not has_data:
+                pool.append(egg.get(lang, egg.get("en", "")))
+            else:
+                condition = egg.get("condition", {})
+                if self._match_condition(condition, scoring, mbti, mode):
+                    pool.append(egg.get(lang, egg.get("en", "")))
         if not pool:
             return ""
-        return random.choice(pool)[1]  # type: ignore[no-any-return]
+        return random.choice(pool)
 
-    def trigger(self, lang: str = "zh", seed: str | None = None, force: bool = False) -> str | None:
+    def trigger(
+        self,
+        lang: str = "zh",
+        seed: str | None = None,
+        force: bool = False,
+        scoring=None,
+        mbti=None,
+        mode: str = "standard",
+    ) -> str | None:
         if seed is not None:
             random.seed(seed)
-        if not force and not self._roll():
+        if not force and not self._roll(mode):
             return None
-        return self._pick(lang)
+        result = self._pick_conditional(lang, scoring, mbti, mode)
+        return result if result else None
