@@ -33,9 +33,9 @@ class EasterEggEngine:
             return ""
         return random.choice(pool)[1]  # type: ignore[no-any-return]
 
-    def trigger(self, lang: str = "zh", seed: str | None = None) -> str | None:
+    def trigger(self, lang: str = "zh", seed: str | None = None, force: bool = False) -> str | None:
         if seed is not None:
             random.seed(seed)
-        if not self._roll():
+        if not force and not self._roll():
             return None
         return self._pick(lang)

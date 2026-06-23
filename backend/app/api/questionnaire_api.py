@@ -101,7 +101,8 @@ def submit_answers(req: SubmitRequest, db: DBSession = Depends(get_db)):
         raise HTTPException(status_code=500, detail={"error": "scoring_failed", "detail": str(e)})
 
     mbti_result = mbti_inference.infer(scoring_result)
-    easter_egg = easter_egg_engine.trigger(lang=req.lang)
+    force_egg = req.mode == "advanced" and not is_partial
+    easter_egg = easter_egg_engine.trigger(lang=req.lang, force=force_egg)
 
     if existing_session_id:
         session_id = existing_session_id

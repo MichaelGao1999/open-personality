@@ -22,6 +22,16 @@ def test_trigger_rate_approximate(engine):
     assert 0.07 <= rate <= 0.13, f"Trigger rate {rate} outside expected 7-13%"
 
 
+def test_force_always_triggers(engine):
+    engine._eggs = None
+    for seed in range(100):
+        engine._eggs = None
+        result = engine.trigger(lang="zh", seed=str(seed), force=True)
+        assert result is not None
+        assert isinstance(result, str)
+        assert len(result) > 0
+
+
 def test_trigger_returns_string(engine):
     engine._eggs = None
     result = engine.trigger(lang="zh", seed="test_trigger")

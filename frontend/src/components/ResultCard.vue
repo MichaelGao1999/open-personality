@@ -77,9 +77,9 @@
         </div>
       </div>
 
-      <!-- 彩蛋 / 趣味提示 -->
+      <!-- 彩蛋 -->
       <Transition name="egg">
-        <div v-if="showEgg" class="card-egg" :class="{ 'no-egg': !displayEgg }">
+        <div v-if="showEgg && displayEgg" class="card-egg">
           <p>{{ displayEgg }}</p>
         </div>
       </Transition>
@@ -224,18 +224,8 @@ function toggleDimPopup(dim) {
   activeDimKey.value = activeDimKey.value === dim ? null : dim
 }
 
-// 默认趣味提示（无彩蛋时展示）
-const defaultTips = [
-  '人格是流动的——今天的你和明天的你可能不同，这正是成长的意义。',
-  '了解自己是改变的第一步。你正在做一件很有勇气的事。',
-  '没有人格是"好的"或"坏的"——每种特质都有它的优势和挑战。',
-  '人格测试只是一个起点，真正的发现来自于日常的自我观察。',
-]
-
 const displayEgg = computed(() => {
-  if (props.report.easter_egg) return props.report.easter_egg
-  const tip = defaultTips[Math.floor(Math.random() * defaultTips.length)]
-  return '💡 ' + tip
+  return props.report.easter_egg || null
 })
 
 const showEgg = ref(false)
@@ -348,11 +338,6 @@ defineExpose({ cardRef })
   border: 1px solid rgba(123, 47, 247, 0.15);
   max-height: 200px;
 }
-.card-egg.no-egg {
-  background: rgba(128, 128, 128, 0.04);
-  border-color: var(--color-border);
-}
-.card-egg.no-egg p { font-style: normal; opacity: 0.7; }
 .card-egg p { font-size: 13px; line-height: 1.5; color: var(--color-text); margin: 0; }
 
 /* ===== 彩蛋展开动画 ===== */
