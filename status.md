@@ -140,3 +140,4 @@ open-personality/
 | 2026-06-19 | 修复 IPIP-300 数据文件 facet 命名不一致（8 个 facet 名称 → 匹配 interpretations） + ReportGenerator 支持 medium 解释 + 全量 medium 条目(35/35) + 新增回归测试 + 首页按钮缩小 + 显示条件收紧 |
 | 2026-06-23 | 域级+子维度解读文案精简（70 条 body 长文→2-3句）+ 同步 draft 文档 + 母库经验分发引入三层安全闸 |
 | 2026-06-23 | 彩蛋从随机改为条件触发（domain/MBTI/mode/flat/composite）+ 分层概率（100%/50%/10%）+ 去掉替代文案 + 新建 docs/debug/ |
+| 2026-06-23 | Docs 同步：proposal/brief/design/task-M05/task-progress 等 7 文件对齐彩蛋条件触发实现 + CI 诊断（ruff F841 已修复） |

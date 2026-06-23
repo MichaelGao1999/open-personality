@@ -566,3 +566,27 @@
 - 英文版文案优化翻译
 - 人格解读正文继续填充
 - speed 模式暂无专属彩蛋（走 domain 条件覆盖）
+
+---
+
+## 2026-06-23（续 2）— Docs 同步 + CI 诊断
+
+### 本轮概要
+- **Review 审查**：对 HEAD~3（彩蛋条件触发）做双轴审查——Standards（AGENTS.md 硬规则）和 Spec（原始需求文档），发现标准模式触发率 50% 与原 spec 10% 不符
+- **Docs 同步**：用户确认调整是有意的，但 spec docs 未同步。逐文件同步 7 份文档共 10 处（proposal.md §11、brief.md B-12、design.md §3/§6.3/§9.3/§11.2、task-M05.md 重写、task-data.md DATA-09、task-progress.md M05 列表、task-M08.md M08-17）
+- **CI 诊断**：GitHub 显示 backend 失败 → `gh run view --log-failed` 定位为 ruff `F841` 在 `easter_egg.py:100`（unused variable `labels`），已在 `06ba426` 修复通过
+- **自动提交**：distribute 同步脚本自动打包了 docs 编辑为 `06ba426`
+
+### 更新文件
+- `docs/proposal.md` — 彩蛋设计表重写
+- `docs/brief.md` — B-12 更新分层触发
+- `docs/design.md` — flow step 4 / §6.3 接口 / §9.3 JSON / §11.2 测试场景
+- `docs/tasks/task-M05.md` — 子任务 6→8、接口、测试点全量重写
+- `docs/tasks/task-data.md` — DATA-09 更新 condition 字段
+- `docs/tasks/task-progress.md` — M05 任务 6→8，合计 94→96
+- `docs/tasks/task-M08.md` — M08-17 无 fallback 说明
+
+### 遗留问题 / 下轮开始点
+- 英文版文案优化翻译
+- 人格解读正文继续填充
+- speed 模式暂无专属彩蛋（走 domain 条件覆盖）
