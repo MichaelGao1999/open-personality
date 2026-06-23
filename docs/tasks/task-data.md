@@ -67,9 +67,9 @@
 ### DATA-09 彩蛋文案 JSON [P1]
 
 - 文件：`backend/data/easter_eggs.json`
-- 10~15 条短文案 + 3~5 条中等彩蛋
-- 每条含：`id`, `zh`, `en`
-- trigger_rate: 0.1
+- 12 条短文案 + 4 条中等彩蛋
+- 每条含：`id`, `zh`, `en`, `condition`（条件 DSL）
+- 条件语法：domain 阈值、facet 阈值、highest/lowest_domain、highest/lowest_facet、mbti、mbti_in、mbti_dim、mbti_confidence、mode、mode_in、flat、and/or/not 复合
 
 ---
 

@@ -44,28 +44,28 @@ class EasterEggEngine:
             if not scoring or not scoring.t_scores:
                 return False
             max_domain = max(scoring.t_scores, key=scoring.t_scores.get)
-            return max_domain == target
+            return max_domain == target  # type: ignore[no-any-return]
 
         if "lowest_domain" in condition:
             target = condition["lowest_domain"]
             if not scoring or not scoring.t_scores:
                 return False
             min_domain = min(scoring.t_scores, key=scoring.t_scores.get)
-            return min_domain == target
+            return min_domain == target  # type: ignore[no-any-return]
 
         if "highest_facet" in condition:
             target = condition["highest_facet"]
             if not scoring or not scoring.facet_scores:
                 return False
             max_facet = max(scoring.facet_scores, key=scoring.facet_scores.get)
-            return max_facet == target
+            return max_facet == target  # type: ignore[no-any-return]
 
         if "lowest_facet" in condition:
             target = condition["lowest_facet"]
             if not scoring or not scoring.facet_scores:
                 return False
             min_facet = min(scoring.facet_scores, key=scoring.facet_scores.get)
-            return min_facet == target
+            return min_facet == target  # type: ignore[no-any-return]
 
         if "domain" in condition:
             score = scoring.t_scores.get(condition["domain"], 50) if scoring else 50
@@ -100,9 +100,9 @@ class EasterEggEngine:
                 labels = (d.label_a, d.label_b)
                 if all(x in [d.label_a, d.label_b] for x in [axis[:1], axis[-1:]]):
                     if d.label_a == prefer:
-                        return d.prob_a >= min_prob
+                        return d.prob_a >= min_prob  # type: ignore[no-any-return]
                     elif d.label_b == prefer:
-                        return d.prob_b >= min_prob
+                        return d.prob_b >= min_prob  # type: ignore[no-any-return]
             return False
 
         if "mbti_confidence_ge" in condition:
@@ -112,7 +112,7 @@ class EasterEggEngine:
             return mbti is not None and mbti.confidence <= condition["mbti_confidence_le"]
 
         if "mode" in condition:
-            return mode == condition["mode"]
+            return mode == condition["mode"]  # type: ignore[no-any-return]
 
         if "mode_in" in condition:
             return mode in condition["mode_in"]
@@ -144,7 +144,7 @@ class EasterEggEngine:
                     pool.append(egg.get(lang, egg.get("en", "")))
         if not pool:
             return ""
-        return random.choice(pool)
+        return random.choice(pool)  # type: ignore[no-any-return]
 
     def trigger(
         self,

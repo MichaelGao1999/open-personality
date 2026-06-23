@@ -7,10 +7,10 @@ from backend.app.schemas.models import MBTIDimension, MBTIResult, ScoringResult
 
 
 def _make_scoring(t_scores: dict | None = None) -> ScoringResult:
-    scores = {"O": 50, "C": 50, "E": 50, "A": 50, "N": 50}
+    base: dict[str, float] = {"O": 50.0, "C": 50.0, "E": 50.0, "A": 50.0, "N": 50.0}
     if t_scores:
-        scores.update(t_scores)
-    return ScoringResult(raw_scores=scores, t_scores=scores, facet_scores={})
+        base.update({k: float(v) for k, v in t_scores.items()})
+    return ScoringResult(raw_scores=base, t_scores=base, facet_scores={})
 
 
 def _make_mbti(type_code: str = "INTJ", confidence: float = 0.7) -> MBTIResult:

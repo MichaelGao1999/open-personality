@@ -92,8 +92,9 @@ M08(前端) ↔ M07(API)
    ├─ 4 对维度分别计算概率 (Sigmoid 校准)
    └─ 输出 E/I, S/N, T/F, J/P 概率分布
 4. 调用 M05 彩蛋引擎
-   ├─ 10% 概率判定
-   └─ 命中则随机选取 1 条彩蛋文案
+   ├─ 分层概率判定：standard 50% / speed 10% / advanced 100%（force）
+   ├─ 条件匹配：根据 scoring / MBTI / mode 筛选候选蛋池
+   └─ 候选池非空则随机选取 1 条；为空则返回 None
 5. 调用 M04 报告生成
    ├─ 根据语言读解读模板
    ├─ 组装得分 + MBTI + 彩蛋
@@ -359,18 +360,32 @@ class MBTIInference:
 
 ```python
 class EasterEggEngine:
-    def __init__(self, eggs_config: dict): ...
+    _TRIGGER_RATES = {"standard": 0.5, "speed": 0.1}
 
-    def trigger(self, seed: str | None = None) -> str | None:
-        """10% 概率触发，返回随机彩蛋文案或 None"""
+    def __init__(self, data_dir: str | None = None): ...
+
+    def trigger(
+        self,
+        lang: str = "zh",
+        seed: str | None = None,
+        force: bool = False,
+        scoring: ScoringResult | None = None,
+        mbti: MBTIResult | None = None,
+        mode: str = "standard",
+    ) -> str | None:
+        """分层概率 + 条件匹配，返回匹配的彩蛋文案或 None"""
         pass
 
-    def _roll(self) -> bool:
-        """概率判定"""
+    def _roll(self, mode: str = "standard") -> bool:
+        """按 mode 取对应触发率判定"""
         pass
 
-    def _pick(self, lang: str) -> str:
-        """按语言随机选一条彩蛋"""
+    def _match_condition(self, condition: dict, scoring, mbti, mode: str) -> bool:
+        """递归条件求值引擎，支持 domain/facet/MBTI/mode/flat/and/or/not"""
+        pass
+
+    def _pick_conditional(self, lang: str, scoring, mbti, mode: str) -> str:
+        """从匹配条件的蛋池中随机选取一条"""
         pass
 ```
 
@@ -574,23 +589,39 @@ open-personality/
 
 ### 9.3 彩蛋 (easter_eggs.json)
 
+每条彩蛋含 `condition` 字段定义触发条件，支持以下 DSL：
+
+| 表达式 | 含义 |
+|--------|------|
+| `{domain: A, ge: 60}` | 宜人性 ≥ 60 |
+| `{highest_domain: O}` | 开放性最高 |
+| `{lowest_facet: N_anxiety}` | 焦虑子维度最低 |
+| `{mbti: INTJ}` | MBTI 精确匹配 |
+| `{mbti_dim: {axis: E_I, prefer: I, min_prob: 0.7}}` | 指定轴偏好 + 置信度 |
+| `{mode: advanced}` | 300 题模式 |
+| `{flat: true}` | 全域 45-55（平坦剖面） |
+| `{and: [cond1, cond2]}` | 复合条件全部满足 |
+| `{or: [cond1, cond2]}` | 任一满足 |
+| `{not: cond}` | 取反 |
+
 ```json
 {
   "eggs": [
     {
       "id": "egg_001",
       "zh": "你的创造力指数堪比文艺复兴大师——建议今天请半天假去美术馆。",
-      "en": "Your creativity rivals the Renaissance masters — take a half day for the museum."
+      "en": "Your creativity rivals the Renaissance masters — take a half day for the museum.",
+      "condition": { "domain": "O", "ge": 55 }
     }
   ],
   "medium": [
     {
       "id": "medium_001",
       "zh": "（中等彩蛋文案）",
-      "en": "..."
+      "en": "...",
+      "condition": { "domain": "E", "ge": 55 }
     }
-  ],
-  "trigger_rate": 0.1
+  ]
 }
 ```
 
@@ -630,7 +661,8 @@ open-personality/
 - 已知答案 → 验证大五分数是否与预期一致
 - 已知大五分数 → 验证 MBTI 概率分布是否合理（E 高分 → E/I 中 E 概率 > 0.5）
 - 全部选 3（中立）→ 验证所有域得分在中间范围
-- 彩蛋 1000 次调用 → 实际触发率 ≈ 10%（±3%）
+- 彩蛋各 mode 分层触发率验证（standard ~50%，speed ~10%，advanced force=100%）
+- 16 条彩蛋的条件匹配覆盖：13 种画像（5 高 + 5 低 + 平坦 + advanced + speed）全部命中
 - API 提交 → 返回完整 Report 结构，字段非空
 - share_token 查询 → 返回正确报告，不存在返回 404
 - 反向计分题目 → 分数正确反转

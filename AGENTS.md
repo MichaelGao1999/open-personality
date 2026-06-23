@@ -69,6 +69,7 @@
 | **RULE-13** | **禁止在最终输出中出现占位符（`[...]`、`<...>`、`TBD`、`TODO`、`待补充`）；信息不足时使用通用表述替代，宁可放宽粒度不可留空洞** | 下游 agent 无法消费输出、内容不可用、需人工返工 |
 | **RULE-14** | **所有文件 I/O 和 `subprocess.run()` 必须显式传入 `encoding` 参数** | Windows GBK 环境下不指定会导致 UnicodeDecodeError |
 | **RULE-15** | **`git merge` 因文件系统不兼容失败时，禁止使用 `-s ours` / `-X ours`。必须改用 `git merge-tree --write-tree` 在对象空间完成合并，仅排除无法在当前文件系统创建的文件（`scripts/pre-merge-check.py` 预检 + `scripts/check-merge-integrity.py` 后检）** | 丢弃远端变更导致跨平台同步数据静默丢失 |
+| **RULE-16** | **审查/审计类操作输出报告后，禁止自行修复。必须将报告呈现给用户，等待用户明确审批后再动手修。** | Agent 绕过用户直接修改代码，用户失去对改动的知情和控制 |
 
 <!-- /@sync -->
 ---
