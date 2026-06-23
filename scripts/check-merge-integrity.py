@@ -62,13 +62,34 @@ def is_path_legal(path: str) -> bool:
 
 
 def get_merge_parents() -> tuple[str, str]:
-    """Return (ours, theirs) commit hashes for current HEAD if it is a merge."""
+    """Return (ours, theirs) commit hashes for current HEAD.
+
+    - Merge commit (2 parents): parents[0]=ours, parents[1]=theirs
+    - Fast-forward (1 parent): HEAD@{1}=ours (pre-pull), HEAD=theirs (post-pull)
+    """
+    # 尝试获取 reflog 上一个位置（对 merge 和 fast-forward 均有效）
+    try:
+        ours_prev = run_git("rev-parse", "--verify", "HEAD@{1}")
+    except SystemExit:
+        ours_prev = None
+
     parents = run_git("log", "-1", "--format=%P").split()
-    if len(parents) != 2:
-        print("ERROR: HEAD is not a merge commit (2 parents).")
-        print("  Use --ours and --theirs to specify commits manually.")
-        sys.exit(2)
-    return parents[0], parents[1]
+
+    if len(parents) == 2:
+        return parents[0], parents[1]  # merge commit
+
+    if len(parents) == 1 and ours_prev:
+        # Fast-forward: HEAD 线性前进，HEAD@{1}=pre-pull, HEAD=post-pull
+        # parents[0] 等于旧 HEAD（fast-forward 中旧 HEAD 成为新 HEAD 的父）
+        current_head = run_git("rev-parse", "HEAD")
+        if ours_prev != current_head:
+            print("Fast-forward 检测到，使用 HEAD@{1} 作为 pull 前位置")
+            return ours_prev, current_head
+
+    print("ERROR: HEAD 不是合并提交，也无法检测 fast-forward。")
+    print("  HEAD@{1} 不存在或与当前 HEAD 相同（可能无远端变化）。")
+    print("  使用 --ours 和 --theirs 手动指定。")
+    sys.exit(2)
 
 
 def main():

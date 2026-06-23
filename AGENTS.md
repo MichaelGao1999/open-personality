@@ -178,7 +178,13 @@
 > **不要复述上轮历史。**
 
 **标准动作序列**：
-1. **Git 同步**：`git pull` 拉取最新状态；如有冲突则暂停报错，等待用户解决。
+1. **Git 同步（三层安全闸）**：
+   a. `git fetch origin`
+   b. `python scripts/pre-merge-check.py origin/main` — 预检远端文件名兼容性
+   c. 如通过（exit 0）→ `git pull`；如不通过（exit 1）→ 按 merge-tree 方案执行合并
+   d. 检查 pull 是否有变化（对比 `git rev-parse HEAD@{1}` 与 HEAD）；无变化则跳过下一步
+   e. `python scripts/check-merge-integrity.py` — 后检是否有意外丢失文件
+   f. 如丢失 → 按脚本输出恢复；如通过 → 继续
 2. 读取 `status.md`（主数据源）：阶段、进度、待办、阻塞项
 3. 读取 `session-log.md` 最后一条（辅数据源）：只取「遗留问题/下轮开始点」
 4. **分析 + 汇报**：用户有报错 → 搜索 troubleshooting；检查 status 字段有效性；综合判断后输出恢复摘要（当前状态 + 建议下一步）
