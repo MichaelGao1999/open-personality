@@ -97,7 +97,6 @@ class EasterEggEngine:
             prefer = dim["prefer"]
             min_prob = dim.get("min_prob", 0.0)
             for d in mbti.dimensions:
-                labels = (d.label_a, d.label_b)
                 if all(x in [d.label_a, d.label_b] for x in [axis[:1], axis[-1:]]):
                     if d.label_a == prefer:
                         return d.prob_a >= min_prob  # type: ignore[no-any-return]
