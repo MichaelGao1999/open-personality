@@ -35,3 +35,12 @@ class Report(Base):  # type: ignore[valid-type,misc]
     interpretations = Column(Text, nullable=False)
     easter_egg = Column(String, nullable=True)
     created_at = Column(String, nullable=False)
+
+
+class Feedback(Base):  # type: ignore[valid-type,misc]
+    __tablename__ = "feedback"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    type = Column(String, nullable=False)
+    content = Column(Text, nullable=False)
+    created_at = Column(String, nullable=False)

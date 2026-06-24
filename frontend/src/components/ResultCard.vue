@@ -13,7 +13,7 @@
             </button>
           </div>
           <div class="interp-panel-body">
-            <p class="interp-notice">
+            <p v-if="lang === 'zh'" class="interp-notice">
               部分子维度名称重新翻译，详见<a class="interp-link" @click.stop="showTermGlossary = true">术语对照表</a>
             </p>
             <div v-for="(dim, didx) in dimensionOrder" :key="dim" class="facet-group">

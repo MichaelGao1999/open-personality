@@ -5,6 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from backend.app.api.questionnaire_api import router as questionnaire_router
 from backend.app.api.report import router as report_router
+from backend.app.api.feedback_api import router as feedback_router
 from backend.app.config import CORS_ORIGINS
 from backend.app.db.database import create_tables, engine
 
@@ -32,3 +33,4 @@ app.add_middleware(
 
 app.include_router(questionnaire_router)
 app.include_router(report_router)
+app.include_router(feedback_router)

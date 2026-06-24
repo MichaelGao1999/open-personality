@@ -86,6 +86,11 @@ class ResumeResponse(BaseModel):
     total_items: int
 
 
+class FeedbackRequest(BaseModel):
+    type: str  # bug | feature
+    content: str
+
+
 class ErrorResponse(BaseModel):
     error: str
     detail: str

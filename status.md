@@ -40,6 +40,7 @@
 - [x] 好友对比功能代码实现（设计已定稿 docs/compare-design.md）
 - [x] 人格解读正文填充（105 条全部已填充，draft/JSON high/low 一致，medium 35 条仅 JSON 有）
 - [ ] 英文版文案优化翻译
+- [ ] 反馈功能联调验证（后端 API + 前端表单 + 飞书双通道）
 - [ ] 【可选】全项目动画 GPU 化：18 处 layout 动画改造（10 处 transition:all → 精确属性 + 4 处 width → scaleX + 1 处 egg max-height + 3 处辅助），详见 audit 记录
 
 ---
@@ -142,3 +143,4 @@ open-personality/
 | 2026-06-23 | 彩蛋从随机改为条件触发（domain/MBTI/mode/flat/composite）+ 分层概率（100%/50%/10%）+ 去掉替代文案 + 新建 docs/debug/ |
 | 2026-06-23 | Docs 同步：proposal/brief/design/task-M05/task-progress 等 7 文件对齐彩蛋条件触发实现 + CI 诊断（ruff F841 已修复） |
 | 2026-06-24 | 人格解读正文审计：全部 105 条已填充，draft/JSON high/low 一致，medium 35 条仅 JSON 有未写入 draft |
+| 2026-06-24 | 反馈功能实现：后端 Feedback schema/API/repo + 前端 FeedbackModal 弹窗 + 双通道提交（API+飞书），替换原 GitHub Issues 跳转 |

@@ -2,6 +2,24 @@
 
 ---
 
+## 2026-06-24 — 反馈功能实现（后端存储 + 前端弹窗）
+
+### 本轮概要
+- 后端：新增 FeedbackRequest schema / save_feedback() / feedback_api.py / 注册路由
+- 前端：新建 FeedbackModal.vue 弹窗表单（类型选择 + 文本 + 双通道提交）
+- AppLogo.vue + SettingsMenu.vue 反馈按钮改为打开弹窗（原 GitHub Issues 跳转移除）
+- 用户反馈后改为双通道提交（POST API + window.open 飞书），去除"备用"概念
+- i18n：zh/en 新增 feedback 相关 key
+- status.md：追加反馈功能联调验证待办
+- 讨论微信小程序迁移策略（引用 docs/frontend.md §9 壳/核分层方案）
+
+### 遗留问题 / 下轮开始点
+- 反馈功能联调验证（启动后端+前端实测双通道）
+- 英文版文案优化翻译
+- 全项目动画 GPU 化（可选）
+
+---
+
 ## 2026-06-24 — 人格解读正文填充状态审计
 
 ### 本轮概要

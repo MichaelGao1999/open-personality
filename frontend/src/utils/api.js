@@ -26,3 +26,7 @@ export function getReport(shareToken) {
 export function getI18n(lang) {
   return client.get(`/i18n/${lang}`)
 }
+
+export function submitFeedback(type, content) {
+  return client.post('/api/feedback', { type, content })
+}

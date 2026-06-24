@@ -9,7 +9,7 @@ from datetime import datetime, timezone
 
 from sqlalchemy.orm import Session as DBSession
 
-from backend.app.db.models import Answer, Report as DBReport, Session as DBSessionModel
+from backend.app.db.models import Answer, Report as DBReport, Session as DBSessionModel, Feedback as DBFeedback
 from backend.app.schemas.models import AnswerItem, Report
 
 
@@ -134,6 +134,20 @@ class ReportRepository:
             "answers": [AnswerItem(item_id=a.item_id, value=a.value) for a in db_answers],
             "total_items": session.total_items or 0,
         }
+
+    def save_feedback(self, feedback_type: str, content: str) -> None:
+        """保存用户反馈"""
+        try:
+            feedback = DBFeedback(
+                type=feedback_type,
+                content=content,
+                created_at=datetime.now(timezone.utc).isoformat(),
+            )
+            self.db.add(feedback)
+            self.db.commit()
+        except Exception:
+            self.db.rollback()
+            raise
 
     def get_report_by_token(self, share_token: str) -> Report | None:
         session = self.db.query(DBSessionModel).filter(

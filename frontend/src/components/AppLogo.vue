@@ -47,11 +47,11 @@
             <div class="sp-row">
               <span class="sp-label">{{ t('app.feedback') }}</span>
               <div class="sp-toggle-group">
-                <button class="sp-toggle-btn" @click="openUrl(bugUrl)">
+                <button class="sp-toggle-btn" @click="openFeedback('bug')">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M16 16s-1.5-2-4-2-4 2-4 2M9 9h.01M15 9h.01"/></svg>
                   使用障碍
                 </button>
-                <button class="sp-toggle-btn" @click="openUrl(featureUrl)">
+                <button class="sp-toggle-btn" @click="openFeedback('feature')">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
                   功能建议
                 </button>
@@ -62,6 +62,8 @@
 
         <div v-if="isOpen" class="sp-backdrop" @click="isOpen = false"></div>
       </div>
+
+      <FeedbackModal :visible="showFeedback" :initial-type="feedbackInitialType" @close="showFeedback = false" />
     </div>
   </Transition>
 </template>
@@ -70,6 +72,7 @@
 import { ref, computed, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useI18n } from '../composables/useI18n'
+import FeedbackModal from './FeedbackModal.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -77,10 +80,8 @@ const { t, lang, setLang } = useI18n()
 
 const isOpen = ref(false)
 const isDark = ref(false)
-
-const repo = 'https://github.com/MichaelGao1999/open-personality'
-const bugUrl = repo + '/issues/new?template=bug_report.md'
-const featureUrl = repo + '/issues/new?template=feature_request.md'
+const showFeedback = ref(false)
+const feedbackInitialType = ref('bug')
 
 const showToolbar = computed(() => route.path !== '/')
 
@@ -100,8 +101,10 @@ function switchLang(l) {
   setLang(l)
 }
 
-function openUrl(url) {
-  window.open(url, '_blank', 'noopener')
+function openFeedback(type) {
+  isOpen.value = false
+  feedbackInitialType.value = type
+  showFeedback.value = true
 }
 
 function setTheme(theme) {
