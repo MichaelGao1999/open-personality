@@ -1,0 +1,19 @@
+{
+  "name": "open-personality-miniapp",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev:mp-weixin": "uni -p mp-weixin",
+    "build:mp-weixin": "uni build -p mp-weixin"
+  },
+  "dependencies": {
+    "vue": "^3.4.0"
+  },
+  "devDependencies": {
+    "@dcloudio/uni-app": "3.0.0-alpha-1000920260615733",
+    "@dcloudio/uni-cli-shared": "3.0.0-alpha-1000920260615733",
+    "@dcloudio/uni-mp-weixin": "3.0.0-alpha-1000920260615733",
+    "@dcloudio/vite-plugin-uni": "3.0.0-alpha-5010120260525001",
+    "vite": "^5.2.8"
+  }
+}

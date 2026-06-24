@@ -43,6 +43,27 @@
 - [ ] 反馈功能联调验证（后端 API + 前端表单 + 飞书双通道）
 - [ ] 【可选】全项目动画 GPU 化：18 处 layout 动画改造（10 处 transition:all → 精确属性 + 4 处 width → scaleX + 1 处 egg max-height + 3 处辅助），详见 audit 记录
 
+### 微信小程序（uni-app，2026-06-24 新建）
+
+#### MVP 已实现 🔄
+- [x] 项目骨架搭建（package.json + vite.config + manifest + pages.json）
+- [x] 工具模块移植（api.js uni.request 版 + i18n 内嵌 + facetMeta）
+- [x] 首页（模式选择 + 分享码查询 + 续答 + 最近记录）
+- [x] 答题页（逐题作答 + 5点量表 + 进度条 + 总览 + 提交）
+- [x] 报告页（维度分数条 + MBTI + Canvas 雷达图 + 分享码）
+- [x] 构建产出验证（uni build mp-weixin 成功）
+
+#### 待实现 🔴
+- [ ] 子维度解读弹窗（openInterpretation 模板绑定）
+- [ ] 选项标签提示（hintLabels 5 级标注）
+- [ ] 后端地址配置文档 + 真机预览适配
+- [ ] 彩蛋模块移植（条件触发 + 16 条蛋）
+- [ ] 好友对比功能移植（ComparePage）
+- [ ] 反馈功能改为微信客服
+- [ ] 深色模式支持
+- [ ] 答题动画 / 过渡效果
+- [ ] 分享报告图片导出
+
 ---
 
 ## 技术债务 🏚️
