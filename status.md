@@ -65,6 +65,9 @@
 - [ ] 答题动画 / 过渡效果
 - [ ] 分享报告图片导出
 
+#### 全面审查 📝
+- 📝 [docs/miniapp-review.md](docs/miniapp-review.md) — 微信小程序全面审查与补全方案（P0×4 + P1×6 + P2×10，18 步执行计划）
+
 ---
 
 ## 技术债务 🏚️
@@ -168,3 +171,4 @@ open-personality/
 | 2026-06-24 | 反馈功能实现：后端 Feedback schema/API/repo + 前端 FeedbackModal 弹窗 + 双通道提交（API+飞书），替换原 GitHub Issues 跳转 |
 | 2026-06-24 | 人格解读正文审计：全部 105 条已填充 |
 | 2026-06-24 | 微信小程序 MVP 搭建：uni-app 3页（首页/答题/报告）+ Canvas雷达图 + 工具模块，~1900行；API 路径/参数修复；联调排错中 timeout 未解 |
+| 2026-06-24 | 微信小程序全面审查：对比 frontend 全量代码，产出 docs/miniapp-review.md（P0×4 + P1×6 + P2×10，功能覆盖率约60%） |
