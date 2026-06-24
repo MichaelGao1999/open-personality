@@ -42,6 +42,7 @@
 - [ ] 英文版文案优化翻译
 - [ ] 反馈功能联调验证（后端 API + 前端表单 + 飞书双通道）
 - [ ] 【可选】全项目动画 GPU 化：18 处 layout 动画改造（10 处 transition:all → 精确属性 + 4 处 width → scaleX + 1 处 egg max-height + 3 处辅助），详见 audit 记录
+- [ ] sensitivity-check.py 添加 `--exclude-dir node_modules` 参数（目前 2666 条报警 99% 是 npm 包文档噪���）
 
 ### 微信小程序（uni-app，2026-06-24 新建）
 
