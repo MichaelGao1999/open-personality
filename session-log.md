@@ -2,6 +2,26 @@
 
 ---
 
+## 2026-06-24 — 微信小程序 MVP 搭建（uni-app）+ 联调排错
+
+### 本轮概要
+- **路径评估**：分析三种小程序化方案，选择新建 `miniapp/` uni-app 项目（方案 A），不污染现有 Web 前端
+- **MVP 搭建**：3 个核心页面（首页/答题页/报告页）+ Canvas 雷达图组件 + 工具模块（api/i18n/facetMeta），~1900 行，构建成功
+- **联调排错**：
+  - API 路径修复（去掉 `/api` 前缀：小程序直连后端，无 Vite 代理）
+  - GET 参数拼装修复（`uni.request` 不自转 query string，改为手动构造 URL）
+  - `localhost` → `127.0.0.1`（避免 IPv6 解析导致 timeout）
+  - 仍存在连通性 timeout，需继续排查
+- **文档**：新建 `docs/miniapp-diff.md`（Web vs 小程序差异记录）+ `status.md` 新增小程序待办
+- **Checkpoint**：`048a597`，中间插了一次 `checkpoint`
+
+### 遗留问题
+- 小程序连后端 timeout（Network 不显示 API 请求，怀疑微信沙箱网络层拦截）
+- 子维度解读弹窗未绑定模板
+- 选项 5 级标签未显示
+
+---
+
 ## 2026-06-24 — 反馈功能实现（后端存储 + 前端弹窗）
 
 ### 本轮概要

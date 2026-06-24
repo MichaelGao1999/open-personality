@@ -165,3 +165,5 @@ open-personality/
 | 2026-06-23 | Docs 同步：proposal/brief/design/task-M05/task-progress 等 7 文件对齐彩蛋条件触发实现 + CI 诊断（ruff F841 已修复） |
 | 2026-06-24 | 人格解读正文审计：全部 105 条已填充，draft/JSON high/low 一致，medium 35 条仅 JSON 有未写入 draft |
 | 2026-06-24 | 反馈功能实现：后端 Feedback schema/API/repo + 前端 FeedbackModal 弹窗 + 双通道提交（API+飞书），替换原 GitHub Issues 跳转 |
+| 2026-06-24 | 人格解读正文审计：全部 105 条已填充 |
+| 2026-06-24 | 微信小程序 MVP 搭建：uni-app 3页（首页/答题/报告）+ Canvas雷达图 + 工具模块，~1900行；API 路径/参数修复；联调排错中 timeout 未解 |

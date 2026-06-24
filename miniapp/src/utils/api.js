@@ -4,7 +4,7 @@
  */
 
 // 后端地址
-const BASE_URL = 'https://localhost:8000'
+const BASE_URL = 'http://127.0.0.1:8000'
 
 function buildUrl(path, params) {
   if (!params) return BASE_URL + path
