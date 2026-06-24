@@ -112,13 +112,20 @@
           <span class="modal-score">{{ getScore(activeDimKey) }}</span>
         </h2>
         <div class="facet-popup-body">
+          <p class="dim-definition" v-if="lang === 'en' ? facetInterpretation(activeDimKey)?.definition_en : facetInterpretation(activeDimKey)?.definition_zh">
+            {{ lang === 'en' ? facetInterpretation(activeDimKey)?.definition_en : facetInterpretation(activeDimKey)?.definition_zh }}
+          </p>
           <div class="facet-popup-row">
-            <span class="dim-help-badge high">高分</span>
-            <p class="dim-help-text">{{ facetInterpretation(activeDimKey)?.body_high_zh }}</p>
+            <span class="dim-help-badge high">{{ lang === 'en' ? 'High' : '高分' }}</span>
+            <p class="dim-help-text">
+              {{ (lang === 'en' ? facetInterpretation(activeDimKey)?.body_high_en : facetInterpretation(activeDimKey)?.body_high_zh) || (lang === 'en' ? facetInterpretation(activeDimKey)?.body_en : facetInterpretation(activeDimKey)?.body_zh) }}
+            </p>
           </div>
           <div class="facet-popup-row">
-            <span class="dim-help-badge low">低分</span>
-            <p class="dim-help-text">{{ facetInterpretation(activeDimKey)?.body_low_zh }}</p>
+            <span class="dim-help-badge low">{{ lang === 'en' ? 'Low' : '低分' }}</span>
+            <p class="dim-help-text">
+              {{ (lang === 'en' ? facetInterpretation(activeDimKey)?.body_low_en : facetInterpretation(activeDimKey)?.body_low_zh) || (lang === 'en' ? facetInterpretation(activeDimKey)?.body_en : facetInterpretation(activeDimKey)?.body_zh) }}
+            </p>
           </div>
         </div>
       </div>
@@ -130,17 +137,17 @@
         <button class="modal-close" @click="activeFacetKey = null">&times;</button>
         <h2 class="modal-title" style="color: var(--color-accent)">
           {{ facetMeta[activeFacetKey]?.userTranslation }}
-          <span class="modal-score">得分 {{ getFacetScore(activeFacetKey) }}</span>
+          <span class="modal-score">{{ lang === 'en' ? 'Score' : '得分' }} {{ getFacetScore(activeFacetKey) }}</span>
         </h2>
         <div class="facet-popup-body">
           <div class="facet-popup-row">
-            <span class="dim-help-badge high">高分</span>
+            <span class="dim-help-badge high">{{ lang === 'en' ? 'High' : '高分' }}</span>
             <p class="dim-help-text">
               {{ (lang === 'en' ? facetInterpretation(activeFacetKey)?.body_high_en : facetInterpretation(activeFacetKey)?.body_high_zh) || (lang === 'en' ? facetInterpretation(activeFacetKey)?.body_en : facetInterpretation(activeFacetKey)?.body_zh) }}
             </p>
           </div>
           <div class="facet-popup-row">
-            <span class="dim-help-badge low">低分</span>
+            <span class="dim-help-badge low">{{ lang === 'en' ? 'Low' : '低分' }}</span>
             <p class="dim-help-text">
               {{ (lang === 'en' ? facetInterpretation(activeFacetKey)?.body_low_en : facetInterpretation(activeFacetKey)?.body_low_zh) || (lang === 'en' ? facetInterpretation(activeFacetKey)?.body_en : facetInterpretation(activeFacetKey)?.body_zh) }}
             </p>
@@ -647,6 +654,16 @@ defineExpose({ cardRef })
   line-height: 1.6;
   color: var(--color-text-secondary);
   margin: 4px 0 0;
+}
+
+.dim-definition {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--color-text);
+  font-style: italic;
+  margin: 0 0 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-border);
 }
 
 

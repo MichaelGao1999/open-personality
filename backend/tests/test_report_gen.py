@@ -74,8 +74,6 @@ def test_language_switch(generator, engine, inference):
     )
     for iz, ie in zip(report_zh.interpretations, report_en.interpretations):
         assert iz.dimension == ie.dimension
-        assert iz.title_zh != ""
-        assert iz.title_en != ""
         assert iz.body_zh != ""
         assert iz.body_en != ""
 

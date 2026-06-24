@@ -54,12 +54,14 @@ class ReportGenerator:
             en_data = interpretations_en.get(dim, {})
             title_en, body_en = self._interpret_domain(t_score, en_data.get("high", {}), en_data.get("low", {}), en_data.get("medium"))
             interpretations.append(Interpretation(
-                dimension=dim, title_zh=title_zh, title_en=title_en,
+                dimension=dim, title_zh="", title_en="",
                 body_zh=body_zh, body_en=body_en,
                 body_high_zh=dim_data.get("high", {}).get("body", ""),
                 body_low_zh=dim_data.get("low", {}).get("body", ""),
                 body_high_en=en_data.get("high", {}).get("body", ""),
                 body_low_en=en_data.get("low", {}).get("body", ""),
+                definition_zh=dim_data.get("definition", ""),
+                definition_en=en_data.get("definition", ""),
             ))
 
         for facet_key in sorted(scoring.facet_scores.keys()):

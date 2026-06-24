@@ -59,6 +59,8 @@ class Interpretation(BaseModel):
     body_low_zh: str = ""
     body_high_en: str = ""
     body_low_en: str = ""
+    definition_zh: str = ""
+    definition_en: str = ""
 
 
 class Report(BaseModel):
