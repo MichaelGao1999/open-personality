@@ -19,7 +19,7 @@
             <div v-for="(dim, didx) in dimensionOrder" :key="dim" class="facet-group">
               <div class="facet-group-header">
                 <span class="facet-group-title" :style="{ color: dimColors[didx] }">
-                  {{ dimLabelCn[dim] }} ({{ dim }})
+                  {{ lang === 'en' ? dimLabelEn[dim] : dimLabelCn[dim] + ' (' + dim + ')' }}
                 </span>
                 <span class="facet-group-score" :style="{ color: dimColors[didx] }">{{ getScore(dim) }}</span>
               </div>
@@ -28,7 +28,7 @@
                 class="facet-bar-item"
                 @click.stop="toggleFacetPopup(facetKey)"
               >
-                <span class="facet-bar-label">{{ facetMeta[facetKey].userTranslation }}</span>
+                <span class="facet-bar-label">{{ lang === 'en' ? facetMeta[facetKey].english : facetMeta[facetKey].userTranslation }}</span>
                 <div class="facet-bar-track">
                   <div
                     class="facet-bar-fill"
@@ -64,7 +64,7 @@
             @click="toggleDimPopup(dim)"
           >
             <div class="bar-header">
-              <span class="bar-label">{{ dimLabelCn[dim] }} <span class="bar-label-en">{{ dimLabelEn[dim] }}</span></span>
+              <span class="bar-label">{{ lang === 'en' ? dimLabelEn[dim] : dimLabelCn[dim] }}</span>
               <span class="bar-value" :style="{ color: dimColors[dimensionOrder.indexOf(dim)] }">
                 {{ getScore(dim) }}
               </span>
@@ -108,7 +108,7 @@
       <div class="modal-card">
         <button class="modal-close" @click="activeDimKey = null">&times;</button>
         <h2 class="modal-title" :style="{ color: dimColors[dimensionOrder.indexOf(activeDimKey)] }">
-          {{ dimLabelCn[activeDimKey] }} ({{ activeDimKey }})
+          {{ lang === 'en' ? dimLabelEn[activeDimKey] : dimLabelCn[activeDimKey] + ' (' + activeDimKey + ')' }}
           <span class="modal-score">{{ getScore(activeDimKey) }}</span>
         </h2>
         <div class="facet-popup-body">
@@ -136,7 +136,7 @@
       <div class="modal-card facet-modal-card">
         <button class="modal-close" @click="activeFacetKey = null">&times;</button>
         <h2 class="modal-title" style="color: var(--color-accent)">
-          {{ facetMeta[activeFacetKey]?.userTranslation }}
+          {{ lang === 'en' ? facetMeta[activeFacetKey]?.english : facetMeta[activeFacetKey]?.userTranslation }}
           <span class="modal-score">{{ lang === 'en' ? 'Score' : '得分' }} {{ getFacetScore(activeFacetKey) }}</span>
         </h2>
         <div class="facet-popup-body">
@@ -168,7 +168,6 @@
     <div v-if="showTermGlossary" class="modal-overlay" @click.self="showTermGlossary = false">
       <div class="modal-card glossary-card">
         <button class="modal-close" @click="showTermGlossary = false">&times;</button>
-        <h2 class="modal-title" style="color: var(--color-accent)">子维度术语对照表</h2>
         <table class="glossary-table">
           <thead>
             <tr>
@@ -181,7 +180,7 @@
             <template v-for="(dim, didx) in dimensionOrder" :key="dim">
               <tr class="glossary-domain-row">
                 <td colspan="3" :style="{ color: dimColors[didx], borderBottomColor: dimColors[didx] }">
-                  {{ dimLabelCn[dim] }} ({{ dim }})
+                  {{ lang === 'en' ? dimLabelEn[dim] : dimLabelCn[dim] + ' (' + dim + ')' }}
                 </td>
               </tr>
               <tr v-for="facetKey in facetGroups[dim]" :key="facetKey">
