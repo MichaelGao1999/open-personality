@@ -38,7 +38,7 @@
 - [x] 续答机制（session恢复 + 存档再来 + 查重修复）
 - [x] 出题轮换（O→C→E→A→N循环，5题覆盖全维度）
 - [x] 好友对比功能代码实现（设计已定稿 docs/compare-design.md）
-- [ ] 人格解读正文填充（interpret_zh/en.json body 占位符→部分已填充）
+- [x] 人格解读正文填充（105 条全部已填充，draft/JSON high/low 一致，medium 35 条仅 JSON 有）
 - [ ] 英文版文案优化翻译
 - [ ] 【可选】全项目动画 GPU 化：18 处 layout 动画改造（10 处 transition:all → 精确属性 + 4 处 width → scaleX + 1 处 egg max-height + 3 处辅助），详见 audit 记录
 
@@ -141,3 +141,4 @@ open-personality/
 | 2026-06-23 | 域级+子维度解读文案精简（70 条 body 长文→2-3句）+ 同步 draft 文档 + 母库经验分发引入三层安全闸 |
 | 2026-06-23 | 彩蛋从随机改为条件触发（domain/MBTI/mode/flat/composite）+ 分层概率（100%/50%/10%）+ 去掉替代文案 + 新建 docs/debug/ |
 | 2026-06-23 | Docs 同步：proposal/brief/design/task-M05/task-progress 等 7 文件对齐彩蛋条件触发实现 + CI 诊断（ruff F841 已修复） |
+| 2026-06-24 | 人格解读正文审计：全部 105 条已填充，draft/JSON high/low 一致，medium 35 条仅 JSON 有未写入 draft |

@@ -2,6 +2,22 @@
 
 ---
 
+## 2026-06-24 — 人格解读正文填充状态审计
+
+### 本轮概要
+- 恢复流程启动，Git 同步 origin/main（已最新），工作区干净
+- 审计人格解读正文填充状态：`interpretations_zh.json` / `interpretations_en.json`
+- 结论：全部 105 条 body 字段已填充完毕（域级 15 + 子维度 90），无占位符或空内容
+- 对照 `docs/interpretation-content-draft.md`：70 条 high/low 全部一致，35 条 medium 仅存在于 JSON 未写入 draft 审核
+- 更新 `status.md`：勾选人格解读正文填充待办
+
+### 遗留问题 / 下轮开始点
+- 英文版文案优化翻译
+- 35 条 medium 文案补入 draft 审核（可选）
+- 全项目动画 GPU 化（可选，18 处改造）
+
+---
+
 ## 2026-06-18 — 好友对比功能实现 + 首页按钮重构
 
 **首页 UI**：间距调整（hero margin-bottom 4px, mode-select translateY -32px）、胶囊文案去问号、DevTools CSS sourcemap 联动、按钮重构（开始测试 + 继续答题 + 继续答满300题）、ShareCodeInput 精简
