@@ -15,6 +15,7 @@
 
 import argparse
 import os
+import re
 import subprocess
 import sys
 
@@ -72,11 +73,59 @@ def find_illegal_paths(branch: str) -> list[str]:
     for path in changed:
         if not path.strip():
             continue
-        for part in path.split("/"):
+        # Strip git quoting and decode octal escapes.
+        # On Windows, git diff outputs non-ASCII paths as \nnn
+        # (core.quotepath=true), and the literal \ would be mistaken
+        # for an OS-illegal character.
+        decoded = _decode_octal_escapes(path)
+        for part in decoded.split("/"):
             if not is_component_legal(part):
-                illegal.append(path)
+                illegal.append(decoded)
                 break
     return illegal
+
+
+def _decode_octal_escapes(s: str) -> str:
+    """Decode git octal escape sequences (\\nnn) to Unicode.
+
+    git diff --name-only uses octal escapes for non-ASCII characters
+    when core.quotepath=true (the default on Windows).
+    e.g. \\344\\277\\256 -> 修.
+    """
+    if not s or '\\' not in s:
+        # Strip git quoting ("path") if present
+        if s.startswith('"') and s.endswith('"'):
+            return s[1:-1]
+        return s
+
+    # Strip git quoting before decoding octal escapes
+    if s.startswith('"') and s.endswith('"'):
+        s = s[1:-1]
+
+    # Collect all octal-escaped bytes, then decode as UTF-8 unit
+    parts = []
+    last_end = 0
+    for m in re.finditer(r"\\(\d{3})", s):
+        parts.append(s[last_end:m.start()])
+        parts.append(chr(int(m.group(1), 8)))
+        last_end = m.end()
+    parts.append(s[last_end:])
+
+    result = []
+    byte_buf = bytearray()
+    for part in parts:
+        for ch in part:
+            code = ord(ch)
+            if code > 127:
+                byte_buf.append(code)
+            else:
+                if byte_buf:
+                    result.append(byte_buf.decode("utf-8", errors="replace"))
+                    byte_buf.clear()
+                result.append(ch)
+    if byte_buf:
+        result.append(byte_buf.decode("utf-8", errors="replace"))
+    return "".join(result)
 
 
 def main():

@@ -3,7 +3,7 @@
 > 本文件由 `scripts/build-experience-index.py` 自动生成。
 > 覆盖 troubleshooting / lessons-learned / ADR，统一搜索入口。
 
-> 当前收录 **749** 条记录（问题 49 + 经验 390 + 决策 310）。
+> 当前收录 **751** 条记录（问题 49 + 经验 392 + 决策 310）。
 
 ---
 
@@ -444,6 +444,8 @@
 | general | **GitHub 上 Fetch 的 SKILL.md 不能只看内容不看场景**。用户发来 `github.com/an... | 经验 | 未分类 | [来源:open-personality | INFO | lessons-learned.md#L421 |
 | general | `transition: all` 是前端性能陷阱。浏览器无法预测哪些属性会变化，每帧都执行 layout 检查。应始终... | 经验 | 未分类 | [来源:open-personality | INFO | lessons-learned.md#L422 |
 | general | **零 layout 动画三板斧**：①元素始终占位（不用 `v-if`/`v-show` 插入 DOM）；②视觉展开用... | 经验 | 未分类 | [来源:open-personality | INFO | lessons-learned.md#L423 |
+| general | 安全闸工具的输出不等于事实：git diff 的八进制转义（core.quotepath=true 时 \344\277... | 经验 | 未分类 | [来源:AI Workbench | INFO | lessons-learned.md#L425 |
+| general | **项目半路转平台不可行**：项目开发大半后才想切换目标平台（如 Xcode/iOS → 微信小程序），发现两套工具链、... | 经验 | 未分类 | [来源:AI Workbench | INFO | lessons-learned.md#L426 |
 | general | 测试驱动开发能在手工测试无法触及的边界条件下发现 bug（如"恰好取消所有勾选"触发死循环）[来源:french-exi... | 经验 | 未分类 | [来源:french-exit | INFO | lessons-learned.md#L114 |
 | general | `AGENTS.md` 定义触发词和行为约束，`status.md` 记录动态进度，两者分工明确，新会话读 2 份文件即... | 经验 | 未分类 | [来源:french-exit | INFO | lessons-learned.md#L117 |
 | general | 涉及 7+ 文件读改测的架构重构，应新开会话执行，避免上下文压缩导致信息丢失 [来源:blindfold-chess @... | 经验 | 未分类 | [来源:blindfold-chess | INFO | lessons-learned.md#L118 |
@@ -978,6 +980,7 @@
 - [经验] **Shell here-document 在 Windows git bash 中不可靠**：含引 — `未分类` → lessons-learned.md#L394
 - [经验] Windows 路径在 git bash / Node.js / cmd 中转义规则不同，写跨平台脚 — `未分类` → lessons-learned.md#L401
 - [经验] **GitHub 上 Fetch 的 SKILL.md 不能只看内容不看场景**。用户发来 `git — `未分类` → lessons-learned.md#L421
+- [经验] 安全闸工具的输出不等于事实：git diff 的八进制转义（core.quotepath=true  — `未分类` → lessons-learned.md#L425
 - [经验] Windows 路径在 git bash / Node.js / cmd 中转义规则不同，写跨平台脚 — `未分类` → lessons-learned.md#L123
 - [决策] ADR-017: GitHub 认证从 SSH 切换到 GitHub CLI + HTTPS — `架构决策` → ADR.md#L186
 - [决策] ADR-022: init-skeleton.py 从本地路径改为 GitHub 拉取模式 [母库  — `架构决策` → ADR.md#L608
@@ -1042,6 +1045,7 @@
 - [经验] Windows 路径在 git bash / Node.js / cmd 中转义规则不同，写跨平台脚 — `未分类` → lessons-learned.md#L401
 - [经验] **UI 风格不一致的根因通常是「硬编码颜色」**：引入统一的「棋盘风格配置源」后，所有棋盘自动同步 — `未分类` → lessons-learned.md#L409
 - [经验] **设计文档交付后应主动邀请用户逐节评审**。本轮用户检查 design.md 发现 5 个不一致问 — `未分类` → lessons-learned.md#L420
+- [经验] 安全闸工具的输出不等于事实：git diff 的八进制转义（core.quotepath=true  — `未分类` → lessons-learned.md#L425
 - [经验] 中文路径 + MinGW = 链接器失败。解决方案：复制到纯 ASCII 路径后编译 [来源:fre — `未分类` → lessons-learned.md#L121
 - [经验] `cargo check --lib` 不需要链接，可以在中文路径直接跑；`cargo test - — `未分类` → lessons-learned.md#L122
 - [经验] Windows 路径在 git bash / Node.js / cmd 中转义规则不同，写跨平台脚 — `未分类` → lessons-learned.md#L123
@@ -1384,6 +1388,7 @@
 - [经验] 7 个 Scanner 并行，权重分配：fs 50% + browser 15% + system  — `未分类` → lessons-learned.md#L418
 - [经验] **信任优先原则**：用户直接告知的内容（行号范围、文件摘要、决策信息等），AI 应直接信任并消化， — `未分类` → lessons-learned.md#L419
 - [经验] `transition: all` 是前端性能陷阱。浏览器无法预测哪些属性会变化，每帧都执行 lay — `未分类` → lessons-learned.md#L422
+- [经验] **项目半路转平台不可行**：项目开发大半后才想切换目标平台（如 Xcode/iOS → 微信小程序 — `未分类` → lessons-learned.md#L426
 - [经验] 测试驱动开发能在手工测试无法触及的边界条件下发现 bug（如"恰好取消所有勾选"触发死循环）[来源: — `未分类` → lessons-learned.md#L114
 - [经验] `AGENTS.md` 定义触发词和行为约束，`status.md` 记录动态进度，两者分工明确，新 — `未分类` → lessons-learned.md#L117
 - [决策] ADR-025: decisions.md 退出分发体系，仅保留聚合 — `架构决策` → ADR.md#L8
@@ -1737,7 +1742,7 @@
 - `cargo tauri build` 失败：`另一个程序正在使用此文件` (os error 32) → troubleshooting.md#L204
 - ... 还有 29 条
 
-### 经验（390 条）
+### 经验（392 条）
 
 - 纯 HTML+CSS+JS 项目无需 npm，双击 `index.html` 即可预览，但涉及 Web Wor... → lessons-learned.md#L14
 - 手写 IIFE 模块时，用 `window.ModuleName = Module` 暴露 API，内部私有变... → lessons-learned.md#L15
@@ -1759,7 +1764,7 @@
 - **i18n 分散架构必然导致翻译遗漏**：当项目同时存在"全局字典 + 模块私有字典 + 硬编码"三种翻译方... → lessons-learned.md#L31
 - **JS 中的硬编码人类可读字符串是翻译遗漏的重灾区**：HTML 中的 `data-i18n` 至少能被肉眼... → lessons-learned.md#L32
 - **复制粘贴是 i18n 错误的常见来源**：将中文值直接粘贴进英文字典，或反之，属于低级但高频的疏忽 [来源... → lessons-learned.md#L33
-- ... 还有 370 条
+- ... 还有 372 条
 
 ### 决策（310 条）
 

@@ -14,6 +14,7 @@
 
 import argparse
 import os
+import re
 import subprocess
 import sys
 
@@ -59,6 +60,44 @@ def is_path_legal(path: str) -> bool:
         if base in _ILLEGAL_PATTERNS:
             return False
     return True
+
+
+def _decode_octal_escapes(s: str) -> str:
+    """Decode git octal escape sequences (\\nnn) to Unicode.
+
+    git diff --name-only uses octal escapes for non-ASCII characters
+    when core.quotepath=true.  e.g. \\344\\277\\256 -> 修.
+    """
+    if not s or '\\' not in s:
+        if s.startswith('"') and s.endswith('"'):
+            return s[1:-1]
+        return s
+    if s.startswith('"') and s.endswith('"'):
+        s = s[1:-1]
+
+    parts = []
+    last_end = 0
+    for m in re.finditer(r"\\(\d{3})", s):
+        parts.append(s[last_end:m.start()])
+        parts.append(chr(int(m.group(1), 8)))
+        last_end = m.end()
+    parts.append(s[last_end:])
+
+    result = []
+    byte_buf = bytearray()
+    for part in parts:
+        for ch in part:
+            code = ord(ch)
+            if code > 127:
+                byte_buf.append(code)
+            else:
+                if byte_buf:
+                    result.append(byte_buf.decode("utf-8", errors="replace"))
+                    byte_buf.clear()
+                result.append(ch)
+    if byte_buf:
+        result.append(byte_buf.decode("utf-8", errors="replace"))
+    return "".join(result)
 
 
 def get_merge_parents() -> tuple[str, str]:
@@ -128,18 +167,22 @@ def main():
     for path in changed:
         if not path.strip():
             continue
-        if not is_path_legal(path):
-            illegal.append(path)
+        # Decode octal escapes before checking legality and existence.
+        # On Windows git diff quotes non-ASCII as \nnn, and the literal
+        # \ would falsely trigger the illegal-char check.
+        decoded = _decode_octal_escapes(path)
+        if not is_path_legal(decoded):
+            illegal.append(decoded)
             if args.verbose:
-                print(f"  SKIP (OS illegal): {path}")
+                print(f"  SKIP (OS illegal): {decoded}")
             continue
-        if os.path.exists(path):
+        if os.path.exists(decoded):
             ok_count += 1
             if args.verbose:
-                print(f"  OK: {path}")
+                print(f"  OK: {decoded}")
         else:
-            missing.append(path)
-            print(f"  MISSING: {path}")
+            missing.append(decoded)
+            print(f"  MISSING: {decoded}")
 
     print()
     print(f"总计: {len(changed)} 个文件")

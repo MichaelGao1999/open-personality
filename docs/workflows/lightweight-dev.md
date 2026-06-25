@@ -214,4 +214,5 @@
 
 | 日期 | 方案 | 状态 |
 |------|------|------|
-| 2026-06-24 | [docs/miniapp-review.md](../miniapp-review.md) — 微信小程序全面审查与补全方案 | 📝 |
+| 2026-06-23 | 日报聚合脚本 | ✅ docs/archived/aggregate-sessions.md |
+| 2026-06-23 | Xcode 编译错误自动抓取与修复 | ✅ docs/archived/xcode-build-logs.md |
