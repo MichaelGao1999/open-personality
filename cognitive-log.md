@@ -7,7 +7,18 @@
 
 | 时间 | 分类 | 标题 | 标签 |
 |------|------|------|------|
+| 2026-06-25 | 工具心智 | WeChat DevTools 网络环境诊断三角 | wechat,devtools,debug |
 | 2026-06-23 | 工作流 | Review 作为安全闸 | review, 双轴审查, docs同步 |
+
+---
+
+## WeChat DevTools 网络环境诊断三角
+
+- **分类**: 工具心智
+- **时间**: 2026-06-25
+- **标签**: wechat,devtools,debug
+
+...诊断三角: 首页渲染正常 + 所有JS事件不响应 + timeout堆栈在WAServiceMainContext.js → DevTools 网络问题(CDN下载运行时文件失败), 非项目代码问题。
 
 ---
 

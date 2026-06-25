@@ -18,6 +18,31 @@
 ### 遗留问题
 - 小程序连后端 timeout（Network 不显示 API 请求，怀疑微信沙箱网络层拦截）
 - 子维度解读弹窗未绑定模板
+
+---
+
+## 2026-06-25 — 微信小程序联调阻塞：WeChat DevTools WAServiceMainContext timeout
+
+### 本轮概要
+- **P0#3 修复**：`manifest.json` 中 `urlCheck: true` → `false`
+- **P0#2 修复**：启动后端 FastAPI（`uvicorn backend.app.main:app --port 8000`），API 验证 120 题正常加载
+- **shadow-grey.png 预加载**：发现 uni-app 编译产物 `vendor.js` 内置 `wx.preloadAssets` 从 CDN 加载占位图，构建后超时 `Error: timeout`。写 post-build 脚本 `strip-shadow-preload.py` 自动剥离，已配入 `package.json` 的 build/dev 命令
+- **真实阻塞**：无论用真实 appid 还是测试号，WeChat DevTools 启动后均报 `Error: timeout at Function.<anonymous> (WAServiceMainContext.js?t=wechat&v=3.15.2:1)`，导致所有 JS 事件不响应（首页渲染正常但点击无反应）。排查确认非项目代码问题，而是开发者工具网络环境无法连接微信 CDN
+- **尝试过的方案**：注册真实 appid（名称涉商标未通过）、改用测试号（同样超时）、停止 dev 文件监听改用 clean build（同样超时）
+- **上下文文件归档**：`memory/wechat-miniapp-blocker.md` — 完整记录阻塞原因与排查经过
+- **认知收获**：WeChat DevTools 的 WAServiceMainContext timeout 与项目代码无关，以「首页渲染正常 + 事件不响应 + timeout 堆栈在 WAServiceMainContext.js」为诊断三角，可快速定位工具网络问题
+
+### 更新文件
+- `miniapp/src/manifest.json` — urlCheck false
+- `miniapp/package.json` — build/dev 命令增加 strip 后置
+- `miniapp/scripts/strip-shadow-preload.py` — 新增
+- `miniapp/scripts/dev-and-strip.py` — 新增
+
+### 遗留问题 / 下轮开始点
+- WeChat DevTools WAServiceMainContext timeout 未解，需切换网络或重装工具
+- P0#1 submitAnswers 格式（`[{item_id, value}]` 对象数组）
+- P0#4 report.vue 字段映射（scores → scoring.t_scores 等）
+- P1 子维度、彩蛋、部分提交、原生分享（详见 `docs/miniapp-review.md`）
 - 选项 5 级标签未显示
 
 ---

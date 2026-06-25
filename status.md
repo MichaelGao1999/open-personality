@@ -172,3 +172,4 @@ open-personality/
 | 2026-06-24 | 人格解读正文审计：全部 105 条已填充 |
 | 2026-06-24 | 微信小程序 MVP 搭建：uni-app 3页（首页/答题/报告）+ Canvas雷达图 + 工具模块，~1900行；API 路径/参数修复；联调排错中 timeout 未解 |
 | 2026-06-24 | 微信小程序全面审查：对比 frontend 全量代码，产出 docs/miniapp-review.md（P0×4 + P1×6 + P2×10，功能覆盖率约60%） |
+| 2026-06-25 | 微信小程序联调：urlCheck + 后端启动 + strip-shadow 脚本；被 DevTools WAServiceMainContext timeout 阻塞（CDN 网络问题，非代码） |
