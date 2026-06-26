@@ -101,12 +101,20 @@
    - 序号选择（如 `1,3` 或 `1-3`）→ 仅处理选中的候选
    - `redo` → 重新提炼候选
 3. **更新文档**：
+   - **前置获取**：
+     `git fetch origin`
+     - 远程有超前提交 → 本地脏则 `git stash`，然后 `git pull --rebase`，有 stash 则 `git stash pop`；本地干净则直接 `git pull --rebase`
+     - 远程无超前提交 → 跳过 pull
+     （目的：确保读到最新 session-log.md，防止后续追加基于过时文件）
    - `status.md`：对照 `git diff --stat` 逐条核销待办，已完成的打勾，未触及的说明原因；新增待办、更新记录；技术债务解决时同步到 `lessons-learned.md`
+     - ⚠️ **若 `git diff --stat` 为空**（工作区无代码变更，本会话仅产生文档）：**跳过文件对照核销**，仅基于 session-log 内容更新待办勾选 + 新增待办 + 更新记录表
    - **`docs/tasks/task-progress.md` + `docs/tasks/task-{module}.md`**：基于步1 回顾结果，扫描各模块任务文件的 `[ ]` checkbox，勾选本轮已完成的子任务（`[ ]` → `[x]`），更新模块进度表。此步不做任务-代码自动映射，由 AI 人工复查
    - **知识文件**：有报错 → 追加 `troubleshooting.md`；有经验 → 追加 `lessons-learned.md`；有关键决策 → 追加 `ADR.md`
-4. **定稿 + 审查**：定稿 `session-log.md`；运行 `sensitivity-check.py` 扫描拟写入内容；有认知候选时运行 `cognitive-extract.py`
+4. **定稿 + 审查**：定稿 `session-log.md`（**追加模式**：读取现有文件 → 在文件头部插入本轮新条目 → 写回，禁止全量覆盖）；运行 `sensitivity-check.py` 扫描拟写入内容；有认知候选时运行 `cognitive-extract.py`
    > **辅助工具**：`python scripts/error-detector.py` 可检测命令输出中的常见错误模式
 5. Git 全量提交：`git add -A` → `git commit -m "[session] 摘要"` → `git push`
+   - ⚠️ **提交前检查**：确认 `session-log.md` 已在本步修改（`git diff --stat session-log.md` 非空），如未修改则报错：「session-log.md 未变更，存档中止」
+   - ⚠️ **push 结果不强制要求在会话内等待**：`git push` 可能因网络/权限延迟，启动后继续汇报。如失败则提示用户手动 push
 6. 汇报完成
 
 **Git 错误处理**：无 `.git` 目录 → 跳过 Git；无变更 → 跳过 commit；push 失败 → 报错暂停。
@@ -174,20 +182,7 @@
 
 **作用范围**：本项目的知识文件（`troubleshooting.md`、`lessons-learned.md`、`ADR.md`）和 `AGENTS.md` 结构。
 
-**5 步管线**：
-
-| 步 | 检查项 | 命令 |
-|----|--------|------|
-| 1 | ADR 重复/冲突分析 + AI 语义复查 | `analyze-duplicates.py` |
-| 2 | ADR 结构校验 | `adr-restructure.py --verify` |
-| 3 | 索引新鲜度 + 重建 | `self-repair index [--dry-run]` |
-| 4 | 敏感信息扫描 | `sensitivity-check.py --dir .` |
-| 5 | **全量自修复**（章节 / 知识文件 / 索引） | `self-repair all [--dry-run]` |
-
-- 先输出检查清单，等待用户 `y` 确认
-- 每步完成后输出可视化报告，全部完成后输出审核决策面板
-- **限制**：不自动合并/修改/操作 Git，索引重建需二次确认
-- 步 5 支持 `--dry-run`（仅报告不修改），执行前自动备份 `.backup/`
+**执行流程**：见 `docs/workflows/cleanup.md`
 <!-- /@sync -->---
 
 <!-- @sync:id=todo-rules -->
